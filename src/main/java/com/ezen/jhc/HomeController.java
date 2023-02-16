@@ -1,4 +1,4 @@
-package com.ezen.shoppingmall;
+package com.ezen.jhc;
 
 import java.text.DateFormat;
 import java.util.Date;
