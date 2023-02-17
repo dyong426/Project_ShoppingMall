@@ -12,4 +12,9 @@ public class MainController {
 		
 		return "user/home/main";
 	}
+	
+	@RequestMapping(value ="/productDetail", method = RequestMethod.GET)
+	public String productDetail() {
+		return "user/prod/productDetailed";
+	}
 }

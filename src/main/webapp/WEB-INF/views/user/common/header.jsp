@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 
-
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -9,7 +8,7 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JUHEE CUSTOM - 나만의 물건 제작하기</title>
+<title>juhee custom - 나만의 물건 제작하기</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 <link rel="stylesheet" href="assets/user/home/css/main.css">
@@ -58,7 +57,7 @@
 	</div>
 
 	<!--마이페이지 드롭다운-->
-	<div class="hidden container" id="myPage_drop-down">
+	<div class="hidden myPage_container" id="myPage_drop-down">
 		<button>주문 내역</button>
 		<button>나의 리뷰</button>
 		<button>나의 정보</button>

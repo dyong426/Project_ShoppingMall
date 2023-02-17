@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
- <%@ include file="header.jsp" %>
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+ <%@ include file="../common/header.jsp" %>
 
   <!-- main -->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
@@ -35,39 +34,42 @@
      </button>
    </div>
 
-  <div id="home-category-item__btns" class="container d-flex justify-content-center">
-    <a href="category_clothes.html">
-      <div class="home-category-item__bg" style="background-color: #F5B959;">
-        <img width=100px src="assets/common/cstm_img/의류.png" alt="">
-      </div>
-    </a>
-    <a href="#">
-      <div class="home-category-item__bg" style="background-color: #945335;">
-        <img width=100px src="assets/common/cstm_img/액자.png" alt="">
-      </div>
-    </a>
-    <a href="#">
-      <div class="home-category-item__bg" style="background-color: #B86C96;">
-        <img width=100px src="assets/common/cstm_img/폰케이스.png" alt="">
-      </div>
-    </a>
-    <a href="#">
-      <div class="home-category-item__bg" style="background-color: #4B3733;">
-        <img width=100px src="assets/common/cstm_img/홈데코.png" alt="">
-      </div>
-    </a>
+  <div id="category_container">
+    <div id="home-category-item__btns" class="">
+      <a href="category_clothes.html">
+        <div class="home-category-item__bg" style="background-color: #F5B959;">
+          <img width=100px src="assets/common/cstm_img/의류.png" alt="">
+        </div>
+      </a>
+      <a href="#">
+        <div class="home-category-item__bg" style="background-color: #945335;">
+          <img width=100px src="assets/common/cstm_img/액자.png" alt="">
+        </div>
+      </a>
+      <a href="#">
+        <div class="home-category-item__bg" style="background-color: #B86C96;">
+          <img width=100px src="assets/common/cstm_img/폰케이스.png" alt="">
+        </div>
+      </a>
+      <a href="#">
+        <div class="home-category-item__bg" style="background-color: #4B3733;">
+          <img width=100px src="assets/common/cstm_img/홈데코.png" alt="">
+        </div>
+      </a>
+    </div>
+
+
+    <div class="home-category-item__txt">
+      <div class="home-category-item__name">의류</div>
+      <div class="home-category-item__name">액자</div>
+      <div class="home-category-item__name">폰케이스/테크</div>
+      <div class="home-category-item__name">홈데코/리빙</div>
+    </div>
+
   </div>
 
-  <div class="container d-flex justify-content-center">
-    <div class="home-category-item__name">의류</div>
-    <div class="home-category-item__name">액자</div>
-    <div class="home-category-item__name">폰케이스</div>
-    <div class="home-category-item__name">홈데코</div>
-
-  </div>
-
-    <!-- 리뷰 -->
-  <div style="font-size: 180%; font-weight:large; margin-left:350px; margin-top:150px">회원 리뷰</div>
+   <!-- 리뷰 -->
+  <div style="font-size: 180%; font-weight:large; margin-left:350px; margin-top:50px">회원 리뷰</div>
   <div id="main_reviews" class="container d-flex justify-content-center">
     <div class="card" style="width: 18rem;">
       <img src="assets/common/cstm_img/착샷.jpg" class="card-img-top" alt="...">
@@ -109,10 +111,5 @@
   </div>
 
  <br><br><br>
-  <!--장점(임시)-->
-  <div style="display:flex; justify-content: center;">
-    <img src="assets/common/cstm_img/장점.png" alt="" />
-  </div>
-  <br><br><br><br>
 
-   <%@ include file="footer.jsp" %>
+<%@ include file="../common/footer.jsp" %>
