@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
 <title>juhee custom - 나만의 물건 제작하기</title>
 
 <link
@@ -87,9 +87,9 @@
 			<div>
 				<div id="text_login">로그인</div>
 				<form>
-					<input type="text" placeholder="아이디" /> <input type="password"
-						placeholder="비밀번호" />
-						<input id="login_submit" type="submit" value="로그인" />
+					<input id="login_email" type="text" placeholder="이메일 주소" />
+					<input id="login_pw" type="password" placeholder="비밀번호" />
+					<input id="login_submit" type="submit" value="로그인" />
 				</form>
 
 				<div class="or_container">
@@ -100,12 +100,10 @@
 
 
 				<button id="kakao_login">
-					<img width=20px; src="assets/common/cstm_img/kakao_logo.png" alt="">카카오
-					로그인
+					<img width=20px; src="assets/common/cstm_img/kakao_logo.png" alt="">카카오 로그인
 				</button>
 				<button id="naver_login">
-					<img width=20px; src="assets/common/cstm_img/naver_logo.png" alt="">네이버
-					로그인
+					<img width=20px; src="assets/common/cstm_img/naver_logo.png" alt="">네이버 로그인
 				</button>
 
 
@@ -128,11 +126,12 @@
 
 				<div id="bar"></div>
 				<div>
-					<div id="text_login">회원가입</div>
-					<form>
-						<input type="text" placeholder="이메일 주소" /> <input type="text"
-							placeholder="이름" /> <input type="password" placeholder="비밀번호" />
-						<input id="join_submit" type="submit" value="로그인" />
+					<div id="text_join">회원가입</div>
+					<form onsubmit="return false;">
+						<input id="join_email" type="text" placeholder="이메일 주소" />
+						<input id="join_name" type="text" placeholder="이름" />
+						<input id="join_pw" type="password" placeholder="비밀번호" />
+						<input id="join_submit" onclick="join_check();" type="submit" value="가입하기" />
 					</form>
 
 					<div class="or_container">
@@ -142,12 +141,10 @@
 					</div>
 
 					<button id="kakao_login">
-						<img width=20px; src="assets/common/cstm_img/kakao_logo.png" alt="">카카오 계정으로
-						가입
+						<img width=20px; src="assets/common/cstm_img/kakao_logo.png" alt="">카카오 계정으로 가입
 					</button>
 					<button id="naver_login">
-						<img width=20px; src="assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로
-						가입
+						<img width=20px; src="assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입
 					</button>
 
 
