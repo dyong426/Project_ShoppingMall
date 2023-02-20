@@ -9,16 +9,13 @@
 			<param name="ConversionPattern" value="%-5p: %c - %m%n" />
 		</layout>
 	</appender>
-	
+
 	<!-- Application Loggers -->
-	<logger name="com.ezen.shoppingmall">
-		<level value="info" />
-	</logger>
 	
 	<!-- 3rdparty Loggers -->
 	<logger name="org.springframework.core">
 		<level value="info" />
-	</logger>	
+	</logger>
 	
 	<logger name="org.springframework.beans">
 		<level value="info" />
@@ -34,8 +31,10 @@
 
 	<!-- Root Logger -->
 	<root>
-		<priority value="info" />
+		<priority value="warn" />
 		<appender-ref ref="console" />
+		<appender-ref ref="logfile" />
+		<appender-ref ref="logfile_html" />
 	</root>
 	
 </log4j:configuration>
