@@ -13,144 +13,67 @@
   * {
     font-family: 'Pretendard-Regular';
     box-sizing: border-box;
-  }
-
-  .carousel-inner div {
-    object-fit: cover;
-    height: 480px;
-
-
+    margin:0px;
 
   }
 
-  div[class^="header_container"] {
-    display: flex;
-    flex-direction: column;
+  .nav {
+    font-size: 13px;
   }
 
-  .myPage_container {
-    display: flex;
-    flex-direction: column;
+  .carousel-inner{
+    z-index: -1;
   }
 
-  .header_container {
-    width: 100%;
-    height: 120px;
-    /* border: 1px black solid; */
+  #a {
 
-  }
-
-  #header_top {
-    border-top: 1px solid ghostwhite;
-    width: 100%;
-    height: 35%;
-    background: rgb(248, 249, 250);
-    /* border: solid 1px black; */
-
-  }
-
-  #header_top>div {
-    position: relative;
-    /* border: 1px solid black; */
-    left: 71.5%;
-    top: 20%;
-
-
-  }
-
-
-  .header_container_bottom {
-    width: 100%;
-    height: 65%;
-    flex-direction: row !important;
-    justify-content: center;
-    align-items: center;
-    border-top: 1px solid gainsboro;
-    border-bottom: 1px solid gainsboro;
-
-
-  }
-
-  .header_container_bottom div {
-    display: flex;
-    justify-content: center;
-    width: 220px;
-    text-align: left;
-    align-items: center;
-  }
-
-  .header_container_bottom div:nth-child(2) {
-    width: 300px;
-    margin: 0px 11%;
-  }
-
-  .header_container_bottom div:nth-child(3)>button {
-
-    position: relative;
-    top: -3px;
-
-
-
-  }
-
-  #user_welcome_text {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    margin-right: 12px;
-  }
-
-  .header_container button {
-    all: unset;
+    margin: auto;
     font-size: 90%;
-    margin: 0px 3px;
-    cursor: pointer;
-  }
-
-  .header_container a {
-    all: unset;
-    margin: 0px 10px;
-    cursor: pointer;
 
   }
 
-  #myPage_drop-down {
-    z-index: 1;
+
+  #main_logo {
     position: absolute;
-    left: 77.5%;
-    top: 11.5%;
-    width: 120px;
-    height: 155px;
-    border: 1px solid gainsboro;
-    border-radius: 10px;
-    font-size: 110%;
-    justify-content: center;
+    left: 20%;
+    vertical-align: middle;
+
+  }
+
+  #profile {
+    position: absolute;
+    left: 75%;
+  }
+
+  .home-category-item__bg {
+    display: flex;
     align-items: center;
-    background-color: white;
+    justify-content: center;
+    width: 110px;
+    height: 110px;
+    border-radius: 40px;
+    margin: 10px;
 
   }
 
-  #myPage_drop-down button {
-    all: unset;
-    margin: 3px 0px;
-    font-size: 90%;
-    cursor: pointer;
-  }
-
-  #drop-down_arrow {
+  #header_nav {
     position: relative;
-    top: 10px;
-    color: #063970;
-
+    left: 76.5%;
   }
 
-  .hidden {
-    display: none;
+  #home-category-item__btns {
+    margin-top: 40px;
   }
 
-  /* footer */
-  #footer_container {
+  .home-category-item__name {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 110px;
+    margin: 0px 10px;
+  }
+
+  .footer_container {
     font-size: 75%;
     display: flex;
     color: lightgrey;
@@ -162,7 +85,7 @@
     line-height: 200%;
   }
 
-  #footer_container>div {
+  .footer_container>div {
     width: 60%;
     height: 250px;
 
@@ -177,51 +100,6 @@
     margin-top: 30px;
   }
 
-  .category_list_detailed {
-    line-height: 190%;
-  }
-
-
-
-  /* 홈-카테고리 */
-  #category_container {
-    width: fit-content;
-    margin: auto;
-  }
-
-  #home-category-item__btns {
-    margin-top: 40px;
-    display: flex;
-    flex-direction: row;
-  }
-
-
-  .home-category-item__bg {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 110px;
-    height: 110px;
-    margin: 0px 10px;
-    border-radius: 15px;
-  }
-
-
-  .home-category-item__txt {
-    display: flex;
-    flex-direction: row;
-    margin-top: 15px;
-  }
-
-  .home-category-item__name {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 110px;
-    margin: 0px 10px;
-  }
-
-  /* 홈-회원리뷰 */
   .card {
     height: 370px;
     margin: 0px 10px;
@@ -244,6 +122,9 @@
     object-fit: cover;
   }
 
+  .category_list_detailed {
+    line-height: 190%;
+  }
 
   /* catergory_clothes */
   .clothes_main_container {
@@ -352,4 +233,148 @@
 
   a:link {
     text-decoration: none
+  }
+
+
+  button {
+
+    all: unset;
+    margin-right: 10px;
+
+  }
+
+
+  /*login*/
+
+  .login_popup{
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 4, 0.7);
+    
+  }
+  
+  .login_container>div>span:first-child {
+    display: inline-block;
+    margin: 40px 0px 20px 0px;
+
+    
+    /* border: 1px solid black; */
+       
+  }
+  .login_container>div>button:nth-child(2){
+    
+    display: inline-block;
+    position: absolute;
+    left: 400px;
+    top: 40px;
+    width: fit-content;
+    height: fit-content;
+   
+  }
+
+  .login_container>div:nth-child(3){
+    width: 70%;
+    /* border:1px solid black; */
+  }
+  
+  .login_container input{
+    padding-left: 20px;
+    border: 1px solid gainsboro;
+    display: block;
+    width: 100%;
+    margin: 2px;
+    height: 45px;
+    font-size: 90%;
+    border-radius: 3px;
+  }
+  
+  #submit{
+    background-color: #063970;
+    color: white; 
+    margin-top: 15px;
+    border: none;
+  
+  }
+
+  
+  .login_container{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 25%;
+    height: 600px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 8px 32px 0 rgba(31,38,135,0.37);
+    backdrop-filter: blur(1.5px);   
+    border: 1px solid rgba(255, 255,255,0.18);
+  }
+  
+  .hidden{
+    display: none;
+  }
+
+  #text_login{
+    font-size: 130%;
+    font-weight: bolder;
+    margin: 8% 0%;
+    margin-left: 3px;
+  }
+  
+  
+  #bar{
+    margin: 2% 0%;
+    align-items: center;
+    width: 80%;
+    background-color: gainsboro;
+    opacity: 50%;
+    height: 1px;
+  }
+
+  
+  .or_container + button, button + button{
+    text-align: center;
+    width: 100%;
+    height: 45px;
+    margin: 2px;
+    border: 1px solid gainsboro;
+
+    /* background-color: #81A6D3; */
+    /* border: 1px solid black; */
+  }
+
+    
+  button img{
+  margin-right: 10px;
+  
+}
+  
+  .or_container{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 90%;
+    color: gray;
+    margin: 12% 0%;
+  }
+  
+  .or_container div{
+    width: 43%;
+    height: 1px;
+    background-color: gainsboro;
+    
+    opacity: 50%;
+  }
+  
+  .or_container>div:nth-child(2){
+    all:unset;    
+
   }
