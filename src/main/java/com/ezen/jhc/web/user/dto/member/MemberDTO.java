@@ -9,10 +9,11 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class MemberDTO {
+	
+	// 테이블 : members
 	Integer mem_num;
 	String mem_email;
 	String mem_pw;
-	String mem_nick;
 	String mem_birth;
 	String mem_name;
 	String mem_phone;

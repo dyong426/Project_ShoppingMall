@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 public class FaqDTO {
 	
-	Integer faq_num;
-	String faq_title;
-	String faq_content;
-	Character faq_ctgr;
+	// 테이블 : faqs
+	Integer	faq_num;
+	String	faq_title;
+	String	faq_content;
+	Character	faq_ctgr;
 
 }

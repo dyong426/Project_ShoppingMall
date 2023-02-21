@@ -11,10 +11,24 @@ import lombok.NoArgsConstructor;
 @Data
 public class CartDTO {
 	
+	// 테이블 조인 : carts, member_cstm
 	Integer cart_num;
 	Integer	mem_num;
-	ProdDetailDTO prodDetailDTO;
-	MemberCstmDTO memberCstmDTO;
+	
+	// 테이블 조인 : prod_details, prods, prod_colors, prod_sizes
+	Integer pd_num;
+	
+	Integer	p_num;
+	String	p_name;
+	Integer	p_price;
+	
+	String	pc_name;
+	String	pc_code;
+
+	String	ps_name;
+	// 테이블 조인 : member_cstm
+	String	mem_cstm_path;
+	
 	Integer cart_quantity;
 	Integer cart_amount;
 	

@@ -21,7 +21,6 @@
 			#{mem_num},
 			#{mem_email},
 			#{mem_pw},
-			#{mem_nick},
 			#{mem_birth},
 			#{mem_name},
 			#{mem_phone},
@@ -29,6 +28,4 @@
 			#{mem_regdate}
 		)
 	</insert>
-
-
 </mapper>
