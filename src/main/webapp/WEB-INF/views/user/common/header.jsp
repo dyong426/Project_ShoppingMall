@@ -8,15 +8,18 @@
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
-<title>juhee custom - 나만의 물건 제작하기</title>
+
+
 
 <link
 	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/home/css/main.css">
-<link href="images/logo_mini.png" rel="shortcut icon"
+
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/header.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/footer.css">
+<link href="<%=request.getContextPath() %>/assets/common/cstm_img/logo_mini.png" rel="shortcut icon"
 	type="image/x-icon">
 
 <link rel="stylesheet"
@@ -113,10 +116,10 @@
 				</div>
 
 
-				<button id="kakao_login">
+				<button id="kakao_login" onclick="kakaoLogin();">
 					<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_logo.png" alt="">카카오 로그인
 				</button>
-				<button id="naver_login">
+				<button id="naver_login" onclick="naverIdLogin_loginButton();">
 					<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 로그인
 				</button>
 
@@ -154,10 +157,10 @@
 						<div></div>
 					</div>
 
-					<button id="kakao_login">
+					<button id="kakao_login" onclick="kakaoLogin();">
 						<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_logo.png" alt="">카카오 계정으로 가입
 					</button>
-					<button id="naver_login">
+					<button id="naver_login" onclick="naverIdLogin_loginButton;">
 						<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입
 					</button>
 

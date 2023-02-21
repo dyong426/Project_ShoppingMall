@@ -13,8 +13,8 @@ public class MainController {
 		return "user/home/main";
 	}
 	
-	@RequestMapping(value ="/productDetail", method = RequestMethod.GET)
+	@RequestMapping(value ="/product_details", method = RequestMethod.GET)
 	public String productDetail() {
-		return "user/prod/productDetailed";
+		return "user/prod/product_details";
 	}
 }

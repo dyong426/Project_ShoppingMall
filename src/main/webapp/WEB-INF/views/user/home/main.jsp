@@ -1,7 +1,8 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
  <%@ include file="../common/header.jsp" %>
-
+ <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/home/css/main.css">
+	<title>juhee custom - 나만의 물건 제작하기</title>
   <!-- main -->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
      <div class="carousel-indicators">
@@ -72,7 +73,6 @@
 	<!-- 내가 만드는 나만의 상품 -->
 	<div class="main_subject_text">내가 만드는 나만의 상품</div>
 		<div class="main_container_madeByMe">
-		
 			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe1.png"></a>
 			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe2.jpg"></a>
 			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe3.jpg"></a>
