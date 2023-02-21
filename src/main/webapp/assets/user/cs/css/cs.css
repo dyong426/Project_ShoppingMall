@@ -1,0 +1,108 @@
+/*센터 도와주는 div*/
+#cs_center_container {
+	padding-top: 100px;
+	padding-bottom: 100px;
+	background-color: rgb(248, 249, 250);
+}
+
+/**/
+#cs_container>h1 {
+	text-align: center;
+	margin-bottom: 30px;
+}
+
+#cs_container {
+	width: 1000px;
+	margin: auto;
+}
+
+#cs_body {
+	background-color: white;
+	width: 1000px;
+}
+
+/* 1:1 FAQ 선택 */
+#cs_nav {
+	width: 200px;
+	height: 70px;
+	text-align: center;
+}
+
+#cs_nav>th>a {
+	display: block;
+	width: 400px;
+	line-height: 80px;
+	text-align: center;
+	border-bottom: solid 1px black;
+	color: black;
+	font-size: 20px;
+	margin: auto;
+}
+
+/* FAQ 들어갈 본문 */
+.faq_box {
+	text-align: center;
+	background-color: white;
+	min-height: 500px;
+	border-top: solid 1px lightgrey;
+	padding: 20px;
+}
+
+/* 카테고리 버튼들 있는 곳 */
+.cs_cate_body {
+	height: 70px;
+}
+
+.cs_cate_body>th>a {
+	display: block;
+	width: 100px;
+	line-height: 50px;
+	text-align: center;
+	background-color: white;
+	color: black;
+	margin: auto;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.cs_cate_body>th>a:focus {
+	background-color: rgb(248, 249, 250);
+	color: black;
+}
+
+/* 1:1 상담 */
+
+#cs_contact_title {
+	text-align: center;
+	 margin: auto;
+	 width: 850px;
+	 margin-bottom:50px;
+	border-bottom: 1px solid rgb(134, 136, 138);
+}
+
+#oneOn_box {
+	
+	min-height: 500px;
+	width: 1000px;
+	display: flex;
+	justify-self: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+#oneOnOne_form {
+	display: gird;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	margin:auto;
+}
+
+#oneOnOne_form > div{
+	margin: 10px;
+}
+.inside_form {
+	margin: 30px;
+}
+
+#cs_submit{
+	display: flex;
+	justify-content: right;
+}
