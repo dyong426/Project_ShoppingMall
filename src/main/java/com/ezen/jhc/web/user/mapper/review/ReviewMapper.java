@@ -4,6 +4,6 @@ import com.ezen.jhc.web.user.dto.review.ReviewDTO;
 
 public interface ReviewMapper {
 
-	public ReviewDTO getReview(Integer p_num); 
+	public ReviewDTO getProdNum(Integer p_num); 
 	
 }

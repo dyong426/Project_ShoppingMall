@@ -4,8 +4,14 @@
 <mapper namespace="com.ezen.jhc.web.user.mapper.review.ReviewMapper">
 
 
-<select id="getReview">
-	SELECT * FROM reviews WHERE p_num = #{p_num}
+<select id="getProdNum" resultType="com.ezen.jhc.web.user.dto.review.ReviewDTO">
+	SELECT 
+	* 
+	FROM 
+	reviews rv 
+	left outer join members m on rv.mem_num = m.mem_num 
+	WHERE 
+	rv.p_num = #{p_num}
 </select>
 
 </mapper>

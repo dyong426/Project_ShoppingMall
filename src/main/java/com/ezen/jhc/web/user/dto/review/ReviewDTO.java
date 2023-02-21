@@ -14,8 +14,9 @@ import lombok.NoArgsConstructor;
 public class ReviewDTO {
 	
 	Integer	review_num;
-	Integer	p_num;
-	Integer	mem_num;
+	Integer p_num;
+	Integer mem_num;
+	String	mem_name;
 	String	review_content;
 	String	review_image_path;
 	Integer	review_star;

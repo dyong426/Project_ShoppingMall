@@ -9,13 +9,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.ezen.jhc.web.user.service.ReviewSampleService;
+import com.ezen.jhc.web.user.service.SampleReviewService;
 
 @Controller
 public class SampleController {
 	
 	@Autowired
-	ReviewSampleService service;
+	SampleReviewService service;
 	
 	@RequestMapping(value = "/review", method=RequestMethod.GET)
 	public String reviewList(Model model, Integer p_num,  HttpServletRequest req, HttpServletResponse resp) {
