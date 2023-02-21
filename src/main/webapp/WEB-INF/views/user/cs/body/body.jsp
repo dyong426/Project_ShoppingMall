@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
-
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/cs/css/cs.css">
 
 
 <div id="cs_center_container">
@@ -12,6 +12,6 @@
 		<table id="cs_body">
 
 			<tr id="cs_nav">
-				<th><a href="./category1.jsp">FAQ</a></th>
-				<th><a href="./oneOn.jsp">1:1 문의</a></th>
+				<th><a href="<%=request.getContextPath() %>/cs/order_pay">FAQ</a></th>
+				<th><a href="<%=request.getContextPath() %>/cs/contact">1:1 문의</a></th>
 			</tr>

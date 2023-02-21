@@ -5,7 +5,7 @@
 	<div class="container">
 		<div id="footer_logo" class="d-flex align-items-start">
 			<a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none">
-				<img width=230px src="assets/common/cstm_img/logo_white.png" alt="" />
+				<img width=230px src="<%=request.getContextPath() %>/assets/common/cstm_img/logo_white.png" alt="" />
 			</a>
 
 		</div>
@@ -21,17 +21,13 @@
 				</div>
 
 				<div>
-					<img src="assets/common/cstm_img/brands.png" alt="" />
+					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/brands.png" alt="" />
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/user/home/js/home.js"></script>
-<script type="text/javascript" src="assets/user/common//js/account_validation_check.js"></script>
 
 </body>
 </html>
