@@ -28,10 +28,12 @@
 					<tr class="con_list">
 						<td class="con_list_cate">[주문 / 배송]</td>
 						<td class="con_list_date">2022-10-02</td>
-						<td >
+						<td>
 							<div class="con_list_content">
-								<a id="" href=""> 
-								내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
+								<a id="" href=""> 내용입니다 내용입니다내용입니다내용입니다 내용입니다
+									내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다
+									내용입니다 내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다
+									내용입니다 내용입니다 내용입니다 
 								</a>
 							</div>
 						</td>
@@ -39,40 +41,29 @@
 							<div class="answer_status">답변 완료</div>
 						</td>
 					</tr>
-						<tr class="con_list">
+							<tr class="con_list">
 						<td class="con_list_cate">[주문 / 배송]</td>
 						<td class="con_list_date">2022-10-02</td>
-						<td >
+						<td>
 							<div class="con_list_content">
-								<a id="" href=""> 
-								내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
+								<a id="" href=""> 내용입니다 내용입니다내용입니다내용입니다 내용입니다
+									내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다
+									내용입니다 내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다
+									내용입니다 내용입니다 내용입니다 
 								</a>
 							</div>
 						</td>
 						<td class="con_list_answer">
 							<div class="answer_status">답변 완료</div>
-						</td>
-					</tr>	<tr class="con_list">
-						<td class="con_list_cate">[주문 / 배송]</td>
-						<td class="con_list_date">2022-10-02</td>
-						<td >
-							<div class="con_list_content">
-								<a id="" href=""> 
-								내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-								</a>
-							</div>
-						</td>
-						<td class="con_list_answer">
-							<div class="answer_status2">답변 예정</div>
 						</td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
-</div>
 	</div>
+</div>
 
 
 <footer>
 
-<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
+	<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />

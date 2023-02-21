@@ -21,14 +21,14 @@
 #mp_contact_list_box {
 	display: grid;
 	border-top: 2px solid rgb(241, 240, 240);
-	border: 3px solid rgb(241, 240, 240);
+
 	padding-bottom: 20px;
 	margin-top: 30px;
 	background-color: white;
 }
 /**/
 #con_list_table {
-	padding: 50px;
+	border: 1px solid rgb(241, 240, 240);
 }
 
 #con_list_title {
