@@ -8,7 +8,7 @@
   <Loggers>
 	<Logger name="dbcp" level="info" />
 	<Logger name="practice" level="info" />
-  	<Logger name="com.ezen.shoppingmall" level="info" />
+  	<Logger name="com.ezen.jhc" level="info" />
     <Root level="warn">
       <AppenderRef ref="Console"/>
     </Root>
