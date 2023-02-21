@@ -41,24 +41,35 @@
 		<!--로고, 카테고리, 프로필-->
 		<div class="header_container_bottom">
 
-			<div>
+
+			<div class="header_container_bottom_contents">
 				<a href="<%=request.getContextPath() %>/main">
 				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo.png" alt="로고" width="170px" />
 				</a>
 			</div>
 
 
-			<div>
-				<a href="category_clothes.html">의류</a> <a href="#">액자</a> <a
-					href="#">폰케이스/테크</a> <a href="#">홈데코/리빙</a>
+			<div class="header_container_bottom_contents">
+				<a href="category_clothes.html">의류</a>
+				<a href="#">액자</a>
+				<a href="#">폰케이스/테크</a>
+				<a href="#">홈데코/리빙</a>
 			</div>
 
-			<div>
+			<div class="header_container_bottom_contents">
 				<span id="user_welcome_text">정수정님, 환영합니다.</span>
+				<button id="myCart">
+				<span class="material-symbols-outlined">shopping_cart</span>
+				</button>
 				<button id="myPage">
-					<img width=30px; src="<%=request.getContextPath() %>/assets/common/cstm_img/profile.png" alt="" />
+
+				<div>
+					<span class="material-symbols-outlined">account_circle</span>
+
 					<span id="drop-down_arrow" class="material-symbols-outlined">
 						arrow_drop_down </span>
+				</div>
+				
 				</button>
 			</div>
 		</div>

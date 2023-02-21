@@ -62,10 +62,11 @@ div[class^="header_container"] {
 	border-bottom: 1px solid gainsboro;
 }
 
-.header_container_bottom div {
+.header_container_bottom_contents {
 	display: flex;
+	flex-direction: row!important;
 	justify-content: center;
-	width: 230px;
+	width: 250px;
 	text-align: left;
 	align-items: center;
 }
@@ -75,9 +76,10 @@ div[class^="header_container"] {
 	margin: 0px 11%;
 }
 
+
 .header_container_bottom div:nth-child(3)>button {
 	position: relative;
-	top: -3px;
+		
 }
 
 #user_welcome_text {
@@ -85,9 +87,11 @@ div[class^="header_container"] {
 	justify-content: center;
 	text-align: center;
 	align-items: center;
-	margin-right: 12px;
+	
 }
-
+#myCart{
+	margin: 0px 10px 0px 15px;
+}
 .header_container button {
 	all: unset;
 	font-size: 90%;
@@ -97,6 +101,7 @@ div[class^="header_container"] {
 
 .header_container a {
 	all: unset;
+	width: fit-content;
 	margin: 0px 10px;
 	cursor: pointer;
 }
@@ -121,11 +126,13 @@ div[class^="header_container"] {
 	margin: 3px 0px;
 	font-size: 90%;
 	cursor: pointer;
+	
 }
 
 #drop-down_arrow {
 	position: relative;
-	top: 10px;
+	top: 3px;
+	left: -5px;
 	color: #063970;
 }
 
@@ -165,7 +172,7 @@ div[class^="header_container"] {
 	height: 480px;
 }
 
-/* 홈-카테고리 */
+/* �솃-移댄뀒怨좊━ */
 #category_container {
 	width: fit-content;
 	margin: auto;
@@ -201,7 +208,7 @@ div[class^="header_container"] {
 	margin: 0px 10px;
 }
 
-/* 홈-회원리뷰 */
+/* �솃-�쉶�썝由щ럭 */
 .card {
 	height: 370px;
 	margin: 0px 10px;
@@ -321,6 +328,28 @@ div[class^="header_container"] {
 
 a:link {
 	text-decoration: none
+}
+
+
+/*내가 만드는 나만의 상품*/
+.main_container_madeByMe{
+	display:flex;
+	margin:20px auto;
+	flex-flow: wrap;
+	justify-content: center;
+	
+}
+
+.main_container_madeByMe img{
+	
+	margin:10px;
+}
+
+.main_subject_text{
+	font-size: 180%;
+	font-weight:large;
+	margin:15px auto;
+	margin-left:350px; margin-top:50px"
 }
 
 /*login & join*/

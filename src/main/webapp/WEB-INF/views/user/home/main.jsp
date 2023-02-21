@@ -68,8 +68,19 @@
 
   </div>
 
+
+	<!-- 내가 만드는 나만의 상품 -->
+	<div class="main_subject_text">내가 만드는 나만의 상품</div>
+		<div class="main_container_madeByMe">
+		
+			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe1.png"></a>
+			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe2.jpg"></a>
+			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe3.jpg"></a>
+			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe4.jpg"></a>
+		</div>
+		
    <!-- 리뷰 -->
-  <div style="font-size: 180%; font-weight:large; margin-left:350px; margin-top:50px">회원 리뷰</div>
+  <div class="main_subject_text" >회원 리뷰</div>
   <div id="main_reviews" class="container d-flex justify-content-center">
     <div class="card" style="width: 18rem;">
       <img src="assets/common/cstm_img/착샷.jpg" class="card-img-top" alt="...">
