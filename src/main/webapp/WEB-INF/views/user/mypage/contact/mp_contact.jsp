@@ -69,10 +69,10 @@
 				</tbody>
 			</table>
 		</div>
-
+</div>
 	</div>
 
 
-
+<footer>
 
 <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
