@@ -7,9 +7,13 @@ import lombok.NoArgsConstructor;
 @Data
 public class ProdSizeInfoDetailDTO {
 	
-	Integer psid_num;
-	Integer p_num;
-	String ps_name;
-	String list_name;
-	String list_item; 
+	/**
+	 * 테이블 조인 :  prod_sizes, prod_size_info, prod_size_info_details
+	 */
+	
+	Integer	psid_num;
+	Integer	p_num;
+	String	ps_name;
+	String	psi_list_name;
+	String	psid_list_item; 
 }

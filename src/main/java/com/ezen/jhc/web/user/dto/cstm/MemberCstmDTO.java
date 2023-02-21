@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class MemberCstmDTO {
 	
-	Integer mem_cstm_num;
-	MemberDTO memberDTO;
-	String mem_cstm_path;
+	Integer	mem_cstm_num;
+	Integer	mem_num;
+	String	mem_cstm_path;
 }

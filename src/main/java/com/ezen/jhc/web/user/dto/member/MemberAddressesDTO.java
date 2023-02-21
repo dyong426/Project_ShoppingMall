@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class MemberAddressesDTO {
 	
+	// 테이블 : members
 	Integer mem_num;
 	String mem_email;
 	String mem_pw;
@@ -18,7 +19,7 @@ public class MemberAddressesDTO {
 	String mem_phone;
 	String mem_note;
 	Date mem_regdate;
-	
+	// 테이블 : member_addresses
 	Integer mem_zipcode;
 	String mem_addr1;
 	String mem_addr2;

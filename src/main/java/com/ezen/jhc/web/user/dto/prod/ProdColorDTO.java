@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 public class ProdColorDTO {
 	
-	Integer pc_num;
-	String pc_name;
-	String pc_code;
-	Integer p_num;
+	Integer	pc_num;
+	String	pc_name;
+	String	pc_code;
+	Integer	p_num;
 
 }
