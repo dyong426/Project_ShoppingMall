@@ -15,7 +15,7 @@ public class ReviewDTO {
 	
 	Integer	review_num;
 	Integer	p_num;
-	String	mem_nick;
+	Integer	mem_num;
 	String	review_content;
 	String	review_image_path;
 	Integer	review_star;
