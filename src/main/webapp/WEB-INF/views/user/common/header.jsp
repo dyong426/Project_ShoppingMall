@@ -42,7 +42,9 @@
 		<div class="header_container_bottom">
 
 			<div>
+				<a href="<%=request.getContextPath() %>/main">
 				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo.png" alt="로고" width="170px" />
+				</a>
 			</div>
 
 
