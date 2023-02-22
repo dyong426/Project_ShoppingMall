@@ -15,6 +15,7 @@ public class ProdDetailDTO {
 	String	p_name;
 	Integer	p_price;
 	String	p_material;
+	String  p_info_img_path;
 	Integer	s_ctgr_num;
 	//테이블 조인 : prod_colors
 	Integer	pc_num;
