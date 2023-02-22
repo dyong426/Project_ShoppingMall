@@ -22,8 +22,6 @@
 <link href="<%=request.getContextPath() %>/assets/common/cstm_img/logo_mini.png" rel="shortcut icon"
 	type="image/x-icon">
 
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
 
 <body>
