@@ -3,17 +3,17 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ezen.jhc.web.user.mapper.MemberMapper">
+<mapper namespace="com.ezen.jhc.web.user.mapper.member.MemberMapper">
 
-	<select id="getAll" resultType="com.ezen.jhc.web.user.dto.MemberDTO">
+	<select id="getAll" resultType="com.ezen.jhc.web.user.dto.member.MemberDTO">
 		SELECT * FROM members
 	</select>
 
-	<select id="get" resultType="com.ezen.jhc.web.user.dto.MemberDTO">
+	<select id="get" resultType="com.ezen.jhc.web.user.dto.member.MemberDTO">
 		SELECT * FROM members WHERE mem_email=#{mem_email}
 	</select>
 	
-	<insert id="join" parameterType="com.ezen.jhc.web.user.dto.MemberDTO">
+	<insert id="join" parameterType="com.ezen.jhc.web.user.dto.member.MemberDTO">
 		<selectKey keyProperty="mem_num" order="BEFORE" resultType="int">
 			SELECT mem_num_seq.nextval FROM dual
 		</selectKey>
