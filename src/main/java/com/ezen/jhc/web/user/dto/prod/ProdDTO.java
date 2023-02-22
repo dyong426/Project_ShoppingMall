@@ -14,4 +14,5 @@ public class ProdDTO {
 	String	p_info_img_path;
 	Integer	s_ctgr_num;
 	
+	
 }

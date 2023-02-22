@@ -4,8 +4,8 @@
 <div id="footer_container">
 	<div class="container">
 		<div id="footer_logo" class="d-flex align-items-start">
-			<a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none">
-				<img width=230px src="<%=request.getContextPath() %>/assets/common/cstm_img/logo_white.png" alt="" />
+			<a href="/main" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none">
+				<img width=230px src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo_white.png" alt="" />
 			</a>
 
 		</div>

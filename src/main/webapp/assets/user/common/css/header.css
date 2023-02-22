@@ -6,7 +6,11 @@
 	font-weight: 400;
 	font-style: normal;
 }
+body {
+	overflow-x :  hidden;
+ }
 
+ 
 * {
 	font-family: 'Pretendard-Regular';
 	box-sizing: border-box;

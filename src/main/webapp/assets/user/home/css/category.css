@@ -1,49 +1,71 @@
-
-/* catergory_clothes */
-.main_container_clothes {
+.main_container_category{
 	display: flex;
 	margin: auto;
+/* 	border: 1px solid black; */
+	width: 67%;
+}
+
+#category_main_side_bar {
+	padding: 40px;
+	margin-left: 30px;
 	/* border: 1px solid black; */
-	width: 60%;
+	width: 20%;
 }
 
-#clothes_main_side_bar {
-	padding: 20px;
-	/* border: 1px solid black; */
-	width: 15%;
-}
-
-#clothes_main_products {
-	/* border: 1px solid black; */
-	width: 85%;
-}
-
-.clothes_category_major {
-	font-weight: 500;
-}
-
-#clothes_main_products {
+#category_main_products {
+	margin-top: 80px;
 	display: flex;
-	justify-content: space-between;
+	flex-flow: wrap;
+/* 	border: 1px solid black; */
+	width: 80%;
+}
+.category_list_detailed a{
+	all:unset;
+	color:black;
+	cursor:pointer;
+} 
+.category_category_major {
+	font-weight: 500;
+	font-size: 130%;
+	margin-bottom: 20px;
 }
 
-.products_clothes {
+#category_main_products {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.products {
 	display: flex;
 	align-items: left;
 	flex-direction: column;
 	/* border: 1px solid black; */
 	border-radius: 5px;
 	height: 400px;
-	margin-top: 60px;
+	margin: 5px;
+	
 }
 
-.products_clothes img {
+.products img {
+	margin-bottom:10px;
 	border-radius: 6px;
 	width: 230px;
+	height: 300px;
+	object-fit: cover;
 }
 
 .product_name {
+	width:225px;
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space : nowrap;
+	font-size: 100%;
 	font-weight: 100;
+	
+}
+
+.product_price{
+	font-size: 90%;
 }
 
 .search {

@@ -19,7 +19,7 @@
 
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/header.css">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/footer.css">
-<link href="<%=request.getContextPath() %>/assets/common/cstm_img/logo_mini.png" rel="shortcut icon"
+<link href="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo_mini.png" rel="shortcut icon"
 	type="image/x-icon">
 
 <link rel="stylesheet"
@@ -47,16 +47,15 @@
 
 			<div class="header_container_bottom_contents">
 				<a href="<%=request.getContextPath() %>/main">
-				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo.png" alt="로고" width="170px" />
+				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo.png" alt="로고" width="170px" />
 				</a>
 			</div>
 
-
 			<div class="header_container_bottom_contents">
-				<a href="category_clothes.html">의류</a>
-				<a href="#">액자</a>
-				<a href="#">폰케이스/테크</a>
-				<a href="#">홈데코/리빙</a>
+				<a href="/category_clothes">의류</a>
+				<a href="/category_phone_case">폰케이스/테크</a>
+				<a href="/category_home">홈데코/리빙</a>
+				<a href="/category_frame">액자</a>
 			</div>
 
 			<div class="header_container_bottom_contents">
@@ -92,7 +91,7 @@
 		<div class="login_container">
 			<!-- 로고 & 닫기 버튼 -->
 			<div>
-				<span> <img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo.png"
+				<span> <img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo.png"
 					width="135px" alt="로고">
 				</span>
 				<button type="button" class="login_closeBtn">
@@ -134,7 +133,7 @@
 			<div class="join_container">
 				<!-- 로고 & 닫기 버튼 -->
 				<div>
-					<span> <img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo.png" width="135px" alt="로고">
+					<span> <img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo.png" width="135px" alt="로고">
 					</span>
 					<button type="button" class="join_closeBtn">
 						<span class="material-symbols-outlined"> close </span>

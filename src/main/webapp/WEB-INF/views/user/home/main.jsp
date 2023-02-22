@@ -37,24 +37,24 @@
 
   <div id="category_container">
     <div id="home-category-item__btns" class="">
-      <a href="category_clothes.html">
+      <a href="/category_clothes">
         <div class="home-category-item__bg" style="background-color: #F5B959;">
-          <img width=100px src="assets/common/cstm_img/의류.png" alt="">
+          <img width=100px src="assets/common/cstm_img/page_home/의류.png" alt="">
         </div>
       </a>
-      <a href="#">
+      <a href="/category_frame">
         <div class="home-category-item__bg" style="background-color: #945335;">
-          <img width=100px src="assets/common/cstm_img/액자.png" alt="">
+          <img width=100px src="assets/common/cstm_img/page_home/액자.png" alt="">
         </div>
       </a>
-      <a href="#">
+      <a href="/category_phone_case">
         <div class="home-category-item__bg" style="background-color: #B86C96;">
-          <img width=100px src="assets/common/cstm_img/폰케이스.png" alt="">
+          <img width=100px src="assets/common/cstm_img/page_home/폰케이스.png" alt="">
         </div>
       </a>
-      <a href="#">
+      <a href="/category_home">
         <div class="home-category-item__bg" style="background-color: #4B3733;">
-          <img width=100px src="assets/common/cstm_img/홈데코.png" alt="">
+          <img width=100px src="assets/common/cstm_img/page_home/홈데코.png" alt="">
         </div>
       </a>
     </div>
@@ -83,7 +83,7 @@
   <div class="main_subject_text" >회원 리뷰</div>
   <div id="main_reviews" class="container d-flex justify-content-center">
     <div class="card" style="width: 18rem;">
-      <img src="assets/common/cstm_img/착샷.jpg" class="card-img-top" alt="...">
+      <img src="assets/common/cstm_img/review/예시1.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <span>★★★</span>
         <p class="card-text">따뜻한 후드티네요</p>
@@ -92,7 +92,7 @@
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="assets/common/cstm_img/착샷2.jpg" class="card-img-top" alt="...">
+      <img src="assets/common/cstm_img/review/예시2.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <span>★★★★</span>
         <p class="card-text">세트로 샀어요 맘에 들어요 놀러...</p>
@@ -101,7 +101,7 @@
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="assets/common/cstm_img/착샷3.jpg" class="card-img-top" alt="...">
+      <img src="assets/common/cstm_img/review/예시3.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <span>★★★★★</span>
         <p class="card-text">강아지 옷 잘하네요</p>
@@ -110,7 +110,7 @@
       </div>
     </div>
     <div class="card" style="width: 18rem;">
-      <img src="assets/common/cstm_img/착샷4.jpg" class="card-img-top" alt="...">
+      <img src="assets/common/cstm_img/review/예시4.jpg" class="card-img-top" alt="...">
       <div class="card-body">
         <span>★★★★★</span>
         <p class="card-text">친구들끼리 옷 맞췄어요</p>
