@@ -1,0 +1,140 @@
+/*전체적인틀*/
+#home_main {
+	
+}
+
+.h_container {
+	padding-left: 20px;
+	padding-right: 20px;
+	border: 1px solid black;
+	margin-bottom: 20px;
+}
+
+
+/*배너*/
+#home_banner_container {
+	
+	
+}
+
+
+/*카테고리 아이콘*/
+#home_cate_icon_container {
+	margin-top: 50px;
+}
+
+#home_cate_icon_box{
+	margin-right: 500px;
+	margin-left: 500px;
+	display: grid;
+	grid-auto-flow: column;
+	width: 900px;
+}
+
+.home_cate_item {
+	width: 150px;
+	margin: auto;
+}
+
+.home_cate_img{
+	border-radius: 20px;
+
+}
+.home_cate_img > img {
+	width: 150px;
+	height: 150px;
+}
+.cate_img_01 > div{
+	background-color: #e8baae;
+}
+
+.cate_img_02 > div{
+	background-color: #e8e0ae;
+}
+
+.cate_img_03 > div{
+	background-color: #aecee8;
+}
+
+.cate_img_04 > div{
+	background-color: #d3aee8;
+}
+
+.home_cate_name {
+	text-align: center;
+	color: black;
+	font-size: 15px;
+}
+
+/*추천 아이템*/
+#home_recom_item_container > div {
+	margin-bottom: 60px;
+}
+
+
+#home_recom_item_box{
+	display: grid;
+    grid-gap: 5px;
+    grid-template-areas: 
+    "div div"
+    "div div";
+    padding-left: 300px;
+    padding-right: 300px;
+}
+
+
+.home_main_title{
+	text-align: center;
+	width: 700px;
+	margin-left: 600px;
+	margin-right: 600px;
+}
+
+
+
+
+
+/*리뷰*/
+
+.home_review_list{
+
+	height: 550px;
+	width: 1700px;
+	margin: auto;
+}
+.home_review_title > h2  {
+	padding-top: 20px;
+}
+.home_review_title > h2 > span {
+	color: grey;
+}
+
+
+.home_review_box{
+
+	float: left;
+	padding: 10px;
+	border-radius: 20px;
+	display: inline-block; 
+	margin: 10px;
+}
+
+.home_review_box > div{
+
+	margin: 5px;
+
+}
+
+.home_review_img{
+	background-image: url();
+	overflow:hidden;
+	width:270px; 
+	height:400px;
+	display: flex;
+    justify-content: center;
+    border-radius: 20px;
+}
+
+
+
+
