@@ -27,7 +27,7 @@
 		</div>
 	</div>
 </div>
-
+	<script type="text/script"src="<%=request.getContextPath()%>/assets/user/cs/js/category.js"></script>
 </footer>
 </body>
 </html>

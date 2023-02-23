@@ -9,7 +9,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
-<title>juhee custom - 나만의 물건 제작하기</title>
+<title>JUHEE CUSTOM - 나만의 물건 제작하기</title>
 
 
 

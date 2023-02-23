@@ -45,6 +45,11 @@ public class MainController_sc {
 		return "user/cs/contact/contact";
 	}
 	@RequestMapping(value ="/contact", method = RequestMethod.GET)
+	public String contact_mp_list() {
+		
+		return "user/mypage/contact/mp_contact_list";
+	}
+	@RequestMapping(value ="/contact/01", method = RequestMethod.GET)
 	public String contact_mp() {
 		
 		return "user/mypage/contact/mp_contact";
