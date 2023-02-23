@@ -122,29 +122,29 @@ div[id$="SettingPanel"] {
     user-select: text;
 }
 
-#productSize {
+#productSizes {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    column-gap: 10px;
+    column-gap: 20px;
     width: 80%;
     margin: 10px 0;
 }
 
-#productSize > div {
+#productSizes > div {
     border-radius: 5px;
     display: inline-block;
     text-align: center;
-    width: 50px;
+    width: 55px;
     height: fit-content;
     padding: 5px 0;
     font-size: large;
-    border: 1px black solid;
-    cursor: pointer;
+    border: 1px gray solid;
 }
 
-#productSize > div:hover {
+.sizeHover:hover {
     border: 1px skyblue solid;
     color: skyblue;
+    cursor: pointer;
     transform: scale(1.1);
     transition: 0.3s;
 }

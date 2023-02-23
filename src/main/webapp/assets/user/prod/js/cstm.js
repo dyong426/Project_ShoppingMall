@@ -186,23 +186,69 @@ function setBackground() {
 }
 setBackground();
 
-// DB에서 가져온 상품 정보에 따라 자동으로 생성된 색상에 맟줘 div 배경색 지정
+
 window.onload = function () {
+  // DB에서 가져온 상품 정보에 따라 자동으로 생성된 색상에 맟줘 div 배경색 지정
   for (i = 0; i < child.length; ++i) {
     child[i].style.backgroundColor = child[i].id;
-
-    // 배경색의 어두운 정도를 구분해 테두리 지정
-    const rgb = child[i].id.substring(1);
-
-    const r = (rgb >> 16) & 0xff;  // red 추출
-    const g = (rgb >> 8) & 0xff;  // green 추출
-    const b = (rgb >> 0) & 0xff;  // blue 추출
-
-    const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
-    console.log(luma);
-
-    child[i].style.border = luma > 50 ? '1px gray solid' : 'none';
   }
+
+
+  const sizes = document.getElementById('productSizes').children;
+
+  // 사이즈가 한가지면 테두리 없애고 width 조정
+  if (sizes.length == 1) {
+    sizes[0].classList.remove('sizeHover');
+    sizes[0].style.width = '100%';
+    sizes[0].style.border = 'none';
+  } else {
+    // 사이즈 버튼 하나만 눌리도록 설정
+    for (i = 0; i < sizes.length; ++i) {
+      sizes[i].addEventListener('click', (e) => {
+        for (j = 0; j < sizes.length; ++j) {
+          sizes[j].style.color = 'black';
+          sizes[j].style.border = '1px gray solid';
+        }
+        e.target.style.color = 'skyblue';
+        e.target.style.border = '1px skyblue solid';
+      });
+    }
+  }
+
+
+  // 상품 이름이 너무 길면 폰트 사이즈 줄이는 설정
+  const productName = document.getElementById('productName');
+  const length = productName.innerText.length;
+
+  if (length > 18) {
+    productName.style.fontSize = 'large';
+  } else if (length > 12) {
+    productName.style.fontSize = 'x-large';
+  }
+
+
+  // 해당 색이 밝으면 테두리 생성, 어두우면 테두리 없애는 설정
+  const productColors = document.getElementById('productColors').children;
+
+  for (i = 0; i < productColors.length; ++i) {
+    productColors[i].style.border = getLuma(productColors[i].id) > 180 ? '1px gray solid' : 'none';
+  }  
+  
+}
+
+
+// 색상에 따라 어두운지 밝은지 구분하는 함수
+function getLuma (colorCode) {
+
+  const c = colorCode.substring(1);
+  const rgb = parseInt(c, 16);
+  const r = (rgb >> 16) & 0xff;
+  const g = (rgb >> 8) & 0xff;
+  const b = (rgb >> 0) & 0xff;
+  
+  const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+
+  return luma;
 }
 
 
@@ -211,16 +257,23 @@ const productColors = document.getElementById('productColors');
 
 const child = productColors.children;
 
+const colorName = document.getElementById('colorName');
+
 for (i = 0; i < child.length; ++i) {
   child[i].addEventListener('click', (e) => {
+    // 색상 누르면 색상명 변경
+    colorName.innerText = e.target.dataset.name;
+
     url = 'assets/common/prod_img/' + e.target.id + '.png';
     setBackground();
 
-    if (e.target.id != 'black') {
-      rect.stroke('black');
-    } else {
-      rect.stroke('white');
-    }
+    var rectColor = getLuma(e.target.id) > 150 ? 'black' : 'white';
+    rect.stroke(rectColor);
+    // if (e.target.id != 'black') {
+    //   rect.stroke('black');
+    // } else {
+    //   rect.stroke('white');
+    // }
   });
 }
 
@@ -273,7 +326,9 @@ function addText() {
       // 클릭한 텍스트에 따라 글꼴 선택 박스값 변경
       if (fonts.includes(textNode.fontFamily())) {
         fontFamilyComboBox.value = textNode.fontFamily();
+        fontFamilyComboBox.style.fontFamily = textNode.fontFamily();
       } else {
+        // 아직 글꼴 설정을 안한 텍스트라면 글꼴 선택 박스값 없음
         fontFamilyComboBox.value = '';
       }
     }
@@ -701,5 +756,4 @@ for (i = 0; i < sampleIconList.length; ++i) {
 //     // $.ajax
 //   });
 // }
-
 

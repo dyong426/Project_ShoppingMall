@@ -38,7 +38,7 @@ public class ProductServiceImpl implements ProductService {
 		
 		for (ProdSizeDTO psd : prodMapper.getProdSizesByNum(p_num)) {
 			sizes.add(psd.getPs_name());
-		}		
+		}
 		return sizes;
 	}
 

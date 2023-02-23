@@ -76,30 +76,31 @@
 
 				<div id="mainSettingPanel" class="settingPanel">
 					<div id="productInformation">
-						<div id="productName">상품 이름</div>
-						<div id="productPrice">상품 가격</div>
+						<div id="productName">${prod.p_name}</div>
+						<div id="productPrice">${prod.p_price}원</div>
 					</div>
 					<div id="colorInformation">
 						<!-- DB에서 가져온 색들 중 선택된 색의 이름을 색상명에 넣음 -->
 						<div>
-							색상 - <span>색상명</span>
+							색상 - <span id="colorName">색상명</span>
 						</div>
 					</div>
 					<div id="productColors">
 						<!-- DB에서 가져온 해당 상품에 존재하는 색들의 값을 backgroundColor로 설정한 div 추가 -->
 						<c:forEach items="${colors}" var="color">
-							<div id="${color.value.pc_code}"></div>
+							<div id="${color.value.pc_code}"
+								 data-name="${color.value.pc_name}"
+								 data-imagePath="${color.value.pc_img_path}">
+							</div>
 						</c:forEach>
 					</div>
 					<!-- DB 조회해서 재고가 없으면 품절 표시 -->
 					<!-- DB 조회해서 존재하는 사이즈 추가 -->
 					사이즈
-					<div id="productSize">
-						<div>XS</div>
-						<div>S</div>
-						<div>M</div>
-						<div>L</div>
-						<div>XL</div>
+					<div id="productSizes">
+						<c:forEach items="${sizes}" var="size">
+							<div class="sizeHover">${size}</div>
+						</c:forEach>
 					</div>
 				</div>
 			</div>
