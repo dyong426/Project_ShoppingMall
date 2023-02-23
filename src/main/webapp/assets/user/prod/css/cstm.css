@@ -83,12 +83,12 @@ div[id$="SettingPanel"] {
 }
 
 
-/* 해당 제품 색상 수에 따라 컬럼수 변경해서 생성해야함 */
 #productColors {
     margin: 10px 0;
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(6, 1fr);
     column-gap: 20px;
+    row-gap: 10px;
     text-align: center;
     width: fit-content;
 }
@@ -98,31 +98,14 @@ div[id$="SettingPanel"] {
     height: 30px;
     border-radius: 50%;
     cursor: pointer;
+    border: 1px gray solid;
 }
 
 #productColors > div:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
     transition: 0.3s;
 }
 
-
-/* DB에서 가져온 제품 색상에 따라 div 생성 */
-#productColors > div:nth-child(1) {
-    background-color: black;
-}
-#productColors > div:nth-child(2) {
-    background-color: white;
-    border: 1px rgb(201, 197, 197) solid;
-}
-#productColors > div:nth-child(3) {
-    background-color: rgb(207, 205, 205);
-}
-#productColors > div:nth-child(4) {
-    background-color: rgb(218, 197, 196);
-}
-#productColors > div:nth-child(5) {
-    background-color: rgb(196, 192, 215);
-}
 
 
 #colorInformation {

@@ -186,6 +186,25 @@ function setBackground() {
 }
 setBackground();
 
+// DB에서 가져온 상품 정보에 따라 자동으로 생성된 색상에 맟줘 div 배경색 지정
+window.onload = function () {
+  for (i = 0; i < child.length; ++i) {
+    child[i].style.backgroundColor = child[i].id;
+
+    // 배경색의 어두운 정도를 구분해 테두리 지정
+    const rgb = child[i].id.substring(1);
+
+    const r = (rgb >> 16) & 0xff;  // red 추출
+    const g = (rgb >> 8) & 0xff;  // green 추출
+    const b = (rgb >> 0) & 0xff;  // blue 추출
+
+    const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+    console.log(luma);
+
+    child[i].style.border = luma > 50 ? '1px gray solid' : 'none';
+  }
+}
+
 
 // 색상 선택하면 해당 색상 상품으로 이미지 변경
 const productColors = document.getElementById('productColors');
@@ -597,7 +616,7 @@ window.addEventListener('keydown', (e) => {
     } else if (currentImg != null) {
       currentImg.destroy();
     }
-    
+
     if (currentText != null || currentImg != null) {
       currentTr.hide();
       stage.container().style.cursor = 'default';
@@ -670,7 +689,7 @@ for (i = 0; i < sampleIconList.length; ++i) {
 
 
 // 커스텀 이미지 저장 기능 (이미지를 service로 넘겨서 파일 output)
-{/* <script src="http://code.jquery.com/jquery-latest.js"></script> */}
+{/* <script src="http://code.jquery.com/jquery-latest.js"></script> */ }
 
 // 구매, 장바구니 버튼 누르면 이미지 저장 후 이동
 // const buttons = document.getElementById('buttons').children;

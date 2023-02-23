@@ -26,6 +26,7 @@ public class CartDTO {
 	String	pc_code;
 
 	String	ps_name;
+	
 	// 테이블 조인 : member_cstm
 	String	mem_cstm_path;
 	

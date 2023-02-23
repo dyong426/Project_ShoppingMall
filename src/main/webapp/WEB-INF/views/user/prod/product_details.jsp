@@ -1,6 +1,7 @@
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ include file="../common/header.jsp"%>
 
 <link rel="stylesheet" href="assets/user/prod/css/product_detail.css" />
@@ -86,11 +87,9 @@
 					</div>
 					<div id="productColors">
 						<!-- DB에서 가져온 해당 상품에 존재하는 색들의 값을 backgroundColor로 설정한 div 추가 -->
-						<div id="black"></div>
-						<div id="white"></div>
-						<div id="gray"></div>
-						<div id="pink"></div>
-						<div id="purple"></div>
+						<c:forEach items="${colors}" var="color">
+							<div id="${color.value.pc_code}"></div>
+						</c:forEach>
 					</div>
 					<!-- DB 조회해서 재고가 없으면 품절 표시 -->
 					<!-- DB 조회해서 존재하는 사이즈 추가 -->
@@ -101,9 +100,6 @@
 						<div>M</div>
 						<div>L</div>
 						<div>XL</div>
-					</div>
-					<div id="productQty">
-						<span class="material-symbols-outlined">add</span>
 					</div>
 				</div>
 			</div>
