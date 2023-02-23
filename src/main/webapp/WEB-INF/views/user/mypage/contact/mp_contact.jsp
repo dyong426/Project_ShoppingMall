@@ -64,6 +64,6 @@
 </div>
 
 
-<footer>
 
+<footer>
 	<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
