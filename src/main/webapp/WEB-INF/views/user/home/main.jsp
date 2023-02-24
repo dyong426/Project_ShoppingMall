@@ -2,13 +2,46 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
+
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css">
-
+	<!-- main -->
 <div id="home_main">
 
-	<!-- main -->
-	<div id="home_banner_container" class="h_container">배너자리</div>
+	<!-- banner (부트스트랩)-->
+	<div id="home_banner_container" class="h_container">
+
+		<div id="banner_photo" class="banner_slider">
+
+
+			<div id="carouselExampleInterval" class="carousel slide"
+				data-bs-ride="carousel">
+				<div class="carousel-inner">
+					<div id="banner_img01" class="carousel-item active" data-bs-interval="10000">
+						<img src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg" class="d-block w-100" alt="...">
+					</div>
+					<div id="banner_img01" class="carousel-item" data-bs-interval="2000">
+						<img src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너2.jpg" class="d-block w-100" alt="...">
+					</div>
+					<div class="carousel-item">
+						<img src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg" class="d-block w-100" alt="...">
+					</div>
+				</div>
+				<button class="carousel-control-prev" type="button"
+					data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Previous</span>
+				</button>
+				<button class="carousel-control-next" type="button"
+					data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="visually-hidden">Next</span>
+				</button>
+			</div>
+
+		</div>
+
+	</div>
 
 	<!-- category icon -->
 	<div id="home_cate_icon_container" class="h_container">
@@ -140,7 +173,7 @@
 					<li class="home_review_box">
 						<!-- href="/kr/review/list?r_id=121480" -->
 
-						<div class="home_review_img"">
+						<div class="home_review_img">
 							<img
 								src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷2.jpg" />
 						</div>
@@ -201,7 +234,7 @@
 						</div>
 
 					</li>
-		<li class="home_review_box">
+					<li class="home_review_box">
 						<!-- href="/kr/review/list?r_id=121480" -->
 
 						<div class="home_review_img">
