@@ -1,0 +1,99 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background-color: rgb(245, 245, 245);
+}
+
+#outer {
+	width: 80%;
+	margin: auto;
+	margin-bottom: 50px;
+}
+
+#mainTitle {
+	width: fit-content;
+	margin: 70px auto;
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+
+.subTitle {
+	font-size: large;
+	font-weight: bold;
+	margin-bottom: 20px;
+}
+
+.box {
+	background-color: white;
+	width: 50%;
+	height: fit-content;
+	padding: 30px;
+	margin: 5px;
+	border-radius: 5px;
+	margin-left: 10%;
+}
+
+.rowGrid {
+	width: 90%;
+	display: grid;
+	grid-template-columns: 1fr;
+	row-gap: 10px;
+	padding: 10px;
+}
+
+#point {
+	width: 90%;
+	padding: 10px;
+	column-gap: 0;
+}
+
+.columnGrid {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	column-gap: 10px;
+	row-gap: 10px;
+	margin: 5px 0;
+}
+
+.flex-between {
+	display: grid;
+	grid-template-columns: 3fr 1fr;
+	column-gap: 10px;
+}
+
+#destination > div:last-child {
+	grid-column-start: 2;
+	text-align: right;
+	display: grid;
+	grid-template-rows: repeat(2, 1fr);
+	row-gap: 10px;
+}
+
+#point > div:last-child {
+	grid-column-start: 2;
+	color: rgb(175, 174, 174);
+}
+
+input, .buttons {
+	border: 1px rgb(175, 174, 174) solid;
+	border-radius: 5px;
+	height: 30px;
+}
+
+.buttons {
+	color: white;
+	background-color: #063970;
+	margin-left: 20px;
+}
+
+.buttons:hover {
+	transform: scale(1.1);
+	transition: 0.3s;
+}
+
+#summary > div > div:last-child {
+	text-align: right;
+}

@@ -16,7 +16,8 @@
 	rel="stylesheet"
 	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
 	crossorigin="anonymous">
-
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/header.css">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/footer.css">
 <link href="<%=request.getContextPath() %>/assets/common/cstm_img/logo_mini.png" rel="shortcut icon"

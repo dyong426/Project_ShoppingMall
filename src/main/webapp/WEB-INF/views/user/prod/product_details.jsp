@@ -6,8 +6,6 @@
 
 <link rel="stylesheet" href="assets/user/prod/css/product_detail.css" />
 <link rel="stylesheet" href="assets/user/prod/css/cstm.css">
-<link rel="stylesheet"
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 <script src="https://unpkg.com/konva@8.4.2/konva.min.js"></script>
 
 <!-- main -->
