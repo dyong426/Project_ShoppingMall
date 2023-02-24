@@ -160,6 +160,11 @@ stage.on('mousedown', function (e) {
   }
 });
 
+const colorName = document.getElementById('colorName');
+
+
+
+
 // 배경 이미지 생성 및 추가/변경
 function setBackground() {
   var backgroundImg = new Image();
@@ -179,7 +184,7 @@ function setBackground() {
 
   // 기본 설정이 검은색 맨투맨 -> 사용자가 선택한 상품 사진으로 수정해야함
   if (!url) {
-    backgroundImg.src = 'assets/common/prod_img/black.png';
+    backgroundImg.src = colorName.dataset.imagepath;
   } else {
     backgroundImg.src = url;
   }
@@ -188,22 +193,49 @@ setBackground();
 
 
 window.onload = function () {
+  // 색상 선택하면 해당 색상 상품으로 이미지 변경
+  const productColors = document.getElementById('productColors');
+
+  const child = productColors.children;
+
+  for (i = 0; i < child.length; ++i) {
+    child[i].addEventListener('click', (e) => {
+
+      // 색상 누르면 색상명 변경
+      colorName.innerText = e.target.dataset.name;
+
+      url = e.target.dataset.imagepath;
+
+      setBackground();
+
+      // 색상 누르면 밝기 구분해서 어두우면 rect 흰색으로 밝으면 검은색으로 변경
+      var rectColor = getLuma(e.target.id) > 150 ? 'black' : 'white';
+      rect.stroke(rectColor);
+    });
+  }
+
+  // 해당 색이 밝으면 테두리 생성, 어두우면 테두리 없애는 설정
+  for (i = 0; i < child.length; ++i) {
+    child[i].style.border = getLuma(child[i].id) > 180 ? '1px gray solid' : 'none';
+  }
+
   // DB에서 가져온 상품 정보에 따라 자동으로 생성된 색상에 맟줘 div 배경색 지정
   for (i = 0; i < child.length; ++i) {
     child[i].style.backgroundColor = child[i].id;
   }
-
 
   const sizes = document.getElementById('productSizes').children;
 
   // 사이즈가 한가지면 테두리 없애고 width 조정
   if (sizes.length == 1) {
     sizes[0].classList.remove('sizeHover');
-    sizes[0].style.width = '100%';
+    sizes[0].style.width = '300px';
+    sizes[0].style.textAlign = 'left';
     sizes[0].style.border = 'none';
   } else {
     // 사이즈 버튼 하나만 눌리도록 설정
     for (i = 0; i < sizes.length; ++i) {
+      sizes[i].style.width = '55px';
       sizes[i].addEventListener('click', (e) => {
         for (j = 0; j < sizes.length; ++j) {
           sizes[j].style.color = 'black';
@@ -216,6 +248,7 @@ window.onload = function () {
   }
 
 
+
   // 상품 이름이 너무 길면 폰트 사이즈 줄이는 설정
   const productName = document.getElementById('productName');
   const length = productName.innerText.length;
@@ -225,57 +258,23 @@ window.onload = function () {
   } else if (length > 12) {
     productName.style.fontSize = 'x-large';
   }
-
-
-  // 해당 색이 밝으면 테두리 생성, 어두우면 테두리 없애는 설정
-  const productColors = document.getElementById('productColors').children;
-
-  for (i = 0; i < productColors.length; ++i) {
-    productColors[i].style.border = getLuma(productColors[i].id) > 180 ? '1px gray solid' : 'none';
-  }  
-  
 }
 
 
 // 색상에 따라 어두운지 밝은지 구분하는 함수
-function getLuma (colorCode) {
+function getLuma(colorCode) {
 
   const c = colorCode.substring(1);
   const rgb = parseInt(c, 16);
   const r = (rgb >> 16) & 0xff;
   const g = (rgb >> 8) & 0xff;
   const b = (rgb >> 0) & 0xff;
-  
+
   const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b;
 
   return luma;
 }
 
-
-// 색상 선택하면 해당 색상 상품으로 이미지 변경
-const productColors = document.getElementById('productColors');
-
-const child = productColors.children;
-
-const colorName = document.getElementById('colorName');
-
-for (i = 0; i < child.length; ++i) {
-  child[i].addEventListener('click', (e) => {
-    // 색상 누르면 색상명 변경
-    colorName.innerText = e.target.dataset.name;
-
-    url = 'assets/common/prod_img/' + e.target.id + '.png';
-    setBackground();
-
-    var rectColor = getLuma(e.target.id) > 150 ? 'black' : 'white';
-    rect.stroke(rectColor);
-    // if (e.target.id != 'black') {
-    //   rect.stroke('black');
-    // } else {
-    //   rect.stroke('white');
-    // }
-  });
-}
 
 
 // 텍스트, 이미지 추가 생성시 기존 좌표와 겹치지 않게 생성
@@ -317,11 +316,15 @@ function addText() {
 
 
   stage.on('mousedown', function (e) {
+    if (e.target === textNode && e.evt.button != 2) {
+      tr.show();
+    }
+
     if (e.target !== textNode) {
       tr.hide();
     } else {
-      tr.show();
       currentText = textNode;
+      currentImg = null;
       currentTr = tr;
       // 클릭한 텍스트에 따라 글꼴 선택 박스값 변경
       if (fonts.includes(textNode.fontFamily())) {
@@ -589,22 +592,24 @@ function addImage(url) {
         stage.container().style.cursor = 'default';
       });
 
-      // 이미지 클릭시 transformer show
-      img.on('mousedown', (e) => {
-        currentImg = img;
-        currentTr = tr;
-        tr.show();
-      });
-
       // 이미지 우클릭시 transformer hide (transformer가 이미지 생성 코드 내부에 위치해서 삭제시 transformer를 삭제할 수가 없기 때문에)
       img.on('contextmenu', (e) => {
         tr.hide();
       });
 
-      // 다른 곳에서 마우스 클릭하면 transformer hide
       stage.on('mousedown', function (e) {
+        // 우클릭이 아니고 이미지를 클릭하면 transformer show
+        if (e.target === img && e.evt.button != 2) {
+          tr.show();
+        }
+        
+        // 다른 곳에서 마우스 클릭하면 transformer hide
         if (e.target !== img) {
           tr.hide();
+        } else {
+          currentImg = img;
+          currentText = null;
+          currentTr = tr;
         }
       });
     }

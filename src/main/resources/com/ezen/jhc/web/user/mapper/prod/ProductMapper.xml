@@ -9,6 +9,10 @@
 		SELECT * FROM prod_colors WHERE p_num = #{p_num}
 	</select>
 	
+	<select id="getProdColorByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdColorDTO">
+		SELECT * FROM prod_colors WHERE pc_num = #{pc_num}
+	</select>
+	
 	<select id="getProdSizesByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdSizeDTO">
 		SELECT * FROM prod_sizes WHERE p_num = #{p_num}
 	</select>

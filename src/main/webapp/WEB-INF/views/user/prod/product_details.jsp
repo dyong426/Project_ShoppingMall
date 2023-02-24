@@ -40,33 +40,35 @@
 
 			<div id="settingPanelOuter">
 				<div id="textSettingPanel" class="settingPanel">
-					<h3>글씨 스타일</h3>
-					<div id="fontFamily">
-						<div class="subTitle">글꼴</div>
-						<select class="round_border" id="fontFamilyComboBox"
-							onchange="changeFontFamily()">
-						</select>
-					</div>
-					<div id="textAlignFontSize">
-						<div id="textAlign" class="round_border">
-							<span class="material-symbols-outlined">format_align_left</span>
-							<span class="material-symbols-outlined">format_align_center</span>
-							<span class="material-symbols-outlined">format_align_right</span>
+					<div>글씨 스타일</div>
+					<div>
+						<div id="fontFamily">
+							<div class="subTitle">글꼴</div>
+							<select class="round_border" id="fontFamilyComboBox"
+								onchange="changeFontFamily()">
+							</select>
 						</div>
-						<div id="fontSize" class="round_border">
-							<span id="fontUpBtn" class="material-symbols-outlined">text_increase</span>
-							<span id="fontDownBtn" class="material-symbols-outlined">text_decrease</span>
+						<div id="textAlignFontSize">
+							<div id="textAlign" class="round_border">
+								<span class="material-symbols-outlined">format_align_left</span>
+								<span class="material-symbols-outlined">format_align_center</span>
+								<span class="material-symbols-outlined">format_align_right</span>
+							</div>
+							<div id="fontSize" class="round_border">
+								<span id="fontUpBtn" class="material-symbols-outlined">text_increase</span>
+								<span id="fontDownBtn" class="material-symbols-outlined">text_decrease</span>
+							</div>
 						</div>
-					</div>
-					<div id="textDecoration" class="round_border">
-						<div class="textDecoration">
-							<b>B</b>
+						<div id="textDecoration" class="round_border">
+							<div class="textDecoration">
+								<b>B</b>
+							</div>
+							<div class="textDecoration">
+								<i>I</i>
+							</div>
+							<div class="textDecoration">U</div>
+							<div class="textDecoration">S</div>
 						</div>
-						<div class="textDecoration">
-							<i>I</i>
-						</div>
-						<div class="textDecoration">U</div>
-						<div class="textDecoration">S</div>
 					</div>
 					<div id="textColorInformation">
 						<div class="subTitle">글자색</div>
@@ -82,21 +84,26 @@
 					<div id="colorInformation">
 						<!-- DB에서 가져온 색들 중 선택된 색의 이름을 색상명에 넣음 -->
 						<div>
-							색상 - <span id="colorName">색상명</span>
+							<b class="subTitle">
+								색상 -
+								<span id="colorName" data-imagePath="${color.pc_img_path}">
+									${color.pc_name}
+								</span>
+							</b>
 						</div>
-					</div>
-					<div id="productColors">
-						<!-- DB에서 가져온 해당 상품에 존재하는 색들의 값을 backgroundColor로 설정한 div 추가 -->
-						<c:forEach items="${colors}" var="color">
-							<div id="${color.value.pc_code}"
-								 data-name="${color.value.pc_name}"
-								 data-imagePath="${color.value.pc_img_path}">
-							</div>
-						</c:forEach>
+						<div id="productColors">
+							<!-- DB에서 가져온 해당 상품에 존재하는 색들의 값을 backgroundColor로 설정한 div 추가 -->
+							<c:forEach items="${colors}" var="color">
+								<div id="${color.value.pc_code}"
+									 data-name="${color.value.pc_name}"
+									 data-imagePath="${color.value.pc_img_path}">
+								</div>
+							</c:forEach>
+						</div>
 					</div>
 					<!-- DB 조회해서 재고가 없으면 품절 표시 -->
 					<!-- DB 조회해서 존재하는 사이즈 추가 -->
-					사이즈
+					<b class="subTitle">사이즈</b>
 					<div id="productSizes">
 						<c:forEach items="${sizes}" var="size">
 							<div class="sizeHover">${size}</div>

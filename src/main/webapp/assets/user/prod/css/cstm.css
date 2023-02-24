@@ -82,6 +82,10 @@ div[id$="SettingPanel"] {
     height: 700px;
 }
 
+div[id$="SettingPanel"] > div {
+	margin-bottom: 50px;
+}
+
 
 #productColors {
     margin: 10px 0;
@@ -107,15 +111,6 @@ div[id$="SettingPanel"] {
 }
 
 
-
-#colorInformation {
-    margin-top: 50px;
-}
-
-#productColors {
-    margin-bottom: 50px;
-}
-
 #productInformation {
     font-size: xx-large;
     font-weight: bold;
@@ -124,8 +119,9 @@ div[id$="SettingPanel"] {
 
 #productSizes {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
+    row-gap: 20px;
     width: 80%;
     margin: 10px 0;
 }
@@ -134,7 +130,6 @@ div[id$="SettingPanel"] {
     border-radius: 5px;
     display: inline-block;
     text-align: center;
-    width: 55px;
     height: fit-content;
     padding: 5px 0;
     font-size: large;
@@ -168,7 +163,6 @@ div[id$="SettingPanel"] {
     text-align: center;
     border: 1px gray solid;
     padding: 10px;
-    margin-bottom: 50px;
 }
 
 #textAlign {
@@ -247,7 +241,7 @@ option:hover {
 	user-select: none;
 }
 
-#textSettingPanel > h3 {
+#textSettingPanel > div:first-child {
 	width: fit-content;
 	margin: auto;
 	margin-bottom: 50px;

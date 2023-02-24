@@ -27,8 +27,14 @@ public class ProductServiceImpl implements ProductService {
 		
 		for (ProdColorDTO pcd : prodMapper.getProdColorsByNum(p_num)) {
 			colors.put(pcd.getPc_code(), pcd);
-		}		
+		}
 		return colors;
+	}
+	
+	@Override
+	public ProdColorDTO getColor(int pc_num) {
+		
+		return prodMapper.getProdColorByNum(pc_num);
 	}
 
 	@Override
