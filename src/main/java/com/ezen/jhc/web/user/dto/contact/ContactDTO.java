@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class ContactDTO {
 
 	Integer contact_num;
-	MemberDTO memberDTO;
+	Integer mem_num;
 	Integer contact_ctgr;
 	String contact_title;
 	String contact_content;

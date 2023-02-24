@@ -23,6 +23,7 @@
 				<div>
 					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/brands.png" alt="" />
 				</div>
+				
 			</div>
 		</div>
 	</div>
