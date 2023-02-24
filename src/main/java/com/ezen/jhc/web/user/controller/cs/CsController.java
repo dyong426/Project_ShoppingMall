@@ -19,51 +19,36 @@ public class CsController {
 	FaqMapper faq_mapper;
 	
 	@RequestMapping(value ="/cs", method = RequestMethod.GET)
-	public String main() {
+	public String main(Model model) {
 		
-		return "user/cs/category/01_order_pay";
+		String cate_name = "주문 / 결제";
+		List<FaqDTO> faq = faq_mapper.get(0);
+		
+		model.addAttribute("faq", faq);
+		model.addAttribute("cate_name", cate_name);
+		return "user/cs/category/faq_category";
 	}
 	
-	@RequestMapping(value ="/cs/order_pay", method = RequestMethod.GET)
+	@RequestMapping(value ="/cs/cate", method = RequestMethod.GET)
 	public String cate1(Model model, Integer faq_ctgr) {
-		System.out.println(faq_ctgr);
-		
+		String cate_name = "";
 		List<FaqDTO> faq = faq_mapper.get(faq_ctgr);
 		
-//		model.addAttribute("faq", faq);
-		System.out.println(faq);
+		if(faq_ctgr == 0) {
+			cate_name ="주문 / 결제";
+		} else if(faq_ctgr == 1) {
+			cate_name ="배송";
+		} else if(faq_ctgr == 2) {
+			cate_name ="취소 / 환불";
+		} else if(faq_ctgr == 3) {
+			cate_name ="반품 / 교환";
+		} else if(faq_ctgr == 4) {
+			cate_name ="기타";
+		}
 		
-		return "user/cs/category/01_order_pay";
-	}
-	
-	@RequestMapping(value ="/cs/shipping", method = RequestMethod.GET)
-	public String cate2(Integer faq_ctgr) {
-		System.out.println(faq_ctgr);
-		
-		
-		return "user/cs/category/02_shipping";
-	}
-	
-	@RequestMapping(value ="/cs/cancel_refund", method = RequestMethod.GET)
-	public String cate3(Integer faq_ctgr) {
-		System.out.println(faq_ctgr);
-		
-		
-		return "user/cs/category/03_cancel_refund";
-	}
-	
-	@RequestMapping(value ="/cs/return_exchange", method = RequestMethod.GET)
-	public String cate4(Integer faq_ctgr) {
-		System.out.println(faq_ctgr);
-		
-		return "user/cs/category/04_return_exchange";
-	}
-	
-	@RequestMapping(value ="/cs/etc", method = RequestMethod.GET)
-	public String cate5(Integer faq_ctgr) {
-		System.out.println(faq_ctgr);
-		
-		return "user/cs/category/05_etc";
+		model.addAttribute("faq", faq);
+		model.addAttribute("cate_name", cate_name);
+		return "user/cs/category/faq_category";
 	}
 	
 	@RequestMapping(value ="/cs/contact", method = RequestMethod.GET)
