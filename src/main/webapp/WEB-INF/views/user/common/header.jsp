@@ -66,7 +66,7 @@
 				<button id="myPage">
 
 				<div>
-					<span class="material-symbols-outlined">account_circle</span>
+					<span class="material-symbols-outlined">person</span>
 
 					<span id="drop-down_arrow" class="material-symbols-outlined">
 						arrow_drop_down </span>
@@ -82,7 +82,7 @@
 		<button>주문 내역</button>
 		<button>나의 리뷰</button>
 		<button>나의 정보</button>
-		<button>1:1 문의</button>
+		<button onclick="location.href='#'">문의 내역</button>
 	</div>
 
 	<!--로그인-->

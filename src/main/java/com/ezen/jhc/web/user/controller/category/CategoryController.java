@@ -2,13 +2,13 @@ package com.ezen.jhc.web.user.controller.category;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.dto.prod.SubCtgrDTO;
@@ -78,17 +78,18 @@ public class CategoryController {
 	}
 	
 	
-	@GetMapping(value="/category_sub")
-	public String categorySubItems(HttpServletRequest request, Model model) {
+	@GetMapping(value="/category")
+	public String categorySubItems(@RequestParam("ctgr_num") int s_ctgr_num, Model model) {
+		String mainCtgr = mapper.getMainCtgrNameBySubCtgr(s_ctgr_num);
+		List<SubCtgrDTO> subCtgr = mapper.getSubCategoriesBySubNum(s_ctgr_num);
+		List<ProdDTO> products_sub = mapper.getAllSubProds(s_ctgr_num);
 		
-
+		model.addAttribute("products", products_sub);
+		model.addAttribute("mainCtgr", mainCtgr);
+		model.addAttribute("subCtgr", subCtgr);
 		
 		
-		
-		
-		
-		
-		return "user/category/sub_category";
+		return "user/category/category";
 	}
 	
 }
