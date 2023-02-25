@@ -5,7 +5,7 @@
 
 <%@ include file="../common/header.jsp"%>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/user/home/css/category.css" />
+<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/user/category/css/category.css" />
 <title>juhee custom - ${mainCtgr}</title>
 
 <div class="main_container_category">
@@ -16,10 +16,10 @@
 	<!-- 검색 창 -->
 
 	 <div class="search-box">
-	     <input type="text" class="search-txt" name="search" placeholder="검색어를 입력하세요.">
-	     <a class="search-btn" href="#">
-	       <i class="fas fa-search"></i>
-	     </a>
+	 	<form id="search_box" action="/products/search">
+	     <input type="text" class="search-txt" name="keyword" placeholder="검색어를 입력하세요.">
+	     <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
+	 	</form>
 	   </div>
 
 
@@ -27,7 +27,8 @@
 	<div id="category_main_products">
 		<c:forEach items="${products}" var="prod">
 			<div class="products">
-				<a href="#"> <img
+				<a href="#">
+				<img
 					src="<%=request.getContextPath() %>/${prod.p_info_img_path }"
 					alt="" />
 				</a>

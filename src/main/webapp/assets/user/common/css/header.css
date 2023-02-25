@@ -6,10 +6,10 @@
 	font-weight: 400;
 	font-style: normal;
 }
-body {
-	overflow-x :  hidden;
- }
 
+body {
+	overflow-x: hidden;
+}
 
 * {
 	font-family: 'Pretendard-Regular';
@@ -59,7 +59,7 @@ div[class^="header_container"] {
 
 .header_container_bottom_contents {
 	display: flex;
-	flex-direction: row!important;
+	flex-direction: row !important;
 	justify-content: center;
 	width: 250px;
 	text-align: left;
@@ -71,10 +71,8 @@ div[class^="header_container"] {
 	margin: 0px 11%;
 }
 
-
 .header_container_bottom div:nth-child(3)>button {
 	position: relative;
-		
 }
 
 #user_welcome_text {
@@ -82,11 +80,12 @@ div[class^="header_container"] {
 	justify-content: center;
 	text-align: center;
 	align-items: center;
-	
 }
-#myCart{
+
+#myCart {
 	margin: 0px 10px 0px 15px;
 }
+
 .header_container button {
 	all: unset;
 	font-size: 90%;
@@ -121,7 +120,6 @@ div[class^="header_container"] {
 	margin: 3px 0px;
 	font-size: 90%;
 	cursor: pointer;
-	
 }
 
 #drop-down_arrow {
@@ -130,7 +128,6 @@ div[class^="header_container"] {
 	left: -5px;
 	color: #063970;
 }
-
 
 .hidden {
 	display: none;
@@ -173,7 +170,6 @@ div[class$="in_container"]>div:nth-child(3) {
 	/* border:1px solid black; */
 }
 
-
 #join_submit, #login_submit {
 	background-color: #063970;
 	color: white;
@@ -210,7 +206,6 @@ button[class$="_closeBtn"] {
 	all: unset;
 }
 
-
 #text_login, #text_join {
 	font-size: 130%;
 	font-weight: bolder;
@@ -229,7 +224,7 @@ button[class$="_closeBtn"] {
 
 #kakao_login, #naver_login {
 	text-align: center;
-	font-size:90%;
+	font-size: 90%;
 	width: 100%;
 	height: 45px;
 	margin: 2px;
@@ -238,10 +233,9 @@ button[class$="_closeBtn"] {
 	background-color: #fef01b;
 }
 
-
 #naver_login {
 	text-align: center;
-	font-size:90%;
+	font-size: 90%;
 	width: 100%;
 	height: 45px;
 	margin: 2px;
@@ -255,7 +249,7 @@ button img {
 	margin-bottom: 3px;
 }
 
-#myPage img{
+#myPage img {
 	margin-right: 0px;
 	margin-bottom: 3px;
 }

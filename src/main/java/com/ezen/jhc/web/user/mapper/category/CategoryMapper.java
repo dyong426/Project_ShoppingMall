@@ -34,5 +34,7 @@ public interface CategoryMapper {
 	@Select("SELECT * from sub_ctgr where m_ctgr_num = (select m_ctgr_num from sub_ctgr where s_ctgr_num = #{s_ctgr_num})")
 	public List<SubCtgrDTO> getSubCategoriesBySubNum(Integer s_ctgr_num);
 	
+
+	
 }
 

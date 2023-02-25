@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.dto.prod.SubCtgrDTO;
 import com.ezen.jhc.web.user.mapper.category.CategoryMapper;
+import com.ezen.jhc.web.user.mapper.category.SearchMapper;
 
 @Controller
 public class CategoryController {
@@ -22,6 +23,9 @@ public class CategoryController {
 	
 	@Autowired
 	CategoryMapper mapper;
+	
+	@Autowired
+	SearchMapper s_mapper;
 
 	
 	@GetMapping(value="/category_clothes")
@@ -92,4 +96,17 @@ public class CategoryController {
 		return "user/category/category";
 	}
 	
+	@GetMapping(value="/products/search")
+	public String search(@RequestParam("keyword") String keyword, Model model) {
+		
+		
+
+		List<ProdDTO> products = s_mapper.getProdsBySearch(keyword);
+		
+		
+		model.addAttribute("keyword", keyword);
+		model.addAttribute("products", products);
+		
+		return "user/category/search";
+	}
 }

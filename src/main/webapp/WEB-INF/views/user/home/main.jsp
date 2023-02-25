@@ -73,10 +73,10 @@
 	<!-- 내가 만드는 나만의 상품 -->
 	<div class="main_subject_text">내가 만드는 나만의 상품</div>
 		<div class="main_container_madeByMe">
-			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe1.png"></a>
-			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe2.jpg"></a>
-			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe3.jpg"></a>
-			<a><img src="assets/common/cstm_img/main_madeByMe/madeByMe4.jpg"></a>
+			<a href="/category_clothes"><img src="assets/common/cstm_img/main_madeByMe/madeByMe1.png"></a>
+			<a href="/category_home"><img src="assets/common/cstm_img/main_madeByMe/madeByMe2.jpg"></a>
+			<a href="/category_phone_case"><img src="assets/common/cstm_img/main_madeByMe/madeByMe3.jpg"></a>
+			<a href="/category_home"><img src="assets/common/cstm_img/main_madeByMe/madeByMe4.jpg"></a>
 		</div>
 		
    <!-- 리뷰 -->
