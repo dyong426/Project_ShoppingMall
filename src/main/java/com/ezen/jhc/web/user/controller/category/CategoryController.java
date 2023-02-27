@@ -98,8 +98,6 @@ public class CategoryController {
 	
 	@GetMapping(value="/products/search")
 	public String search(@RequestParam("keyword") String keyword, Model model) {
-		
-		
 
 		List<ProdDTO> products = s_mapper.getProdsBySearch(keyword);
 		
