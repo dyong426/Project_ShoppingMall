@@ -70,6 +70,68 @@
             </div>
         </div>
   </div>
+  
+  <!-- 팝업 창 --> 
+
+<div class="main">
+  <div class="modal">
+    <div class="modal-content">
+        <span class="close-button">&times;</span>
+        <div class="title_box"><h1 class="title">리뷰</h1></div>
+        <div class="pd_info">
+          <div class="pd_image">
+            <img src="../images/착샷2.jpg" alt="" style="width: 70px; height: 70px;">
+          </div>
+          <div class="pd_">
+            <div class="pd_name">넘나 힙한 츄리닝 [Brown]</div>
+            <div class="pd_price">29,000원</div>
+          </div>
+          <div class="point_clear2">포인트 지급 완료</div>
+        </div>
+        <div class="check_box">
+          <form class="mb-1" name="myform" id="myform" method="post">
+              <fieldset>
+                  <input type="radio" name="reviewStar" value="5" id="rate1"><label
+                      for="rate1">★</label>
+                  <input type="radio" name="reviewStar" value="4" id="rate2"><label
+                      for="rate2">★</label>
+                  <input type="radio" name="reviewStar" value="3" id="rate3"><label
+                      for="rate3">★</label>
+                  <input type="radio" name="reviewStar" value="2" id="rate4"><label
+                      for="rate4">★</label>
+                  <input type="radio" name="reviewStar" value="1" id="rate5"><label
+                      for="rate5">★</label>
+              </fieldset>
+          </form>
+      </div>
+        <form action="#post.php" method="POST">
+          <textarea name="message" required="required" spellcheck="false"></textarea>
+          <input type="submit" id="submit" value="수정하기">
+        </form>
+    </div>
+  </div>
+</div>
+
+<script>
+  var modal = document.querySelector(".modal");
+	    var ec_wr_name = document.querySelector(".ec_wr_name");
+	    var closeButton = document.querySelector(".close-button");
+
+
+	    function toggleModal() {
+	        modal.classList.toggle("show-modal");
+	    }
+
+	    function windowOnClick(event) {
+	        if (event.target === modal) {
+	            toggleModal();
+	        }
+	    }
+
+	    ec_wr_name.addEventListener("click", toggleModal);
+	    closeButton.addEventListener("click", toggleModal);
+	    window.addEventListener("click", windowOnClick);
+</script>
 
  <footer>
    <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />

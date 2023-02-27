@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+.title_area > *{
+    font-family: 'Gowun Dodum', sans-serif;
+    font-style: normal;
+    box-sizing: content-box;
+}
+
+#pd_img {
+    width: 50px;
+    height: 50px;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 60px 0px 10px;
+}
+
+h3 {
+    font-size: x-large;
+}
+
+.order_area {
+    padding-right: 20px;
+}
+
+.title_area {
+    height: 150px;
+    background-color: rgb(248, 249, 250);
+}
+
+.title {
+    margin-bottom: 10px;
+    border-bottom: lightgrey solid 1px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 10px;
+    border-radius: 20px;
+  }
+
+  .info_box {
+    background-color: rgb(243, 243, 243);
+  }
+
+  .individual_delivery {
+    background-color: rgb(243, 243, 243);
+  }
+
+  .order_cancellation {
+    margin-left: 10px;
+    font-size: small;
+    color: white;
+    background-color: black;
+  }
+
+  .info_box > tr > th {
+    padding: 5px;
+  }
+
+  .individual_delivery > tr > td {
+    padding: 15px;
+  }
+
+  .base_table_type {
+    justify-self: center;
+    margin: 0 auto;
+  }
+
+  .base_table_type > table{
+    width: 100%;
+  }
+
+  .base_table_type > table > colgroup {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  
+
+  .base_table_type > table > .info_box > tr > th {
+    text-align: center;
+  }
+
+
+
+  .base_table_type > table > .individual_delivery >tr > td{
+    text-align: right;
+  }
+
+  .base_table_type > table > .individual_delivery >tr > td > .shipping_method {
+    padding-right: 190px;
+  }
+
+
+
+  .base_table_type > table > .individual_delivery > tr > td > .txtEm{
+    font-size: 20px;
+  }
+
+
+
+  .base_table_type > table > .product_link > tr > td{
+    text-align: center;
+  }
+
+  
+
+.pd_container {
+    display: inline-block;
+    display: flex;
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(248, 249, 250);
+}
+
+.pd_detail_main {
+    justify-self: center;
+    margin: 0 auto;
+    width: 900px;
+    height: auto;
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+    margin-bottom: 50px;
+    background-color: white;
+}
+
+.detail_main {
+    margin: -100px 0px 0px 20px;
+}
+
+
+.list_button{
+    justify-self: right;
+    right:0;
+    width: 125px;
+    height: 40px;
+    padding: 10px;
+    line-height: 5px;
+    color: white;
+    font-size: medium;
+    background-color: black;
+}
+
+
+.order_list_btn {
+    display: flex;
+    padding: 20px 0px 0px 0px;
+    background-color: rgb(248, 249, 250);
+}

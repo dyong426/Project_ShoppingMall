@@ -90,6 +90,250 @@
     <div class="checkout_btn"><span>주문서 작성</span></div>
   </div>
 
+  <!-- 사이즈 옵션 팝업 창-->
+  <div class="main">
+    <div class="modal">
+        <div class="modal-content">
+          <div class="or_picture_box">
+            <div class="or_picture">
+              <img src="<%=request.getContextPath() %>/assets/common/cstm_img/후드티.png" alt="" style="width: 450px; height: 450px;">
+            </div>
+          </div>
+          <div class="option_box">
+            <span class="close-button">&times;</span>
+            <h3 class="title">수량을 선택해주세요</h3>
+            <div class="pd_main_box">
+              <div class="sub">후드집업(남녀공용) [블루]</div>
+              <form action="#post.php" method="POST">
+                <div class="pd_size">
+                  <div class="size_input">
+                    <span>S(85)</span>
+                    <div class="pd_amount">
+                      <div class="minus" data-action="decrement"></div>
+                      <input type="number" class="quantity" value="0" min="1" max="100" inputmode="numeric" pattern="[0-9]*">
+                      <div class="plus" data-action="increment"></div>
+                    </div>
+                  </div>
+                  <div class="pd_price_box" >
+                    <div class="pd_price"></div>
+                  </div>
+                </div>
+                <div class="pd_size">
+                  <div class="size_input">
+                    <span>M(90)</span>
+                    <div class="pd_amount">
+                      <div class="minus" data-action="decrement" onclick="javascript:basket.changePNum(3);"></div>
+                      <input type="number" class="quantity" value="0" min="1" max="100" inputmode="numeric" pattern="[0-9]*">
+                      <div class="plus" data-action="increment" onclick="javascript:basket.changePNum(3);"></div>
+                    </div>
+                  </div>
+                  <div class="pd_price_box">
+                    <div class="pd_price"></div>
+                  </div>
+                </div>
+                <div class="pd_size">
+                  <div class="size_input">
+                    <span>L(95)</span>
+                    <div class="pd_amount">
+                      <div class="minus" data-action="decrement"></div>
+                      <input type="number" class="quantity" value="0" min="1" max="100" inputmode="numeric" pattern="[0-9]*">
+                      <div class="plus" data-action="increment"></div>
+                    </div>
+                  </div>
+                  <div class="pd_price_box">
+                    <div class="pd_price"></div>
+                  </div>
+                </div>
+                <div class="pd_size">
+                  <div class="size_input">
+                    <span>XL(100)</span>
+                    <div class="pd_amount">
+                      <div class="minus" data-action="decrement"></div>
+                      <input type="number" class="quantity" value="0" min="1" max="100" inputmode="numeric" pattern="[0-9]*">
+                      <div class="plus" data-action="increment"></div>
+                    </div>
+                  </div>
+                  <div class="pd_price_box">
+                    <div class="pd_price"></div>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <div class="modal_footer">
+              <div class="tt_check_box">
+                <div class="sub_title"><input type="number" value="0" min="1" max="100" inputmode="numeric" id="total-amt" value="0">개 상품의 금액</div>
+                <div class="sb_tt_price">29,000원</div>
+              </div>
+              <div class="buttons">
+                <button type="button" id="submit">확인</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <!-- 색상 추가 팝업 창-->
+  <div class="cl_main"></div>
+  <div class="cl_modal">
+      <div class="cl_modal-content">
+        <button class="cl_close-button"></button>
+        <div class="cl_title">다른 색상</div>
+        <div class="colors_container"
+        _sel="user_products->(#9489628)->_->product_color->_->base_product->_->base_product_colors">
+
+          <div _id="24405" _sel="./(#24405)" class="color_item" color_code="#ffc824">
+            <div class="code_wrap">
+              <div class="code non-click" style="background-color: #ffc824"></div>
+            </div>
+            <div class="name">노랑</div>
+          </div>
+
+          <div _id="24397" _sel="./(#24397)" class="color_item" color_code="#0a1429">
+            <div class="code_wrap">
+              <div class="code non-click" style="background-color: #0a1429"></div>
+            </div>
+            <div class="name">진곤색</div>
+          </div>
+
+          <div _id="24403" _sel="./(#24403)" class="color_item" color_code="#fa733c">
+            <div class="code_wrap">
+              <div class="code non-click" style="background-color: #fa733c"></div>
+            </div>
+            <div class="name">오렌지</div>
+          </div>
+
+          <div _id="24395" _sel="./(#24395)" class="color_item" color_code="#333333">
+            <div class="code_wrap">
+              <div class="code non-click" style="background-color: #333333"></div>
+            </div>
+            <div class="name">차콜</div>
+          </div>
+
+          <div _id="24404" _sel="./(#24404)" class="color_item" color_code="#f8f3ea">
+            <div class="code_wrap">
+              <div class="code non-click" style="background-color: #f8f3ea"></div>
+            </div>
+            <div class="name">아이보리</div>
+          </div>
+
+          <div _id="24394" _sel="./(#24394)" class="color_item" color_code="#8be31b">
+            <div class="code_wrap">
+              <div class="code non-click" style="background-color: #8be31b"></div>
+            </div>
+            <div class="name">연두</div>
+          </div>
+
+        </div>
+        <button class="done" type="button" done_type="Add">상품 추가</button>
+      </div>
+  </div>
+  
+  <!-- 사이즈 옵션창 js-->
+    <script type="text/javascript">
+      var modal = document.querySelector(".modal");
+        var btn = document.querySelector(".btn");
+        var closeButton = document.querySelector(".close-button");
+  
+  
+        function toggleModal() {
+            modal.classList.toggle("show-modal");
+        }
+  
+        function windowOnClick(event) {
+            if (event.target === modal) {
+                toggleModal();
+            }
+        }
+
+        btn.addEventListener("click", toggleModal);
+        closeButton.addEventListener("click", toggleModal);
+        window.addEventListener("click", windowOnClick);
+    </script>
+
+	<!-- 컬러 옵션창 js-->
+	<script type="text/javascript">
+	  var cl_modal = document.querySelector(".cl_modal");
+	    var add_color = document.querySelector(".add_color");
+	    var cl_closeButton = document.querySelector(".cl_close-button");
+	
+	
+	    function toggleModal() {
+	      cl_modal.classList.toggle("show-cl_modal");
+	    }
+	
+	    function windowOnClick(event) {
+	        if (event.target === cl_modal) {
+	            toggleModal();
+	        }
+	    }
+	    
+	    
+	    add_color.addEventListener("click", toggleModal);
+	    cl_closeButton.addEventListener("click", toggleModal);
+	    window.addEventListener("click", windowOnClick);
+	</script>
+	
+	<!-- 컬러 선택 js-->
+	<script>
+	  const nonClick = document.querySelectorAll(".non-click");
+	
+	  function handleClick(event) {
+	    // div에서 모든 "click" 클래스 제거
+	    nonClick.forEach((e) => {
+	      e.classList.remove("click");
+	    });
+	    // 클릭한 div만 "click"클래스 추가
+	    event.target.classList.add("click");
+	  }
+	
+	  nonClick.forEach((e) => {
+	    e.addEventListener("click", handleClick);
+	  });
+	</script>
+	
+	<!-- 옵션 수량 변경 js-->
+	<script>
+	  function decrement(e) {
+	    const btn = e.target.parentNode.parentElement.querySelector(
+	      'div[data-action="decrement"]'
+	    );
+	    const target = btn.nextElementSibling;
+	    let value = Number(target.value);
+	    if (value > 0) {
+	            value--;
+	            target.value = value;
+	          } else if (value <= 0){
+	            target.value = 0 ;
+	          }
+	  }
+	
+	  function increment(e) {
+	    const btn = e.target.parentNode.parentElement.querySelector(
+	      'div[data-action="decrement"]'
+	    );
+	    const target = btn.nextElementSibling;
+	    let value = Number(target.value);
+	    value++;
+	    target.value = value;
+	  }
+	
+	  const decrementButtons = document.querySelectorAll(
+	    `div[data-action="decrement"]`
+	  );
+	
+	  const incrementButtons = document.querySelectorAll(
+	    `div[data-action="increment"]`
+	  );
+	
+	  decrementButtons.forEach(btn => {
+	    btn.addEventListener("click", decrement);
+	  });
+	
+	  incrementButtons.forEach(btn => {
+	    btn.addEventListener("click", increment);
+	  });
+	</script>
 
  <footer>
    <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
