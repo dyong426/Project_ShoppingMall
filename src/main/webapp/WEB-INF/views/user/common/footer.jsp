@@ -23,10 +23,12 @@
 				<div>
 					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/brands.png" alt="" />
 				</div>
+				
 			</div>
 		</div>
 	</div>
 </div>
+<<<<<<< HEAD
 
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
@@ -36,5 +38,9 @@
 <script type="text/javascript" src="/assets/user/common/js/login.js"></script>
 
 
+=======
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+>>>>>>> refs/heads/je
 </body>
 </html>

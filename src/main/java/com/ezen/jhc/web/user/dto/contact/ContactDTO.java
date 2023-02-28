@@ -13,6 +13,10 @@ public class ContactDTO {
 
 	// 테이블 : contact
 	Integer contact_num;
+<<<<<<< HEAD
+=======
+	Integer mem_num;
+>>>>>>> refs/heads/je
 	Integer contact_ctgr;
 	String contact_title;
 	String contact_content;
