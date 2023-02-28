@@ -30,7 +30,7 @@ input[id*="faq_answer"]+label {
 input[id*="faq_answer"]+label+div {
 	max-height: 0;
 	transition: all .35s;
-	over-flow: hidden; 
+    overflow: hidden;
 	font-size : 15px;
 	text-align: left;
 	font-size: 15px;
@@ -44,4 +44,6 @@ input[id*="faq_answer"]+label+div p {
 
 input[id*="faq_answer"]:checked+label+div {
 	max-height: 1000px;
+	
+	over-flow: hidden;
 }

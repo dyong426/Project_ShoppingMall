@@ -5,7 +5,7 @@
 
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css">
-	<!-- main -->
+<!-- main -->
 <div id="home_main">
 
 	<!-- banner (부트스트랩)-->
@@ -17,14 +17,22 @@
 			<div id="carouselExampleInterval" class="carousel slide"
 				data-bs-ride="carousel">
 				<div class="carousel-inner">
-					<div id="banner_img01" class="carousel-item active" data-bs-interval="10000">
-						<img src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg" class="d-block w-100" alt="...">
+					<div id="banner_img01" class="carousel-item active"
+						data-bs-interval="10000">
+						<img
+							src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg"
+							class="d-block w-100" alt="...">
 					</div>
-					<div id="banner_img01" class="carousel-item" data-bs-interval="2000">
-						<img src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너2.jpg" class="d-block w-100" alt="...">
+					<div id="banner_img01" class="carousel-item"
+						data-bs-interval="2000">
+						<img
+							src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너2.jpg"
+							class="d-block w-100" alt="...">
 					</div>
 					<div class="carousel-item">
-						<img src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg" class="d-block w-100" alt="...">
+						<img
+							src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg"
+							class="d-block w-100" alt="...">
 					</div>
 				</div>
 				<button class="carousel-control-prev" type="button"
@@ -139,9 +147,17 @@
 	<div id="home_review_container" class="h_container">
 		<div id="home_customer_review_box">
 			<div class="home_review_title">
+				<div>
 				<h2>
 					리뷰 <span>(9,000)</span>
 				</h2>
+				</div>
+				<div id="all_review">
+					<a href="/jhc/allreview">
+					전체보기>
+					</a>
+				</div>				
+				
 			</div>
 
 			<div class="home_review_list_box">
@@ -149,113 +165,124 @@
 					style="background-image: url(); list-style: none;">
 
 					<li class="home_review_box">
-						<!-- href="/kr/review/list?r_id=121480" -->
+					<!-- href="/kr/review/list?r_id=121480" -->
 
-						<div class="home_review_img">
-							<img
-								src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷.jpg" />
-						</div>
+					<a href="/jhc/review"> 
+							<div class="home_review_img">
+								<img
+									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷.jpg" />
+							</div>
 
-						<div class="review_score">
-							<div class="star">★★★★★</div>
-						</div>
+							<div class="review_score">
+								<div class="star">★★★★★</div>
+							</div>
 
-						<div class="review_contents">
-							<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-						</div>
+							<div class="review_contents">
+								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
+							</div>
 
-						<div class="info">
-							<div class="created_at">2023-02-23</div>
-							<div class="user_name">yee0***</div>
-						</div>
+							<div class="info">
+								<div class="created_at">2023-02-23</div>
+								<div class="user_name">yee0***</div>
+							</div>
 
+					</a></li>
+
+					<li class="home_review_box">
+						<!-- href="/kr/review/list?r_id=121480" --> 
+						<a href="/jhc/contact">
+
+							<div class="home_review_img">
+								<img
+									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷2.jpg" />
+							</div>
+
+							<div class="review_score">
+								<div class="star">★★★★★</div>
+							</div>
+
+							<div class="review_contents">
+								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
+							</div>
+
+							<div class="info">
+								<div class="created_at">2023-02-23</div>
+								<div class="user_name">yee0***</div>
+							</div>
+
+					</a>
 					</li>
 					<li class="home_review_box">
 						<!-- href="/kr/review/list?r_id=121480" -->
+						<a href="/jhc/contact">
+							<div class="home_review_img" style="background-image: url();">
+								<img
+									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷3.jpg" />
+							</div>
 
-						<div class="home_review_img">
-							<img
-								src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷2.jpg" />
-						</div>
+							<div class="review_score">
+								<div class="star">★★★★★</div>
+							</div>
 
-						<div class="review_score">
-							<div class="star">★★★★★</div>
-						</div>
+							<div class="review_contents">
+								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
+							</div>
 
-						<div class="review_contents">
-							<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-						</div>
-
-						<div class="info">
-							<div class="created_at">2023-02-23</div>
-							<div class="user_name">yee0***</div>
-						</div>
-
+							<div class="info">
+								<div class="created_at">2023-02-23</div>
+								<div class="user_name">yee0***</div>
+							</div>
+					</a>
 					</li>
+
 					<li class="home_review_box">
 						<!-- href="/kr/review/list?r_id=121480" -->
+						 <a href="/jhc/contact">
+							<div class="home_review_img">
+								<img
+									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷4.jpg" />
+							</div>
 
-						<div class="home_review_img" style="background-image: url();">
-							<img
-								src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷3.jpg" />
-						</div>
+							<div class="review_score">
+								<div class="star">★★★★★</div>
+							</div>
 
-						<div class="review_score">
-							<div class="star">★★★★★</div>
-						</div>
+							<div class="review_contents">
+								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
+							</div>
 
-						<div class="review_contents">
-							<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-						</div>
-
-						<div class="info">
-							<div class="created_at">2023-02-23</div>
-							<div class="user_name">yee0***</div>
-						</div>
-					<li class="home_review_box">
-						<!-- href="/kr/review/list?r_id=121480" -->
-
-						<div class="home_review_img">
-							<img
-								src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷4.jpg" />
-						</div>
-
-						<div class="review_score">
-							<div class="star">★★★★★</div>
-						</div>
-
-						<div class="review_contents">
-							<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-						</div>
-
-						<div class="info">
-							<div class="created_at">2023-02-23</div>
-							<div class="user_name">yee0***</div>
-						</div>
+							<div class="info">
+								<div class="created_at">2023-02-23</div>
+								<div class="user_name">yee0***</div>
+							</div>
+					</a>
 
 					</li>
+
 					<li class="home_review_box">
-						<!-- href="/kr/review/list?r_id=121480" -->
+						<!-- href="/kr/review/list?r_id=121480" --> 
+						<a href="/jhc/contact">
+							<div class="home_review_img">
+								<img
+									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷4.jpg" />
+							</div>
 
-						<div class="home_review_img">
-							<img
-								src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷4.jpg" />
-						</div>
+							<div class="review_score">
+								<div class="star">★★★★★</div>
+							</div>
 
-						<div class="review_score">
-							<div class="star">★★★★★</div>
-						</div>
+							<div class="review_contents">
+								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
+							</div>
 
-						<div class="review_contents">
-							<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-						</div>
-
-						<div class="info">
-							<div class="created_at">2023-02-23</div>
-							<div class="user_name">yee0***</div>
-						</div>
+							<div class="info">
+								<div class="created_at">2023-02-23</div>
+								<div class="user_name">yee0***</div>
+							</div>
+					</a>
 
 					</li>
+
 
 				</ul>
 			</div>

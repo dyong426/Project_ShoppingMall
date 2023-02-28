@@ -19,4 +19,7 @@ public class ReviewDTO {
 	String review_image_path;
 	Integer review_star;
 	Date review_regdate;
+	String mem_name;
+	Integer p_num;
+	String p_name;
 }

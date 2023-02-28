@@ -99,6 +99,16 @@ margin: auto;
 	margin: auto;
 }
 
+
+#all_review{
+	text-align: left ;
+	text-decoration: underline;
+	
+}
+#all_review > a {
+	color: black;
+}
+
 .home_review_title>h2 {
 	padding-top: 20px;
 }
@@ -127,4 +137,8 @@ margin: auto;
 	display: flex;
 	justify-content: center;
 	border-radius: 20px;
+}
+
+.home_review_box > a {
+	color: black;
 }
