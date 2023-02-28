@@ -56,4 +56,4 @@ INSERT INTO prods VALUES(p_seq.nextval,'포토타일 액자 S (검정)',17000,'인쇄면: �
 INSERT INTO prods VALUES(p_seq.nextval,'포토타일 액자 M (검정)',22000,'인쇄면: 타일, 액자프레임: 수지몰딩','assets\common\cstm_img\products\frame\포토타일 액자 M (검정).jpg',11);
 
 
-
+commit;

@@ -37,7 +37,7 @@ public class CategoryController {
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
+		model.addAttribute("subCtgrs", subCtgr);
 		
 		return "user/category/category";
 	}
@@ -50,7 +50,8 @@ public class CategoryController {
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
+		model.addAttribute("subCtgrs", subCtgr);
+		
 		
 		return "user/category/category";
 	}
@@ -63,7 +64,7 @@ public class CategoryController {
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
+		model.addAttribute("subCtgrs", subCtgr);
 		
 		return "user/category/category";
 	}
@@ -76,7 +77,7 @@ public class CategoryController {
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
+		model.addAttribute("subCtgrs", subCtgr);
 		
 		return "user/category/category";
 	}
@@ -87,11 +88,12 @@ public class CategoryController {
 		String mainCtgr = mapper.getMainCtgrNameBySubCtgr(s_ctgr_num);
 		List<SubCtgrDTO> subCtgr = mapper.getSubCategoriesBySubNum(s_ctgr_num);
 		List<ProdDTO> products_sub = mapper.getAllSubProds(s_ctgr_num);
+
 		
 		model.addAttribute("products", products_sub);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
-		
+		model.addAttribute("subCtgrs", subCtgr);
+
 		
 		return "user/category/category";
 	}

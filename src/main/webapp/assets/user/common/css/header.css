@@ -40,10 +40,17 @@ div[class^="header_container"] {
 	/* border: solid 1px black; */
 }
 
+#header_top button{
+	
+	text-align:center;
+	margin-right: 0px;
+	margin-left: 0px;
+	width: 60px;
+}
 #header_top>div {
 	position: relative;
 	/* border: 1px solid black; */
-	left: 72.5%;
+	left: 71.7%;
 	top: 20%;
 }
 
@@ -72,6 +79,7 @@ div[class^="header_container"] {
 }
 
 .header_container_bottom div:nth-child(3)>button {
+
 	position: relative;
 }
 
@@ -135,7 +143,7 @@ div[class^="header_container"] {
 }
 
 .hidden_visibility{
-	visibility: hidden;
+	visibility: hidden!important;
 	}
 /*login & join*/
 div[class$="in_popup"] {
@@ -149,12 +157,6 @@ div[class$="in_popup"] {
 	top: 0;
 	left: 0;
 	background-color: rgba(0, 0, 4, 0.7);
-}
-
-.popup_logo{
-	
-	
-	
 }
 
 .popup_logo>div:first-child{
@@ -249,12 +251,13 @@ button[class$="_closeBtn"] {
 #naver_login {
 	text-align: center;
 	font-size: 90%;
-	width: 100%;
+	width: 300px;
 	height: 45px;
-	margin: 2px;
+	margin: 2px 16px;
 	border: none;
-	border-radius: 2px;
+	border-radius: 5px;
 	background-color: #2DB400;
+
 }
 
 button img {

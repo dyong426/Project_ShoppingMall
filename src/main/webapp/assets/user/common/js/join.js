@@ -1,8 +1,10 @@
+
+
 join_check = () => {
 
-    var email = document.getElementById("join_email");
-    var name = document.getElementById("join_name");
-    var pw = document.getElementById("join_pw");
+    const email = document.getElementById("join_email");
+    const name = document.getElementById("join_name");
+    const pw = document.getElementById("join_pw");
     
 
     if(email.value == ""){
@@ -11,7 +13,7 @@ join_check = () => {
         return false;
         }
         
-     if (name.value == ""){
+    if (name.value == ""){
         alert("이름을 입력하세요.");
         name.focus();
         return false;
@@ -24,7 +26,13 @@ join_check = () => {
     }
     
     	alert("제출");
-        
-    
+   
+
+}
+
+// 유효성 체크
+check_email = () => {
+
+
 
 }

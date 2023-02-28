@@ -8,7 +8,7 @@
       <h3 class="category_category_major">${mainCtgr}</h3>
       <!--카테고리 소분류-->
       <ul class="category_list_detailed" style="list-style: none; padding-left: 0%;">
-	<c:forEach items="${subCtgr }" var="subCtgr">
+	<c:forEach items="${subCtgrs }" var="subCtgr">
 	<li><a href="/category?ctgr_num=${subCtgr.s_ctgr_num}">${subCtgr.s_ctgr_name}</a></li>
       </c:forEach>
       </ul>

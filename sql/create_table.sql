@@ -23,15 +23,6 @@ select * from prods inner join (select * from main_ctgr inner join sub_ctgr usin
 
 
 
--- 제품 색상 테이블
-CREATE TABLE prod_colors (
-    pc_num NUMBER(10) CONSTRAINT pc_num_pk PRIMARY KEY,
-    pc_name VARCHAR2(255),
-    pc_code VARCHAR2(255),
-    p_num NUMBER(10) CONSTRAINT pc_p_num REFERENCES prods(p_num)
-);
-
-
 -- 제품 테이블
 CREATE TABLE prods(
     p_num NUMBER(10) CONSTRAINT p_num_pk PRIMARY KEY, -- 제품번호
@@ -40,6 +31,15 @@ CREATE TABLE prods(
     p_material VARCHAR2(255),                         -- 소재
     p_info_img_path VARCHAR2(255),                    -- 상세설명 이미지
     s_ctgr_num NUMBER(2) CONSTRAINT p_sc_fk REFERENCES sub_ctgr(s_ctgr_num)
+);
+
+
+-- 제품 색상 테이블
+CREATE TABLE prod_colors (
+    pc_num NUMBER(10) CONSTRAINT pc_num_pk PRIMARY KEY,
+    pc_name VARCHAR2(255),
+    pc_code VARCHAR2(255),
+    p_num NUMBER(10) CONSTRAINT pc_p_num REFERENCES prods(p_num)
 );
 
 -- 제품 사이즈 테이블
@@ -242,8 +242,7 @@ CREATE TABLE reviews (
     review_regdate DATE
 );
 
-CREATE SEQUENCE review_num_seq
-    INCREMENT BY 1;
+CREATE SEQUENCE review_num_seq    INCREMENT BY 1;
 
 
 

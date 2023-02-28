@@ -1,6 +1,6 @@
 const click = () => {
 
-  console.log(document.querySelector("#myPage_drop-down").classList);
+
   document.querySelector("#myPage_drop-down").classList.toggle('hidden');
 }
 
@@ -8,8 +8,16 @@ document.querySelector("#myPage").addEventListener("click", click);
 
 
 const open_login = () => {
-  
+console.log(login_value);
+
+if(login_value==='logout'){
+	logout();
+	
+} else if(login_value ==='login') {
+ 
   document.querySelector(".login_popup").classList.remove('hidden');
+}
+
 }
 const open_join = () => {
 
@@ -25,7 +33,9 @@ const close_login = () => {
 
 
 const close_join = () => {
+
   console.log(document.querySelector(".join_popup").classList);
+  
   document.querySelector(".join_popup").classList.add('hidden');
 
 }

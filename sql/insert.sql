@@ -6,11 +6,28 @@ INSERT INTO main_ctgr VALUES(2, '폰케이스','assets\common\images\prod_img\admin.
 INSERT INTO main_ctgr VALUES(3, '홈데코','assets\common\images\prod_img\admin.png');
 INSERT INTO main_ctgr VALUES(4, '액자','assets\common\images\prod_img\admin.png');
 
+
 -- insert sub category
 -- clothes
 INSERT INTO sub_ctgr VALUES(1,'후드티',1);
 INSERT INTO sub_ctgr VALUES(2,'맨투맨',1);
 INSERT INTO sub_ctgr VALUES(3,'반팔티',1);
+
+-- phone case
+INSERT INTO sub_ctgr VALUES(4,'아이폰',2);
+INSERT INTO sub_ctgr VALUES(5,'갤럭시',2);
+
+-- home deco
+INSERT INTO sub_ctgr VALUES(6,'무드등',3);
+INSERT INTO sub_ctgr VALUES(7,'머그컵',3);
+INSERT INTO sub_ctgr VALUES(8,'텀블러',3);
+
+-- photo frame
+INSERT INTO sub_ctgr VALUES(9,'디아섹 액자',4);
+INSERT INTO sub_ctgr VALUES(10,'HD 메탈액자',4);
+INSERT INTO sub_ctgr VALUES(11,'포토타일',4);
+SELECT * FROM sub_ctgr;
+
 -- colors example
 --'RED', '#FF0000'
 --'BLUE', '#0000FF'
@@ -429,7 +446,7 @@ INSERT INTO faqs VALUES(faq_num_seq.nextval, '단체 주문 시 개별 포장이 가능한가�
 
 
 
-commit;
+
 
 SELECT * FROM faqs;
-DELETE faqs WHERE faq_num = 12;
+DELETE faqs WHERE faq_ctgr = 3;
