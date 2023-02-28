@@ -35,8 +35,8 @@
 		<!--회원가입, 로그인, 고객센터-->
 		<div id="header_top">
 			<div>
-				<button class="sign_up">회원가입</button>
-				<button class="sign_in" id="sign_in" onclick="logout();">로그인</button>
+				<button class="sign_up" id="sign_up">회원가입</button>
+				<button class="sign_in" id="sign_in" value="login">로그인</button>
 				<button onclick="location.href='<%=request.getContextPath() %>/cs'">고객센터</button>
 			</div>
 		</div>
@@ -59,7 +59,7 @@
 			</div>
 
 			<div class="header_container_bottom_contents">
-				<span class="hidden_visibility user_welcome_text">정수정님, 환영합니다.</span>
+				<span class="user_welcome_text">정수정님, 환영합니다.</span>
 				<button id="myCart">
 				<span class="material-symbols-outlined">shopping_cart</span>
 				</button>
