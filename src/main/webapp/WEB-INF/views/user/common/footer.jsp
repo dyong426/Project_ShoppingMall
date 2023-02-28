@@ -4,8 +4,8 @@
 <div id="footer_container">
 	<div class="container">
 		<div id="footer_logo" class="d-flex align-items-start">
-			<a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none">
-				<img width=230px src="<%=request.getContextPath() %>/assets/common/cstm_img/logo_white.png" alt="" />
+			<a href="/main" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none">
+				<img width=230px src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo_white.png" alt="" />
 			</a>
 
 		</div>
@@ -31,9 +31,9 @@
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-<script type="text/javascript" src="assets/user/home/js/home.js"></script>
-<script type="text/javascript" src="assets/user/common/js/account_validation_check.js"></script>
-<script type="text/javascript" src="assets/user/common/js/login.js"></script>
+<script type="text/javascript" src="/assets/user/home/js/home.js"></script>
+<script type="text/javascript" src="/assets/user/common/js/account_validation_check.js"></script>
+<script type="text/javascript" src="/assets/user/common/js/login.js"></script>
 
 
 </body>
