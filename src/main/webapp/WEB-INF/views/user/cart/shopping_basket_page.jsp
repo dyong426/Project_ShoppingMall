@@ -3,6 +3,8 @@
     
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/basket.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/option_popup.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/color_popup.css">
 
 
   <!-- main -->

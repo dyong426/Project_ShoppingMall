@@ -19,13 +19,13 @@ public class MainController {
 		return "user/prod/product_details";
 	}
 	
-	@RequestMapping(value ="/review", method = RequestMethod.GET)
-	public String reivew(Model model) {
-		
-		
-		
-		return "user/home/review";
-	}
+//	@RequestMapping(value ="/review", method = RequestMethod.GET)
+//	public String reivew(Model model) {
+//		
+//		
+//		
+//		return "user/home/review";
+//	}
 
 	
 	@RequestMapping(value ="/allreview", method = RequestMethod.GET)

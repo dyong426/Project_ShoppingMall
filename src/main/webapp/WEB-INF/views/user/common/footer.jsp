@@ -28,19 +28,5 @@
 		</div>
 	</div>
 </div>
-<<<<<<< HEAD
-
-<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
-<script type="text/javascript" src="/assets/user/home/js/home.js"></script>
-<script type="text/javascript" src="/assets/user/common/js/account_validation_check.js"></script>
-<script type="text/javascript" src="/assets/user/common/js/login.js"></script>
-
-
-=======
-</footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
->>>>>>> refs/heads/je
 </body>
 </html>
