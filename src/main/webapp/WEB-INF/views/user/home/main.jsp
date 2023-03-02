@@ -4,6 +4,8 @@
  <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/home/css/main.css">
 	<title>juhee custom - 나만의 물건 제작하기</title>
   <!-- main -->
+  
+  ${email }
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
      <div class="carousel-indicators">
        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>

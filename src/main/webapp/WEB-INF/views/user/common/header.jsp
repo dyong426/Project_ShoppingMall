@@ -52,10 +52,10 @@
 			</div>
 
 			<div class="header_container_bottom_contents">
-				<a href="/category_clothes">의류</a>
-				<a href="/category_phone_case">폰케이스/테크</a>
-				<a href="/category_home">홈데코/리빙</a>
-				<a href="/category_frame">액자</a>
+				<a href="/jhc/category_clothes">의류</a>
+				<a href="/jhc/category_phone_case">폰케이스/테크</a>
+				<a href="/jhc/category_home">홈데코/리빙</a>
+				<a href="/jhc/category_frame">액자</a>
 			</div>
 
 			<div class="header_container_bottom_contents">
@@ -143,13 +143,22 @@
 				<div id="bar"></div>
 				<div>
 					<div id="text_join">회원가입</div>
-					<form onsubmit="return false;">
-						<input id="join_email" type="text" placeholder="이메일 주소" />
-						<input id="join_name" type="text" placeholder="이름" />
-						<input id="join_pw" type="password" placeholder="비밀번호" />
-						<input id="join_submit" onclick="join_check();" type="submit" value="가입하기" />
+					<form action="/jhc/join_member" method="POST" >
+						<input id="mem_email" name="mem_email" type="text" placeholder="이메일 주소" />
+						<input id="mem_name" name="mem_name" type="text" placeholder="이름" />
+						<input id="mem_pw" name="mem_pw" type="password" placeholder="비밀번호" />
+						<input id="join_submit" type="submit" onclick="join_check();" value="가입하기" />
 					</form>
+					
+					${email }
 
+
+					<div class="login_error_wrap" id="err_empty_pw" style="display: block;">
+                        <div class="error_message">
+                            <strong>비밀번호</strong>를 입력해 주세요.
+                        </div>
+                    </div>
+                                
 					<div class="or_container">
 						<div></div>
 						<div>또는</div>

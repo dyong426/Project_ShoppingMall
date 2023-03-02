@@ -26,8 +26,3 @@ update main_ctgr set m_ctgr_icon_path ='assets\common\images\prod_img\admin.png'
 
 
 
-
-
-
-
-
