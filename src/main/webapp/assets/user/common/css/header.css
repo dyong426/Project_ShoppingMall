@@ -40,13 +40,13 @@ div[class^="header_container"] {
 	/* border: solid 1px black; */
 }
 
-#header_top button{
-	
-	text-align:center;
+#header_top button {
+	text-align: center;
 	margin-right: 0px;
 	margin-left: -9px;
 	width: 60px;
 }
+
 #header_top>div {
 	position: relative;
 	/* border: 1px solid black; */
@@ -79,12 +79,11 @@ div[class^="header_container"] {
 }
 
 .header_container_bottom div:nth-child(3)>button {
-
 	position: relative;
 }
 
 .user_welcome_text {
-	width:fit-content;
+	width: fit-content;
 	display: flex;
 	justify-content: center;
 	text-align: center;
@@ -138,15 +137,9 @@ div[class^="header_container"] {
 	color: #063970;
 }
 
-.hidden {
-	display: none;
-}
 
-.hidden_visibility{
-	visibility: hidden!important;
-	}
 /*login & join*/
-div[class$="in_popup"] {
+.login_popup, .join_popup {
 	z-index: 3;
 	display: flex;
 	justify-content: center;
@@ -159,18 +152,28 @@ div[class$="in_popup"] {
 	background-color: rgba(0, 0, 4, 0.7);
 }
 
-.popup_logo>div:first-child{
+#join_agree {
+	height: auto;
 	display: inline-block;
-	
-	width:fit-content;	
+	width: auto;
+	margin-right: 6px;
+}
+
+#mem_pw_recheck+div {
+	margin-top: 10px;
+	margin-left: 3px;
+	font-size: 14px;
+	display: flex;
+}
+
+.popup_logo>div:first-child {
+	display: inline-block;
+	width: fit-content;
 	margin: 40px 0px 20px 0px;
-	margin-left:8%;
-	
-	
+	margin-left: 8%;
 }
 
 div[class$="in_container"]>div>button:nth-child(2) {
-	
 	display: inline-block;
 	position: absolute;
 	top: 41px;
@@ -189,7 +192,7 @@ div[class$="in_container"]>div:nth-child(3) {
 	color: white;
 	margin-top: 15px;
 	border: none;
-/* 	padding-left: 0px; */
+	/* 	padding-left: 0px; */
 }
 
 .join_container input, .login_container input {
@@ -203,12 +206,25 @@ div[class$="in_container"]>div:nth-child(3) {
 	border-radius: 3px;
 }
 
-div[class$="in_container"] {
+.login_container {
 	display: flex;
 	align-items: center;
 	flex-direction: column;
-	width: 25%;
-	height: 650px;
+	width: 450px;
+	height: 600px;
+	background-color: #fff;
+	border-radius: 5px;
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	backdrop-filter: blur(1.5px);
+	border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.join_container {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	width: 450px;
+	height: 770px;
 	background-color: #fff;
 	border-radius: 5px;
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
@@ -245,7 +261,6 @@ button[class$="_closeBtn"] {
 	border: none;
 	border-radius: 2px;
 	background-color: unset;
-	
 }
 
 #naver_login {
@@ -257,7 +272,6 @@ button[class$="_closeBtn"] {
 	border: none;
 	border-radius: 5px;
 	background-color: #2DB400;
-
 }
 
 button img {
@@ -277,7 +291,7 @@ button img {
 	justify-content: space-between;
 	font-size: 90%;
 	color: gray;
-	margin: 12% 0%;
+	margin: 20px 0px 40px 0px;
 }
 
 .or_container div {
@@ -289,4 +303,19 @@ button img {
 
 .or_container>div:nth-child(2) {
 	all: unset;
+}
+
+.hidden {
+	display: none;
+}
+
+.hidden_visibility {
+	visibility: hidden !important;
+}
+
+
+.login_error_wrap, .join_error_wrap{
+	margin: 10px 0px 0px 8px;
+	font-size:14px;
+	color:crimson;
 }

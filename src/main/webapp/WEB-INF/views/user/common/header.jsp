@@ -35,8 +35,8 @@
 		<!--회원가입, 로그인, 고객센터-->
 		<div id="header_top">
 			<div>
-				<button class="sign_up" id="sign_up">회원가입</button>
-				<button class="sign_in" id="sign_in" value="login">로그인</button>
+				<button class="join" id="join">회원가입</button>
+				<button class="login" id="login" value="login">로그인</button>
 				<button onclick="location.href='<%=request.getContextPath() %>/cs'">고객센터</button>
 			</div>
 		</div>
@@ -102,11 +102,13 @@
 			<div id="bar"></div>
 			<div>
 				<div id="text_login">로그인</div>
-				<form>
-					<input id="login_email" type="text" placeholder="이메일 주소" />
-					<input id="login_pw" type="password" placeholder="비밀번호" />
-					<input id="login_submit" type="submit" value="로그인" />
+				<form action="/jhc/login.do" method="POST" onsubmit="return mySubmit_login();">
+					<input id="login_email" class="mem_email" name="mem_email "type="text" placeholder="이메일 주소" />
+					<input id="login_pw" name="mem_pw" type="password" placeholder="비밀번호" />
+					<input id="login_submit" type="submit" value="로그인" onclick="login_check();" />
 				</form>
+				
+				<div class="login_error_wrap hidden_visibility" id="error_message_login" style="display: block;">에러 메세지</div>
 
 				<div class="or_container">
 					<div></div>
@@ -119,7 +121,7 @@
 					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_login.png" alt="">
 				</button>
 				<button id="naver_login" onclick="naverIdLogin_loginButton();">
-					<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 로그인
+<%-- 					<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 로그인 --%>
 				</button>
 
 
@@ -143,21 +145,19 @@
 				<div id="bar"></div>
 				<div>
 					<div id="text_join">회원가입</div>
-					<form action="/jhc/join_member" method="POST" >
-						<input id="mem_email" name="mem_email" type="text" placeholder="이메일 주소" />
+					
+					<form action="/jhc/join.do" method="POST" onsubmit="return mySubmit_join();">
+						<input id="mem_email" class="mem_email" name="mem_email" type="text" placeholder="이메일 주소" />
 						<input id="mem_name" name="mem_name" type="text" placeholder="이름" />
-						<input id="mem_pw" name="mem_pw" type="password" placeholder="비밀번호" />
+						<input id="mem_pw" name="mem_pw" type="password" placeholder="비밀번호&nbsp;(영문과 특수문자를 포함한 최소 8자)" />
+						<input id="mem_pw_recheck" name="mem_pw_recheck" type="password" placeholder="비밀번호 확인" />
+						<div>
+							<input id="join_agree" type="checkbox" name="agree" checked/><label for="join_agree">개인 정보 취급 및 이용 약관 동의</label>
+						</div>
 						<input id="join_submit" type="submit" onclick="join_check();" value="가입하기" />
 					</form>
-					
-					${email }
 
-
-					<div class="login_error_wrap" id="err_empty_pw" style="display: block;">
-                        <div class="error_message">
-                            <strong>비밀번호</strong>를 입력해 주세요.
-                        </div>
-                    </div>
+					<div class="join_error_wrap hidden_visibility" id="error_message_join" style="display: block;">에러 메세지</div>
                                 
 					<div class="or_container">
 						<div></div>
@@ -169,7 +169,7 @@
 					</button>
 
 					<button id="naver_login" onclick="naverIdLogin_loginButton;">
-						<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입
+<%-- 						<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입 --%>
 					</button>
 
 

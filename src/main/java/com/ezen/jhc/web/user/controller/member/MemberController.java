@@ -1,15 +1,15 @@
 package com.ezen.jhc.web.user.controller.member;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.mapper.member.MemberMapper;
@@ -24,62 +24,51 @@ public class MemberController {
 	@Autowired
 	MemberMapper mapper;
 	
-	// 입력된 이메일로 체크와 가입
-	@RequestMapping(value="/join_member")
-	public ModelAndView join_member (HttpServletRequest request, HttpSession session){
-		ModelAndView mv = new ModelAndView();
+	@RequestMapping(value="/join.do")
+	public String join_member (MemberDTO dto, Model model, HttpServletRequest request){
 		
 		String mem_email = request.getParameter("mem_email");
 		Integer member = mapper.checkMem(mem_email);
 
 		if (member == 0) {
-			
-			// 가입
-			
-//			mapper.join(mem_email, mem_email, mem_email, mem_email, mem_email, mem_email, mem_email, null);
-			
+
+			mapper.join(dto);
+			model.addAttribute("member", dto);	
 		} else {
 			
-			mv.addObject("email", "error");
-			
 		}
-
-				return mv;
+				return "user/join/welcome";
 	}
 	
-
-	// 로그인
 	@RequestMapping("/login.do")
-	public String login(MemberDTO dto,  HttpServletRequest request) {
-		MemberDTO login = mapper.login(dto);	
-		HttpSession session = request.getSession();
-		
-		if (login != null) {
-			
-			session.setAttribute("login", login);
-			return "redirect:/main";
-					
-		} else {
-			
-			session.setAttribute("login", login);
-			return "redirect:/main";
-			
-		}
-		
-		
-		
-		
-		
-		
-	}
-	
-	@RequestMapping("/logout.do")
-	public String logout(HttpSession session) {
-		
-		session.invalidate();
+	public String login(MemberDTO dto, Model model) {
+				
+		model.addAttribute("member", dto);
+				
 		return "redirect:/main";
 		
 	}
+	
+	@RequestMapping("/emailCheck")
+	@ResponseBody
+	public int emailCheck(@RequestParam("mem_email") String mem_email) {
+		int cnt = mapper.checkMem(mem_email);
+		
+		return cnt;
+	}
+	
+	@RequestMapping("/checkEmailPw")
+	@ResponseBody
+	public Integer checkEmailPw(@RequestParam("mem_email")String mem_email, @RequestParam("mem_pw")String mem_pw) {
+
+		Integer match = mapper.checkEmailPw(mem_email, mem_pw);
+		
+		return match;
+		
+	}
+
+	
+
 	
 	
 	
