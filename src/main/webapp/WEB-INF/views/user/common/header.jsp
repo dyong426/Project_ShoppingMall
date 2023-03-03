@@ -105,7 +105,7 @@
 				<form action="/jhc/login.do" method="POST" onsubmit="return mySubmit_login();">
 					<input id="login_email" class="mem_email" name="mem_email "type="text" placeholder="이메일 주소" />
 					<input id="login_pw" name="mem_pw" type="password" placeholder="비밀번호" />
-					<input id="login_submit" type="submit" value="로그인" onclick="login_check();" />
+					<input id="login_submit" type="submit" value="로그인" onclick="login_check()" />
 				</form>
 				
 				<div class="login_error_wrap hidden_visibility" id="error_message_login" style="display: block;">에러 메세지</div>
@@ -146,7 +146,7 @@
 				<div>
 					<div id="text_join">회원가입</div>
 					
-					<form action="/jhc/join.do" method="POST" onsubmit="return mySubmit_join();">
+					<form action="/jhc/join.do" method="POST" onsubmit="return false;">
 						<input id="mem_email" class="mem_email" name="mem_email" type="text" placeholder="이메일 주소" />
 						<input id="mem_name" name="mem_name" type="text" placeholder="이름" />
 						<input id="mem_pw" name="mem_pw" type="password" placeholder="비밀번호&nbsp;(영문과 특수문자를 포함한 최소 8자)" />
@@ -154,7 +154,7 @@
 						<div>
 							<input id="join_agree" type="checkbox" name="agree" checked/><label for="join_agree">개인 정보 취급 및 이용 약관 동의</label>
 						</div>
-						<input id="join_submit" type="submit" onclick="join_check();" value="가입하기" />
+						<input id="join_submit" type="submit" value="가입하기" onclick="join_check()" />
 					</form>
 
 					<div class="join_error_wrap hidden_visibility" id="error_message_join" style="display: block;">에러 메세지</div>
