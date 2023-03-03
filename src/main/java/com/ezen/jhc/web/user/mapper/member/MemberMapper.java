@@ -20,7 +20,12 @@ public interface MemberMapper {
 	@Select("select count(*) from members where mem_email = #{mem_email} and mem_pw = #{mem_pw}")
 	public Integer checkEmailPw(@Param("mem_email") String mem_email, @Param("mem_pw") String mem_pw);
 
+	// 이름 찾기
 	@Select("select * from members where mem_email = #{mem_email}")
-	public String getMemName(String mem_email);
+	public MemberDTO getMemName(String mem_email);
+	
+
+	
+	
 	
 }

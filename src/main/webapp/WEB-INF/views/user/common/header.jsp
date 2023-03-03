@@ -36,7 +36,7 @@
 		<div id="header_top">
 			<div>
 				<button class="join" id="join">회원가입</button>
-				<button class="login" id="login" value="login">로그인</button>
+				<button class="login" id="login">로그인</button>
 				<button onclick="location.href='<%=request.getContextPath() %>/cs'">고객센터</button>
 			</div>
 		</div>
@@ -59,7 +59,7 @@
 			</div>
 
 			<div class="header_container_bottom_contents">
-				<span class="user_welcome_text">정수정님, 환영합니다.</span>
+				<span class="user_welcome_text">${member.mem_name }님, 환영합니다.</span>
 				<button id="myCart">
 				<span class="material-symbols-outlined">shopping_cart</span>
 				</button>
@@ -103,9 +103,9 @@
 			<div>
 				<div id="text_login">로그인</div>
 				<form action="/jhc/login.do" method="POST" onsubmit="return mySubmit_login();">
-					<input id="login_email" class="mem_email" name="mem_email "type="text" placeholder="이메일 주소" />
+					<input id="login_email" name="mem_email" class="mem_email" type="text" placeholder="이메일 주소" />
 					<input id="login_pw" name="mem_pw" type="password" placeholder="비밀번호" />
-					<input id="login_submit" type="submit" value="로그인" onclick="login_check()" />
+					<input id="login_submit" type="submit" value="로그인"/>
 				</form>
 				
 				<div class="login_error_wrap hidden_visibility" id="error_message_login" style="display: block;">에러 메세지</div>
@@ -146,15 +146,15 @@
 				<div>
 					<div id="text_join">회원가입</div>
 					
-					<form action="/jhc/join.do" method="POST" onsubmit="return false;">
-						<input id="mem_email" class="mem_email" name="mem_email" type="text" placeholder="이메일 주소" />
+					<form action="/jhc/join.do" method="POST" onsubmit="return mySubmit_join();">
+						<input id="mem_email" name="mem_email" class="mem_email" type="text" placeholder="이메일 주소" />
 						<input id="mem_name" name="mem_name" type="text" placeholder="이름" />
 						<input id="mem_pw" name="mem_pw" type="password" placeholder="비밀번호&nbsp;(영문과 특수문자를 포함한 최소 8자)" />
 						<input id="mem_pw_recheck" name="mem_pw_recheck" type="password" placeholder="비밀번호 확인" />
 						<div>
 							<input id="join_agree" type="checkbox" name="agree" checked/><label for="join_agree">개인 정보 취급 및 이용 약관 동의</label>
 						</div>
-						<input id="join_submit" type="submit" value="가입하기" onclick="join_check()" />
+						<input id="join_submit" type="submit" onclick="join_check();"value="가입하기"/>
 					</form>
 
 					<div class="join_error_wrap hidden_visibility" id="error_message_join" style="display: block;">에러 메세지</div>

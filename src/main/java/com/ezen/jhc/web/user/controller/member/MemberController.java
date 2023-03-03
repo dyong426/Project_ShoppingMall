@@ -3,7 +3,6 @@ package com.ezen.jhc.web.user.controller.member;
 import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,14 +25,14 @@ public class MemberController {
 	
 	@RequestMapping(value="/join.do")
 	public String join_member (MemberDTO dto, Model model, HttpServletRequest request){
-		
+		System.out.println(dto);
 		String mem_email = request.getParameter("mem_email");
 		Integer member = mapper.checkMem(mem_email);
 
 		if (member == 0) {
-
 			mapper.join(dto);
-			model.addAttribute("member", dto);	
+			model.addAttribute("member", dto);
+			
 		} else {
 			
 		}
@@ -41,11 +40,12 @@ public class MemberController {
 	}
 	
 	@RequestMapping("/login.do")
-	public String login(MemberDTO dto, Model model) {
-				
-		model.addAttribute("member", dto);
-				
-		return "redirect:/main";
+	public String login(Model model, HttpServletRequest request) {
+			
+		model.addAttribute("member", mapper.getMemName(request.getParameter("mem_email")));
+		
+		
+		return "user/home/main";
 		
 	}
 	
@@ -53,7 +53,7 @@ public class MemberController {
 	@ResponseBody
 	public int emailCheck(@RequestParam("mem_email") String mem_email) {
 		int cnt = mapper.checkMem(mem_email);
-		
+	
 		return cnt;
 	}
 	
