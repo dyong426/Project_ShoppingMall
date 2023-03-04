@@ -37,6 +37,9 @@
 			<div>
 				<button class="join" id="join">회원가입</button>
 				<button class="login" id="login">로그인</button>
+				<form action="/jhc/logout.do" method="POST">
+					<button class="logout" class="login" id="logout">로그아웃</button>
+				</form>
 				<button onclick="location.href='<%=request.getContextPath() %>/cs'">고객센터</button>
 			</div>
 		</div>

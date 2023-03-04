@@ -85,11 +85,10 @@ public class CategoryController {
 	
 	@GetMapping(value="/category")
 	public String categorySubItems(@RequestParam("ctgr_num") int s_ctgr_num, Model model) {
+		
 		String mainCtgr = mapper.getMainCtgrNameBySubCtgr(s_ctgr_num);
 		List<SubCtgrDTO> subCtgr = mapper.getSubCategoriesBySubNum(s_ctgr_num);
 		List<ProdDTO> products_sub = mapper.getAllSubProds(s_ctgr_num);
-
-		
 		model.addAttribute("products", products_sub);
 		model.addAttribute("mainCtgr", mainCtgr);
 		model.addAttribute("subCtgrs", subCtgr);

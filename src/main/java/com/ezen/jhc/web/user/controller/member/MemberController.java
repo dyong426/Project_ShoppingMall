@@ -1,15 +1,25 @@
 package com.ezen.jhc.web.user.controller.member;
 
+import java.util.Date;
+
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
+import org.apache.ibatis.javassist.compiler.ast.Member;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.ezen.jhc.web.session.SessionManager;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.mapper.member.MemberMapper;
 
@@ -18,6 +28,9 @@ import com.ezen.jhc.web.user.mapper.member.MemberMapper;
 public class MemberController {
 
 	@Autowired
+	SessionManager sessionManager;
+	
+	@Autowired
 	DataSource ds;
 	
 	@Autowired
@@ -25,28 +38,49 @@ public class MemberController {
 	
 	@RequestMapping(value="/join.do")
 	public String join_member (MemberDTO dto, Model model, HttpServletRequest request){
-		System.out.println(dto);
+		
 		String mem_email = request.getParameter("mem_email");
 		Integer member = mapper.checkMem(mem_email);
 
 		if (member == 0) {
 			mapper.join(dto);
-			model.addAttribute("member", dto);
-			
-		} else {
-			
+			model.addAttribute("member", dto);	
 		}
 				return "user/join/welcome";
 	}
 	
 	@RequestMapping("/login.do")
-	public String login(Model model, HttpServletRequest request) {
-			
-		model.addAttribute("member", mapper.getMemName(request.getParameter("mem_email")));
-		
+	public String login(
+			Model model, HttpServletRequest request, HttpServletResponse response) {
+
+		MemberDTO dto = mapper.getMember(request.getParameter("mem_email"));
+		model.addAttribute("member", dto);
+
+		sessionManager.createSession(dto, response);
 		
 		return "user/home/main";
 		
+	}
+	
+	@PostMapping("/logout.do")
+	public String logout(HttpServletRequest request) {
+		
+		sessionManager.expires(request);
+
+		return "redirect:/loginHome";
+				
+	}
+	
+	@GetMapping("/loginHome")
+	public String homeLoginV2(HttpServletRequest request, Model model) {
+	   MemberDTO member = (MemberDTO) sessionManager.getSession(request);
+
+	    if (member == null) {
+	        return "user/home/main";
+	    }
+
+	    model.addAttribute("member", member);
+	    return "loginHome";
 	}
 	
 	@RequestMapping("/emailCheck")
@@ -66,9 +100,16 @@ public class MemberController {
 		return match;
 		
 	}
+	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
+	public void printSessionInfo(HttpServletRequest request, String sessionId){
+		HttpSession session = request.getSession(false);    
 
-	
-
+    log.info("sessionId={}", session.getId());
+    log.info("getMaxInactiveInterval={}", session.getMaxInactiveInterval());
+    log.info("creationTime={}", new Date(session.getCreationTime()));
+    log.info("lastAccessedTime={}", new Date(session.getLastAccessedTime()));
+    log.info("isNew={}", session.isNew());
+	}
 	
 	
 	
