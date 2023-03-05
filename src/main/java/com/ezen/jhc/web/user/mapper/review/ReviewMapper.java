@@ -7,3 +7,4 @@ public interface ReviewMapper {
 	public ReviewDTO getProdNum(Integer p_num); 
 	
 }
+ 

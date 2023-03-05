@@ -25,7 +25,7 @@ const close_login = () => {
 
 
 const close_join = () => {
-  
+  console.log(document.querySelector(".join_popup").classList);
   document.querySelector(".join_popup").classList.add('hidden');
 
 }

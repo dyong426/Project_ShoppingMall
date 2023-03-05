@@ -1,9 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,7 +21,6 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/header.css">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/footer.css">
 <link href="<%=request.getContextPath() %>/assets/common/cstm_img/logo_mini.png" rel="shortcut icon" type="image/x-icon">
-
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 
 </head>
@@ -45,9 +43,6 @@
 
 		<!--로고, 카테고리, 프로필-->
 		<div class="header_container_bottom">
-
-
-
 			<div class="header_container_bottom_contents">
 				<a href="<%=request.getContextPath() %>/main">
 				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo.png" alt="로고" width="170px" />
@@ -63,9 +58,15 @@
 			</div>
 
 			<div class="header_container_bottom_contents">
-				<span id="user_welcome_text">정수정님, 환영합니다.</span>
+				<a href="/category_clothes">의류</a> <a href="/category_phone_case">폰케이스/테크</a>
+				<a href="/category_home">홈데코/리빙</a> <a href="/category_frame">액자</a>
+			</div>
+
+			<div class="header_container_bottom_contents">
+				<span class="hidden_visibility user_welcome_text">정수정님,
+					환영합니다.</span>
 				<button id="myCart">
-				<span class="material-symbols-outlined">shopping_cart</span>
+					<span class="material-symbols-outlined">shopping_cart</span>
 				</button>
 				<button id="myPage">
 
@@ -75,7 +76,6 @@
 					<span id="drop-down_arrow" class="material-symbols-outlined">
 						arrow_drop_down </span>
 				</div>
-				
 				</button>
 			</div>
 		</div>
@@ -86,7 +86,7 @@
 		<button>주문 내역</button>
 		<button>나의 리뷰</button>
 		<button>나의 정보</button>
-		<button>1:1 문의</button>
+		<button onclick="location.href='#'">문의 내역</button>
 	</div>
 
 	<!--로그인-->
@@ -98,12 +98,7 @@
 				<span> <img
 					src="<%=request.getContextPath()%>/assets/common/cstm_img/logo.png"
 					width="135px" alt="로고">
-				</span>
-				<button type="button" class="login_closeBtn">
-					<span class="material-symbols-outlined"> close </span>
-				</button>
 			</div>
-
 			<div id="bar"></div>
 			<div>
 				<div id="text_login">로그인</div>
@@ -133,6 +128,36 @@
 
 			</div>
 		</div>
+
+		<div id="bar"></div>
+		<div>
+			<div id="text_login">로그인</div>
+			<form>
+				<input id="login_email" type="text" placeholder="이메일 주소" /> <input
+					id="login_pw" type="password" placeholder="비밀번호" /> <input
+					id="login_submit" type="submit" value="로그인" />
+			</form>
+
+			<div class="or_container">
+				<div></div>
+				<div>또는</div>
+				<div></div>
+			</div>
+			<button id="kakao_login">
+				<img width=20px;
+					src="<%=request.getContextPath()%>/assets/common/cstm_img/kakao_logo.png"
+					alt="">카카오 로그인
+			</button>
+			<button id="naver_login">
+				<img width=20px;
+					src="<%=request.getContextPath()%>/assets/common/cstm_img/naver_logo.png"
+					alt="">네이버 로그인
+			</button>
+
+
+
+		</div>
+	</div>
 
 	</div>
 	<!-- 회원가입 팝업 -->
@@ -165,8 +190,6 @@
 					<div>또는</div>
 					<div></div>
 				</div>
-
-
 				<div id="bar"></div>
 				<div>
 					<div id="text_join">회원가입</div>
@@ -189,7 +212,6 @@
 					<button id="naver_login" onclick="naverIdLogin_loginButton;">
 						<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입
 					</button>
-
 			</div>
 		</div>
 	</div>

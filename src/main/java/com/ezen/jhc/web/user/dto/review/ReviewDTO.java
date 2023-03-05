@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
 @Data
+
 public class ReviewDTO {
+	
 	Integer review_num;
 	String review_content;
 	String review_image_path;

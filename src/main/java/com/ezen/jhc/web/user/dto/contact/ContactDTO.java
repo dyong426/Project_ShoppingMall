@@ -13,6 +13,7 @@ public class ContactDTO {
 
 	// 테이블 : contact
 	Integer contact_num;
+	Integer mem_num;
 	Integer contact_ctgr;
 	String contact_title;
 	String contact_content;
@@ -20,7 +21,6 @@ public class ContactDTO {
 	Date contact_regdate;
 	
 	// 테이블 조인 : members
-	Integer mem_num;
 	String mem_email;
 	String mem_name;
 
