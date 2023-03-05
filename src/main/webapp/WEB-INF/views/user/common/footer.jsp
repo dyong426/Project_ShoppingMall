@@ -23,6 +23,7 @@
 				<div>
 					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/brands.png" alt="" />
 				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -34,7 +35,6 @@
 <script type="text/javascript" src="assets/user/home/js/home.js"></script>
 <script type="text/javascript" src="assets/user/common/js/account_validation_check.js"></script>
 <script type="text/javascript" src="assets/user/common/js/login.js"></script>
-
 
 </body>
 </html>
