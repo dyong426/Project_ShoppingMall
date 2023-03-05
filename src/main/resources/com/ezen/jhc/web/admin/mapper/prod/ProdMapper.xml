@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.admin.mapper.prod.ProdMapper">
+
+	<select id="getProds" resultType="com.ezen.jhc.web.admin.dto.prod.ProdDTO">
+		SELECT mc.m_ctgr_name AS m_ctgr_name, sc.s_ctgr_name AS s_ctgr_name, p_num, p_name, p_price FROM prods p INNER JOIN sub_ctgr sc ON p.s_ctgr_num = sc.s_ctgr_num INNER JOIN main_ctgr mc ON sc.m_ctgr_num = mc.m_ctgr_num
+	</select>
+
+</mapper>

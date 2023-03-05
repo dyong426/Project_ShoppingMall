@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.admin.mapper.prod.SubCtgrMapper">
+
+	<select id="getSubCtgr" resultType="com.ezen.jhc.web.admin.dto.prod.SubCtgrDTO">
+		SELECT * FROM sub_ctgr WHERE m_ctgr_num = #{m_ctgr_num}
+	</select>
+
+</mapper>
