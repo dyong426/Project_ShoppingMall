@@ -1,12 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<<<<<<< HEAD
-<!DOCTYPE configuration
-  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
-  "https://mybatis.org/dtd/mybatis-3-config.dtd">
-<configuration>
-	<settings>
-		<setting name="jdbcTypeForNull" value="NULL" />
-=======
 <!-- 아래 configuration이 어떤 것을 참고하고 있냐 하는 설정 -->
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
@@ -17,6 +9,5 @@
 	<!-- value="NULL" 을 넣을시 꼭 대문자 사용 -->
   	<settings>
 		<setting name="jdbcTypeForNull" value="NULL" />    
->>>>>>> refs/heads/je
 	</settings>
 </configuration>
