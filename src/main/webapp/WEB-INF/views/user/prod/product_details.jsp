@@ -37,7 +37,7 @@
 
         <div id="review_bar"></div>
 
-        <!--사진 모아보기 (8개까지만)-->
+        <!--사진 모아보기 (7개까지만)-->
         <div>
 	<c:forEach var="r" items="${reviews }" begin="0" end="8">
 	<c:if test="${empty r.review_image_path}">

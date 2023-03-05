@@ -15,6 +15,8 @@ public interface MemberMapper {
 	// 회원정보
 	@Select("select * from members where mem_email = #{mem_email}")
 	public MemberDTO getMember(String mem_email);
+
+	
 	
 	// 가입
 	@Insert("INSERT INTO members VALUES(mem_num_seq.nextval, #{mem_email}, #{mem_pw}, #{mem_birth}, #{mem_name}, #{mem_phone}, #{mem_note}, sysdate)")

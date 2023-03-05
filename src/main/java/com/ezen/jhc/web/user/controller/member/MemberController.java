@@ -2,12 +2,12 @@ package com.ezen.jhc.web.user.controller.member;
 
 import java.util.Date;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import org.apache.ibatis.javassist.compiler.ast.Member;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ezen.jhc.web.session.SessionManager;
+import com.ezen.jhc.common.util.SessionManager;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.mapper.member.MemberMapper;
 
@@ -49,16 +49,17 @@ public class MemberController {
 				return "user/join/welcome";
 	}
 	
-	@RequestMapping("/login.do")
+	@PostMapping("/login.do")
 	public String login(
-			Model model, HttpServletRequest request, HttpServletResponse response) {
+			Model model, HttpServletRequest request, HttpServletResponse response,
+			HttpSession session) {
 
 		MemberDTO dto = mapper.getMember(request.getParameter("mem_email"));
 		model.addAttribute("member", dto);
 
 		sessionManager.createSession(dto, response);
 		
-		return "user/home/main";
+		return "redirect:/main";
 		
 	}
 	
