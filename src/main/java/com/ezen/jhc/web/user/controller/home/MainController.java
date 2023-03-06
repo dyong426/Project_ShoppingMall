@@ -16,12 +16,12 @@ public class MainController {
 	
 	@Autowired
 	HomeMapper home_mapper;
-	
-	
+
+
 	@RequestMapping(value ="/main", method = RequestMethod.GET)
 	public String main(Model model) {
 		
-		List<ReviewDTO> review_list = home_mapper.home_review_list();
+		List<ReviewDTO> review_list = home_mapper.get_review_list();
 		
 		model.addAttribute("review_list", review_list);
 		model.addAttribute("review_size", review_list.size());
