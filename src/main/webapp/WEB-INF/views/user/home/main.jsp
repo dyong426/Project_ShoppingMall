@@ -102,7 +102,7 @@
 		<div class="home_main_title">
 			<h2>내가 만드는 나의 상품</h2>
 		</div>
-
+	<div id="recom_box">
 		<div id="home_recom_item_box">
 
 			<div class="recom_item">
@@ -115,7 +115,7 @@
 			</div>
 
 			<div class="recom_item">
-				<a href="/jhc/contact" class="recom_item_img">
+				<a href="/jhc/contact" class="recom_item_img" >
 					<div>
 						<img
 							src="<%=request.getContextPath()%>/assets/user/home/img/recommend/02.png" />
@@ -123,7 +123,7 @@
 				</a>
 			</div>
 
-			<div class="recom_item">
+			<div class="recom_item" style="">
 				<a href="/jhc/contact" class="recom_item_img">
 					<div>
 						<img
@@ -140,6 +140,7 @@
 					</div>
 				</a>
 			</div>
+		</div>
 		</div>
 	</div>
 

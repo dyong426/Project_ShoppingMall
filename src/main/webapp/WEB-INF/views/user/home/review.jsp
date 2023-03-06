@@ -16,9 +16,11 @@
 
 		<div id="review_con">
 			<div id="review_img">
-				<img
+				<c:if test="${not empty r.review_image_path}">	
+							<img
 					src="<%=request.getContextPath()%>/${r.review_image_path}" />
-			</div>
+						</c:if>
+						</div>
 
 			<div id="review_content_box">
 				<div id="re_info">

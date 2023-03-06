@@ -17,7 +17,11 @@ public class MainController {
 	@Autowired
 	HomeMapper home_mapper;
 
-
+	/**
+	 * 홈 화면 메인페이지
+	 * review_list -> 사진이 첨부된 리뷰 리스트
+	 * all_reviews -> 리뷰 전체 개수 파악
+	 * */
 	@RequestMapping(value ="/main", method = RequestMethod.GET)
 	public String main(Model model) {
 		
@@ -50,6 +54,13 @@ public class MainController {
 	
 	@RequestMapping(value ="/allreview", method = RequestMethod.GET)
 	public String all_reivew(Model model) {
+		List<ReviewDTO> all_reviews = home_mapper.get_all_reviews();
+		
+		model.addAttribute("all_reviews",all_reviews);
+		model.addAttribute("review_size", all_reviews.size());
+		
+		System.out.println(all_reviews);
+		System.out.println( all_reviews.size());
 		
 		return "user/home/all_review";
 	}
