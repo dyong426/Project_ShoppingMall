@@ -1,15 +1,30 @@
 package com.ezen.jhc.web.user.controller.home;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ezen.jhc.web.user.dto.review.ReviewDTO;
+import com.ezen.jhc.web.user.mapper.home.HomeMapper;
+
 @Controller
 public class MainController {
-
+	
+	@Autowired
+	HomeMapper home_mapper;
+	
+	
 	@RequestMapping(value ="/main", method = RequestMethod.GET)
-	public String main() {
+	public String main(Model model) {
+		
+		List<ReviewDTO> review_list = home_mapper.home_review_list();
+		
+		model.addAttribute("review_list", review_list);
+		model.addAttribute("review_size", review_list.size());
 		
 		return "user/home/main";
 	}

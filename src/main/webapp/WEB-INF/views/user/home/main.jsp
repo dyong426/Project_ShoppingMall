@@ -88,7 +88,7 @@
 				<a href="/jhc/contact" class="cate_img_04">
 					<div class="home_cate_img">
 						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/cate_icon/의류.png" />
+							src="<%=request.getContextPath()%>/assets/user/home/img/cate_icon/액자.png" />
 					</div>
 					<p class="home_cate_name">잡화</p>
 				</a>
@@ -148,141 +148,45 @@
 		<div id="home_customer_review_box">
 			<div class="home_review_title">
 				<div>
-				<h2>
-					리뷰 <span>(9,000)</span>
-				</h2>
+					<h2>
+						리뷰 <span>(${review_size})</span>
+					</h2>
 				</div>
 				<div id="all_review">
-					<a href="/jhc/allreview">
-					전체보기>
-					</a>
-				</div>				
-				
+					<a href="/jhc/allreview"> 전체보기> </a>
+				</div>
+
 			</div>
 
 			<div class="home_review_list_box">
 				<ul class="home_review_list"
 					style="background-image: url(); list-style: none;">
 
-					<li class="home_review_box">
-					<!-- href="/kr/review/list?r_id=121480" -->
+					<c:forEach items="${review_list}" var="r_list" begin="0" end="4">
+						<li class="home_review_box">
+							<a href="/jhc/review?review_num=${r_list.review_num}">
 
-					<a href="/jhc/review"> 
-							<div class="home_review_img">
-								<img
-									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷.jpg" />
-							</div>
+								<div class="home_review_img">
+									<img
+										src="<%=request.getContextPath()%>/${r_list.review_img_path}" />
+								</div>
 
-							<div class="review_score">
-								<div class="star">★★★★★</div>
-							</div>
+								<div class="review_score">
+									<div class="star">${r_list.review_star_}</div>
+								</div>
 
-							<div class="review_contents">
-								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-							</div>
+								<div class="review_contents">
+									<div class="comment">${r_list.review_content}</div>
+								</div>
 
-							<div class="info">
-								<div class="created_at">2023-02-23</div>
-								<div class="user_name">yee0***</div>
-							</div>
+								<div class="info">
+									<div class="created_at">${r_list.review_regdate}</div>
+									<div class="user_name">${r_list.mem_name}</div>
+								</div>
 
-					</a></li>
-
-					<li class="home_review_box">
-						<!-- href="/kr/review/list?r_id=121480" --> 
-						<a href="/jhc/contact">
-
-							<div class="home_review_img">
-								<img
-									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷2.jpg" />
-							</div>
-
-							<div class="review_score">
-								<div class="star">★★★★★</div>
-							</div>
-
-							<div class="review_contents">
-								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-							</div>
-
-							<div class="info">
-								<div class="created_at">2023-02-23</div>
-								<div class="user_name">yee0***</div>
-							</div>
-
-					</a>
-					</li>
-					<li class="home_review_box">
-						<!-- href="/kr/review/list?r_id=121480" -->
-						<a href="/jhc/contact">
-							<div class="home_review_img" style="background-image: url();">
-								<img
-									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷3.jpg" />
-							</div>
-
-							<div class="review_score">
-								<div class="star">★★★★★</div>
-							</div>
-
-							<div class="review_contents">
-								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-							</div>
-
-							<div class="info">
-								<div class="created_at">2023-02-23</div>
-								<div class="user_name">yee0***</div>
-							</div>
-					</a>
-					</li>
-
-					<li class="home_review_box">
-						<!-- href="/kr/review/list?r_id=121480" -->
-						 <a href="/jhc/contact">
-							<div class="home_review_img">
-								<img
-									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷4.jpg" />
-							</div>
-
-							<div class="review_score">
-								<div class="star">★★★★★</div>
-							</div>
-
-							<div class="review_contents">
-								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-							</div>
-
-							<div class="info">
-								<div class="created_at">2023-02-23</div>
-								<div class="user_name">yee0***</div>
-							</div>
-					</a>
-
-					</li>
-
-					<li class="home_review_box">
-						<!-- href="/kr/review/list?r_id=121480" --> 
-						<a href="/jhc/contact">
-							<div class="home_review_img">
-								<img
-									src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷4.jpg" />
-							</div>
-
-							<div class="review_score">
-								<div class="star">★★★★★</div>
-							</div>
-
-							<div class="review_contents">
-								<div class="comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
-							</div>
-
-							<div class="info">
-								<div class="created_at">2023-02-23</div>
-								<div class="user_name">yee0***</div>
-							</div>
-					</a>
-
-					</li>
-
+						</a>
+						</li>
+					</c:forEach>
 
 				</ul>
 			</div>

@@ -14,13 +14,13 @@
 			<h3>${cate_name}</h3>
 			<div class="fap_accordion">
 
-				<c:forEach items="${faq}" var="faq">
-					<input type="checkbox" id="faq_answer${faq.faq_num}">
+				<c:forEach items="${faq}" var="faq_">
+					<input type="checkbox" id="faq_answer${faq_.faq_num}">
 
-					<label for="faq_answer${faq.faq_num}">Q ${faq.faq_title} <em></em></label>
+					<label for="faq_answer${faq_.faq_num}">Q ${faq_.faq_title} <em></em></label>
 					<div>
 
-						<p >A <br>${faq.faq_content}</p>
+						<p >A <br>${faq_.faq_content}</p>
 					</div>
 
 				</c:forEach>
