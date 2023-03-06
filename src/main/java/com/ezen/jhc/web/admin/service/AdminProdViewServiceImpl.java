@@ -28,6 +28,9 @@ public class AdminProdViewServiceImpl implements AdminProdViewService{
 	ProdSizeMapper prodSizeMapper;
 	
 	@Autowired(required = false)
+	ProdDTO prodDTO;
+	
+	@Autowired(required = false)
 	List<ProdDTO> prodList;
 	
 	@Autowired(required = false)
@@ -41,6 +44,13 @@ public class AdminProdViewServiceImpl implements AdminProdViewService{
 		
 		prodList = prodMapper.getProds();
 		return prodList;
+	}
+	
+	@Override
+	public ProdDTO getProdP_num(Integer p_num) {
+		
+		prodDTO = prodMapper.getProd(p_num);
+		return prodDTO;
 	}
 	
 	@Override

@@ -32,24 +32,7 @@ public class AdminProdViewController {
 		
 		prods = adminProdViewService.getProdsList();
 		
-		for (int i = 0; i < prods.size(); i++) {
-			
-			Integer p_num = prods.get(i).getP_num();
-			String p_name = prods.get(i).getP_name();
-			
-			prodColors = adminProdViewService.getProdColorList(p_num);
-			prodSizes = adminProdViewService.getProdSizeList(p_num);
-			
-			model.addAttribute(p_name + "_Colors", prodColors);
-			model.addAttribute(p_name + "_Sizes", prodSizes);
-			
-			System.out.println(p_name + "Colors");
-			System.out.println(model.getAttribute(p_name + "Colors"));
-		}
-		
-		
 		model.addAttribute("prods", prods);
-		
 		
 		return "admin/prod/admin_prod_view";
 	}

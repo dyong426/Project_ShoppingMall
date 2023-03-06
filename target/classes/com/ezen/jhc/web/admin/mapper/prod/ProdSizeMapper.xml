@@ -5,7 +5,7 @@
 <mapper namespace="com.ezen.jhc.web.admin.mapper.prod.ProdSizeMapper">
 
 	<select id="getProdSizes" resultType="com.ezen.jhc.web.admin.dto.prod.ProdSizeDTO">
-		SELECT * FROM prods WHERE p_num = #{p_num}
+		SELECT * FROM prod_sizes WHERE p_num = #{p_num}
 	</select>
 
 </mapper>

@@ -64,7 +64,7 @@ function addColor(evt) {
     const newColorPath = newColor.insertCell(2);
     const newColorBtn = newColor.insertCell(3);
 
-    newColorName.innerHTML += `<input type="text" class="form-control" id="color-name${colorNum}"></input>`
+    newColorName.innerHTML += `<input type="text" class="form-control" id="color-name${colorNum}" name="prodColors[0].pc_name"></input>`
     newColorCode.innerHTML += `<input type="color" class="form-control" id="color-code${colorNum}">`;
     newColorPath.innerHTML += `<input type="file" class="form-control" id="color-path${colorNum}">`;
     newColorBtn.innerHTML += `<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addColorBtn(event)"></button>

@@ -1,5 +1,7 @@
 package com.ezen.jhc.web.admin.dto.prod;
 
+import java.awt.Color;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

@@ -34,44 +34,18 @@
                                 <th scope="col">제품번호</th>
                                 <th scope="col">제품명</th>
                                 <th scope="col">가격</th>
-                                <th scope="col">색상</th>
-                                <th scope="col">사이즈</th>
-                                <th scope="col">상세정보 수정</th>
+                                <th scope="col">상세정보</th>
                             </tr>
                         </thead>
                         <tbody>
                         	<c:forEach items="${prods}" var="prod">
-                        		<tr>
-                                	<th scope="row">${prod.m_ctgr_name}</th>
-                                	<td>${prod.s_ctgr_name}</td>
-                                	<td>${prod.p_num}</td>
-                                	<td>${prod.p_name}</td>
-                                	<td>${prod.p_price}</td>
-                                	
-                                	<td>
-                                		가긴하냐?
-                                		<c:set value="${p_name}${_Colors}" var="prodColors"/>
-                                		
-                                		<c:forEach items="${prodColors}" var="prodColor">
-                                			왓다
-                                			<i class="fa-solid fa-circle" style="color: ${prodColor.pc_code};">${prodColor.pc_name}</i>
-                                		</c:forEach>
-                                	</td>
-                                	
-                                	<td>
-                                		<c:set value="${p_name}${Sizes}" var="prodSizes"/>
-                                		<c:forEach items="${prodSizes}" var="prodSize">
-                                			<c:choose>
-                                				<c:when test="${empty prodSize.ps_name}">
-                                					사이즈 없음
-                                				</c:when>
-                                				<c:otherwise>
-                                					${prodSize.ps_name}
-                                				</c:otherwise>
-                                			</c:choose>
-                                		</c:forEach>
-                                	</td>
-                                	<td><button type="button" class="btn btn-outline-secondary">제품상세보기</button></td>
+                        		<tr class="prod-info">
+                                	<td class="m-ctgr-name">${prod.m_ctgr_name}</th>
+                                	<td class="s-ctgr-name">${prod.s_ctgr_name}</td>
+                                	<td class="p-num">${prod.p_num}</td>
+                                	<td class="p-name">${prod.p_name}</td>
+                                	<td class="p-price">${prod.p_price}</td>
+                                	<td class="prod-detail-btn"><button type="button" class="btn btn-outline-secondary" onclick="prodViewDetail(event, ${prod.p_num})">제품상세보기</button></td>
                             	</tr>
                         	</c:forEach>
                         </tbody>

@@ -3,36 +3,32 @@
 <!-- include header -->
 
 <%@ include file="../include/header.jsp"%>
-
-<!-- admin_prod_reg -->
-
 <body>
 
-	<div class="main-container">
-
-		<!-- include left Nav Bar -->
-
-		<%@ include file="../include/left_nav_bar.jsp"%>
-
-		<!-- prod_reg content-container -->
-
-		<div class="content-container-prod">
-
-			<div class="card grid-top">탑</div>
+	<div class="content-container-prod">
 
 			<div class="card grid-main">
 
 				<div class="card-header">제품등록</div>
 
-				<form class="row card-body" id="prod-reg-form" action="/jhc/admin/prod/reg" method="POST">
+				<form class="row card-body" id="prod-reg-form">
 					<div class="col-md-6">
 						<label for="main_category" class="form-label">메인 카테고리</label> 
 						
-						<select id="main-category" name="m_ctgr_num" class="form-select" onchange="selectMain(this)">
+						<select id="main-category" class="form-select" onchange="selectMain(this)">
 							<option value="0">메인 카테고리</option>
 							
 							<c:forEach items="${mainCtgrs}" var="mainCtgr">
-								<option value="${mainCtgr.m_ctgr_num}">${mainCtgr.m_ctgr_name}</option>
+								
+								<c:choose>
+									<c:when test="${prod.m_ctgr_num eq mainCtgr.m_ctgr_num}">
+										<option value="${mainCtgr.m_ctgr_num}" selected>${mainCtgr.m_ctgr_name}</option>
+									</c:when>
+									<c:otherwise>									
+										<option value="${mainCtgr.m_ctgr_num}">${mainCtgr.m_ctgr_name}</option>
+									</c:otherwise>
+								</c:choose>
+								
 							</c:forEach>
 							
 						</select>
@@ -40,31 +36,35 @@
 					
 					<div class="col-md-6">
 						<label for="sub-category" class="form-label">서브 카테고리</label> 
-						<select	id="sub-category" name="s_ctgr_num" class="form-select">
+						<select	id="sub-category" name="sub-category" class="form-select">
 							<option>서브 카테고리</option>
-							 <c:forEach items="${sCtgrs}" var="sCtgr">
-								<option value="${sCtgr.s_ctgr_num}">${sCtgr.s_ctgr_name}</option>
+							 <c:forEach items="${prodSubCtgrs}" var="sCtgr">
+							 
+							 	<c:choose>
+							 		<c:when test="${prod.s_ctgr_num eq sCtgr.s_ctgr_num}">					 		
+										<option value="${sCtgr.s_ctgr_num}" selected>${sCtgr.s_ctgr_name}</option>
+							 		</c:when>
+							 		<c:otherwise>
+							 			<option value="${sCtgr.s_ctgr_num}">${sCtgr.s_ctgr_name}</option>
+							 		</c:otherwise>
+							 	</c:choose>
 							</c:forEach>
 						</select>
 					</div>
 
 					<div class="col-md-6">
 						<label for="p_name" class="form-label">제품명</label> 
-						<input type="text" class="form-control" id="p_name" name="p_name" placeholder="제품명을 입력하세요">
+						<input type="text" class="form-control" id="p_name" placeholder="제품명을 입력하세요" value="${prod.p_name}">
 					</div>
 					<div class="col-md-6">
 						<label for="p_price" class="form-label">가격</label> 
-						<input type="text" class="form-control" id="p_price" name="p_price"placeholder="가격을 입력하세요">
+						<input type="text" class="form-control" id="p_price" placeholder="가격을 입력하세요" value="${prod.p_price}">
 					</div>
-					<div class="col-md-12">
-						<label for="p_info_img_path" class="form-label">제품 정보 이미지</label>
-						<input type="file" class="form-control file-upload" id="prod-upload-img" name="origin_img_path" multiple>
-					</div>
-
+					
 					<div class="col-12 card-dflex-row">
 						<div class="dflex-column">
-							<label for="prod_color_table">제품 색상 등록</label>
-							<table class="table" id="prod_color_table">
+							<label for="prod_color_table">제품 등록 색상</label>
+							<table class="table" id="prod_view_color_table">
 								<thead>
 									<tr>
 										<th class="col-3">색상</th>
@@ -73,19 +73,30 @@
 										<th></th>
 									</tr>
 								</thead>
-								<tbody id="prod-color-table-body">
-									<tr id="color0">
-										<td><input type="text" class="form-control"
-											id="color-name0" name="prodColors[0].pc_name"></td>
-										<td><input type="color" class="form-control"
-											id="color-code0" name="prodColors[0].pc_code"></td>
-										<td><input type="file" class="form-control"
-											id="color-path0" name="prodColors[0].pc_img_path"></td>
-										<td>
-											<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addColorBtn(event)"></button>
-											<button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display: none;' onclick="removeColorBtn(event)"></button>
-										</td>
-									</tr>
+								<tbody id="prod_view_color_table_body">
+								
+									<c:forEach items="${prodColors}" var="prodColor" varStatus="indexStatus">
+									
+										<tr id="color${status.index}">
+											<td><input type="text" class="form-control" name="prodColors[${indexStatus.index}].pc_name" value="${prodColor.pc_name}"></td>
+											<td><input type="color" class="form-control" name="prodColors[${status.index}].pc_code" value="${prodColor.pc_code}"></td>
+											<td><input type="file" class="form-control"	name="prodColors[${status.index}].pc_img_path"></td>
+											<td>
+												<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" style='display:none;' onclick="addColorBtn_view(event)"></button>
+												<button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" onclick="removeColorBtn_view(event)"></button>
+											</td>
+										</tr>
+									</c:forEach>
+								
+									<tr id="color">
+											<td><input type="text" class="form-control" name="prodColors[].pc_name"></td>
+											<td><input type="color" class="form-control" name="prodColors[].pc_code"></td>
+											<td><input type="file" class="form-control"	name="prodColors[].pc_img_path"></td>
+											<td>
+												<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addColorBtn_view(event)"></button>
+												<button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display:none;'onclick="removeColorBtn_view(event)"></button>
+											</td>
+										</tr>
 								</tbody>
 							</table>
 						</div>
@@ -99,9 +110,22 @@
 									</tr>
 								</thead>
 								<tbody id="prod-size-table-body">
+									
+									<c:forEach items="${prodSizes}" var="prodSize">
+										
+										<tr id="size1">
+										<td><input type="text" class="form-control"	id="size-name1" value="${prodSize.ps_name}"></td>
+										<td>
+											<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" style='display: none;' onclick="addSizeBtn(event)"></button>
+											<button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" onclick="removeSizeBtn(event)"></button>
+										</td>
+									</tr>
+										
+									</c:forEach>
+								
 									<tr id="size1">
 										<td><input type="text" class="form-control"
-											id="size-name1" name="prodSizes[0].ps_name"></td>
+											id="size-name1"></td>
 										<td>
 											<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addSizeBtn(event)"></button>
 											<button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display: none;' onclick="removeSizeBtn(event)"></button>
@@ -847,12 +871,12 @@
 
 					<div class="col-md-12">
 						<input type="submit" id='prod-reg-btn' class="btn btn-primary"
-							form="prod-reg-form" value="등록">
+							form="prod-reg-form" onclick='openForm()' value="다음">
 					</div>
 				</form>
 
 			</div>
 		</div>
 
-		<!-- include footer -->
-		<%@ include file="../include/footer.jsp"%>
+</body>
+</html>

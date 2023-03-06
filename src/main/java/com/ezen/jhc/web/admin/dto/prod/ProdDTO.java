@@ -7,7 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 public class ProdDTO {
 	
+	Integer m_ctgr_num;
 	String m_ctgr_name;
+	Integer s_ctgr_num;
 	String s_ctgr_name;
 	Integer p_num;
 	String p_name;

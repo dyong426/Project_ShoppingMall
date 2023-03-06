@@ -11,7 +11,7 @@
 
 
 <!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-latest.js"></script>
 
 <!-- 부트스트랩 -->
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -28,13 +28,6 @@
 <script src="/jhc/assets/admin/js/summernote.js"></script>
 
 <script src="https://kit.fontawesome.com/2a15985a96.js" crossorigin="anonymous"></script>
-
-<!-- Chart.js -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src=" https://cdn.jsdelivr.net/npm/chart.umd.js.map"></script>
-<script src="/jhc/assets/admin/js/chart.js"></script>
-
-<script src="<%=request.getContextPath()%>/assets/admin/js/prod_reg.js"></script>
 	
 <link rel="stylesheet" href="/jhc/assets/admin/css/common.css">
 

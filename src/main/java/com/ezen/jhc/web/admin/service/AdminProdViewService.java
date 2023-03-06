@@ -13,6 +13,8 @@ public interface AdminProdViewService {
 	
 	public List<ProdDTO> getProdsList();
 	
+	public ProdDTO getProdP_num(Integer p_num);
+	
 	public List<ProdColorDTO> getProdColorList(Integer p_num);
 	
 	public List<ProdSizeDTO> getProdSizeList(Integer p_num);
