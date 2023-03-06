@@ -64,11 +64,5 @@ public class AdminProdRegController {
 		System.out.println(req.getParameter("prod_info").length());
 		
 		return "redirect:/admin/prod/view";
-	}
-	
-	@PostMapping("/admin/uploadAjaxAction")
-	public void uploadAjaxActionPOST() {
-		log.info("uploadAjaxActionPost...");
-	}
-	
+	}	
 }
