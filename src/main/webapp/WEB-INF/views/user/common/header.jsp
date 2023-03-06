@@ -36,7 +36,7 @@
 			<div>
 				<button class="sign_up">회원가입</button>
 				<button class="sign_in">로그인</button>
-				<button onclick="location.href='<%=request.getContextPath()%>/cs'">고객센터</button>
+				<button onclick="location.href='<%=request.getContextPath()%>/customerservice'">고객센터</button>
 			</div>
 		</div>
 

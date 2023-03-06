@@ -11,16 +11,17 @@
 }
 
 #re_title {
-	padding-left: 850px;
-	padding-right: 850px;
-	padding-top: 100px;
+    padding-top: 100px;
+    margin: auto;
+    width: 300px;
+    text-align: center;
 }
-
 #re_box>div {
-	width: 1000px;
-	margin-left: 400px;
-	margin-right: 400px;
-	text-align: center;
+    width: 1000px;
+    margin-left: 400px;
+    margin-right: 400px;
+    text-align: center;
+    margin: auto;
 }
 
 #review_con {

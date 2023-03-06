@@ -8,9 +8,4 @@ import com.ezen.jhc.web.user.dto.faq.FaqDTO;
 public class FaqServiceImpl implements FaqService{
 
 
-	@Override
-	public FaqDTO clickcate(Integer faq_ctgr, HttpServletRequest request, HttpServletResponse response) {
-		
-		return null;
-	}
 }

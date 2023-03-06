@@ -12,11 +12,12 @@
 /*배너*/
 #home_banner_container{
 	margin:0;
-
+	padding-left: 0px;
+	padding-right: 0px;
 	
 }
 #banner_photo {
-width: 1700px;
+width: 100%;
 margin: auto;
 }
 
@@ -27,8 +28,7 @@ margin: auto;
 }
 
 #home_cate_icon_box {
-	margin-right: 500px;
-	margin-left: 500px;
+margin:auto;
 	display: grid;
 	grid-auto-flow: column;
 	width: 900px;
@@ -81,15 +81,13 @@ margin: auto;
 	grid-template-areas: 
 	"div div" 
 	"div div";
-	padding-left: 300px;
-	padding-right: 300px;
+	margin:auto;
 }
 
 .home_main_title {
 	text-align: center;
 	width: 700px;
-	margin-left: 600px;
-	margin-right: 600px;
+	margin:auto;
 }
 
 /*리뷰*/
@@ -99,6 +97,9 @@ margin: auto;
 	margin: auto;
 }
 
+#home_customer_review_box{
+	margin: auto;
+}
 
 #all_review{
 	text-align: left ;

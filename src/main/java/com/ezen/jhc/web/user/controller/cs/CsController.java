@@ -18,8 +18,8 @@ public class CsController {
 	@Autowired
 	FaqMapper faq_mapper;
 	
-	@RequestMapping(value ="/cs", method = RequestMethod.GET)
-	public String main(Model model) {
+	@RequestMapping(value ="/customerservice", method = RequestMethod.GET)
+	public String cs_main(Model model) {
 		
 		String cate_name = "주문 / 결제";
 		List<FaqDTO> faq = faq_mapper.get(0);
@@ -29,8 +29,8 @@ public class CsController {
 		return "user/cs/category/faq_category";
 	}
 	
-	@RequestMapping(value ="/cs/cate", method = RequestMethod.GET)
-	public String cate1(Model model, Integer faq_ctgr) {
+	@RequestMapping(value ="/customerservice/cate", method = RequestMethod.GET)
+	public String cs_cate1(Model model, Integer faq_ctgr) {
 		String cate_name = "";
 		List<FaqDTO> faq = faq_mapper.get(faq_ctgr);
 		
@@ -51,19 +51,19 @@ public class CsController {
 		return "user/cs/category/faq_category";
 	}
 	
-	@RequestMapping(value ="/cs/contact", method = RequestMethod.GET)
-	public String oneOnOne() {
+	@RequestMapping(value ="/customerservice/con", method = RequestMethod.GET)
+	public String cs_contatct() {
 		
 		return "user/cs/contact/contact";
 	}
 	
-	@RequestMapping(value ="/contact", method = RequestMethod.GET)
+	@RequestMapping(value ="/mp/contact", method = RequestMethod.GET)
 	public String contact_mp_list() {
 		
 		return "user/mypage/contact/mp_contact_list";
 	}
 	
-	@RequestMapping(value ="/contact/01", method = RequestMethod.GET)
+	@RequestMapping(value ="/mp/contact/01", method = RequestMethod.GET)
 	public String contact_mp() {
 		
 		return "user/mypage/contact/mp_contact";
