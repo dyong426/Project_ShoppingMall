@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
@@ -162,26 +162,26 @@
 				<ul class="home_review_list"
 					style="background-image: url(); list-style: none;">
 
-					<c:forEach items="${review_list}" var="r_list" begin="0" end="4">
+					<c:forEach items="${review_list}" var="list" begin="0" end="4">
 						<li class="home_review_box">
-							<a href="/jhc/review?review_num=${r_list.review_num}">
+							<a href="/jhc/review?review_num=${list.review_num }">
 
 								<div class="home_review_img">
 									<img
-										src="<%=request.getContextPath()%>/${r_list.review_img_path}" />
+										src="<%=request.getContextPath()%>/${list.review_image_path}" />
 								</div>
 
 								<div class="review_score">
-									<div class="star">${r_list.review_star_}</div>
+									<div class="star">${list.star}</div>
 								</div>
 
 								<div class="review_contents">
-									<div class="comment">${r_list.review_content}</div>
+									<div class="comment">${list.review_content}</div>
 								</div>
 
 								<div class="info">
-									<div class="created_at">${r_list.review_regdate}</div>
-									<div class="user_name">${r_list.mem_name}</div>
+									<div class="created_at">${list.review_regdate}</div>
+									<div class="user_name">${list.user_name}</div>
 								</div>
 
 						</a>

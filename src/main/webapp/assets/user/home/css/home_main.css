@@ -119,11 +119,11 @@ margin:auto;
 }
 
 .home_review_box {
-	float: left;
-	padding: 10px;
-	border-radius: 20px;
-	display: inline-block;
-	margin: 10px;
+    float: left;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
+    
 }
 
 .home_review_box>div {

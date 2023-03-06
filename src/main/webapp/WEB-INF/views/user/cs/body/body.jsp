@@ -10,6 +10,6 @@
 		<table id="cs_body">
 
 			<tr id="cs_nav">
-				<th><a href="<%=request.getContextPath() %>/cs">FAQ</a></th>
-				<th><a href="<%=request.getContextPath() %>/cs/contact">1:1 문의</a></th>
+				<th><a href="<%=request.getContextPath() %>/customerservice">FAQ</a></th>
+				<th><a href="<%=request.getContextPath() %>/customerservice/con">1:1 문의</a></th>
 			</tr>

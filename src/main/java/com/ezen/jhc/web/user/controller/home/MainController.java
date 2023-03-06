@@ -22,9 +22,11 @@ public class MainController {
 	public String main(Model model) {
 		
 		List<ReviewDTO> review_list = home_mapper.get_review_list();
+		List<ReviewDTO> all_reviews = home_mapper.get_all_reviews();
 		
 		model.addAttribute("review_list", review_list);
-		model.addAttribute("review_size", review_list.size());
+		model.addAttribute("review_size", all_reviews.size());
+	
 		
 		return "user/home/main";
 	}
@@ -35,9 +37,12 @@ public class MainController {
 	}
 	
 	@RequestMapping(value ="/review", method = RequestMethod.GET)
-	public String reivew(Model model) {
+	public String reivew(Model model, Integer review_num) {
+		List<ReviewDTO> review = home_mapper.get_review(review_num);
+	
 		
-		
+		model.addAttribute("review", review);
+		System.out.println(review);
 		
 		return "user/home/review";
 	}
