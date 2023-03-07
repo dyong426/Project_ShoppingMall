@@ -1,22 +1,26 @@
 package com.ezen.jhc.web.admin.controller.prod;
 
-import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.jhc.common.util.Utils;
+import com.ezen.jhc.web.admin.dto.image.AttachImageDTO;
 import com.ezen.jhc.web.admin.dto.prod.SubCtgrDTO;
 import com.ezen.jhc.web.admin.mapper.prod.SubCtgrMapper;
 
@@ -39,16 +43,36 @@ public class AdminProdRegRestController {
 		return scMapper.getSubCtgr(sCtgr.getM_ctgr_num());
 	}
 
-	@PostMapping("/admin/uploadAjaxAction")
-	public void uploadAjaxActionPOST(MultipartFile[] uploadFile) {
+	@PostMapping(value = "/admin/uploadAjaxAction", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<List<AttachImageDTO>> uploadAjaxActionPOST(MultipartFile[] uploadFile) {
 
 		log.info("제품등록 이미지 업로드");
 
+		// 이미지 파일 체크
+		for (MultipartFile multipartFile : uploadFile) {
+			
+			File checkFile = new File(multipartFile.getOriginalFilename());
+			String type = null;
+			
+			try {
+				type = Files.probeContentType(checkFile.toPath());
+				log.info("MIME TYPE : " + type);
+			} catch (IOException e) {
+				
+				e.printStackTrace();
+			}
+			
+			if (!type.startsWith("image")) {
+				List<AttachImageDTO> attImgList = null;
+				return new ResponseEntity<List<AttachImageDTO>>(attImgList, HttpStatus.BAD_REQUEST);
+			}
+		}
+		
 		// 저장 경로 설정
 		String uploadFolder = "C:\\upload";
 
 		// 파일 이름에 사용할 현재 날짜 가져오기
-		String datePath = util.getNowTime("2023-03-26", 0).replace("-", File.separator);
+		String datePath = util.getNowTime("2023-03-07", 0).replace("-", File.separator);
 
 		// 파일 생성
 		File uploadPath = new File(uploadFolder, datePath);
@@ -57,19 +81,30 @@ public class AdminProdRegRestController {
 		if (uploadPath.exists() == false) {
 			uploadPath.mkdirs();
 		}
+		
+		List<AttachImageDTO> attImgList = new ArrayList<>();
 
 		for (MultipartFile multipartFile : uploadFile) {
+			
+			AttachImageDTO attImgDTO = new AttachImageDTO();
+			// 이미지 객체 
+			attImgDTO.setUploadPath(datePath);
 			// 파일 이름
 			// UUID(범용 고유 식별자 : 일련번호) 생성
 			String uuid = UUID.randomUUID().toString();
+			attImgDTO.setUuid(uuid);
 			// 파일 원본 이름
 			String uploadFileName = multipartFile.getOriginalFilename();
+			attImgDTO.setFileName(uploadFileName);
 			// 파일 업로드 이름 = UUID + 파일 원본 이름
 			uploadFileName = uuid + "_" + uploadFileName;
+			
 
 			// 파일 위치, 파일 이름으 합친 File 객체
 			File saveFile = new File(uploadPath, uploadFileName);
 
+			
+		
 			// 파일 저장
 			try {
 				multipartFile.transferTo(saveFile);
@@ -86,6 +121,8 @@ public class AdminProdRegRestController {
 				int height = (int)(bo_image.getHeight() / ratio);
 				
 				Thumbnails.of(saveFile).size(160, 160).toFile(thumbnailFile);
+				
+				
 				
 				/* 썸네일 비율 축소
 				File thumbnailFile = new File(uploadPath, "s_" + uploadFileName);
@@ -132,7 +169,13 @@ public class AdminProdRegRestController {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-		}
-
+			
+			attImgList.add(attImgDTO);
+		}// for
+		
+		ResponseEntity<List<AttachImageDTO>> result = new ResponseEntity<List<AttachImageDTO>>(attImgList, HttpStatus.OK);
+		System.out.println(result);
+		return result;
 	}
+	
 }

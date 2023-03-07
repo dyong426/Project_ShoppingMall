@@ -44,9 +44,7 @@ public class AdminProdRegController {
 		List<MainCtgrDTO> mainCtgrs = mCtgrMapper.getMainCtgr();
 		
 		model.addAttribute("mainCtgrs", mainCtgrs);
-		
-		
-		
+
 		return "admin/prod/admin_prod_reg";
 	}
 	

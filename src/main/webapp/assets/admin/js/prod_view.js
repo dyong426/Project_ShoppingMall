@@ -14,7 +14,7 @@ var colorNum = 1;
 var sizeNum = 1;
 
 const colorTable_view = document.getElementById('prod_view_color_table_body');
-const sizeTable_view = document.getElementById('prod-size-table-body');
+const sizeTable_view = document.getElementById('prod_view_size_table_body');
 
 function addColor_view(evt) {
     const newColor = colorTable_view.insertRow();
@@ -35,7 +35,7 @@ function addColor_view(evt) {
     colorNum++;
 };
 
-function plusToMinus_view(evt) {
+function plusToMinus(evt) {
     const evtPe = evt.target.parentElement;
 
     evt.target.style.display = 'none';
@@ -54,14 +54,11 @@ function removeColorBtn_view(evt) {
     console.log(removeTarget);
     var row = document.getElementById(removeTarget.id);
 
-    colorTable.deleteRow((row.rowIndex - 1));
+    colorTable_view.deleteRow((row.rowIndex - 1));
 }
 
 //사이즈 추가/제거 버튼
-function addSize(evt) {
-    
-    ++sizeNum;
-
+function addSize_view(evt) {
     const newSize = sizeTable_view.insertRow();
 
     newSize.id = `size${sizeNum}`;
@@ -70,21 +67,23 @@ function addSize(evt) {
     const newSizeBtn = newSize.insertCell(1);
 
     newSizeName.innerHTML += `<input type="text" class="form-control" id="size-name${sizeNum}">`;
-    newSizeBtn.innerHTML += `<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addSizeBtn(event)"></button>
-    <button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display: none;' onclick="removeSizeBtn(event)"></button>`;
+    newSizeBtn.innerHTML += `<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addSizeBtn_view(event)"></button>
+    <button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display: none;' onclick="removeSizeBtn_view(event)"></button>`;
+    
+    sizeNum++;
 };
 
 
-function addSizeBtn(evt) {    
+function addSizeBtn_view(evt) {    
     plusToMinus(evt);
-    addSize(evt);
+    addSize_view(evt);
 }
 
-function removeSizeBtn(evt) {
+function removeSizeBtn_view(evt) {
 
     var removeTarget = evt.target.parentElement.parentElement;
     console.log(removeTarget);
     var row = document.getElementById(removeTarget.id);
 
-    sizeTable.deleteRow((row.rowIndex - 1));
+    sizeTable_view.deleteRow((row.rowIndex - 1));
 }

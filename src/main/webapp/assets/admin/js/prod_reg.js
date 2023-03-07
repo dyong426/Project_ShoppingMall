@@ -48,12 +48,10 @@ function selectMain(event) {
 var colorNum = 1;
 var sizeNum = 1;
 
-const colorTable = document.getElementById('prod-color-table-body');
-const sizeTable = document.getElementById('prod-size-table-body');
+var colorTable = document.getElementById('prod-color-table-body');
+var sizeTable = document.getElementById('prod-size-table-body');
 
 function addColor(evt) {
-    
-    ++colorNum;
 
     const newColor = colorTable.insertRow();
 
@@ -64,11 +62,13 @@ function addColor(evt) {
     const newColorPath = newColor.insertCell(2);
     const newColorBtn = newColor.insertCell(3);
 
-    newColorName.innerHTML += `<input type="text" class="form-control" id="color-name${colorNum}" name="prodColors[0].pc_name"></input>`
-    newColorCode.innerHTML += `<input type="color" class="form-control" id="color-code${colorNum}">`;
-    newColorPath.innerHTML += `<input type="file" class="form-control" id="color-path${colorNum}">`;
+    newColorName.innerHTML += `<input type="text" class="form-control" id="color-name${colorNum}" name="prodColors[${colorNum}].pc_name"/>`
+    newColorCode.innerHTML += `<input type="color" class="form-control" id="color-code${colorNum}" name="prodColors[${colorNum}].pc_code"/>`;
+    newColorPath.innerHTML += `<input type="file" class="form-control" id="color-path${colorNum}" name="prodColors[${colorNum}].pc_img_path" onchange="inputColorImg(this)"/>`;
     newColorBtn.innerHTML += `<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addColorBtn(event)"></button>
     <button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display: none;' onclick="removeColorBtn(event)"></button>`;
+
+    colorNum++;
 };
 
 function plusToMinus(evt) {
@@ -95,9 +95,6 @@ function removeColorBtn(evt) {
 
 //사이즈 추가/제거 버튼
 function addSize(evt) {
-    
-    ++sizeNum;
-
     const newSize = sizeTable.insertRow();
 
     newSize.id = `size${sizeNum}`;
@@ -105,13 +102,15 @@ function addSize(evt) {
     const newSizeName = newSize.insertCell(0);
     const newSizeBtn = newSize.insertCell(1);
 
-    newSizeName.innerHTML += `<input type="text" class="form-control" id="size-name${sizeNum}">`;
+    newSizeName.innerHTML += `<input type="text" class="form-control" id="size-name${sizeNum}" name="prodSizes[${sizeNum}].ps_name"/>`;
     newSizeBtn.innerHTML += `<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addSizeBtn(event)"></button>
     <button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display: none;' onclick="removeSizeBtn(event)"></button>`;
+
+    sizeNum++;
 };
 
 
-function addSizeBtn(evt) {    
+function addSizeBtn(evt) {   
     plusToMinus(evt);
     addSize(evt);
 }
