@@ -37,6 +37,5 @@
 <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/home/js/home.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/common/js/join.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/common/js/login.js"></script>
-
 </body>
 </html>

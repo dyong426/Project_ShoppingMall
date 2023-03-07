@@ -154,7 +154,7 @@
 					</h2>
 				</div>
 				<div id="all_review">
-					<a href="/jhc/allreview"> 전체보기> </a>
+					<a href="/jhc/allreview?page=1"> 전체보기> </a>
 				</div>
 
 			</div>

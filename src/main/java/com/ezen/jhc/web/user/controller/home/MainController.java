@@ -17,28 +17,31 @@ public class MainController {
 	@Autowired
 	HomeMapper home_mapper;
 
-	/**
-	 * 홈 화면 메인페이지
-	 * review_list -> 사진이 첨부된 리뷰 리스트
-	 * all_reviews -> 리뷰 전체 개수 파악
-	 * */
+	/*
+	  	홈 화면 메인페이지
+	  	review_list -> 사진이 첨부된 리뷰 리스트
+	  	count -> 리뷰 개수파악
+	 */
 	@RequestMapping(value ="/main", method = RequestMethod.GET)
 	public String main(Model model) {
 		
 		List<ReviewDTO> review_list = home_mapper.get_review_list();
-		List<ReviewDTO> all_reviews = home_mapper.get_all_reviews();
+		List<ReviewDTO> count = home_mapper.get_all_reviews();
 		
 		model.addAttribute("review_list", review_list);
-		model.addAttribute("review_size", all_reviews.size());
+		model.addAttribute("review_size", count.size());
 	
 		
 		return "user/home/main";
 	}
 	
+	
 	@RequestMapping(value ="/productDetail", method = RequestMethod.GET)
 	public String productDetail() {
 		return "user/prod/productDetailed";
 	}
+	
+	//리뷰 조회 페이지 
 	
 	@RequestMapping(value ="/review", method = RequestMethod.GET)
 	public String reivew(Model model, Integer review_num) {
@@ -52,16 +55,25 @@ public class MainController {
 	}
 
 	
+	// 전체 리뷰 조회 페이지
+	/**
+	 * list_end / list_begin -> 선택한 페이지에 맞춰서 꺼내올 list 
+	 * */
 	@RequestMapping(value ="/allreview", method = RequestMethod.GET)
-	public String all_reivew(Model model) {
+	public String all_reivew(Model model, Integer page) {
 		List<ReviewDTO> all_reviews = home_mapper.get_all_reviews();
+		
+		int list_end = Integer.parseInt(page +"") * 10 - 1;
+		int list_begin = list_end - 9;
 		
 		model.addAttribute("all_reviews",all_reviews);
 		model.addAttribute("review_size", all_reviews.size());
 		
-		System.out.println(all_reviews);
-		System.out.println( all_reviews.size());
+		model.addAttribute("begin",list_begin);
+		model.addAttribute("end",list_end);
 		
 		return "user/home/all_review";
 	}
+
+
 }

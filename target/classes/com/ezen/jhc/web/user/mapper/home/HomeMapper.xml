@@ -41,4 +41,6 @@
 		review_star, review_regdate, mem_name
 		FROM reviews r, members m WHERE r.mem_num = m.mem_num
 	</select>
+	
+	
 </mapper>

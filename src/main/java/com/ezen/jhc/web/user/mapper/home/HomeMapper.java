@@ -12,4 +12,6 @@ public interface HomeMapper {
 	List<ReviewDTO> get_review(Integer review_num);
 	
 	List<ReviewDTO> get_all_reviews();
+	
+	
 }

@@ -55,7 +55,7 @@
 			<a id="review_back" href="<%=request.getContextPath()%>/main">
 				돌아가기 
 			</a>
-			<a id="review_all" href="<%=request.getContextPath()%>/allreview">
+			<a id="review_all" href="<%=request.getContextPath()%>/allreview?page=1">
 				전체리뷰
 			</a>
 			

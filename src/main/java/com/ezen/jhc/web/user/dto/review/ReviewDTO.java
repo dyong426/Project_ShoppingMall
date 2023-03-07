@@ -21,7 +21,7 @@ public class ReviewDTO {
 	Integer p_num;
 	String p_name;
 	String sm_img_path;
-	
+
 	
 	String star;
 	String user_name;
