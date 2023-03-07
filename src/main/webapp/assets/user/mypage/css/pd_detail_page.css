@@ -36,6 +36,7 @@ h3 {
 .title_area {
     height: 150px;
     background-color: rgb(248, 249, 250);
+    margin-top: 20px;
 }
 
 .title {

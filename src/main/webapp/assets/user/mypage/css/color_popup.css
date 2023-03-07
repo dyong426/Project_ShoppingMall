@@ -41,9 +41,9 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 64px 40px 40px;
-    width: 280px;
-    height: 330px;
+    padding: 44px 40px 40px;
+    width: 300px;
+    height: 350px;
 }
 
 .cl_close-button {
@@ -140,6 +140,6 @@
     color: #fff;
     outline: none;
     position: absolute;
-    width: 280px;
+    width: 240px;
     bottom: 40px;
 }

@@ -34,7 +34,7 @@ public class OrderDetailDTO {
 	String	ps_name;
 	//테이블 조인 : prod_images
 	Integer	pi_num;
-	String	pi_main_path;
+	String	origin_img_path;
 	String	pi_thumb_path;
 	
 	// 테이블 조인 : member_cstm

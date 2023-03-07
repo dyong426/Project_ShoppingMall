@@ -42,7 +42,7 @@
                                     <th scope="row">주문처리상태</th>
                                     <td>
                                         입금 전
-                                        <button type="submit" class="order_cancellation">주문취소</button>
+                                        <button type="submit" class="order_cancellation" onclick="location.href='<%=request.getContextPath() %>/cancel'">주문취소</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -151,7 +151,7 @@
                                         <tr class="link_record">
                                             <td class="thumb">
                                                 <a href="<%=request.getContextPath() %>/history">
-                                                    <img id="pd_img" src="<%=request.getContextPath() %>/assets/common/cstm_img/착샷.jpg" alt="예쁜 옷">
+                                                    <img id="pd_img" src="<%=request.getContextPath() %>/assets/common/cstm_img/products/clothes/착샷.jpg" alt="예쁜 옷">
                                                 </a>
                                             </td>
                                             <td class="product_info">

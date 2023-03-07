@@ -13,7 +13,6 @@
             <div class="email_ctr">
                 <label for="">이메일</label>
                 <div class="input">
-                    abc123@naver.com
                     <button class="btn_change_email" type="button">이메일 변경</button>
                 </div>
             </div>

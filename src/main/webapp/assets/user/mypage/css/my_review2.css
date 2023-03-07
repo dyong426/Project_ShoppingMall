@@ -3,6 +3,7 @@
 a {
     color: black;
     z-index: 1;
+    text-decoration-line: none;
 }
 
 a:hover {

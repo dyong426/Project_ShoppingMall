@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/basket.css">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/option_popup.css">
@@ -8,13 +8,11 @@
 
 
   <!-- main -->
-  <div class="cart_body" data-bs-ride="carousel"> 
+  <div class="cart_body"> 
     <div class="basket_top">
-        <div class="basket_title">
             <span id="my_basket">내 장바구니</span>
-        </div>
             <div class="basket_process">
-                <span>장바구니</span>
+                <span id="poket">장바구니</span>
                 <span class="other">&gt;</span>
                 <span class="other">주문서작성</span>
                 <span class="other">&gt;</span>
@@ -33,7 +31,7 @@
             <div class="list">
                 <div class="list_top"><span>2023-02-13 12:04</span><span> | No. 9471967</span></div>
                 <div class="basket_body">
-                    <img id="img" src="<%=request.getContextPath() %>/assets/common/cstm_img/착샷.jpg" alt="상품 이미지"> 
+                    <img id="img" src="<%=request.getContextPath() %>/assets/common/cstm_img/products/clothes/젤란 라이트 후드집업.png" alt="상품 이미지"> 
                     <div class="product_info">
                         <div class="name">
                             후드집업(남여공용)[블루]
@@ -47,9 +45,8 @@
                             <div class="quantity"><span class="val">1</span></div>
                         </div>
                         <div class="price">29,200원</div>
-                        <div class="btn">
+                        <div class="btn_box">
                             <button type='button' class='btn edit'>옵션 변경</button>
-                            <button type='button' class='btn save_heart'>나중에 구매</button>
                             <button type='button' class='btn delete'>삭제</button>
                         </div>
                     </div>
@@ -83,7 +80,7 @@
         <div class="border_bar"></div>
         <div class="math_symbol">
             <div></div>
-            <div class="plus">+</div>
+            <div class="sm_plus">+</div>
             <div class="equal">=</div>
         </div>
         
