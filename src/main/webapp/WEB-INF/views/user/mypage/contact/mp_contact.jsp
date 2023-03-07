@@ -3,76 +3,65 @@
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/mypage/contact/css/mp_contact.css">
+	href="<%=request.getContextPath()%>/assets/user/mypage/contact/css/mp_contact_list.css">
 
-<div id="mp_contact_main">
+<div class="mp_contact_main">
+	<div class="mp_contact_box">
 
-	<div id="mp_contact_box">
-
-		<div id="mp_contact_title">
+		<div class="mp_contact_title">
 			<h1>나의 문의</h1>
 		</div>
 
-		<div id="mp_contact_list_box">
+		<div>
+			<div id="mp_con_cont">
+				<div class="mp_cont">
+					<label for="">제목 </label>
+					<div class="mp_container mp_title">제목입니다 제목</div>
+				</div>
 
-			<table id="con_list_table">
-				<thead>
-					<tr id="con_list_title">
-						<th style="width: 120px;">[종류]</th>
-						<th style="width: 120px;">작성일자</th>
-						<th style="width: 400px;">내용</th>
-						<th style="width: 140px;">답변</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="con_list">
-						<td class="con_list_cate">[주문 / 배송]</td>
-						<td class="con_list_date">2022-10-02</td>
-						<td >
-							<div class="con_list_content">
-								<a id="" href=""> 
-								내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-								</a>
-							</div>
-						</td>
-						<td class="con_list_answer">
-							<div class="answer_status">답변 완료</div>
-						</td>
-					</tr>
-						<tr class="con_list">
-						<td class="con_list_cate">[주문 / 배송]</td>
-						<td class="con_list_date">2022-10-02</td>
-						<td >
-							<div class="con_list_content">
-								<a id="" href=""> 
-								내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-								</a>
-							</div>
-						</td>
-						<td class="con_list_answer">
-							<div class="answer_status">답변 완료</div>
-						</td>
-					</tr>	<tr class="con_list">
-						<td class="con_list_cate">[주문 / 배송]</td>
-						<td class="con_list_date">2022-10-02</td>
-						<td >
-							<div class="con_list_content">
-								<a id="" href=""> 
-								내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다내용입니다내용입니다 내용입니다 내용입니다 내용입니다 내용입니다 
-								</a>
-							</div>
-						</td>
-						<td class="con_list_answer">
-							<div class="answer_status2">답변 예정</div>
-						</td>
-					</tr>
-				</tbody>
-			</table>
+				<br>
+
+				<div class="mp_cont">
+					<label for="">문의사항 </label>
+					<div class="mp_container mp_contents">
+						<img
+							src="<%=request.getContextPath()%>/assets/user/mypage/contact/img/026.jpg"
+							style="width: 300px; heigth: 300px;">
+
+
+					</div>
+				</div>
+				
+				<br>
+
+				
+				
+				<div id="mp_con_answer">
+				<div class="mp_cont">
+					<label for="">답변 </label>
+					<div class="mp_container mp_contents">
+						답변입니다 답변답변
+
+					</div>
+				</div>
+			
+			</div>
+			<div class="mp_cont">
+					<div id="mp_list_back">
+						<a href="<%=request.getContextPath()%>/contact"> 돌아가기 </a>
+					</div>
+				</div>
+			</div>
+			
+			
 		</div>
+
 
 	</div>
 
 </div>
 
 
-<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
+
+<footer>
+	<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
