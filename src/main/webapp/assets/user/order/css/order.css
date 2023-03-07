@@ -4,12 +4,24 @@
 
 body {
 	background-color: rgb(245, 245, 245);
+	overflow-x : hidden;
 }
 
 #outer {
 	width: 80%;
 	margin: auto;
 	margin-bottom: 50px;
+	user-select: none;
+	display: grid;
+	grid-template-columns: 3fr 2fr;
+	padding: 50px 100px;
+}
+
+#rightOuter {
+	width: 25%;
+	height: fit-content;
+	position: fixed;
+	left: 56.8%;
 }
 
 #mainTitle {
@@ -23,17 +35,19 @@ body {
 .subTitle {
 	font-size: large;
 	font-weight: bold;
-	margin-bottom: 20px;
+	margin-bottom: 5%;
 }
 
 .box {
 	background-color: white;
-	width: 50%;
 	height: fit-content;
 	padding: 30px;
-	margin: 5px;
 	border-radius: 5px;
-	margin-left: 10%;
+	margin: 5px;
+}
+
+.box > * {
+	margin: auto;
 }
 
 .rowGrid {
@@ -42,12 +56,7 @@ body {
 	grid-template-columns: 1fr;
 	row-gap: 10px;
 	padding: 10px;
-}
-
-#point {
-	width: 90%;
-	padding: 10px;
-	column-gap: 0;
+	margin-top: 3%;
 }
 
 .columnGrid {
@@ -94,6 +103,31 @@ input, .buttons {
 	transition: 0.3s;
 }
 
-#summary > div > div:last-child {
+#payment {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	column-gap: 10px;
+}
+
+.payButtons {
+	border: 1px rgb(175, 174, 174) solid;
+	height: 40px;
+	background-color: transparent;
+}
+
+.payButtons:hover {
+	border: 1px #063970 solid;
+	color: #063970;
+}
+
+
+.rightAlign {
 	text-align: right;
+}
+
+
+#sameWithOrderer, #saveDestination{
+	position: relative;
+	right: 5px;
+	margin-left: 20px;
 }
