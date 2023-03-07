@@ -1,12 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<!--정수정
-	마이페이지 - 개인정보 페이지-->
-
+    
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/info.css">
-
 
 
   <!-- main -->
@@ -17,7 +13,6 @@
             <div class="email_ctr">
                 <label for="">이메일</label>
                 <div class="input">
-                    abc123@naver.com
                     <button class="btn_change_email" type="button">이메일 변경</button>
                 </div>
             </div>

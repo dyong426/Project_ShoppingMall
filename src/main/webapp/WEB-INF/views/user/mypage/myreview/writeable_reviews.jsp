@@ -48,7 +48,7 @@
                         </td >
                         <td class="wr_img">
                             <a href=""><!-- 여기 클릭하면 판매 페이지로 이동 --></a>
-                            <img style="width: 50px; height: 50px;" src="<%=request.getContextPath() %>/assets/common/cstm_img/착샷.jpg" alt="상품 사진">
+                            <img style="width: 50px; height: 50px;" src="<%=request.getContextPath() %>/assets/common/cstm_img/products/clothes/젤란 라이트 후드집업.png" alt="상품 사진">
                         </td>
                         <td class="wr_check">
                             <strong class="wr_name">
@@ -59,7 +59,7 @@
                           <span>White</span>
                         </td>
                         <td class="wr_amount">
-                            <button type="button">리뷰 작성 하기</button>
+                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review'">리뷰 작성 하기</button>
                         </td>
                     </tr>
                 </tbody>
