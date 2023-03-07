@@ -12,7 +12,7 @@
             </div>
             <div class="header_tab">
                 <div class="tab_left" type="order_list">
-                    <a class="ok_review" href="<%=request.getContextPath() %>/writing_review">작성 가능한 리뷰</a>
+                    <a class="ok_review" href="<%=request.getContextPath() %>/writeable_reviews">작성 가능한 리뷰</a>
                 </div>
                 <div class="tab_right" type="review_list">내가 쓴 리뷰 </div>
             </div>

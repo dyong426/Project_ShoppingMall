@@ -82,10 +82,11 @@
 
 	<!--마이페이지 드롭다운-->
 	<div class="hidden myPage_container" id="myPage_drop-down">
-		<button>주문 내역</button>
-		<button>나의 리뷰</button>
-		<button>나의 정보</button>
-		<button onclick="location.href='#'">문의 내역</button>
+      <button onclick="location.href='<%=request.getContextPath() %>/history'">주문 내역</button>
+      <button onclick="location.href='<%=request.getContextPath() %>/writeable_reviews'">나의 리뷰</button>
+      <button onclick="location.href='<%=request.getContextPath() %>/info'">나의 정보</button>
+      <button onclick="location.href='#'">문의 내역</button>
+
 	</div>
 
 	<!--로그인-->
