@@ -2,6 +2,7 @@ package com.ezen.jhc.web.user.controller.category;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,8 @@ public class CategoryController {
 
 	
 	@GetMapping(value="/category_clothes")
-	public String category_clothes(Model model) {
+	
+	public String category_clothes(Model model, HttpSession session) {
 		
 		String mainCtgr = mapper.getMainCategory(1);
 		List<SubCtgrDTO> subCtgr = mapper.getSubCategories(1);

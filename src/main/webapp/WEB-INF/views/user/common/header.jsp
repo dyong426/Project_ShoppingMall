@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -28,18 +28,21 @@
 
 <body>
 
+			
+     <c:set var="member" value="${sessionScope.member}" />
+		
 	<!-- header -->
 
 	<div class="header_container">
-
+		
+	
+		
 		<!--회원가입, 로그인, 고객센터-->
 		<div id="header_top">
 			<div>
-				<button class="join" id="join">회원가입</button>
-				<button class="login" id="login">로그인</button>
-				<form action="/jhc/logout.do" method="POST">
-					<button class="logout" class="login" id="logout">로그아웃</button>
-				</form>
+				<button class="join hidden_visibility" id="joinBtn">회원가입</button>
+				<button class="login hidden_visibility" id="loginBtn">로그인</button>
+				<button class="logout hidden_visibility" id="logoutBtn">로그아웃</button>
 				<button onclick="location.href='<%=request.getContextPath() %>/cs'">고객센터</button>
 			</div>
 		</div>
@@ -62,7 +65,7 @@
 			</div>
 
 			<div class="header_container_bottom_contents">
-				<span class="user_welcome_text">${member.mem_name }님, 환영합니다.</span>
+				<span class="user_welcome_text hidden_visilbility" id="user_welcome_text">${member.mem_name}님, 환영합니다.</span>
 				<button id="myCart">
 				<span class="material-symbols-outlined">shopping_cart</span>
 				</button>

@@ -2,23 +2,17 @@ package com.ezen.jhc.web.user.controller.mypage;
 
 
 
-import java.util.List;
-
 import javax.sql.DataSource;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
-
 import com.ezen.jhc.web.user.mapper.mypage.MypageMapper;
-
-import lombok.extern.log4j.Log4j;
 
 
 
@@ -83,4 +77,13 @@ public class MypageController {
 		
 		return "user/mypage/purchase/cancel";
 	}
+	
+	@GetMapping("/password/change")
+	public String showPasswordChangeForm() {
+		return "user/mypage/personal_information/passwordChangeForm";
+	}
+
+	
+	
+	
 }

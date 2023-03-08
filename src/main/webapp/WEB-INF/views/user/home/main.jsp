@@ -8,48 +8,7 @@
 <!-- main -->
 <div id="home_main">
 
-	<!-- banner (부트스트랩)-->
-	<div id="home_banner_container" class="h_container">
 
-		<div id="banner_photo" class="banner_slider">
-
-
-			<div id="carouselExampleInterval" class="carousel slide"
-				data-bs-ride="carousel">
-				<div class="carousel-inner">
-					<div id="banner_img01" class="carousel-item active"
-						data-bs-interval="10000">
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg"
-							class="d-block w-100" alt="...">
-					</div>
-					<div id="banner_img01" class="carousel-item"
-						data-bs-interval="2000">
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너2.jpg"
-							class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg"
-							class="d-block w-100" alt="...">
-					</div>
-				</div>
-				<button class="carousel-control-prev" type="button"
-					data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button"
-					data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
-			</div>
-
-		</div>
-
-	</div>
 
 	<!-- category icon -->
 	<div id="home_cate_icon_container" class="h_container">

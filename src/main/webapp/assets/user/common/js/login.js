@@ -11,6 +11,9 @@ checkEmailPw = () => {
   var email = $('#login_email').val();
   var pw = $('#login_pw').val();
 
+  pw = encoder(pw);
+  console.log(pw);
+
   var isTrue = true;
   $.ajax({
     url: '/jhc/checkEmailPw',
@@ -27,6 +30,30 @@ checkEmailPw = () => {
   })
 
   return isTrue;
+
+}
+
+function encoder(password){
+var encoded = "";
+
+$.ajax({
+  url : "/jhc/encrypt.do",
+  type: 'POST',
+  async: false,
+  data: {password: password },
+  success: function(data){
+    encoded = data;
+  },
+  error: function(xhr, ajaxOptions, thrownError){
+    alert(xhr.status);
+    alert(thrownError);
+  }
+
+});
+
+console.log(encoded);
+return encoded;
+
 
 }
 
@@ -48,7 +75,7 @@ mySubmit_login = () => {
     submit_check = false;
 
   } else if (pw.value == "") {
-    show_error_message_login('비밀번호','를 입력해주세요.');
+    show_error_message_login('비밀번호', '를 입력해주세요.');
     pw.focus();
     submit_check = false;
 
@@ -58,11 +85,11 @@ mySubmit_login = () => {
 
   } else {
     pw.focus();
-    show_error_message_login('비밀번호','가 틀렸습니다.');
+    show_error_message_login('비밀번호', '가 틀렸습니다.');
     return false;
   }
 
-	console.log(submit_check);
+  console.log(submit_check);
   return submit_check;
 
 }
@@ -70,18 +97,10 @@ mySubmit_login = () => {
 
 
 
-function logout() {
-  document.querySelector(".login").classList.remove('hidden_visibility');
-  login_value = 'login';
-
-  kakaoLogout();
-
-}
 
 function login() {
-  
-  console.log(document.getElementById('login').innerText);
-  
+
+
   document.getElementById('login').innerText = '로그아웃';
 }
 
@@ -123,3 +142,37 @@ function kakaoLogout() {
 }
 
 
+const loginBtn = document.getElementById('loginBtn');
+const logoutBtn = document.getElementById('logoutBtn');
+const joinBtn = document.getElementById('joinBtn');
+const user_welcome = document.getElementById('user_welcome_text');
+
+// 로그인 <-> 로그아웃
+isLoggedIn(function (loggedIn) {
+  if (loggedIn) {
+    joinBtn.classList.add('hidden_visibility');
+    loginBtn.classList.add('hidden_visibility');
+    logoutBtn.classList.remove('hidden_visibility');
+    user_welcome.classList.remove('hidden_visibility');
+  } else {
+
+    joinBtn.classList.remove('hidden_visibility');
+    logoutBtn.classList.add('hidden_visibility');
+    loginBtn.classList.remove('hidden_visibility');
+    user_welcome.classList.add('hidden_visibility');
+  }
+});
+
+
+logoutBtn.addEventListener('click', function(){
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', '/jhc/logout.do', true);
+  xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+         window.location.href = '/jhc/main';
+      }
+  };
+  xhr.send();
+
+
+});

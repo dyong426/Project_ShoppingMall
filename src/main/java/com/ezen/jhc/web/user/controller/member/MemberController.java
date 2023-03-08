@@ -1,7 +1,9 @@
 package com.ezen.jhc.web.user.controller.member;
 
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -10,55 +12,82 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.ezen.jhc.common.util.SessionConstants;
-import com.ezen.jhc.common.util.SessionManager;
+import com.ezen.jhc.common.util.PasswordEncoder;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.mapper.member.MemberMapper;
 
-@Controller
 
+/**
+ * @author SUJEONG
+ * 회원가입, 로그인, 로그아웃 */
+
+@Controller
 public class MemberController {
 
-	@Autowired
-	SessionManager sessionManager;
-	
 	@Autowired
 	DataSource ds;
 	
 	@Autowired
 	MemberMapper mapper;
+
+	// 암호화
+	@RequestMapping(value="/encrypt.do")
+	public ResponseEntity<String> encryptPassword(@RequestParam String password) throws NoSuchAlgorithmException {
+		String encoded = PasswordEncoder.encodePassword(password);
+		
+		return new ResponseEntity<String>(encoded, HttpStatus.OK);
+		
+	}
+	
 	
 	@RequestMapping(value="/join.do")
-	public String join_member (MemberDTO dto, Model model, HttpServletRequest request){
+	public String join_member (MemberDTO dto, Model model, HttpServletRequest request) throws NoSuchAlgorithmException{
 		
 		String mem_email = request.getParameter("mem_email");
 		Integer member = mapper.checkMem(mem_email);
-
+		
+		dto.setMem_pw(PasswordEncoder.encodePassword(dto.getMem_pw()));
+		
 		if (member == 0) {
+			
 			mapper.join(dto);
-			model.addAttribute("member", dto);	
+			model.addAttribute("mem_email", dto.getMem_email());
+			model.addAttribute("mem_name", dto.getMem_name());	
 		}
-				return "user/join/welcome";
+			return "user/join/welcome";
 	}
 	
+	// 세션과 쿠키를 이용한 로그인 유지 방식
 	@PostMapping("/login.do")
-	public String login(
-			Model model, HttpServletRequest request, HttpServletResponse response) {
-
-		MemberDTO dto = mapper.getMember(request.getParameter("mem_email"));
-		model.addAttribute("member", dto);
+	public String login(@RequestParam("mem_email")String memEmail,
+			HttpServletRequest request, HttpServletResponse response,
+			HttpSession session) {
 		
-		HttpSession session = request.getSession();
-		session.setAttribute(SessionConstants.LOGIN_MEMBER, dto);
-		session.setMaxInactiveInterval(1800);//1800초
+		MemberDTO dto = mapper.getMember(memEmail);
+		
+
+		// 세션에 memberDTO 저장
+		session = request.getSession(true);
+		session.setAttribute("member", dto);
+		session.setMaxInactiveInterval(3600);
+		
+		
+
+		// 쿠키 생성
+		Cookie cookie = new Cookie("jhcid", "내가만든쿠키");
+		cookie.setMaxAge(60 * 60 * 24); // 하루
+		cookie.setHttpOnly(true); // xss 공격 예방
+		cookie.setPath("/jhc"); // jhc에서만 사용 가능
+		response.addCookie(cookie);
 		
 		
 		return "redirect:/main";
@@ -66,28 +95,31 @@ public class MemberController {
 	}
 	
 	@PostMapping("/logout.do")
-	public String logout(HttpServletRequest request) {
+	public String logout(HttpSession session, HttpServletRequest request, HttpServletResponse response) {
 		
-		System.out.println("로그아웃");
-		HttpSession session = request.getSession(false);
+		// 로그아웃시 세션, 쿠키 만료
+		session.removeAttribute("member");
 		session.invalidate();
 		
+		Cookie[] cookies = request.getCookies();
 		
-		return "redirect:/loginHome";
+		if (cookies !=null) {
+			for (Cookie cookie : cookies) {
+				if(cookie.getName().equals("jhcid")) {
+				cookie.setValue(null);
+				cookie.setMaxAge(0);
+				response.addCookie(cookie);
+				break;
+				
+				}
+				
+			}
+		}
+		
+		return "redirect:/main";
 				
 	}
-	
-	@GetMapping("/loginHome")
-	public String homeLoginV2(HttpServletRequest request, Model model) {
-	   MemberDTO member = (MemberDTO) sessionManager.getSession(request);
-
-	    if (member == null) {
-	        return "user/home/main";
-	    }
-
-	    model.addAttribute("member", member);
-	    return "loginHome";
-	}
+		
 	
 	@RequestMapping("/emailCheck")
 	@ResponseBody

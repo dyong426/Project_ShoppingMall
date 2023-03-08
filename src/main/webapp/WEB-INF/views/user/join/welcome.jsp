@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file="../common/header.jsp"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/member/css/welcome.css" />
 
 <div class="join_welcome_container">
@@ -9,11 +10,11 @@
 	</span>
 	
 	<div class="join_welcome_text">
-	
+		
 		<div>환영합니다!</div>
-		<div>${member.mem_name }님, 회원가입을 축하합니다.</div>
+		<div>${mem_name }님, 회원가입을 축하합니다.</div>
 		<div class="join_welcome_text_bar"></div>
-		<div class="join_welcome_text_email">이메일 주소<span>${member.mem_email }</span></div>
+		<div class="join_welcome_text_email">이메일 주소<span>${mem_email }</span></div>
 		<div class="join_welcome_text_date">가입일
 			<span>
 				<script>
