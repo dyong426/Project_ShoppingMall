@@ -1,0 +1,167 @@
+#review_main_container {
+	background-color: rgb(241, 240, 240);
+}
+
+#re_box {
+	background-color: white;
+	padding-top: 100px;
+	margin-bottom: 200px;
+	margin-top: 50px;
+	padding-bottom: 100px;
+}
+
+#re_title {
+	padding-top: 100px;
+	margin: auto;
+	width: 300px;
+	text-align: center;
+}
+
+#re_box>div {
+	width: 1000px;
+	margin-left: 400px;
+	margin-right: 400px;
+	text-align: center;
+	margin: auto;
+}
+
+#review_con {
+	display: grid;
+	grid-template-row: 1fr 1fr;
+}
+
+#review_con>div {
+	margin-bottom: 50px;
+	width: 700px;
+	margin-left: 150px;
+	margin-right: 150px;
+}
+
+#review_img>img {
+	width: 100%;
+}
+
+#review_content_box {
+	border: 1px rgb(241, 240, 240) solid;
+	background-color: rgb(241, 240, 240);
+}
+
+#re_info {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	padding: 15px;
+}
+
+#review_contents {
+	max-height: 10000px;
+	padding: 15px;
+	background-color: white;
+}
+
+#review_pro_box>a {
+	color: black;
+}
+
+#review_pro {
+	width: 700px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	border: 1px rgb(241, 240, 240) solid;
+	margin-left: 150px;
+	margin-right: 150px;
+	height: 100px;
+}
+
+#review_back {
+	background-color: white;
+	border-radius: 6px;
+	display: inline-block;
+	padding: 10px 20px;
+	text-decoration: none;
+	box-shadow: 3px 3px 0px 0px grey;
+	margin-right: 100px;
+	margin-top: 50px;
+	border: 1px solid black;
+}
+
+#review_all {
+	background-color: white;
+	border-radius: 6px;
+	display: inline-block;
+	padding: 10px 20px;
+	text-decoration: none;
+	box-shadow: 3px 3px 0px 0px grey;
+	margin-left: 100px;
+	margin-top: 50px;
+	border: 1px solid black;
+}
+
+
+/* 전체리뷰 페이지 */
+#all_review_background {
+    background-color: rgb(241, 240, 240);
+    min-height: 800px;
+    padding: 100px;
+}
+    
+#all_review_main_container {
+	margin: auto;
+    width: 1000px;
+    min-height: 700px;
+    background-color: white;
+}
+
+#all_review_main_container > div {
+	margin-left: 50px;
+	margin-right: 50px;	
+	padding: 50px;
+}
+
+#all_review_title{
+	margin:auto;
+
+	border-bottom: 1px rgb(241, 240, 240) solid;
+	text-align: center;
+
+}
+
+.all_review_list{
+	height: 100px;
+	border-top: 1px rgb(241, 240, 240) solid;
+	
+}
+
+.all_review_list_box{
+	 display:block;
+	min-height: 100px;
+	display: grid;
+	grid-template-columns: 1fr 0.2fr; 
+	color:black;
+}
+
+.all_review_info {
+
+	display: grid;
+	grid-template-columns: 0.7fr 0.5fr 1fr; 
+	height:30px;
+	padding: 5px;
+}
+
+.all_review_content{
+
+	height: 70px;
+	padding: 5px;	
+}
+
+.all_review_img{
+
+	padding: 5px;
+	height: 100px;	
+}
+
+.all_review_img > img {
+	height: 85px;	
+	display: flex;
+	justify-content: center;
+	overflow: hidden;
+}
