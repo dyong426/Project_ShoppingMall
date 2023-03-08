@@ -11,6 +11,6 @@ public interface FaqMapper {
 //	@Select("SELECT * FROM faqs WHERE faq_ctgr = #{faq_ctgr} ORDER BY faq_num;")
 	
 	List<FaqDTO> get(Integer faq_ctgr);
-	
+	List<FaqDTO> get_ctgr();
 	
 }

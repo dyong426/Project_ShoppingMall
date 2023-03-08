@@ -12,7 +12,7 @@
 
 			<div id="oneOn_box">
 
-				<form id="oneOnOne_form" action="" method="GET">
+				<form id="oneOnOne_form" action="" method="POST">
 
 					<div id="oneOnOne_title" class="oneOnOne inside_form">
 						<label for="">제목 </label> <input type="text" name="contact_title"
@@ -45,10 +45,12 @@
 						</div>
 					</div>
 
+						<a href="<%=request.getContextPath()%>/customerservice">
 					<div id="cs_submit" class="oneOnOne inside_form">
 						<input type="submit" value="제출" style="width: 100px;" />
 
 					</div>
+						</a>
 
 				</form>
 

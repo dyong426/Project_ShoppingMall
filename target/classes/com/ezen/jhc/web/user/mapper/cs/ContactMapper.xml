@@ -12,4 +12,4 @@
 		${contact_content},${contact_image_path},
 		${contact_regdate},null)
 	</select> 
-</mapper>
+</mapper> 

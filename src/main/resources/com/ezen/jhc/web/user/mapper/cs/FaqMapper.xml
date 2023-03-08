@@ -8,4 +8,8 @@
 	<select id="get" resultType="com.ezen.jhc.web.user.dto.faq.FaqDTO">
 		SELECT * FROM faqs WHERE faq_ctgr = #{faq_ctgr} ORDER BY faq_num
 	</select> 
+	
+	<select id="get_ctgr" resultType="com.ezen.jhc.web.user.dto.faq.FaqDTO">
+		SELECT faq_ctgr FROM faqs
+	</select> 
 </mapper>

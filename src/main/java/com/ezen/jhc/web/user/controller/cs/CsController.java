@@ -2,6 +2,8 @@ package com.ezen.jhc.web.user.controller.cs;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ezen.jhc.web.user.dto.faq.FaqDTO;
+import com.ezen.jhc.web.user.mapper.cs.ContactMapper;
 import com.ezen.jhc.web.user.mapper.cs.FaqMapper;
 
 @Controller
@@ -17,6 +20,9 @@ public class CsController {
 	
 	@Autowired
 	FaqMapper faq_mapper;
+
+	@Autowired
+	ContactMapper contact_mapper;
 	
 	// CS 시작 페이지 = 주문/결제 (cate_num=1)
 	@RequestMapping(value ="/customerservice", method = RequestMethod.GET)
@@ -59,22 +65,37 @@ public class CsController {
 	}
 	
 	// CS 내 1:1 문의 
+	
 	@RequestMapping(value ="/customerservice/con", method = RequestMethod.GET)
-	public String cs_contatct() {
+	public String cs_contatct(HttpServletRequest req) {
+		
+		
+		
 		
 		return "user/cs/contact/contact";
 	}
 	
 	
+	
+	@RequestMapping(value ="/customerservice/con", method = RequestMethod.POST)
+	public String cs_contatct_(HttpServletRequest req) {
+		
+		
+		
+		
+		
+		return "user/cs/contact/contact";
+	}
+	
 	// 마이 페이지 내 1:1 문의 리스트
-	@RequestMapping(value ="/mp/contact", method = RequestMethod.GET)
+	@RequestMapping(value ="/contact", method = RequestMethod.GET)
 	public String contact_mp_list() {
 		
 		return "user/mypage/contact/mp_contact_list";
 	}
 	
 	// 마이 페이지 내 1:1 문의 확인 (문의 번호로 조회)
-	@RequestMapping(value ="/mp/contact/01", method = RequestMethod.GET)
+	@RequestMapping(value ="/contact/01", method = RequestMethod.GET)
 	public String contact_mp() {
 		
 		return "user/mypage/contact/mp_contact";

@@ -73,7 +73,7 @@
 		<button>주문 내역</button>
 		<button>나의 리뷰</button>
 		<button>나의 정보</button>
-		<button>1:1 문의</button>
+		<button> <a href="<%=request.getContextPath()%>/contact">1:1 문의</a></button>
 	</div>
 
 	<!--로그인-->
