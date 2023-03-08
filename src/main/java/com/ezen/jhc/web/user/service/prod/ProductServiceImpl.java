@@ -53,4 +53,9 @@ public class ProductServiceImpl implements ProductService {
 		return prodMapper.getProdByNum(p_num);
 	}
 
+	@Override
+	public ProdColorDTO getInitialColor(int p_num) {
+		return prodMapper.getInitialColorByNum(p_num);
+	}
+
 }

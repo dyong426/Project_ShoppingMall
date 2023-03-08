@@ -15,4 +15,6 @@ public interface ProductService {
 	public List<String> getSizes(int p_num);
 	
 	public ProdDTO getProd(int p_num);
+	
+	public ProdColorDTO getInitialColor(int p_num);
 }

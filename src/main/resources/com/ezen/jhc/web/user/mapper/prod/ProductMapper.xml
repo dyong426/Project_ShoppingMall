@@ -20,5 +20,9 @@
 	<select id="getProdByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdDTO">
 		SELECT * FROM prods WHERE p_num = #{p_num}
 	</select>
+	
+	<select id="getInitialColorByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdColorDTO">
+		SELECT * FROM prod_colors WHERE p_num = #{p_num} AND pc_name = 'WHITE'
+	</select>
 
 </mapper>

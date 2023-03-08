@@ -6,6 +6,17 @@
 
 <link rel="stylesheet" href="assets/user/order/css/order.css" />
 
+<title>juhee custom - 주문서 작성</title>
+
+<%--
+	받아야 하는 정보
+	
+	 - 회원 정보 (이름, 연락처, 이메일, 주소 저장여부, 주소, 포인트)
+	 - 장바구니
+	 - 상품 정보 (이미지, 제품명, 가격, 색상명, 사이즈명)
+--%>
+
+<c:set value="${sessionScope.member}" var="member" />
 
 <div id="mainTitle">주문서 작성</div>
 
@@ -17,15 +28,15 @@
 			<div id="ordererInformation" class="rowGrid">
 				<div class="columnGrid">
 					<div>이름</div>
-					<input type="text" id="ordererName" name="ordererName" placeholder="이름을 입력해주세요."/>
+					<input type="text" id="ordererName" value="${member.mem_name}" name="ordererName" placeholder="이름을 입력해주세요."/>
 				</div>
 				<div class="columnGrid">
 					<div>연락처</div>
-					<input type="text" id="ordererPhone" name="ordererPhone" placeholder="- 없이 00000000000"/>
+					<input type="tel" id="ordererPhone" value="${member.mem_phone}" name="ordererPhone" placeholder="- 없이 00000000000" pattern="0[0-9]{10}"/>
 				</div>
-				<div id="ordererEmail" class="columnGrid">
+				<div class="columnGrid">
 					<div>이메일</div>
-					<input type="text" name="ordererEmail" placeholder="이메일을 입력해주세요."/>
+					<input type="text" id="ordererEmail" value="${member.mem_email}" name="ordererEmail" placeholder="이메일을 입력해주세요."/>
 				</div>
 			</div>
 		</div>
@@ -88,7 +99,7 @@
 				</div>
 				<div id="shippingFare" class="columnGrid">
 					<div>배송비</div>
-					<div class="rightAlign"><b>				
+					<div class="rightAlign"><b>
 					<%--
 						<c:choose>
 							<c:when test="${${총 금액} > 50000}">
@@ -113,6 +124,7 @@
 			<div class="subTitle">결제 방식</div>
 			<div class="rowGrid">
 				<div id="payment">
+				<%-- 결제 API 넣어야함 --%>
 					<button id="" class="payButtons">무통장 입금</button>
 					<button id="kakaoPay" class="payButtons">카카오 페이</button>
 					<button id="naverPay" class="payButtons">네이버 페이</button>
@@ -129,8 +141,34 @@
 				<div class="rightAlign">총 결제 금액</div>
 			</div>
 			<hr />
-			
-		</div>
+			<br />
+			<%--
+			<c:forEach items="${주문 상품들}" var="prod">
+				<div class="orderList">
+					<div class="rowSpan">
+						이미지
+					</div>
+					<div>
+						제품명
+						${prod.p_name}
+					</div>
+					<div>
+						색상 : ${prod.pc_name}
+					</div>
+					<div>
+						사이즈 : ${prod.ps_name}
+					</div>
+					<div>
+						수량 : 
+					</div>
+					<div>
+						가격
+						${수량 * ${prod.p_price}}
+					</div>
+				</div>
+			</c:forEach>
+			--%>
+		 </div>
 	</div>
 	
 </div>

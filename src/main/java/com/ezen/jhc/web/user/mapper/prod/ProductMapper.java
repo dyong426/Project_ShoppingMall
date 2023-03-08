@@ -15,4 +15,6 @@ public interface ProductMapper {
 	List<ProdSizeDTO> getProdSizesByNum(int p_num);
 	
 	ProdDTO getProdByNum(int p_num);
+	
+	ProdColorDTO getInitialColorByNum(int p_num);
 }

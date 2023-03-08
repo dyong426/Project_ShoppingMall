@@ -8,27 +8,21 @@
 <link rel="stylesheet" href="assets/user/prod/css/cstm.css">
 <script src="https://unpkg.com/konva@8.4.2/konva.min.js"></script>
 
+<title>juhee custom - 상품 제작</title>
+
 <!-- main -->
 <div id="main_container">
 	<!--canvas-->
 	<div id="main_canvas_container">
 		<div id="menuBar">
-			<label id="imageIcon" for="fileInput">
-				<div>
-					<span class="material-symbols-outlined">imagesmode</span>
-				</div>
-				<div>이미지 업로드</div> <input type="file" multiple="multiple"
-				id="fileInput" accept="image/*">
-			</label> <label id="textIcon">
-				<div>
-					<span class="material-symbols-outlined">format_shapes</span>
-				</div>
-				<div>텍스트</div>
-			</label> <label id="sampleIcon">
-				<div>
-					<span class="material-symbols-outlined">category</span>
-				</div>
-				<div>샘플 아이콘</div>
+			<label id="imageIcon" for="fileInput"> <span
+				class="material-symbols-outlined">imagesmode</span> <br /> 이미지 업로드
+				<input type="file" multiple="multiple" id="fileInput"
+				accept="image/*">
+			</label> <label id="textIcon"> <span
+				class="material-symbols-outlined">format_shapes</span> <br /> 텍스트
+			</label> <label id="sampleIcon"> <span
+				class="material-symbols-outlined">category</span> <br /> 샘플 아이콘
 			</label>
 		</div>
 
@@ -82,20 +76,16 @@
 					<div id="colorInformation">
 						<!-- DB에서 가져온 색들 중 선택된 색의 이름을 색상명에 넣음 -->
 						<div>
-							<b class="subTitle">
-								색상 -
-								<span id="colorName" data-imagePath="${color.pc_img_path}">
-									${color.pc_name}
-								</span>
+							<b class="subTitle"> 색상 - <span id="colorName"
+								data-imagePath="${color.pc_img_path}"> ${color.pc_name} </span>
 							</b>
 						</div>
 						<div id="productColors">
 							<!-- DB에서 가져온 해당 상품에 존재하는 색들의 값을 backgroundColor로 설정한 div 추가 -->
 							<c:forEach items="${colors}" var="color">
 								<div id="${color.value.pc_code}"
-									 data-name="${color.value.pc_name}"
-									 data-imagePath="${color.value.pc_img_path}">
-								</div>
+									data-name="${color.value.pc_name}"
+									data-imagePath="${color.value.pc_img_path}"></div>
 							</c:forEach>
 						</div>
 					</div>
@@ -112,10 +102,13 @@
 		</div>
 
 		<div id="buttons">
-			<button id="directPurchase">바로 구매하기</button>
-			<button id="intoCart">장바구니 담기</button>
+			<form action="<%=request.getContextPath()%>/order" method="POST">
+				<input type="submit" class="buttons" id="directPurchase" value="바로 구매하기"></input>
+				<input type="hidden" id="prod_size" name="prod_size" />
+			</form>
+			<button class="buttons" id="intoCart">장바구니 담기</button>
 		</div>
-
+		
 		<div id="menu">
 			<button id="delete-button">Delete</button>
 		</div>
@@ -317,7 +310,6 @@
 				<div>
 					<img src="assets/common/cstm_img/의류4.jpg" alt="" />
 				</div>
-
 			</div>
 		</div>
 	</div>
@@ -362,14 +354,10 @@
 				</div>
 				<div id="customer_review_contents">옷 좋아요</div>
 
-
 			</div>
 		</div>
 	</div>
 
-</div>
-
-</div>
 </div>
 
 <script src="assets/user/prod/js/cstm.js"></script>

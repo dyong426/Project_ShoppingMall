@@ -28,10 +28,11 @@ recipientPhone.addEventListener('keyup', (e) => {
 });
 
 
-// 전화번호 입력칸 문자 입력하면 초기화 함수
+// 전화번호 입력칸 문자 입력하면 초기화하는 함수
 function isNumber(target) {
 	if (isNaN(target.value)) {
-		target.value = null;
+        console.log(target.value);
+		target.value = "";
 	}
 }
 
@@ -61,30 +62,40 @@ function searchPostNumber() {
 
 
 // 네이버페이 API 설정
-var oPay = Naver.Pay.create({ //SDK Parameters를 참고 바랍니다.
-	"mode" : 'development',
-	"clientId": 'u86j4ripEt8LRfPGzQ8'
-});
+// var oPay = Naver.Pay.create({ //SDK Parameters를 참고 바랍니다.
+// 	"mode" : 'development',
+// 	"clientId": 'u86j4ripEt8LRfPGzQ8'
+// });
 
 //직접 만드신 네이버페이 결제버튼에 click Event를 할당하세
-const naverPay = document.getElementById('naverPay');
+// const naverPay = document.getElementById('naverPay');
 
-naverPay.addEventListener("click", function() {
-  oPay.open({ // Pay Reserve Parameters를 참고 바랍니다.
-	"merchantUserKey": "partner-userkey",
-	"merchantPayKey": "partmenr-orderkey",
-	"productName": "{#_productName}",
-	"totalPayAmount": 50000,
-	"taxScopeAmount": 50000,
-	"taxExScopeAmount": 0,
-	"returnUrl": "{#_returnUrl}"
-  });
-});
+// naverPay.addEventListener("click", function() {
+//   oPay.open({ // Pay Reserve Parameters를 참고 바랍니다.
+// 	"merchantUserKey": "partner-userkey",
+// 	"merchantPayKey": "partmenr-orderkey",
+// 	"productName": "{#_productName}",
+// 	"totalPayAmount": 50000,
+// 	"taxScopeAmount": 50000,
+// 	"taxExScopeAmount": 0,
+// 	"returnUrl": "{#_returnUrl}"
+//   });
+// });
 
 
+// 구매 제품 정보 fixed 범위 지정
 const rightOuter = document.getElementById('rightOuter');
 const leftOuter = document.getElementById('leftOuter');
-window.onscroll = (e) => {
-	console.log('leftOuter의 바닥 위치 : ', leftOuter.offsetTop + leftOuter.clientHeight);
-	console.dir(rightOuter);
+
+window.onscroll = () => {
+    let rightOuterBottom = window.scrollY + rightOuter.clientHeight;
+
+    if (leftOuter.clientHeight <= rightOuterBottom) {
+        
+        rightOuter.style.position = 'absolute';
+        rightOuter.style.top = (leftOuter.clientHeight - rightOuter.clientHeight + leftOuter.offsetTop) + 'px';
+    } else {
+        rightOuter.style.position = 'fixed';
+        rightOuter.style.top = null;
+    }
 }
