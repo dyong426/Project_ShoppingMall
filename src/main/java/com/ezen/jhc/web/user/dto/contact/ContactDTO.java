@@ -17,6 +17,6 @@ public class ContactDTO {
 	String contact_title;
 	String contact_content;
 	String contact_image_path;
-	Date contact_regdate;
+	String contact_regdate;
 	String admin_reply;
 }

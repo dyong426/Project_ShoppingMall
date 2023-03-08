@@ -13,4 +13,6 @@
 			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=2"> 취소 / 환불 </a></th>
 			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=3"> 반품 / 교환 </a></th>
 			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=4"> 기타 </a></th>
+			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=5"> 제작문의 </a></th>
+			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=6"> 단체문의 </a></th>
 		</tr>

@@ -91,7 +91,7 @@
 }
 #oneOnOne_form {
 	display: gird;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	margin:auto;
 }
 

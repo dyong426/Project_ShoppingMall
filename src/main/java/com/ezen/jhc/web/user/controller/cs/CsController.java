@@ -18,6 +18,7 @@ public class CsController {
 	@Autowired
 	FaqMapper faq_mapper;
 	
+	// CS 시작 페이지 = 주문/결제 (cate_num=1)
 	@RequestMapping(value ="/customerservice", method = RequestMethod.GET)
 	public String cs_main(Model model) {
 		
@@ -29,6 +30,8 @@ public class CsController {
 		return "user/cs/category/faq_category";
 	}
 	
+	// 카테고리별 페이지 
+	// cate_num을 받아서 적용 
 	@RequestMapping(value ="/customerservice/cate", method = RequestMethod.GET)
 	public String cs_cate1(Model model, Integer faq_ctgr) {
 		String cate_name = "";
@@ -44,6 +47,10 @@ public class CsController {
 			cate_name ="반품 / 교환";
 		} else if(faq_ctgr == 4) {
 			cate_name ="기타";
+		} else if (faq_ctgr == 5) {
+			cate_name ="제작 문의";
+		} else if (faq_ctgr == 6) {
+			cate_name ="단체문의";
 		}
 		
 		model.addAttribute("faq", faq);
@@ -51,18 +58,22 @@ public class CsController {
 		return "user/cs/category/faq_category";
 	}
 	
+	// CS 내 1:1 문의 
 	@RequestMapping(value ="/customerservice/con", method = RequestMethod.GET)
 	public String cs_contatct() {
 		
 		return "user/cs/contact/contact";
 	}
 	
+	
+	// 마이 페이지 내 1:1 문의 리스트
 	@RequestMapping(value ="/mp/contact", method = RequestMethod.GET)
 	public String contact_mp_list() {
 		
 		return "user/mypage/contact/mp_contact_list";
 	}
 	
+	// 마이 페이지 내 1:1 문의 확인 (문의 번호로 조회)
 	@RequestMapping(value ="/mp/contact/01", method = RequestMethod.GET)
 	public String contact_mp() {
 		

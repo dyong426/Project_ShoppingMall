@@ -12,16 +12,26 @@
 
 			<div id="oneOn_box">
 
-				<form id="oneOnOne_form" action="" method="POST">
+				<form id="oneOnOne_form" action="" method="GET">
 
 					<div id="oneOnOne_title" class="oneOnOne inside_form">
-						<label for="">제목 </label> <input type="text" name="title"
+						<label for="">제목 </label> <input type="text" name="contact_title"
 							style="width: 300px;" />
 					</div>
 					<br>
 					<div id="oneOnOne_file" class="oneOnOne inside_form">
 
-						<label for="">첨부파일 </label> <input type="file" name="oneOne_file" />
+						<label for="">첨부파일 </label> <input type="file" name="contact_image_path" accept="image/png, image/jpeg/">
+
+					</div>
+					<br>
+					
+					<div id="oneOnOne_cate" class="oneOnOne inside_form">
+
+						<label><input type="radio" value="0" name="contact_ctgr">주문/배송</input></label>
+						<label><input type="radio" value="0" name="contact_ctgr">주문/배송</input></label>
+						<label><input type="radio" value="0" name="contact_ctgr">주문/배송</input></label>
+						<label><input type="radio" value="0" name="contact_ctgr">주문/배송</input></label>
 
 					</div>
 					<br>
@@ -29,7 +39,7 @@
 					<div id="oneOnOne_contents" class="oneOnOne inside_form">
 						<label for="">문의사항 </label>
 						<div>
-							<textarea name="contents" style="resize: none;" id="" cols="100"
+							<textarea name="contact_content" style="resize: none;" id="" cols="100"
 								rows="15"></textarea>
 
 						</div>

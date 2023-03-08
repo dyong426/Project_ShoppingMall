@@ -6,7 +6,7 @@
 	href="<%=request.getContextPath()%>/assets/user/cs/css/category.css">
 
 <tr>
-	<th colspan="5">
+	<th colspan="7">
 
 
 

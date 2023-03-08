@@ -41,8 +41,7 @@ public class MainController {
 		return "user/prod/productDetailed";
 	}
 	
-	//리뷰 조회 페이지 
-	
+	//리뷰 조회 페이지
 	@RequestMapping(value ="/review", method = RequestMethod.GET)
 	public String reivew(Model model, Integer review_num) {
 		List<ReviewDTO> review = home_mapper.get_review(review_num);
@@ -57,7 +56,8 @@ public class MainController {
 	
 	// 전체 리뷰 조회 페이지
 	/**
-	 * list_end / list_begin -> 선택한 페이지에 맞춰서 꺼내올 list 
+	 * list_end / list_begin -> 선택한 페이지에 맞춰서 꺼내올 list num
+	 * 
 	 * */
 	@RequestMapping(value ="/allreview", method = RequestMethod.GET)
 	public String all_reivew(Model model, Integer page) {
@@ -65,6 +65,10 @@ public class MainController {
 		
 		int list_end = Integer.parseInt(page +"") * 10 - 1;
 		int list_begin = list_end - 9;
+		
+		if(list_end >= all_reviews.size()) {
+			list_end = all_reviews.size() - 1;
+		}
 		
 		model.addAttribute("all_reviews",all_reviews);
 		model.addAttribute("review_size", all_reviews.size());
