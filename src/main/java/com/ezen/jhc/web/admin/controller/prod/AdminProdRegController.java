@@ -21,6 +21,7 @@ import com.ezen.jhc.web.admin.dto.prod.ProdSizeDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdSizeListDTO;
 import com.ezen.jhc.web.admin.mapper.prod.MainCtgrMapper;
 import com.ezen.jhc.web.admin.mapper.prod.SubCtgrMapper;
+import com.ezen.jhc.web.admin.service.AdminProdRegService;
 import com.ezen.jhc.web.admin.service.AdminProdRegServiceImpl;
 
 import lombok.extern.log4j.Log4j2;
@@ -44,7 +45,7 @@ public class AdminProdRegController {
 	@Autowired(required = false)
 	List<AttachImageDTO> imageList;
 	
-	@Autowired
+	@Autowired(required = false)
 	AdminProdRegServiceImpl prService;
 	
 	
@@ -68,11 +69,10 @@ public class AdminProdRegController {
 		
 		System.out.println(prodSizes);
 		
-		System.out.println(req.getParameter("prod_explain"));
-		
-		System.out.println(req.getParameter("prod_info"));
+		StringBuilder p_explain = new StringBuilder(req.getParameter("prod_explain"));
+		StringBuilder p_info = new StringBuilder(req.getParameter("prod_info"));
 
-		int result = prService.regNewProd(prodDTO, imageList, prodColors, prodSizes); 
+		int result = prService.regNewProd(prodDTO, imageList, prodColors, prodSizes, p_explain, p_info); 
 		
 		log.info(result);
 		

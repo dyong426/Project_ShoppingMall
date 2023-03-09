@@ -10,7 +10,7 @@
 			SELECT p_seq.nextval FROM DUAL
 		</selectKey>
 		
-		INSERT INTO prods VALUES(#{p_num}, #{p_name}, #{p_price}, #{s_ctgr_num}, #{p_info_img_path})
+		INSERT INTO prods VALUES(#{p_num}, #{p_name}, #{p_price}, #{s_ctgr_num}, #{p_info_img_path}, #{p_explain_path}, #{p_info_path})
 	</insert>
 	
 	<insert id="regProdImage">

@@ -10,15 +10,34 @@ import com.ezen.jhc.web.admin.dto.prod.ProdColorListDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdSizeListDTO;
 import com.ezen.jhc.web.admin.dto.prod.SubCtgrDTO;
-
+/**
+ * 
+ * @author Duha
+ *
+ *	제품 등록 페이지 Service 
+ */
 @Service
 public interface AdminProdRegService {
 	
+	/**
+	 * 
+	 * @return List<MainCtgrDTO>
+	 */
 	public List<MainCtgrDTO> getMainCtgrList();
-	
+	/**
+	 * 
+	 * @param m_ctgr_num
+	 * @return List<SubCtgrDTO>
+	 */
 	public List<SubCtgrDTO> getSubCtgrList(Integer m_ctgr_num);
 	
-	public Integer regNewProd(ProdDTO prodDTO, AttachImageListDTO imageList, ProdColorListDTO prodColors, ProdSizeListDTO prodSizes);
-	
-	public void regProdTxt(String prod_explain);
+	/**
+	 * 
+	 * @param prodDTO
+	 * @param imageList
+	 * @param prodColors
+	 * @param prodSizes
+	 * @return Integer result
+	 */
+	public Integer regNewProd(ProdDTO prodDTO, AttachImageListDTO imageList, ProdColorListDTO prodColors, ProdSizeListDTO prodSizes,StringBuilder p_explain,StringBuilder p_info);
 }

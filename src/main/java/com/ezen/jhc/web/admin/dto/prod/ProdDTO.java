@@ -7,12 +7,14 @@ import lombok.NoArgsConstructor;
 @Data
 public class ProdDTO {
 	
-	Integer m_ctgr_num;
-	String m_ctgr_name;
-	Integer s_ctgr_num;
-	String s_ctgr_name;
-	Integer p_num;
-	String p_name;
-	Integer p_price;
-	String p_info_img_path;
+	private Integer m_ctgr_num;
+	private String m_ctgr_name;
+	private Integer s_ctgr_num;
+	private String s_ctgr_name;
+	private Integer p_num;
+	private String p_name;
+	private Integer p_price;
+	private String p_info_img_path;
+	private String p_explain_path;
+	private String p_info_path;
 }
