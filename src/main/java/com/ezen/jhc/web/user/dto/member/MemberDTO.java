@@ -2,10 +2,11 @@ package com.ezen.jhc.web.user.dto.member;
 
 import java.util.Date;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
+@AllArgsConstructor
 @NoArgsConstructor
 @Data
 public class MemberDTO {
@@ -19,4 +20,5 @@ public class MemberDTO {
 	String mem_phone;
 	String mem_note;
 	Date mem_regdate;
+	Integer mem_point;
 }

@@ -39,7 +39,7 @@ function isNumber(target) {
 
 // 다음 주소 API 설정
 const zoneCode = document.getElementById('zoneCode');
-const address = document.getElementById('address');
+const addr1 = document.getElementById('addr1');
 
 function searchPostNumber() {
 	var popUpWidth = 500; //팝업의 너비
@@ -51,7 +51,7 @@ function searchPostNumber() {
 			// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
 			// 예제를 참고하여 다양한 활용법을 확인해 보세요.
 			zoneCode.value = data.zonecode;
-			address.value = data.address;
+			addr1.value = data.address;
 		}
 	}).open({
 	    left: (window.screen.width / 2) - (popUpWidth / 2),
@@ -99,3 +99,42 @@ window.onscroll = () => {
         rightOuter.style.top = null;
     }
 }
+
+
+
+// 포인트 관련 설정
+const useAllPoint = document.getElementById('useAllPoint');
+const pointInput = document.getElementById('pointInput');
+const pointSpan = document.getElementById('pointSpan');
+const userPoint = parseInt(pointSpan.innerText);
+
+useAllPoint.addEventListener('click', (e) => {
+	pointInput.value = userPoint;
+	pointSpan.innerText = 0;
+});
+
+pointInput.onchange = (e) => {
+	let remainPoint = userPoint - e.target.value;
+	if (remainPoint < 0) {
+		pointInput.value = null;
+		pointSpan.innerText = userPoint;
+	} else {
+		pointSpan.innerText = remainPoint;
+	}
+};
+
+
+
+// 주소 관련 설정
+const saveDestination = document.getElementById('saveDestination');
+const addr2 = document.getElementById('addr2');
+
+// 배송지 저장 되어 있으면 체크, 기존 배송지 채우기
+window.onload = () => {
+	if (memberAddress.addr_save == 1) {
+		saveDestination.checked = true;
+		zoneCode.value = memberAddress.mem_zipcode;
+		addr1.value = memberAddress.mem_addr1;
+		addr2.value = memberAddress.mem_addr2;
+	}
+};

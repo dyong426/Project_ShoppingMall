@@ -9,4 +9,8 @@
 		SELECT * FROM member WHERE mem_num = #{mem_num}
 	</select>
 	
+	<select id="getAddressByNum" resultType="com.ezen.jhc.web.user.dto.member.MemberAddressDTO">
+		SELECT * FROM member_addresses WHERE mem_num = #{mem_num}
+	</select>
+	
 </mapper>

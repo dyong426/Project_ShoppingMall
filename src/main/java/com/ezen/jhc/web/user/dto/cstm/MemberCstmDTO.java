@@ -1,6 +1,5 @@
 package com.ezen.jhc.web.user.dto.cstm;
 
-import com.ezen.jhc.web.user.dto.member.MemberDTO;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

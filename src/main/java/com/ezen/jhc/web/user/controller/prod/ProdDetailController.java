@@ -1,13 +1,17 @@
 package com.ezen.jhc.web.user.controller.prod;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.service.prod.ProductServiceImpl;
@@ -23,7 +27,9 @@ public class ProdDetailController {
 	
 	// detail 페이지로 요청받을 때 p_num, pc_num parameter 받기 (pd_num으로 받으면 사이즈도 정해져 있기 때문에 안됨)
 	@GetMapping("/prodDetail")
-	public String prodDetail(Model model, Integer p_num) {
+	public String prodDetail(Model model, Integer p_num, HttpSession session) {
+		
+		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
 		
 		Map<String, ProdColorDTO> colors = prodService.getColors(p_num);
 		List<String> sizes = prodService.getSizes(p_num);

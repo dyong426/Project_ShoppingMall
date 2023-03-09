@@ -10,6 +10,8 @@
 
 <title>juhee custom - 상품 제작</title>
 
+<c:set value="${sessionScope.member}" var="member"></c:set>
+<script src="http://code.jquery.com/jquery-latest.js"></script>
 <!-- main -->
 <div id="main_container">
 	<!--canvas-->
@@ -103,12 +105,13 @@
 
 		<div id="buttons">
 			<form action="<%=request.getContextPath()%>/order" method="POST">
-				<input type="submit" class="buttons" id="directPurchase" value="바로 구매하기"></input>
-				<input type="hidden" id="prod_size" name="prod_size" />
+				<input type="submit" class="buttons" id="directPurchase"
+					value="바로 구매하기"></input> <input type="hidden" id="prod_size"
+					name="prod_size" />
 			</form>
 			<button class="buttons" id="intoCart">장바구니 담기</button>
 		</div>
-		
+
 		<div id="menu">
 			<button id="delete-button">Delete</button>
 		</div>
@@ -122,6 +125,10 @@
 			</div>
 			<div id="sampleIcons"></div>
 		</div>
+	</div>
+
+	<div id="cartPopUp">
+		<div class="subTitle">상품을 장바구니에 담았습니다.</div>
 	</div>
 
 	<br> <br> <br> <br> <br>
@@ -362,6 +369,8 @@
 
 <script src="assets/user/prod/js/cstm.js"></script>
 
-
+<script>
+	const mem_num = ${member.mem_num};
+</script>
 
 <%@ include file="../common/footer.jsp"%>

@@ -11,12 +11,12 @@
 <%--
 	받아야 하는 정보
 	
-	 - 회원 정보 (이름, 연락처, 이메일, 주소 저장여부, 주소, 포인트)
 	 - 장바구니
 	 - 상품 정보 (이미지, 제품명, 가격, 색상명, 사이즈명)
 --%>
 
 <c:set value="${sessionScope.member}" var="member" />
+<c:set value="${sessionScope.memberAddress}" var="memberAddress" />
 
 <div id="mainTitle">주문서 작성</div>
 
@@ -65,8 +65,8 @@
 						<button onclick="searchPostNumber()" class="buttons">우편번호 검색</button>
 					</div>
 					<div>
-						<input type="text" id="address" placeholder="주소" readonly />
-						<input type="text" placeholder="상세 주소를 입력해주세요." />
+						<input type="text" id="addr1" placeholder="주소" readonly />
+						<input type="text" id="addr2" placeholder="상세 주소를 입력해주세요." />
 					</div>
 				</div>
 			</div>
@@ -78,10 +78,10 @@
 				<div id="point" class="columnGrid">
 					<div>포인트</div>
 					<div class="flex-between">
-						<input type="number" placeholder="0" max="10000" min="0" />
-						<button id="useAll" class="buttons">전액 사용</button>
+						<input type="number" id="pointInput" name="pointInput" placeholder="0" min="0" />
+						<button id="useAllPoint" class="buttons">전액 사용</button>
 					</div>
-					<div>보유 포인트 : </div> <%-- ${포인트} --%>
+					<div>보유 포인트 : <span id="pointSpan">${member.mem_point}</span></div>
 				</div>
 			</div>
 		</div>
@@ -173,8 +173,18 @@
 	
 </div>
 
+<script>
+	const memberAddress = {
+		mem_zipcode: '${memberAddress.mem_zipcode}',
+		mem_addr1: '${memberAddress.mem_addr1}',
+		mem_addr2: '${memberAddress.mem_addr2}',
+		addr_save: '${memberAddress.addr_save}',
+	};
+</script>
+
 <%-- 다음 주소 API 참조 스크립트 --%>
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
 <%-- 네이버페이 API 참조 스크립트 --%>
 <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 

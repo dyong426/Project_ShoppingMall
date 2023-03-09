@@ -13,6 +13,7 @@ fileInput.onclick = (e) => {
 fileInput.onchange = (e) => {
   // image 업로드 이벤트
   const fi = e.target.files[0];
+  console.dir(fi);
   const reader = new FileReader();
 
   reader.readAsDataURL(fi);
@@ -762,20 +763,48 @@ const buttons = document.getElementById('buttons').children;
 
 const loginBtn = document.querySelector('.sign_in');
 
-for (i = 0; i < buttons.length; ++i) {
-  buttons[i].addEventListener('click', (e) => {
-    if (window.sessionStorage.getItem('member') == null) {
-      e.preventDefault();
-      loginBtn.click();
-    }
+// for (i = 0; i < buttons.length; ++i) {
+//   buttons[i].addEventListener('click', (e) => {
+//     // 세션에 member가 없으면 페이지 이동하지 않고 로그인 화면 띄우기
+//     if (window.sessionStorage.getItem('member') == null) {
+//       e.preventDefault();
+//       loginBtn.click();
+//     } else {
+      // 로그인 상태로 장바구니 버튼 클릭 이벤트
+      buttons[1].addEventListener('click', (e) => {
 
-    // const cstm_img = stage.toDataURL();
+        // 이미지 로컬에 저장 후 해당 경로로 DB에 데이터 insert
 
-    // $.ajax
-  });
-}
+        var cstm_img = stage.toDataURL();
+        console.log(cstm_img);
+        console.log(cstm_img.split(',')[1]);
+        var blob = atob(cstm_img.split(',')[1]);
+        console.log(blob);
+        var arr = [];
 
-// 장바구니 버튼 클릭 이벤트
-buttons[1].addEventListener('click', (e) => {
-  
-});
+        for (i = 0; i < blob.length; ++i) {
+          arr.push(blob.charCodeAt[i]);
+        }
+
+        var file = new Blob([new Uint8Array(arr)], {type: 'image/png'});
+        var fileName = 'cstm_img_' + mem_num + '_' + new Date().getMilliseconds() + '.png';
+
+        var formData = new FormData();
+        formData.append('file', file, fileName);
+        
+        $.ajax({
+          type: 'post',
+          url: '/jhc/saveImage',
+          data: formData,
+          processData: false,
+          contentType: false,
+          success: function () {
+            console.log('saveImage로 전송 완료');
+          }
+        });
+
+      });
+//     }
+//   });
+// }
+
