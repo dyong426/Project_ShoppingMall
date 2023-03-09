@@ -9,21 +9,22 @@
         <div class="ctr">
             <h1>주문 내역</h1>
                 <div class="contents">
-                        <div class="serch">주문내역조회</div>
-                            <div class="serch_form">
-                                <div class="serch_date">
+                        <div class="search">주문내역조회</div>
+                            <div class="search_form">
+                                <div class="search_date">
                                     <select name="" id="">
-                                        <option value="">전체 주문처리상태</option>
-                                        <option value="">입금전</option>
-                                        <option value="">배송준비중</option>
-                                        <option value="">배송중</option>
-                                        <option value="">배송완료</option>
-                                        <option value="">취소</option>
-                                        <option value="">교환</option>
-                                        <option value="">반품</option>
+                                        <option value="">전체 주문 처리 상태</option>
+                                        <option value="0">입금전</option>
+                                        <option value="1">배송준비중</option>
+                                        <option value="2">배송중</option>
+                                        <option value="3">배송완료</option>
+                                        <option value="4">취소</option>
+                                        <option value="5">교환</option>
+                                        <option value="6">반품</option>
                                     </select> &nbsp; &nbsp;
 
-                                    <input class="select_date" type="date"><span class="symbol">&nbsp; ~ &nbsp;</span><input class="select_date" type="date"> &nbsp;
+                                    <input class="select_date" type="date"><span class="symbol">&nbsp; ~ &nbsp;</span>
+                                    <input class="select_date" type="date"> &nbsp;
                                     
                                     &nbsp;<button type="button" class="inquiry">조회</button>
                                 </div>
@@ -42,7 +43,7 @@
                             <table class="pd_info">
                                 <thead>
                                     <tr>
-                                        <th  style="width: 170px;">주문일자[주문번호]</th>
+                                        <th style="width: 170px;">주문일자[주문번호]</th>
                                         <th style="width: 80px;">이미지</th>
                                         <th style="width: 340px;">상품정보</th>
                                         <th style="width: 60px;">수량</th>
@@ -60,7 +61,7 @@
                                         </td >
                                         <td class="product_img">
                                             <a href=""><!-- 여기 클릭하면 판매 페이지로 이동 --></a>
-                                            <img style="width: 50px; height: 50px;" src="<%=request.getContextPath() %>/assets/common/cstm_img/착샷.jpg" alt="상품 사진">
+                                            <img style="width: 50px; height: 50px;" src="<%=request.getContextPath() %>/assets/common/cstm_img/착샷1.jpg" alt="상품 사진">
                                         </td>
                                         <td class="product_check">
                                             <strong class="product_name">
@@ -80,8 +81,7 @@
                                         </td>
                                         <td class="order_change">
                                             <a href="">주문 취소</a> <br>
-                                            <a href="">교환 신청</a> <br>
-                                            <a href="">반품 신청</a> <br>
+                                            <a href="">교환/반품 신청</a> <br>
                                         </td>
                                     </tr>
                                 </tbody>

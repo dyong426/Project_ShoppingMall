@@ -1,9 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/info.css">
 	<c:set var="member" value="${sessionScope.member}" />
+	
 
   <!-- main -->
   <div class="main">
@@ -17,8 +19,9 @@
             <div class="pw_ctr">
                 <label for="">비밀번호</label>
                 <div class="input">
-                
-                    <button class="btn_change_pw" type="submit" onclick="location.href='/jhc/password/change'">비밀번호 변경 이메일 받기</button>
+                <form action="/jhc/password/change" method="POST">
+                    <button class="btn_change_pw" type="submit">비밀번호 변경 링크 받기 (이메일 전송)</button>
+                </form>
                 
                 </div>
             </div>
@@ -26,6 +29,13 @@
             <div class="name_ctr">
                 <label for="">이름</label>
                 <div class="input">${member.mem_name }</div>
+            </div>
+                <div class="point_ctr">
+                <label for="">보유 포인트</label>
+                <div class="input">
+                    <fmt:formatNumber value="${member.mem_point }" type="number" pattern="#,##0"/>포인트
+                    
+                </div>
             </div>
             
             <div class="birth_ctr">
@@ -45,7 +55,7 @@
             
         </div>
         <div class="buttons">
-            <button class="modify" type="button">변경</button>
+            <button class="modify" type="button" >변경</button>
             <button class="withdrawal" type="button">회원 탈퇴</button>
         </div>
     </div>

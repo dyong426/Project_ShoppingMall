@@ -39,6 +39,7 @@ public class MemberController {
 	@Autowired
 	MemberMapper mapper;
 
+	
 	// 암호화
 	@RequestMapping(value="/encrypt.do")
 	public ResponseEntity<String> encryptPassword(@RequestParam String password) throws NoSuchAlgorithmException {
@@ -78,15 +79,16 @@ public class MemberController {
 		// 세션에 memberDTO 저장
 		session = request.getSession(true);
 		session.setAttribute("member", dto);
-		session.setMaxInactiveInterval(3600);
+		
+		session.setMaxInactiveInterval(60 * 60);
 		
 		
 
 		// 쿠키 생성
-		Cookie cookie = new Cookie("jhcid", "내가만든쿠키");
-		cookie.setMaxAge(60 * 60 * 24); // 하루
+		Cookie cookie = new Cookie("jhcid", session.getId());
+		cookie.setMaxAge(60 * 60); // 한시간
 		cookie.setHttpOnly(true); // xss 공격 예방
-		cookie.setPath("/jhc"); // jhc에서만 사용 가능
+		cookie.setPath("/jhc");
 		response.addCookie(cookie);
 		
 		
@@ -150,6 +152,23 @@ public class MemberController {
     log.info("isNew={}", session.isNew());
 	}
 	
+	// 패스워드 변경 작업
+	@PostMapping("/member/reset/password")
+	public String resetPassword(HttpServletRequest request, HttpSession session) throws NoSuchAlgorithmException {
+		
+		String pw = request.getParameter("mem_pw");
+		String mem_email = request.getParameter("mem_email");
+		
+		// 암호화
+		String mem_pw = PasswordEncoder.encodePassword(pw); 
+				
+		// db
+		mapper.changePassword(mem_pw, mem_email);
+		
+		// 변경 완료 메세지
+		return "user/mypage/personal_information/passwordChangeComplete";
+		
+	}
 	
 	
 }

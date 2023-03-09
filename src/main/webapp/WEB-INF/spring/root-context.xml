@@ -26,4 +26,5 @@
 	
 	<mybatis-spring:scan base-package="com.ezen.jhc.web.user.mapper.*"/>
 	
+	
 </beans>

@@ -39,13 +39,13 @@
 
   .controls{
     justify-self: center;
-    display: flex;
+    
     display: grid;
     grid-template-rows: 0.5fr 0.5fr 0.5fr 0.5fr 0.5fr;
     margin: 0 auto;
     width: 992px;
     height: 312px;
-    padding: 20px;
+    padding: 50px;
     font-size: medium;
     background-color: white;
     border-top: black solid 1px;
@@ -109,4 +109,9 @@
     font-size: medium;
     border: black solid 1px;
     background-color: white;
+ }
+ 
+ div[class$="_ctr"] input {
+ padding-left: 7px;
+ width: 170px;
  }

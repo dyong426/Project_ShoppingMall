@@ -28,8 +28,7 @@
 
 <body>
 
-			
-     <c:set var="member" value="${sessionScope.member}" />
+
 		
 	<!-- header -->
 
@@ -63,7 +62,8 @@
 				<a href="/jhc/category_home">홈데코/리빙</a>
 				<a href="/jhc/category_frame">액자</a>
 			</div>
-
+		<c:set var="member" value="${sessionScope.member }"/>
+		
 			<div class="header_container_bottom_contents">
 				<span class="user_welcome_text hidden_visilbility" id="user_welcome_text">${member.mem_name}님, 환영합니다.</span>
 				<button id="myCart">

@@ -1,150 +1,155 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+@import
+	url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
+	;
 
 a {
-    color: black;
-}
-
-a:hover {
-    color: black;
+	color: black;
 }
 
 .background {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-    background-color: rgb(248, 249, 250);
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(248, 249, 250);
 }
 
-.ctr > * {
-    font-family: 'Gowun Dodum', sans-serif;
-    font-style: normal;
-    box-sizing: content-box;
+.ctr>* {
+	font-style: normal;
+	font-weight: 100;
+	box-sizing: content-box;
 }
 
-.ctr{
-    justify-self: center;
-    display: flex;
-    display: grid;
-    grid-template-rows: 0.3fr 1fr;
-    margin: 0 auto;
-    width: 1080px;
-    height: 762.8px;
-    margin-bottom: 150px;
+.ctr {
+	justify-self: center;
+	display: flex;
+	display: grid;
+	grid-template-rows: 0.3fr 1fr;
+	margin: 0 auto;
+	width: 1080px;
+	height: 762.8px;
+	margin-bottom: 150px;
 }
 
 .contents {
-    justify-self: center;
-    display: flex;
-    margin: 0 auto;
-    width: 1080px;
-    height: auto;
-    background-color: white;
-    border-top: solid black 1px;
-    position:relative;
+	justify-self: center;
+	display: flex;
+	margin: 0 auto;
+	width: 1080px;
+	height: auto;
+	background-color: white;
+	border-top: solid black 1px;
+	position: relative;
 }
 
-h1{
-    width: 992px;
-    height: 43.2px;
-    margin: 86px 0px 40px;
-    font-weight: 900;
-    
-  }
+h1 {
+	width: 992px;
+	height: 43.2px;
+	margin: 86px 0px 40px;
+	font-weight: 900;
+}
 
-  .serch {
-    width: 990px;
-    font-size: 20px;
-    font-weight: bold;
-    padding: 10px;
-    border: rgb(210, 210, 210) solid 1px;
-    background-color: rgb(248, 249, 250);
-    margin: 25px;
-    margin-left: 45px;
-    margin-top: 40px;
-    position: absolute;
-  }
+.search {
+	width: 990px;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px;
+	border: rgb(210, 210, 210) solid 1px;
+	background-color: rgb(248, 249, 250);
+	margin: 25px;
+	margin-left: 45px;
+	margin-top: 40px;
+	position: absolute;
+	padding-left: 20px;
+}
 
-  .serch_form {
-    width: 990px;
-    padding: 15px;
-    margin-top: 110px;
-    margin-left: 45px;
-    border: solid 1px rgb(226, 228, 230);
-    position: absolute;
-  }
+.search_form {
+	width: 990px;
+	padding: 15px;
+	margin-top: 110px;
+	margin-left: 45px;
+	border: solid 1px rgb(226, 228, 230);
+	position: absolute;
+}
 
-  .serch_date {
-    justify-self: center;
-    display: flex;
-    margin: 0 auto;
-    height: 30px;
-  }
+.search_date {
+	justify-self: center;
+	display: flex;
+	margin: 0 auto;
+	height: 30px;
+}
 
-  select, .select_date {
-    font-size: 15px;
-    padding: 3px;
-  }
+.select_date {
+	text-align: center;
+	font-size: 15px;
+	padding: 3px;
+	width: 106px;
+}
 
-  .symbol{
-    line-height: 20px;
-    font-size: 15px;
-  }
+select {
+	width: 150px;
+	padding: 3px;
+	font-size: 15px;
+}
 
-  .inquiry {
-    font-size: 15px;
-    width: 50px;
-    padding: 3px;
-    color: white;
-    background-color: black;
-  }
+.symbol {
+	line-height: 20px;
+	font-size: 15px;
+}
 
-  .explanation {
-    font-size: 10px;
-    color: gray;
-    padding-top: 20px;
-  }
+.inquiry {
+	font-size: 15px;
+	width: 50px;
+	padding: 3px;
+	color: white;
+	background-color: black;
+}
 
-  .product_info {
-    font-size: 15px;
-    font-weight: bold;
-    padding: 300px 50px;
-    position: absolute;
-  }
+.explanation {
+	font-size: 14px;
+	color: gray;
+	padding-top: 20px;
+}
 
-  .pd_info {
-    width: 990px;
-    height: 50px;
-    border: rgb(210, 210, 210) solid 1px;
-    border-collapse: collapse;
-    margin-top: 330px;
-    margin-left: 45px;
-    background-color: rgb(248, 249, 250);
-    position: absolute;
-  }
-  .product_list > .product > td {
-    background-color: white;
-  }
-  
-  .pd_info > thead > tr > th, td{
-    font-size: 15px;
-    text-align: center;
-    padding: 20px 0px;
-    border:  solid 1px #e0e0eb;
-  }
+.product_info {
+	font-size: 15px;
+	font-weight: bold;
+	padding: 300px 50px;
+	position: absolute;
+}
 
-  .op {
-    display: grid;
-    grid-template-columns: 0.3fr 0.5fr;
-    display: flex;
-    justify-self: left;
-    padding: 0px 0px 5px 10px;
-    color: rgb(139, 139, 139);
-  }
+.pd_info {
+	width: 990px;
+	height: 50px;
+	border: rgb(210, 210, 210) solid 1px;
+	border-collapse: collapse;
+	margin-top: 330px;
+	margin-left: 45px;
+	background-color: rgb(248, 249, 250);
+	position: absolute;
+}
 
-  .product_name {
-    display: flex;
-    justify-self: left;
-    padding: 0px 0px 5px 10px;
-  }
+.product_list>.product>td {
+	background-color: white;
+}
 
+.pd_info>thead>tr>th, td {
+	font-size: 15px;
+	text-align: center;
+	padding: 20px 7px;
+	border: solid 1px #e0e0eb;
+}
 
+.op {
+	display: grid;
+	grid-template-columns: 0.3fr 0.5fr;
+	display: flex;
+	justify-self: left;
+	padding: 0px 0px 5px 10px;
+	color: rgb(139, 139, 139);
+}
+
+.product_name {
+	display: flex;
+	justify-self: left;
+	padding: 0px 0px 5px 10px;
+}
