@@ -26,9 +26,9 @@ function addColor_view(evt) {
     const newColorPath = newColor.insertCell(2);
     const newColorBtn = newColor.insertCell(3);
 
-    newColorName.innerHTML += `<input type="text" class="form-control" name="prodColors[${indexStatus.index + colorNum}].pc_name"></input>`
+    newColorName.innerHTML += `<input type="text" class="form-control" name="prodColors[${indexStatus.index + colorNum}].pc_name"/>`
     newColorCode.innerHTML += `<input type="color" class="form-control" name="prodColors[${indexStatus.index + colorNum}].pc_code">`;
-    newColorPath.innerHTML += `<input type="file" class="form-control" name="prodColors[${indexStatus.index + colorNum}].pc_img_path">`;
+    newColorPath.innerHTML += `<input type="file" class="form-control" name="prodColors[${indexStatus.index + colorNum}].pc_img_filename" onchange="inputColorImg(this)">`;
     newColorBtn.innerHTML += `<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addColorBtn_view(event)"></button>
     <button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display: none;' onclick="removeColorBtn_view(event)"></button>`;
 

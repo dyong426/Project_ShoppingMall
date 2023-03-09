@@ -72,7 +72,7 @@ public class AdminProdRegRestController {
 		String uploadFolder = "C:\\upload";
 
 		// 파일 이름에 사용할 현재 날짜 가져오기
-		String datePath = util.getNowTime("2023-03-07", 0).replace("-", File.separator);
+		String datePath = util.getNowTime("yyyy-MM-dd", 0).replace("-", File.separator);
 
 		// 파일 생성
 		File uploadPath = new File(uploadFolder, datePath);
@@ -111,6 +111,9 @@ public class AdminProdRegRestController {
 				
 				// thumbnailator 라이브러리
 				File thumbnailFile = new File(uploadPath, "s_" + uploadFileName);
+				File lgImg = new File(uploadPath,"lg_" + uploadFileName);
+				File mdImg = new File(uploadPath,"md_" + uploadFileName);
+				File smImg = new File(uploadPath,"sm_" + uploadFileName);
 				
 				BufferedImage bo_image = ImageIO.read(saveFile);
 				
@@ -121,7 +124,9 @@ public class AdminProdRegRestController {
 				int height = (int)(bo_image.getHeight() / ratio);
 				
 				Thumbnails.of(saveFile).size(160, 160).toFile(thumbnailFile);
-				
+				Thumbnails.of(saveFile).size(400,400).toFile(lgImg);
+				Thumbnails.of(saveFile).size(200, 200).toFile(mdImg);
+				Thumbnails.of(saveFile).size(100, 100).toFile(smImg);
 				
 				
 				/* 썸네일 비율 축소

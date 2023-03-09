@@ -55,16 +55,19 @@ function addColor(evt) {
 
     const newColor = colorTable.insertRow();
 
-    newColor.id = `color${colorNum}`;
+    newColor.id = `prodColors[${colorNum}]`;
 
     const newColorName = newColor.insertCell(0);
     const newColorCode = newColor.insertCell(1);
     const newColorPath = newColor.insertCell(2);
-    const newColorBtn = newColor.insertCell(3);
+    const newColorUpload = newColor.insertCell(3);
+    const newColorBtn = newColor.insertCell(4);
+	
 
     newColorName.innerHTML += `<input type="text" class="form-control" id="color-name${colorNum}" name="prodColors[${colorNum}].pc_name"/>`
     newColorCode.innerHTML += `<input type="color" class="form-control" id="color-code${colorNum}" name="prodColors[${colorNum}].pc_code"/>`;
-    newColorPath.innerHTML += `<input type="file" class="form-control" id="color-path${colorNum}" name="prodColors[${colorNum}].pc_img_path" onchange="inputColorImg(this)"/>`;
+    newColorPath.innerHTML += `<input type="file" class="form-control" id="color-filename${colorNum}" name="prodColors[${colorNum}].pc_img_filename" onchange="inputColorImg(event)"/>`;
+    newColorUpload.innerHTML += `<div id="prodColors[${colorNum}]-uploadImg" class="pc-upload-result"></div>`;
     newColorBtn.innerHTML += `<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addColorBtn(event)"></button>
     <button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display: none;' onclick="removeColorBtn(event)"></button>`;
 

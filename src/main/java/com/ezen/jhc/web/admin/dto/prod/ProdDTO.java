@@ -14,4 +14,5 @@ public class ProdDTO {
 	Integer p_num;
 	String p_name;
 	Integer p_price;
+	String p_info_img_path;
 }

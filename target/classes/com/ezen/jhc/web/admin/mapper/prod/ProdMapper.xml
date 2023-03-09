@@ -11,5 +11,9 @@
 	<select id="getProd" resultType="com.ezen.jhc.web.admin.dto.prod.ProdDTO">
 		SELECT mc.m_ctgr_num AS m_ctgr_num, mc.m_ctgr_name AS m_ctgr_name, sc.s_ctgr_num AS s_ctgr_num, sc.s_ctgr_name AS s_ctgr_name, p_num, p_name, p_price FROM prods p INNER JOIN sub_ctgr sc ON p.s_ctgr_num = sc.s_ctgr_num INNER JOIN main_ctgr mc ON sc.m_ctgr_num = mc.m_ctgr_num WHERE p_num = #{p_num}
 	</select>
+	 
+	<insert id="regProd" >
+		INSERT INTO prods VALUES(p_seq.nextval, #{p_name}, #{p_price}, #{p_info_img_path}, #{s_ctgr_num})	
+	</insert>
 
 </mapper>

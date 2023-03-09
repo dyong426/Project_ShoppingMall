@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.ezen.jhc.web.admin.dto.image.AttachImageDTO;
+import com.ezen.jhc.web.admin.dto.image.AttachImageListDTO;
 import com.ezen.jhc.web.admin.dto.prod.MainCtgrDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdColorListDTO;
@@ -19,6 +21,7 @@ import com.ezen.jhc.web.admin.dto.prod.ProdSizeDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdSizeListDTO;
 import com.ezen.jhc.web.admin.mapper.prod.MainCtgrMapper;
 import com.ezen.jhc.web.admin.mapper.prod.SubCtgrMapper;
+import com.ezen.jhc.web.admin.service.AdminProdRegServiceImpl;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -38,6 +41,14 @@ public class AdminProdRegController {
 	@Autowired(required = false)
 	List<ProdSizeDTO> prodSizes;
 	
+	@Autowired(required = false)
+	List<AttachImageDTO> imageList;
+	
+	@Autowired
+	AdminProdRegServiceImpl prService;
+	
+	
+	
 	@GetMapping("/admin/prod/reg")
 	public String regForm(Model model) {
 		
@@ -49,7 +60,7 @@ public class AdminProdRegController {
 	}
 	
 	@PostMapping("/admin/prod/reg")
-	public String prodReg(ProdDTO prodDTO, @ModelAttribute(value="ProdColorListDTO") ProdColorListDTO prodColors, @ModelAttribute(value="ProdSizeListDTO") ProdSizeListDTO prodSizes, HttpServletRequest req, Model model) {
+	public String prodReg(ProdDTO prodDTO, @ModelAttribute(value="AttachImageListDTO") AttachImageListDTO imageList, @ModelAttribute(value="ProdColorListDTO") ProdColorListDTO prodColors, @ModelAttribute(value="ProdSizeListDTO") ProdSizeListDTO prodSizes, HttpServletRequest req, Model model) {
 		
 		System.out.println(prodDTO);
 		
@@ -57,9 +68,19 @@ public class AdminProdRegController {
 		
 		System.out.println(prodSizes);
 		
-		System.out.println(req.getParameter("prod_explain").length());
+		System.out.println(req.getParameter("prod_explain"));
 		
-		System.out.println(req.getParameter("prod_info").length());
+		System.out.println(req.getParameter("prod_info"));
+
+		int result = prService.regNewProd(prodDTO, imageList, prodColors, prodSizes); 
+		
+		log.info(result);
+		
+		log.info(imageList);
+		
+		log.info(prodColors);
+		
+		log.info(prodSizes);
 		
 		return "redirect:/admin/prod/view";
 	}	

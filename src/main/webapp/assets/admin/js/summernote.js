@@ -3,4 +3,4 @@ $(document).ready(function () {
       height: 700,
       lang: "ko-KR",
     });
-  });
+});

@@ -9,5 +9,7 @@ public interface ProdMapper {
 	public List<ProdDTO> getProds();
 	
 	public ProdDTO getProd(Integer p_num);
+	
+	public Integer regProd(ProdDTO prodDTO);
 
 }
