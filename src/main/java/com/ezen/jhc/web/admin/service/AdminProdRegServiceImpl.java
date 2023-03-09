@@ -88,4 +88,12 @@ public class AdminProdRegServiceImpl implements AdminProdRegService{
 	
 		return resultProd;
 	}
+
+	@Override
+	public void regProdTxt(String prod_explain) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	
 }
