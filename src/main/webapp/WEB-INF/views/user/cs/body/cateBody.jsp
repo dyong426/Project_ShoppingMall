@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="../body/body.jsp" />
 
@@ -8,11 +8,7 @@
 <th colspan="2">
 	<table id="faq_category_box" style="width: 1000px;">
 		<tr class="cs_cate_body" style="width: 1000px;">
-			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=0"> 주문 / 결제 </a></th>
-			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=1"> 배송 </a></th>
-			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=2"> 취소 / 환불 </a></th>
-			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=3"> 반품 / 교환 </a></th>
-			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=4"> 기타 </a></th>
-			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=5"> 제작문의 </a></th>
-			<th><a href="<%=request.getContextPath() %>/customerservice/cate?faq_ctgr=6"> 단체문의 </a></th>
+			<c:forEach items="${ctgr}" var="c">
+			<th><a class="cate_body_ctgr" href="<%=request.getContextPath() %>/customerservice/cate?cs_ctgr_num=${c.cs_ctgr_num}"> ${c.cs_ctgr_name} </a></th>
+			</c:forEach>
 		</tr>

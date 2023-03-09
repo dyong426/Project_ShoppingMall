@@ -10,6 +10,8 @@ public class FaqDTO {
 	Integer faq_num;
 	String faq_title;
 	String faq_content;
-	Integer faq_ctgr;
+	Integer cs_ctgr_num;
+	String cs_ctgr_name;
+	
 	
 }

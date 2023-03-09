@@ -1,8 +1,13 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <jsp:include page="../body/body.jsp" />
 
 <tr>
 	<th colspan="2">
+	<c:set var="mem" value="${sessionScpoe.member}"/>
+	
+	
+	
 	<div id="cs_contact_box">
 			<br>
 			<br>
@@ -10,6 +15,15 @@
 			<h3>1:1 대화</h3>
 			</div>
 
+			<div id="non-members">
+			<br>
+				JUHEECOSTOMER 회원 전용 서비스입니다.<br>
+				로그인 및 회원가입은 페이지 상단에 위치해있으니 이용 부탁드립니다.<br>
+				그 외 문의는 &nbsp;<a href="mailto:help@ezen.com">help@ezen.com</a>를 이용해주세요<br>
+				${mem.mem_name}
+			</div>
+			
+			
 			<div id="oneOn_box">
 
 				<form id="oneOnOne_form" action="" method="POST">
@@ -27,12 +41,10 @@
 					<br>
 					
 					<div id="oneOnOne_cate" class="oneOnOne inside_form">
-
-						<label><input type="radio" value="0" name="contact_ctgr">주문/배송</input></label>
-						<label><input type="radio" value="0" name="contact_ctgr">주문/배송</input></label>
-						<label><input type="radio" value="0" name="contact_ctgr">주문/배송</input></label>
-						<label><input type="radio" value="0" name="contact_ctgr">주문/배송</input></label>
-
+						<c:forEach items="${ctgr}" var="ct">
+						<label class="con_ctgr_radio"><input type="radio" value="${ct.cs_ctgr_num }" name="contact_ctgr">${ct.cs_ctgr_name} </input></label>
+						</c:forEach>
+						
 					</div>
 					<br>
 					
@@ -45,7 +57,7 @@
 						</div>
 					</div>
 
-						<a href="<%=request.getContextPath()%>/customerservice">
+						<a href="<%=request.getContextPath()%>/main">
 					<div id="cs_submit" class="oneOnOne inside_form">
 						<input type="submit" value="제출" style="width: 100px;" />
 

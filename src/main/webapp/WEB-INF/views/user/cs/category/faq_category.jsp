@@ -6,12 +6,12 @@
 	href="<%=request.getContextPath()%>/assets/user/cs/css/category.css?after">
 
 <tr>
-	<th colspan="7">
+	<th colspan="${num_of_ctgr}">
 
 
 
 		<div class="faq_box">
-			<h3>${cate_name}</h3>
+			<h3>${ctgr_name}</h3>
 			<div class="fap_accordion">
 
 				<c:forEach items="${faq}" var="faq_">

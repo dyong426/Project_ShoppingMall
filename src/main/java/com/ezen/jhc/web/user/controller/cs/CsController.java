@@ -1,22 +1,25 @@
 package com.ezen.jhc.web.user.controller.cs;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ezen.jhc.web.user.dto.faq.FaqDTO;
 import com.ezen.jhc.web.user.mapper.cs.ContactMapper;
 import com.ezen.jhc.web.user.mapper.cs.FaqMapper;
+import com.ezen.jhc.web.user.service.csService.FaqServiceImpl;
 
 @Controller
 public class CsController {
-	
+	@Autowired
+	FaqServiceImpl faq_service;
 	
 	@Autowired
 	FaqMapper faq_mapper;
@@ -24,78 +27,61 @@ public class CsController {
 	@Autowired
 	ContactMapper contact_mapper;
 	
-	// CS 시작 페이지 = 주문/결제 (cate_num=1)
-	@RequestMapping(value ="/customerservice", method = RequestMethod.GET)
-	public String cs_main(Model model) {
+	// 카테고리별 페이지 cate_num을 받아서 적용 
+	@GetMapping("/customerservice/cate")
+	public String cs_cate1(Model model, Integer cs_ctgr_num) {
 		
-		String cate_name = "주문 / 결제";
-		List<FaqDTO> faq = faq_mapper.get(0);
+		// 모든 카테고리 -> 카테고리탭 , faq_num을 통해 가져온 질문목록
+		List<FaqDTO> ctgr = faq_mapper.get_ctgr_num();
+		List<FaqDTO> faq = faq_mapper.get(cs_ctgr_num);
 		
-		model.addAttribute("faq", faq);
-		model.addAttribute("cate_name", cate_name);
-		return "user/cs/category/faq_category";
-	}
-	
-	// 카테고리별 페이지 
-	// cate_num을 받아서 적용 
-	@RequestMapping(value ="/customerservice/cate", method = RequestMethod.GET)
-	public String cs_cate1(Model model, Integer faq_ctgr) {
-		String cate_name = "";
-		List<FaqDTO> faq = faq_mapper.get(faq_ctgr);
+		// faq_num을 통해 가져온 카테고리 이름 
+		String ctgr_name = faq.get(0).getCs_ctgr_name();
 		
-		if(faq_ctgr == 0) {
-			cate_name ="주문 / 결제";
-		} else if(faq_ctgr == 1) {
-			cate_name ="배송";
-		} else if(faq_ctgr == 2) {
-			cate_name ="취소 / 환불";
-		} else if(faq_ctgr == 3) {
-			cate_name ="반품 / 교환";
-		} else if(faq_ctgr == 4) {
-			cate_name ="기타";
-		} else if (faq_ctgr == 5) {
-			cate_name ="제작 문의";
-		} else if (faq_ctgr == 6) {
-			cate_name ="단체문의";
-		}
+		// 현재 카테고리의 개수
+		int num_of_ctgr = faq_mapper.get_ctgr_num().size();
 		
 		model.addAttribute("faq", faq);
-		model.addAttribute("cate_name", cate_name);
+		model.addAttribute("ctgr", ctgr);
+		model.addAttribute("ctgr_name", ctgr_name);
+		model.addAttribute("num_of_ctgr", num_of_ctgr);
+		
 		return "user/cs/category/faq_category";
 	}
 	
 	// CS 내 1:1 문의 
 	
-	@RequestMapping(value ="/customerservice/con", method = RequestMethod.GET)
-	public String cs_contatct(HttpServletRequest req) {
+	@GetMapping("/customerservice/con")
+	public String cs_contatct(Model model) {
+
+		List<FaqDTO> ctgr = faq_mapper.get_ctgr_num();
 		
-		
-		
+		model.addAttribute("ctgr", ctgr);
 		
 		return "user/cs/contact/contact";
 	}
 	
 	
 	
-	@RequestMapping(value ="/customerservice/con", method = RequestMethod.POST)
+	@PostMapping("/customerservice/con")
 	public String cs_contatct_(HttpServletRequest req) {
 		
 		
 		
 		
 		
-		return "user/cs/contact/contact";
+		 return "redirect:/customerservice";
 	}
 	
 	// 마이 페이지 내 1:1 문의 리스트
-	@RequestMapping(value ="/contact", method = RequestMethod.GET)
+	@GetMapping("/contact")
 	public String contact_mp_list() {
 		
 		return "user/mypage/contact/mp_contact_list";
 	}
 	
 	// 마이 페이지 내 1:1 문의 확인 (문의 번호로 조회)
-	@RequestMapping(value ="/contact/01", method = RequestMethod.GET)
+	@GetMapping("/contact/01")
 	public String contact_mp() {
 		
 		return "user/mypage/contact/mp_contact";
