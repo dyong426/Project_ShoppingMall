@@ -18,12 +18,9 @@ select m_ctgr_num from sub_ctgr where s_ctgr_num = 3;
 
 
 
-
-
-
-
-
-
+alter table main_ctgr add m_ctgr_icon_path VARCHAR2(500);
+alter table sub_ctgr drop column s_ctgr_icon_path;
+update main_ctgr set m_ctgr_icon_path ='assets\common\images\prod_img\admin.png';
 
 
 

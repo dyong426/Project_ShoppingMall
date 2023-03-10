@@ -2,6 +2,7 @@ package com.ezen.jhc.web.user.controller.category;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,7 +30,8 @@ public class CategoryController {
 
 	
 	@GetMapping(value="/category_clothes")
-	public String category_clothes(Model model) {
+	
+	public String category_clothes(Model model, HttpSession session) {
 		
 		String mainCtgr = mapper.getMainCategory(1);
 		List<SubCtgrDTO> subCtgr = mapper.getSubCategories(1);
@@ -37,7 +39,7 @@ public class CategoryController {
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
+		model.addAttribute("subCtgrs", subCtgr);
 		
 		return "user/category/category";
 	}
@@ -50,7 +52,8 @@ public class CategoryController {
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
+		model.addAttribute("subCtgrs", subCtgr);
+		
 		
 		return "user/category/category";
 	}
@@ -63,7 +66,7 @@ public class CategoryController {
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
+		model.addAttribute("subCtgrs", subCtgr);
 		
 		return "user/category/category";
 	}
@@ -76,7 +79,7 @@ public class CategoryController {
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
+		model.addAttribute("subCtgrs", subCtgr);
 		
 		return "user/category/category";
 	}
@@ -84,14 +87,14 @@ public class CategoryController {
 	
 	@GetMapping(value="/category")
 	public String categorySubItems(@RequestParam("ctgr_num") int s_ctgr_num, Model model) {
+		
 		String mainCtgr = mapper.getMainCtgrNameBySubCtgr(s_ctgr_num);
 		List<SubCtgrDTO> subCtgr = mapper.getSubCategoriesBySubNum(s_ctgr_num);
 		List<ProdDTO> products_sub = mapper.getAllSubProds(s_ctgr_num);
-		
 		model.addAttribute("products", products_sub);
 		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgr", subCtgr);
-		
+		model.addAttribute("subCtgrs", subCtgr);
+
 		
 		return "user/category/category";
 	}

@@ -16,7 +16,7 @@
 	<!-- 검색 창 -->
 
 	 <div class="search-box">
-	 	<form id="search_box" action="/products/search">
+	 	<form id="search_box" action="/jhc/products/search">
 	     <input type="text" class="search-txt" name="keyword" placeholder="검색어를 입력하세요.">
 	     <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
 	 	</form>
@@ -27,10 +27,10 @@
 	<div id="category_main_products">
 		<c:forEach items="${products}" var="prod">
 			<div class="products">
-				<a href="#">
+				<a href="/jhc/product_details?product_num=${prod.p_num}">
+				
 				<img
-					src="<%=request.getContextPath() %>/${prod.p_info_img_path }"
-					alt="" />
+					src="<%=request.getContextPath() %>/${prod.p_info_img_path }" alt="" />
 				</a>
 				<!--상품명-->
 				<div class="product_name">${prod.p_name }</div>

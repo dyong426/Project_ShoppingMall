@@ -12,21 +12,35 @@
 	</div>
 	
 	<div id="category_main_products">
-		<c:forEach items="${products}" var="prod">
-			<div class="products">
-				<a href="#">
-				<img
-					src="<%=request.getContextPath() %>/${prod.p_info_img_path }" alt="" />
-				</a>
-				<!--상품명-->
-				<div class="product_name">${prod.p_name }</div>
-				<!--상품가격-->
-				<div class="product_price">
-					<fmt:formatNumber value="${prod.p_price }" pattern="￦#,###" />
-				</div>
-			</div>
-		</c:forEach>
+
+	<c:if test="${empty products || empty keyword }">
+		<div>
+		검색 결과가 없습니다.
+		</div>
+	</c:if>
+
+
+		<c:if test="${not empty keyword }">
 	
+	
+			<c:forEach items="${products}" var="prod">
+				<div class="products">
+					<a href="/jhc/product_details?product_num=${prod.p_num}">
+					<img
+						src="<%=request.getContextPath() %>/${prod.p_info_img_path }" alt="" />
+					</a>
+					<!--상품명-->
+					<div class="product_name">${prod.p_name }</div>
+					<!--상품가격-->
+					<div class="product_price">
+						<fmt:formatNumber value="${prod.p_price }" pattern="￦#,###" />
+					</div>
+				</div>
+			</c:forEach>
+		</c:if>
+		
+
+
 	</div>
 
 

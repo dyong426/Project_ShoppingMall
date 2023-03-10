@@ -4,14 +4,14 @@
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/er.css">
 
-<!-- main -->
+  <!-- main -->
   <div class="er_background">
         <div class="er_body">
             <h2>교환/환불 신청하기</h2>
                 <div class="er_contents">
                         <div class="er_info">
                             <div>
-                                주문번호&nbsp;&nbsp;<a href="<%=request.getContextPath() %>/details">[20220929-0001079]</a>
+                                주문번호&nbsp;&nbsp;<a href="file:///C:/Users/user/Desktop/%EC%9E%A5%EB%B0%94%EA%B5%AC%EB%8B%88%20%EA%BB%8D%EB%8D%B0%EA%B8%B0/html/pruduct_details_Page.html">[20220929-0001079]</a>
                             </div>
                         </div>
                             <div class="er_guide_box">

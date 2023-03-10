@@ -2,7 +2,8 @@
     pageEncoding="UTF-8"%>
     
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/my_review2.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/my_review2.css?after">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/wc.css?after">
 
   <!-- main -->
   <div class="rv_container2">
@@ -12,7 +13,7 @@
             </div>
             <div class="header_tab">
                 <div class="tab_left" type="order_list">
-                    <a class="ok_review" href="<%=request.getContextPath() %>/writing_review">작성 가능한 리뷰</a>
+                    <a class="ok_review" href="<%=request.getContextPath() %>/writeable_reviews">작성 가능한 리뷰</a>
                 </div>
                 <div class="tab_right" type="review_list">내가 쓴 리뷰 </div>
             </div>
@@ -40,7 +41,7 @@
                             </td>
                             <td class="wr_check">
                                 <strong class="wr_name">
-                                    <div class="sentence">
+                                    <div class="sentence"> 
                                         <a href="" class="ec_wr_name">실물 깡패 완전 존예입니다. 받자마자 너무 예뻐서 네이비로 재주문 함</a>
                                     </div>
                                 </strong>
@@ -59,7 +60,7 @@
                                 </div>
                             </td>
                             <td>
-                                <img id="picture" src="<%=request.getContextPath() %>/assets/common/cstm_img/착샷3.jpg" alt="">
+                                <img id="picture" src="<%=request.getContextPath() %>/${review_pd.origin_img_path}" alt="">
                             </td>
                             <td>
                                 <div class="point_clear">포인트 지급 완료</div>
@@ -71,16 +72,16 @@
         </div>
   </div>
   
-  <!-- 팝업 창 --> 
+<!-- 팝업 창 --> 
 
 <div class="main">
   <div class="modal">
     <div class="modal-content">
         <span class="close-button">&times;</span>
-        <div class="title_box"><h1 class="title">리뷰</h1></div>
+        <div class="title_box"><h2 class="title">내가 쓴 리뷰</h2></div>
         <div class="pd_info">
           <div class="pd_image">
-            <img src="../images/착샷2.jpg" alt="" style="width: 70px; height: 70px;">
+            <img src="<%=request.getContextPath() %>/assets/common/cstm_img/products/clothes/젤란 라이트 후드집업.png" alt="" style="width: 70px; height: 70px;">
           </div>
           <div class="pd_">
             <div class="pd_name">넘나 힙한 츄리닝 [Brown]</div>
@@ -113,25 +114,10 @@
 </div>
 
 <script>
-  var modal = document.querySelector(".modal");
-	    var ec_wr_name = document.querySelector(".ec_wr_name");
-	    var closeButton = document.querySelector(".close-button");
 
-
-	    function toggleModal() {
-	        modal.classList.toggle("show-modal");
-	    }
-
-	    function windowOnClick(event) {
-	        if (event.target === modal) {
-	            toggleModal();
-	        }
-	    }
-
-	    ec_wr_name.addEventListener("click", toggleModal);
-	    closeButton.addEventListener("click", toggleModal);
-	    window.addEventListener("click", windowOnClick);
 </script>
 
  <footer>
    <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
+    ?v=<%=System.currentTimeMillis() %>   
+	<script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/mypage/js/review_popup.js"></script>

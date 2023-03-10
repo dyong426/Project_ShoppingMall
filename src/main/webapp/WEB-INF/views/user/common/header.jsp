@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -28,16 +28,21 @@
 
 <body>
 
+
+		
 	<!-- header -->
 
 	<div class="header_container">
-
+		
+	
+		
 		<!--회원가입, 로그인, 고객센터-->
 		<div id="header_top">
 			<div>
-				<button class="sign_up">회원가입</button>
-				<button class="sign_in">로그인</button>
-				<button onclick="location.href='<%=request.getContextPath()%>/cs'">고객센터</button>
+				<button class="join hidden_visibility" id="joinBtn">회원가입</button>
+				<button class="login hidden_visibility" id="loginBtn">로그인</button>
+				<button class="logout hidden_visibility" id="logoutBtn">로그아웃</button>
+				<button onclick="location.href='<%=request.getContextPath() %>/cs'">고객센터</button>
 			</div>
 		</div>
 
@@ -51,20 +56,15 @@
 
 
 			<div class="header_container_bottom_contents">
-				<a href="category_clothes.html">의류</a>
-				<a href="#">액자</a>
-				<a href="#">폰케이스/테크</a>
-				<a href="#">홈데코/리빙</a>
+				<a href="/jhc/category_clothes">의류</a>
+				<a href="/jhc/category_phone_case">폰케이스/테크</a>
+				<a href="/jhc/category_home">홈데코/리빙</a>
+				<a href="/jhc/category_frame">액자</a>
 			</div>
-
+		<c:set var="member" value="${sessionScope.member }"/>
+		
 			<div class="header_container_bottom_contents">
-				<a href="/category_clothes">의류</a> <a href="/category_phone_case">폰케이스/테크</a>
-				<a href="/category_home">홈데코/리빙</a> <a href="/category_frame">액자</a>
-			</div>
-
-			<div class="header_container_bottom_contents">
-				<span class="hidden_visibility user_welcome_text">정수정님,
-					환영합니다.</span>
+				<span class="user_welcome_text hidden_visilbility" id="user_welcome_text">${member.mem_name}님, 환영합니다.</span>
 				<button id="myCart">
 					<span class="material-symbols-outlined">shopping_cart</span>
 				</button>
@@ -83,10 +83,11 @@
 
 	<!--마이페이지 드롭다운-->
 	<div class="hidden myPage_container" id="myPage_drop-down">
-		<button>주문 내역</button>
-		<button>나의 리뷰</button>
-		<button>나의 정보</button>
-		<button onclick="location.href='#'">문의 내역</button>
+      <button onclick="location.href='<%=request.getContextPath() %>/history'">주문 내역</button>
+      <button onclick="location.href='<%=request.getContextPath() %>/writeable_reviews'">나의 리뷰</button>
+      <button onclick="location.href='<%=request.getContextPath() %>/info'">나의 정보</button>
+      <button onclick="location.href='#'">문의 내역</button>
+
 	</div>
 
 	<!--로그인-->
@@ -102,11 +103,13 @@
 			<div id="bar"></div>
 			<div>
 				<div id="text_login">로그인</div>
-				<form>
-					<input id="login_email" type="text" placeholder="이메일 주소" /> <input
-						id="login_pw" type="password" placeholder="비밀번호" /> <input
-						id="login_submit" type="submit" value="로그인" />
+				<form action="/jhc/login.do" method="POST" onsubmit="return mySubmit_login();">
+					<input id="login_email" name="mem_email" class="mem_email" type="text" placeholder="이메일 주소" />
+					<input id="login_pw" name="mem_pw" type="password" placeholder="비밀번호" />
+					<input id="login_submit" type="submit" value="로그인"/>
 				</form>
+				
+				<div class="login_error_wrap hidden_visibility" id="error_message_login" style="display: block;">에러 메세지</div>
 
 				<div class="or_container">
 					<div></div>
@@ -121,7 +124,8 @@
 				</button>
 
 				<button id="naver_login" onclick="naverIdLogin_loginButton();">
-					<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 로그인
+				
+<%-- 					<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 로그인 --%>
 				</button>
 
 
@@ -193,13 +197,20 @@
 				<div id="bar"></div>
 				<div>
 					<div id="text_join">회원가입</div>
-					<form onsubmit="return false;">
-						<input id="join_email" type="text" placeholder="이메일 주소" />
-						<input id="join_name" type="text" placeholder="이름" />
-						<input id="join_pw" type="password" placeholder="비밀번호" />
-						<input id="join_submit" onclick="join_check();" type="submit" value="가입하기" />
+					
+					<form action="/jhc/join.do" method="POST" onsubmit="return mySubmit_join();">
+						<input id="mem_email" name="mem_email" class="mem_email" type="text" placeholder="이메일 주소" />
+						<input id="mem_name" name="mem_name" type="text" placeholder="이름" />
+						<input id="mem_pw" name="mem_pw" type="password" placeholder="비밀번호&nbsp;(영문과 특수문자를 포함한 최소 8자)" />
+						<input id="mem_pw_recheck" name="mem_pw_recheck" type="password" placeholder="비밀번호 확인" />
+						<div>
+							<input id="join_agree" type="checkbox" name="agree" checked/><label for="join_agree">개인 정보 취급 및 이용 약관 동의</label>
+						</div>
+						<input id="join_submit" type="submit" onclick="join_check();"value="가입하기"/>
 					</form>
 
+					<div class="join_error_wrap hidden_visibility" id="error_message_join" style="display: block;">에러 메세지</div>
+                                
 					<div class="or_container">
 						<div></div>
 						<div>또는</div>
@@ -210,7 +221,7 @@
 						<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_logo.png" alt="">카카오 계정으로 가입
 					</button>
 					<button id="naver_login" onclick="naverIdLogin_loginButton;">
-						<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입
+<%-- 						<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입 --%>
 					</button>
 			</div>
 		</div>
