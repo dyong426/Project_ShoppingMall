@@ -24,6 +24,7 @@ public class OrderController {
 	@GetMapping("/order")
 	public String order(HttpSession session) {
 		
+		// 임시 정보
 		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
 		
 		MemberAddressDTO memberAddress = orderService.getAddressByNum(1);

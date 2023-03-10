@@ -609,7 +609,7 @@ function addImage(url) {
         if (e.target === img && e.evt.button != 2) {
           tr.show();
         }
-        
+
         // 다른 곳에서 마우스 클릭하면 transformer hide
         if (e.target !== img) {
           tr.hide();
@@ -770,41 +770,61 @@ const loginBtn = document.querySelector('.sign_in');
 //       e.preventDefault();
 //       loginBtn.click();
 //     } else {
-      // 로그인 상태로 장바구니 버튼 클릭 이벤트
-      buttons[1].addEventListener('click', (e) => {
 
-        // 이미지 로컬에 저장 후 해당 경로로 DB에 데이터 insert
+// 로그인 상태에서 바로구매 버튼 클릭 이벤트
+// if (i == 0) {
 
-        var cstm_img = stage.toDataURL();
-        console.log(cstm_img);
-        console.log(cstm_img.split(',')[1]);
-        var blob = atob(cstm_img.split(',')[1]);
-        console.log(blob);
-        var arr = [];
+// } else {
+  // 로그인 상태에서 장바구니 버튼 클릭 이벤트
+  buttons[1].addEventListener('click', (e) => {
 
-        for (i = 0; i < blob.length; ++i) {
-          arr.push(blob.charCodeAt[i]);
-        }
+    // 이미지 로컬에 저장 후 해당 경로로 DB에 데이터 insert
 
-        var file = new Blob([new Uint8Array(arr)], {type: 'image/png'});
-        var fileName = 'cstm_img_' + mem_num + '_' + new Date().getMilliseconds() + '.png';
+    var cstm_img = stage.toDataURL();
+    var blob = atob(cstm_img.split(',')[1]);
 
-        var formData = new FormData();
-        formData.append('file', file, fileName);
-        
-        $.ajax({
-          type: 'post',
-          url: '/jhc/saveImage',
-          data: formData,
-          processData: false,
-          contentType: false,
-          success: function () {
-            console.log('saveImage로 전송 완료');
-          }
-        });
+    // var arr = [];
 
-      });
+    // for (i = 0; i < blob.length; ++i) {
+    //   arr.push(blob.charCodeAt[i]);
+    // }
+
+    // var file = new Blob([new Uint8Array(arr)], {type: 'image/png'});
+    var fileName = 'cstm_img_' + mem_num + '_' + new Date().getMilliseconds() + '.png';
+
+    // var formData = new FormData();
+    // formData.append('file', blob, fileName);
+
+    // console.log('blob : ', blob);
+    // console.log('file : ', file);
+    // console.log('formData : ', formData);
+    
+    // $.ajax({
+    //   type: 'post',
+    //   url: '/jhc/saveImage',
+    //   data: img,
+    //   dataType: 'json',
+    //   processData: false,
+    //   contentType: false,
+    //   success: function () {
+    //     console.log('saveImage로 전송 완료');
+    //   }
+    // });
+
+
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.addEventListener('readystatechange', () => {
+      if (xhttp.status == 200 && xhttp.readyState == 4) {
+        console.log('hihi');
+      }
+    });
+    xhttp.open('post', '/jhc/saveImage');
+    xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+    xhttp.send(`img=${blob}&fileName=${fileName}`);
+  });
+// }
 //     }
 //   });
 // }
-
