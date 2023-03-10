@@ -1,4 +1,4 @@
-.main{
+.rv_main{
     text-align: center;
     display: block;
     margin: 0 auto;
@@ -6,13 +6,13 @@
     color: #999;
 }
 
-.title_box {
+.rv_title_box {
  padding-left: 20px;
 }
 
 h2{
     text-align: center;
-    color: #063970;
+    color: #686868;
     margin: 15px 0px;
 }
 
@@ -70,7 +70,7 @@ textarea{
     opacity: 0.9;
 }
 
-.modal {
+.rv_modal {
     position: fixed;
     left: 0;
     top: 0;
@@ -82,7 +82,7 @@ textarea{
     transform: scale(1.1);
     transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
 }
-.modal-content {
+.rv_modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -91,28 +91,30 @@ textarea{
     padding: 1rem 1.5rem;
     width: 500px;
     height: 420px;
-    border-radius: 0.5rem;
 }
-.close-button {
+.rv_close-button {
     float: right;
     width: 1.5rem;
     font-size: large;
     line-height: 1.5rem;
     text-align: center;
     cursor: pointer;
+    position: absolute;
+    margin-left: 220px;
+    margin-top: -10px;
     transition: background 0.5s ease-in-out;
 }
-.close-button:hover {
+.rv_close-button:hover {
     background-color: rgb(209, 209, 209);
 }
-.show-modal {
+.show-rv_modal {
     opacity: 1;
     visibility: visible;
     transform: scale(1.0);
     transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
 }
 
-.pd_info {
+.rv_info {
     width: 450px;
     height: 85px;
     display: flex;
@@ -121,15 +123,15 @@ textarea{
     border-bottom: solid 1px rgb(213, 219, 224);
 }
 
-.pd_image {
+.rv_image {
     margin-right: 20px;
 }
 
-.pd_name {
+.rv_name {
     margin-top: 10px;
 }
 
-.pd_price {
+.rv_price {
     margin-top: 10px;
     text-align: left;
 }
@@ -137,10 +139,10 @@ textarea{
 .point_clear2 {
     height: 20px;
     top: 130px;
-    left: 400px;
+    left: 370px;
     font-size: small;
-    line-height: 20px;
-    padding: 3px 7px;
+    line-height: 1px;
+    padding: 10px 9px;
     border-radius: 5px;
     color: black;
     background-color: gainsboro;

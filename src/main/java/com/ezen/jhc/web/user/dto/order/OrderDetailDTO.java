@@ -1,5 +1,7 @@
 package com.ezen.jhc.web.user.dto.order;
 
+import java.util.Date;
+
 import com.ezen.jhc.web.user.dto.cstm.MemberCstmDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDetailDTO;
 
@@ -40,5 +42,11 @@ public class OrderDetailDTO {
 	// 테이블 조인 : member_cstm
 	Integer	mem_cstm_num;
 	String	mem_cstm_path;
+	
+	// 테이블 조인 : members
+	Integer mem_num;
+	
+	// 테이블 조인 : oders
+	Date ord_date;
 	
 }

@@ -8,6 +8,7 @@
 
 
   <!-- main -->
+  <div class="main_body">
   <div class="cart_body"> 
     <div class="basket_top">
             <span id="my_basket">내 장바구니</span>
@@ -88,6 +89,7 @@
 
     <div class="checkout_btn"><span>주문서 작성</span></div>
   </div>
+  </div>
 
   <!-- 사이즈 옵션 팝업 창-->
   <div class="main">
@@ -100,7 +102,7 @@
           </div>
           <div class="option_box">
             <span class="close-button">&times;</span>
-            <h3 class="title">수량을 선택해주세요</h3>
+            <div class="title">수량을 선택해주세요</div>
             <div class="pd_main_box">
               <div class="sub">후드집업(남녀공용) [블루]</div>
               <form action="#post.php" method="POST">
@@ -173,7 +175,6 @@
   </div>
 
   <!-- 색상 추가 팝업 창-->
-  <div class="cl_main"></div>
   <div class="cl_modal">
       <div class="cl_modal-content">
         <button class="cl_close-button"></button>
@@ -228,111 +229,61 @@
       </div>
   </div>
   
-  <!-- 사이즈 옵션창 js-->
-    <script type="text/javascript">
-      var modal = document.querySelector(".modal");
-        var btn = document.querySelector(".btn");
-        var closeButton = document.querySelector(".close-button");
   
-  
-        function toggleModal() {
-            modal.classList.toggle("show-modal");
-        }
-  
-        function windowOnClick(event) {
-            if (event.target === modal) {
-                toggleModal();
-            }
-        }
+  <!-- 사이즈 옵션 팝업 창 -->
+  <script>
+  var modal = document.querySelector(".modal");
+  var btn = document.querySelector(".btn");
+  var closeButton = document.querySelector(".close-button");
 
-        btn.addEventListener("click", toggleModal);
-        closeButton.addEventListener("click", toggleModal);
-        window.addEventListener("click", windowOnClick);
-    </script>
 
-	<!-- 컬러 옵션창 js-->
-	<script type="text/javascript">
-	  var cl_modal = document.querySelector(".cl_modal");
-	    var add_color = document.querySelector(".add_color");
-	    var cl_closeButton = document.querySelector(".cl_close-button");
-	
-	
-	    function toggleModal() {
-	      cl_modal.classList.toggle("show-cl_modal");
-	    }
-	
-	    function windowOnClick(event) {
-	        if (event.target === cl_modal) {
-	            toggleModal();
-	        }
-	    }
-	    
-	    
-	    add_color.addEventListener("click", toggleModal);
-	    cl_closeButton.addEventListener("click", toggleModal);
-	    window.addEventListener("click", windowOnClick);
-	</script>
-	
-	<!-- 컬러 선택 js-->
+  function toggleModal() {
+      modal.classList.toggle("show-modal");
+  }
+
+  function windowOnClick(event) {
+      if (event.target === modal) {
+          toggleModal();
+      }
+  }
+
+  btn.addEventListener("click", toggleModal);
+  closeButton.addEventListener("click", toggleModal);
+  window.addEventListener("click", windowOnClick);
+  </script>
+  
+  <!-- 사이즈 옵션 카운트 js -->
+  <script></script>
+  
+  
+ <!-- 색상 팝업 창 -->
 	<script>
-	  const nonClick = document.querySelectorAll(".non-click");
-	
-	  function handleClick(event) {
-	    // div에서 모든 "click" 클래스 제거
-	    nonClick.forEach((e) => {
-	      e.classList.remove("click");
-	    });
-	    // 클릭한 div만 "click"클래스 추가
-	    event.target.classList.add("click");
-	  }
-	
-	  nonClick.forEach((e) => {
-	    e.addEventListener("click", handleClick);
-	  });
+	var cl_modal = document.querySelector(".cl_modal");
+    var add_color = document.querySelector(".add_color");
+    var cl_closeButton = document.querySelector(".cl_close-button");
+
+
+    function toggleModal() {
+      cl_modal.classList.toggle("show-cl_modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === cl_modal) {
+            toggleModal();
+        }
+    }
+    
+    
+    add_color.addEventListener("click", toggleModal);
+    cl_closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
 	</script>
 	
-	<!-- 옵션 수량 변경 js-->
-	<script>
-	  function decrement(e) {
-	    const btn = e.target.parentNode.parentElement.querySelector(
-	      'div[data-action="decrement"]'
-	    );
-	    const target = btn.nextElementSibling;
-	    let value = Number(target.value);
-	    if (value > 0) {
-	            value--;
-	            target.value = value;
-	          } else if (value <= 0){
-	            target.value = 0 ;
-	          }
-	  }
-	
-	  function increment(e) {
-	    const btn = e.target.parentNode.parentElement.querySelector(
-	      'div[data-action="decrement"]'
-	    );
-	    const target = btn.nextElementSibling;
-	    let value = Number(target.value);
-	    value++;
-	    target.value = value;
-	  }
-	
-	  const decrementButtons = document.querySelectorAll(
-	    `div[data-action="decrement"]`
-	  );
-	
-	  const incrementButtons = document.querySelectorAll(
-	    `div[data-action="increment"]`
-	  );
-	
-	  decrementButtons.forEach(btn => {
-	    btn.addEventListener("click", decrement);
-	  });
-	
-	  incrementButtons.forEach(btn => {
-	    btn.addEventListener("click", increment);
-	  });
-	</script>
 
  <footer>
    <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
+   ?v=<%=System.currentTimeMillis() %>
+   <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/mypage/js/size_popup.js?ver=1"></script>
+   <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/mypage/js/color_popup.js?ver=1"></script>
+   <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/mypage/js/size_count.js?ver=1"></script>
+   <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/mypage/js/color_select.js?ver=1"></script>

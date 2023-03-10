@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/my_review.css">
 
@@ -13,10 +16,11 @@
         <div class="header_tab">
             <div class="tab_left" type="order_list">작성 가능한 리뷰</div>
             <div class="tab_right" type="review_list">
-                <a class="writed_review" href="<%=request.getContextPath() %>/watching_review">내가 쓴 리뷰</a>
+                <a class="writed_review" href="<%=request.getContextPath() %>/wrote_review">내가 쓴 리뷰</a>
             </div>
         </div>
         <div class="header_my_review">
+       
             <div class="info1">
                 작성 가능한 상품이 <span>0</span> 개 있습니다.
             </div>
@@ -26,9 +30,11 @@
             <div class="info2">
                 단, 주문 금액이 크더라도, 상품별 금액이 3,000원 이하일 경우 리뷰작성시 50포인트, 사진과 함께 리뷰를 작성해주시면 150포인트 적립되는 점 참고 부탁드립니다.
             </div>
+       
         </div>
         <div class="write_review" total_count="0">
-          <div class="order_date"><span>주문일&nbsp;</span>&nbsp;&nbsp;2022-09-29</div>
+       <!--  <c:forEach items="${review_ch}" var="ch"> -->
+          <div class="order_date"><span>주문일&nbsp;</span>&nbsp;&nbsp;${ch.ord_date}</div>
             <table class="wr_info">
                 <thead>
                     <tr>
@@ -52,18 +58,20 @@
                         </td>
                         <td class="wr_check">
                             <strong class="wr_name">
-                                <a href="" class="ec_wr_name">보송보송 너무나도 예쁜 하얀 목티<!-- 여기 클릭하면 판매 페이지로 이동 --></a>
+                                <a href="" class="ec_wr_name">${ch.p_name}</a>
                             </strong>
                         </td>
                         <td>
-                          <span>White</span>
+                          <span>${ch.pc_name}</span>
                         </td>
+                        
                         <td class="wr_amount">
                             <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review'">리뷰 작성 하기</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
+           <!--  </c:forEach> -->
         </div>
     </div>
   </div>
