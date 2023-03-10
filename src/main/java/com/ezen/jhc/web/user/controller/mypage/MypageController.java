@@ -66,29 +66,7 @@ public class MypageController {
 		return "user/mypage/myreview/writing_review";
 	}
 
-	@RequestMapping(value = "/history", method = RequestMethod.GET)
-	public String mpHistory() {
 
-		return "user/mypage/purchase/history";
-	}
-
-	@RequestMapping(value = "/details", method = RequestMethod.GET)
-	public String mpDetails() {
-
-		return "user/mypage/purchase/details";
-	}
-
-	@RequestMapping(value = "/er", method = RequestMethod.GET)
-	public String orderER() {
-
-		return "user/mypage/purchase/exchange_refund";
-	}
-
-	@RequestMapping(value = "/cancel", method = RequestMethod.GET)
-	public String orderCancel() {
-
-		return "user/mypage/purchase/cancel";
-	}
 
 	@GetMapping("/password/change")
 	public String showPasswordChangeForm() {
