@@ -31,7 +31,4 @@ public interface MemberMapper {
 	@Update("update members set mem_pw = #{mem_pw} where mem_email = #{mem_email}")
 	public void changePassword(@Param("mem_pw")String mem_pw, @Param("mem_email") String mem_email);
 	
-	
-	
-	
 }
