@@ -1,10 +1,9 @@
 package com.ezen.jhc.web.user.controller.cs;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import javax.servlet.http.HttpServletRequest;
-
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -55,8 +54,13 @@ public class CsController {
 	public String cs_contatct(Model model) {
 
 		List<FaqDTO> ctgr = faq_mapper.get_ctgr_num();
+		// 미리 선택되어있는 값 
+		List<FaqDTO> ctgr0 = new ArrayList<>();
+		
+		ctgr0.add(ctgr.get(0));
 		
 		model.addAttribute("ctgr", ctgr);
+		model.addAttribute("ctgr0", ctgr0);
 		
 		return "user/cs/contact/contact";
 	}
@@ -64,13 +68,21 @@ public class CsController {
 	
 	
 	@PostMapping("/customerservice/con")
-	public String cs_contatct_(HttpServletRequest req) {
+	public String cs_contatct_(@Param("mem_num") Integer mem_num, 
+			@Param("contact_ctgr") Integer contact_ctgr, @Param("contact_title") String contact_title,
+			@Param("contact_content") String contact_content) {
+		//@Param("contact_image_path") String contact_image_path
+		
+		System.out.println(mem_num);
+		System.out.println(contact_ctgr);
+		System.out.println(contact_title);
+		System.out.println(contact_content);
+		//System.out.println(contact_image_path);
+		
+		//int insert = contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title, contact_content, contact_image_path);
 		
 		
-		
-		
-		
-		 return "redirect:/customerservice";
+		 return "redirect:/contact";
 	}
 	
 	// 마이 페이지 내 1:1 문의 리스트
