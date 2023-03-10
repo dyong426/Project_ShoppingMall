@@ -16,14 +16,12 @@
 	<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
 		<constructor-arg ref="config" />
 	</bean>
-	
-	
-	
-	
+
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="ds"/>
 		<property name="configLocation" value="classpath:/mybatis-config.xml" />
 	</bean>
 	
-	<mybatis-spring:scan base-package="com.ezen.jhc.web.user.mapper.*"/>
+	<mybatis-spring:scan base-package="com.ezen.jhc.web.*.mapper.*"/>
+
 </beans>

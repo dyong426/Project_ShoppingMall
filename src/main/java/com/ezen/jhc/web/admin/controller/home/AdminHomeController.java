@@ -8,10 +8,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class AdminHomeController {
 	
-	@RequestMapping(value="/main", method=RequestMethod.GET)
+	@RequestMapping("/main")
 	public String adminHome() {
 		
 		return "admin/home/admin_home";
 	}
-	
 }

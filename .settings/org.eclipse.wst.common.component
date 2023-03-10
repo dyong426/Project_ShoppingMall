@@ -1,38 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
                 
     
+=======
+            
+>>>>>>> refs/heads/DUHA
     
     <wb-module deploy-name="jhc-1.0.0-BUILD-SNAPSHOT">
+<<<<<<< HEAD
                                 
         
+=======
+                        
+>>>>>>> refs/heads/DUHA
         
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+<<<<<<< HEAD
                                 
         
+=======
+                        
+>>>>>>> refs/heads/DUHA
         
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+<<<<<<< HEAD
                                 
         
+=======
+                        
+>>>>>>> refs/heads/DUHA
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+<<<<<<< HEAD
                                 
         
+=======
+                        
+>>>>>>> refs/heads/DUHA
         
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+<<<<<<< HEAD
                                 
         
+=======
+                        
+>>>>>>> refs/heads/DUHA
         
         
         <property name="java-output-path" value="target/classes"/>
+<<<<<<< HEAD
                                 
         
+=======
+                        
+>>>>>>> refs/heads/DUHA
         
         <property name="context-root" value="jhc"/>
+<<<<<<< HEAD
                             
+=======
+                    
+>>>>>>> refs/heads/DUHA
     
+<<<<<<< HEAD
     
     </wb-module>
             
 
+=======
+    </wb-module>
+        
+>>>>>>> refs/heads/DUHA
 
 </project-modules>

@@ -24,7 +24,7 @@ import com.ezen.jhc.web.user.mapper.home.HomeMapper;
  * */
 @Controller
 public class MainController {
-	
+
 	@Autowired
 	HomeMapper home_mapper;
 
@@ -49,8 +49,6 @@ public class MainController {
 
 	@RequestMapping(value = "/main")
 	public String main(Model model, HttpServletRequest request, HttpSession session) {
-
-
 
 		return "user/home/main";
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.admin.mapper.prod.ProdRegMapper">
+
+	<insert id="regProd">
+		
+		<selectKey resultType="int" keyProperty="p_num" order="BEFORE">
+			SELECT p_seq.nextval FROM DUAL
+		</selectKey>
+		
+		INSERT INTO prods VALUES(#{p_num}, #{p_name}, #{p_price}, #{s_ctgr_num}, #{p_info_img_path}, #{p_explain_path}, #{p_info_path})
+	</insert>
+	
+	<insert id="regProdImage">
+	
+		INSERT INTO prod_images VALUES(#{p_num},#{origin_img_path},#{thumb_img_path},#{lg_img_path},#{md_img_path},#{sm_img_path})
+		
+	</insert>
+	
+	<insert id="regProdColors">
+		<selectKey resultType="int" keyProperty="pc_num" order="BEFORE">
+			SELECT pc_seq.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO prod_colors VALUES(#{pc_num}, #{pc_name}, #{pc_code}, #{pc_img_path}, #{p_num},#{pc_img_uploadpath},#{pc_img_uuid}, #{pc_img_filename},#{pc_origin_img_path},#{pc_thumb_img_path},#{pc_lg_img_path},#{pc_md_img_path},#{pc_sm_img_path})
+	</insert>
+	
+	<insert id="regProdSizes">
+		<selectKey resultType="int" keyProperty="ps_num" order="BEFORE">
+			SELECT ps_seq.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO prod_sizes VALUES(#{ps_num}, #{ps_name}, #{p_num})
+	</insert>
+
+</mapper>
