@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.jhc.common.util.PasswordEncoder;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
-import com.ezen.jhc.web.user.mapper.member.MemberMapper;
+import com.ezen.jhc.web.user.service.member.MemberService;
 
 
 /**
@@ -37,7 +37,7 @@ public class MemberController {
 	DataSource ds;
 	
 	@Autowired
-	MemberMapper mapper;
+	private MemberService memberService;
 
 	
 	// 암호화
@@ -54,13 +54,13 @@ public class MemberController {
 	public String join_member (MemberDTO dto, Model model, HttpServletRequest request) throws NoSuchAlgorithmException{
 		
 		String mem_email = request.getParameter("mem_email");
-		Integer member = mapper.checkMem(mem_email);
+		Integer member = memberService.checkMemByEmail(mem_email);
 		
 		dto.setMem_pw(PasswordEncoder.encodePassword(dto.getMem_pw()));
 		
 		if (member == 0) {
 			
-			mapper.join(dto);
+			memberService.join(dto);
 			model.addAttribute("mem_email", dto.getMem_email());
 			model.addAttribute("mem_name", dto.getMem_name());	
 		}
@@ -73,7 +73,7 @@ public class MemberController {
 			HttpServletRequest request, HttpServletResponse response,
 			HttpSession session) {
 		
-		MemberDTO dto = mapper.getMember(memEmail);
+		MemberDTO dto = memberService.getMemByEmail(memEmail);
 		
 
 		// 세션에 memberDTO 저장
@@ -126,7 +126,7 @@ public class MemberController {
 	@RequestMapping("/emailCheck")
 	@ResponseBody
 	public int emailCheck(@RequestParam("mem_email") String mem_email) {
-		int cnt = mapper.checkMem(mem_email);
+		int cnt = memberService.checkMemByEmail(mem_email);
 	
 		return cnt;
 	}
@@ -135,7 +135,7 @@ public class MemberController {
 	@ResponseBody
 	public Integer checkEmailPw(@RequestParam("mem_email")String mem_email, @RequestParam("mem_pw")String mem_pw) {
 
-		Integer match = mapper.checkEmailPw(mem_email, mem_pw);
+		Integer match = memberService.checkEmailPW(mem_email, mem_pw);
 		
 		return match;
 		
@@ -163,7 +163,7 @@ public class MemberController {
 		String mem_pw = PasswordEncoder.encodePassword(pw); 
 				
 		// db
-		mapper.changePassword(mem_pw, mem_email);
+		memberService.changePw(mem_pw, mem_email);
 		
 		// 변경 완료 메세지
 		return "user/mypage/personal_information/passwordChangeComplete";

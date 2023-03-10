@@ -4,9 +4,11 @@ import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.springframework.stereotype.Repository;
 
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 
+@Repository
 public interface MemberMapper {
 
 	// 이메일 주소 중복 확인
@@ -27,7 +29,7 @@ public interface MemberMapper {
 	
 	// 비밀번호 변경
 	@Update("update members set mem_pw = #{mem_pw} where mem_email = #{mem_email}")
-	public void changePassword(@Param("mem_pw")String mem_pw, @Param("mem_email")String mem_email);
+	public void changePassword(@Param("mem_pw")String mem_pw, @Param("mem_email") String mem_email);
 	
 	
 	

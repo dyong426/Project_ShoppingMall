@@ -1,6 +1,5 @@
 package com.ezen.jhc.web.user.controller.mypage;
 
-import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
@@ -19,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ezen.jhc.common.util.Jwt;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
-import com.ezen.jhc.web.user.mapper.member.MemberMapper;
-import com.ezen.jhc.web.user.mapper.mypage.MypageMapper;
+import com.ezen.jhc.web.user.mapper.mypage.MyPageMapper;
+import com.ezen.jhc.web.user.service.member.MemberService;
 
 
 /**@author 김주희
@@ -35,11 +34,8 @@ public class MypageController {
 	DataSource ds;
 
 	@Autowired
-	MypageMapper mm_mapper;
-	
-	@Autowired
-	MemberMapper mb_mapper;
-	
+	MyPageMapper mm_mapper;
+
 	@Autowired
 	JavaMailSender mailSender;
 	

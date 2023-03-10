@@ -13,7 +13,7 @@ import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.dto.review.ReviewDTO;
 
 // 김주희 - 마이페이지 Mapper
-public interface MypageMapper {
+public interface MyPageMapper {
 	
 	
 	
