@@ -13,8 +13,10 @@
         <h1>나의 정보</h1>
         <div class="controls">
             <div class="email_ctr">
-                <label>이메일</label>
-                <div class="input">${member.mem_email }</div>
+                <label for="">이메일</label>
+                <div class="input">
+                    <button class="btn_change_email" type="button">이메일 변경</button>
+                </div>
             </div>
             <div class="pw_ctr">
                 <label for="">비밀번호</label>

@@ -72,4 +72,32 @@ window.onload = function(){
             break;
     }
 }
+
+	/* 등록 버튼 */
+	$(".registration").on("click", function(e){
+
+		const p_num = '${prods.p_num}';
+		const mem_num = '${members.mem_num}';
+		const review_content = '${review_content}';
+		const review_image_path = $("select").val();
+		const review_star = $("textarea").val();
+
+		const data = {
+				bookId : bookId,
+				memberId : memberId,
+				rating : rating,
+				content : content
+		}		
+		
+		$.ajax({
+			data : data,
+			type : 'POST',
+			url : '/reply/enroll',
+			success : function(result){
+				window.close();
+			}
+			
+		});		
+		
+	});
 }

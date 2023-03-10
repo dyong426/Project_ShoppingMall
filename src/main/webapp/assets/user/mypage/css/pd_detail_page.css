@@ -35,8 +35,13 @@ h3 {
 
 .title_area {
     height: 150px;
+<<<<<<< HEAD
     background-color: rgb(248, 249, 250);
     margin-top: 20px;
+=======
+    background-color: rgb(248, 249, 250);
+    margin-top: 20px;
+>>>>>>> refs/heads/juhee
 }
 
 .title {

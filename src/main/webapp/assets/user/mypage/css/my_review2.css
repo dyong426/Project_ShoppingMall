@@ -2,8 +2,13 @@
 
 a {
     color: black;
+<<<<<<< HEAD
     z-index: 1;
     text-decoration-line: none;
+=======
+    z-index: 1;
+    text-decoration-line: none;
+>>>>>>> refs/heads/juhee
 }
 
 a:hover {

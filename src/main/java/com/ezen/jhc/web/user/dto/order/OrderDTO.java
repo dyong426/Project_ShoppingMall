@@ -33,4 +33,6 @@ public class OrderDTO {
 	// 테이블 조인 : payments
 	Integer	payment_num;
 	String	payment_name;
+	
+	
 }

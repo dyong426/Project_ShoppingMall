@@ -3,7 +3,6 @@
     
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/er.css">
-
   <!-- main -->
   <div class="er_background">
         <div class="er_body">
