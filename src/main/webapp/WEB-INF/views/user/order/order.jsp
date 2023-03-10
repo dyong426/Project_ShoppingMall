@@ -145,26 +145,12 @@
 			<%--
 			<c:forEach items="${주문 상품들}" var="prod">
 				<div class="orderList">
-					<div class="rowSpan">
-						이미지
-					</div>
-					<div>
-						제품명
-						${prod.p_name}
-					</div>
-					<div>
-						색상 : ${prod.pc_name}
-					</div>
-					<div>
-						사이즈 : ${prod.ps_name}
-					</div>
-					<div>
-						수량 : 
-					</div>
-					<div>
-						가격
-						${수량 * ${prod.p_price}}
-					</div>
+					<div class="rowSpan">이미지</div>
+					<div>제품명${prod.p_name}</div>
+					<div>색상 : ${prod.pc_name}</div>
+					<div>사이즈 : ${prod.ps_name}</div>
+					<div>수량 :</div>
+					<div>가격${수량 * ${prod.p_price}}</div>
 				</div>
 			</c:forEach>
 			--%>

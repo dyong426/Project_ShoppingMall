@@ -1,15 +1,24 @@
 package com.ezen.jhc.web.user.controller.prod;
 
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+import javax.imageio.ImageIO;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
@@ -25,7 +34,7 @@ public class ProdDetailController {
 	@Autowired
 	ProductServiceImpl prodService;
 	
-	// detail 페이지로 요청받을 때 p_num, pc_num parameter 받기 (pd_num으로 받으면 사이즈도 정해져 있기 때문에 안됨)
+	
 	@GetMapping("/prodDetail")
 	public String prodDetail(Model model, Integer p_num, HttpSession session) {
 		
@@ -42,5 +51,31 @@ public class ProdDetailController {
 		model.addAttribute("prod", prod);
 		
 		return "user/prod/product_details";
+	}
+	
+	
+	// 커스텀 이미지 저장
+	@PostMapping("/saveImage")
+	public void saveImage(String img, String fileName) throws IOException {
+		
+		String encodingImg = img.replace(" ", "-").replace("/", "_");
+		byte[] imageBytes = Base64.getUrlDecoder().decode(encodingImg);
+		
+		BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageBytes));
+		
+		String file = fileName;
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		
+		String uploadFolder = "C:\\upload\\cstm_img";
+		String newFolder = LocalDateTime.now().format(formatter).replace("-", File.separator);
+		
+		File uploadPath = new File(uploadFolder, newFolder);
+		
+		if (uploadPath.exists() == false) {
+			uploadPath.mkdirs();
+		}
+		
+		ImageIO.write(image, "png", new File(uploadPath, file));		
 	}
 }
