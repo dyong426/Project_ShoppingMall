@@ -780,8 +780,9 @@ const loginBtn = document.querySelector('.sign_in');
 
     // 이미지 로컬에 저장 후 해당 경로로 DB에 데이터 insert
 
-    var cstm_img = stage.toDataURL();
-    var blob = atob(cstm_img.split(',')[1]);
+    var cstm_img = stage.toDataURL().split(',')[1];
+    console.log(cstm_img);
+    // var blob = atob(cstm_img.split(',')[1]);
 
     // var arr = [];
 
@@ -822,7 +823,7 @@ const loginBtn = document.querySelector('.sign_in');
     xhttp.open('post', '/jhc/saveImage');
     xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-    xhttp.send(`img=${blob}&fileName=${fileName}`);
+    xhttp.send(`img=${cstm_img}&fileName=${fileName}`);
   });
 // }
 //     }
