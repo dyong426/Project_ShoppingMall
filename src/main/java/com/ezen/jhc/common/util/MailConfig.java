@@ -1,5 +1,9 @@
 package com.ezen.jhc.common.util;
 
+/**@author SUJEONG
+ * 메일 발송용 (비밀번호 변경)
+ * */
+
 import java.util.Properties;
 
 import org.springframework.context.annotation.Bean;
@@ -18,7 +22,7 @@ public class MailConfig {
 
         mailSender.setUsername("juheecustom@gmail.com");
         mailSender.setPassword("mcdffevimgvfyudy");
-        mailSender.setProtocol("smtp"); // SSL 사용
+        mailSender.setProtocol("smtp");
         
         Properties props = mailSender.getJavaMailProperties();
         props.put("mail.transport.protocol", "smtp");

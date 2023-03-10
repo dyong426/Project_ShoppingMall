@@ -1,5 +1,9 @@
 package com.ezen.jhc.common.util;
 
+/**@author SUJEONG
+ * 비밀번호 암호화
+ * */
+
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

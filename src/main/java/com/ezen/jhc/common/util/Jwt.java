@@ -13,10 +13,11 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.security.Keys;
 
 /**
- * 사용자 객체를 이용하여 JWT 토큰을 생성합니다.
  * @author SUJEONG
  * @param user 사용자 객체
- * @return JWT 토큰 문자열
+ * 비밀번호 변경 링크에 들어가는 토큰
+ * 사용자 객체로 토큰 생성
+ * 
  */
 
 public class Jwt {
