@@ -28,7 +28,7 @@
 	text-align: center;
 }
 
-#cs_nav>th>a {
+.cate_body_ctgr {
 	display: block;
 	width: 400px;
 	line-height: 80px;
@@ -85,13 +85,13 @@
 	min-height: 500px;
 	width: 1000px;
 	display: flex;
-	justify-self: center;
+	
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
 #oneOnOne_form {
 	display: gird;
-	grid-template-columns: 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
 	margin:auto;
 }
 
@@ -105,4 +105,17 @@
 #cs_submit{
 	display: flex;
 	justify-content: right;
+}
+
+.con_ctgr_radio{
+	margin-right: 10px;
+}
+
+/*로그인 상태가 아닐 경우*/
+#non-members{
+	min-height: 300px;
+	width: 1000px;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
 }

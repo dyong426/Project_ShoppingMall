@@ -1,5 +1,6 @@
 package com.ezen.jhc.web.user.dto.member;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import lombok.AllArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
-public class MemberDTO {
+public class MemberDTO implements Serializable {
 	
 	// 테이블 : members
 	Integer mem_num;

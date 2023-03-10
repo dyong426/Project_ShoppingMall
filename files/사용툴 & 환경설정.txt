@@ -1,0 +1,195 @@
+[Tool]
+STS 5.2.22.RELEASE
+Java 1.8
+Apache Tomcat 9.0
+Oracle DB
+MyBatis
+
+[Version]
+java-version : 1.8
+
+springframework-version :  5.2.22.RELEASE
+
+log4j : 1.2.17
+
+log4j2 : 2.19.0
+
+servlet : 4.0.1
+
+jsp : 2.2.1-b03
+
+jstl : 1.2
+
+lombok : 1.18.24
+
+jackson-databind : 2.14.2
+
+jackson-dataformat-xml : 2.14.2
+
+HikariCP : 4.0.3
+
+mybatis : 3.5.11
+
+mybatis-spring : 2.0.7
+
+junit : 4.13.2
+
+-----------------------------------------------------------------------------------------------------------------------------
+[pom.xml]
+
+<java-version>1.8</java-version>
+<org.springframework-version>5.2.22.RELEASE</org.springframework-version>
+
+<!-- log4j -->
+<dependency>
+	<groupId>log4j</groupId>
+	<artifactId>log4j</artifactId>
+	<version>1.2.17</version>
+</dependency>
+
+<!-- log4j2 -->
+<dependency>
+	<groupId>org.apache.logging.log4j</groupId>
+	<artifactId>log4j-api</artifactId>
+	<version>2.19.0</version>
+</dependency>
+
+<dependency>
+	<groupId>org.apache.logging.log4j</groupId>
+	<artifactId>log4j-core</artifactId>
+	<version>2.19.0</version>
+</dependency>
+
+<!-- Servlet -->
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>javax.servlet-api</artifactId>
+	<version>4.0.1</version>
+	<scope>provided</scope>
+</dependency>
+
+<dependency>
+	<groupId>javax.servlet.jsp</groupId>
+	<artifactId>jsp-api</artifactId>
+	<version>2.2.1-b03</version>
+	<scope>provided</scope>
+</dependency>
+
+<dependency>
+	<groupId>javax.servlet</groupId>
+	<artifactId>jstl</artifactId>
+	<version>1.2</version>
+</dependency>
+
+<!-- Utils -->
+<dependency>
+	<groupId>org.projectlombok</groupId>
+	<artifactId>lombok</artifactId>
+	<version>1.18.24</version>
+	<scope>provided</scope>
+</dependency>
+
+<dependency>
+	<groupId>com.fasterxml.jackson.core</groupId>
+	<artifactId>jackson-databind</artifactId>
+	<version>2.14.2</version>
+</dependency>
+
+<dependency>
+	<groupId>com.fasterxml.jackson.dataformat</groupId>
+	<artifactId>jackson-dataformat-xml</artifactId>
+	<version>2.14.2</version>
+</dependency>
+		
+<!-- DataBase -->
+<dependency>
+	<groupId>com.zaxxer</groupId>
+	<artifactId>HikariCP</artifactId>
+	<version>4.0.3</version>
+</dependency>
+
+<dependency>
+	<groupId>org.mybatis</groupId>
+	<artifactId>mybatis</artifactId>
+	<version>3.5.11</version>
+</dependency>
+
+<dependency>
+	<groupId>org.mybatis</groupId>
+	<artifactId>mybatis-spring</artifactId>
+	<version>2.0.7</version>
+</dependency>
+
+<!-- Test -->
+<dependency>
+	<groupId>junit</groupId>
+	<artifactId>junit</artifactId>
+	<version>4.13.2</version>
+	<scope>test</scope>
+</dependency>
+
+-----------------------------------------------------------------------------------------------------------------------------
+[root-context]
+
+xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring" 추가
+
+xsi:schemaLocation 에 mybatis 추가
+
+"http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring-1.2.xsd"
+
+beans에 bean 추가
+
+<bean id="config" class="com.zaxxer.hikari.HikariConfig">
+	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+	<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:XE" />
+	<property name="username" value="hr" />
+	<property name="password" value="1234" />
+</bean>
+
+<bean id="ds" class="com.zaxxer.hikari.HikariDataSource">
+	<constructor-arg ref="config" />
+</bean>
+
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="ds" />
+</bean>
+
+mybatis scan 추가
+<!-- <mybatis-spring:scan base-package="com.ezen.shoppingmall.mapper" /> -->
+
+-----------------------------------------------------------------------------------------------------------------------------
+java/resrources/[log4j2.xml] 추가
+
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+    </Console>
+  </Appenders>
+  <Loggers>
+	<Logger name="dbcp" level="info" />
+	<Logger name="practice" level="info" />
+  	<Logger name="com.ezen.shoppingmall" level="info" />
+    <Root level="warn">
+      <AppenderRef ref="Console"/>
+    </Root>
+  </Loggers>
+</Configuration>
+-----------------------------------------------------------------------------------------------------------------------------
+java/resources/[mybatis-config-base.xml] 추가
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+  <settings>
+  	<setting name="jdbcTypeForNull" value="NULL"/>
+  </settings>
+</configuration>
+-----------------------------------------------------------------------------------------------------------------------------
+ 
+[BuildPath]
+ojdbc6.jar 추가
+-----------------------------------------------------------------------------------------------------------------------------

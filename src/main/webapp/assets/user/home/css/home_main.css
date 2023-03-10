@@ -1,0 +1,156 @@
+/*전체적인틀*/
+#home_main {
+	
+}
+
+.h_container {
+	padding-left: 20px;
+	padding-right: 20px;
+	margin-bottom: 100px;
+}
+
+/*배너*/
+#home_banner_container{
+	margin:0;
+	padding-left: 0px;
+	padding-right: 0px;
+	
+}
+#banner_photo {
+width: 100%;
+margin: auto;
+}
+
+
+/*카테고리 아이콘*/
+#home_cate_icon_container {
+	margin-top: 50px;
+}
+
+#home_cate_icon_box {
+margin:auto;
+	display: grid;
+	grid-auto-flow: column;
+	width: 900px;
+}
+
+.home_cate_item {
+	width: 150px;
+	margin: auto;
+}
+
+.home_cate_img {
+	border-radius: 20px;
+}
+
+.home_cate_img>img {
+	width: 150px;
+	height: 150px;
+}
+
+.cate_img_01>div {
+	background-color: #e8baae;
+}
+
+.cate_img_02>div {
+	background-color: #e8e0ae;
+}
+
+.cate_img_03>div {
+	background-color: #aecee8;
+}
+
+.cate_img_04>div {
+	background-color: #d3aee8;
+}
+
+.home_cate_name {
+	text-align: center;
+	color: black;
+	font-size: 15px;
+}
+
+/*추천 아이템*/
+#home_recom_item_container>div {
+	margin-bottom: 60px;
+}
+
+
+.recom_item {
+width: 600px;
+margin: 20px;	
+}
+
+#home_recom_item_box {
+	display: grid;
+	grid-template-areas: 
+	"div div" 
+	"div div";
+width: 1252px;
+	margin: auto;
+}
+
+.home_main_title {
+	text-align: center;
+	width: 700px;
+	margin:auto;
+}
+
+/*리뷰*/
+#home_review_container {
+	width: 100%
+}
+
+.home_review_list {
+	height: 550px;
+	width: 1700px;
+	padding-left: 0px;
+	padding-right: 0px;
+	margin: auto;
+}
+
+#home_customer_review_box{
+	margin: auto;
+}
+
+#all_review{
+	text-align: left ;
+	text-decoration: underline;
+	
+}
+#all_review > a {
+	color: black;
+}
+
+.home_review_title>h2 {
+	padding-top: 20px;
+}
+
+.home_review_title>h2>span {
+	color: grey;
+}
+
+.home_review_box {
+    float: left;
+    padding: 10px;
+    border-radius: 20px;
+    display: inline-block;
+}
+
+.home_review_box>div {
+	margin: 5px;
+}
+
+.home_review_img {
+	background-image: url();
+	overflow: hidden;
+	width: 270px;
+	height: 400px;
+	display: flex;
+	justify-content: center;
+	border-radius: 20px;
+}
+
+.home_review_box > a {
+	color: black;
+}

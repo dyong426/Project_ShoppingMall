@@ -1,0 +1,91 @@
+  .selector-for-some-widget {
+    box-sizing: content-box;
+
+  }
+
+  @font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+  font-family: 'Pretendard-Regular';
+
+}
+  .nav {
+    font-size: 13px;
+  }
+
+  #a {
+
+    margin: auto;
+    font-size: 90%;
+
+  }
+
+ 
+
+  #main_logo {
+    margin:0 auto;
+    position: absolute;
+    left: 20%;
+    vertical-align: middle;
+  }
+
+  #main_logo > img {
+    margin-left: -85px;
+  }
+
+  #profile {
+    position: absolute;
+    left: 75%;
+  }
+
+
+  #header_nav{
+    position: relative;
+    left: 76.5%;
+  }
+
+
+  #footer_container {
+    margin:0 auto;
+    font-size: 75%;
+    display: flex;
+    color:  lightgrey;
+    height: 300px;
+    width: 100%;
+    background-color: #28292A;
+    align-items: center;
+    justify-content: center;
+    line-height: 200%;
+  }
+
+  #footer_container > div{
+    width: 80%;
+    height: 250px;
+
+  }
+
+  #footer_description{
+    margin:0 auto;
+    margin-top: 50px;
+  }
+
+  #footer_logo{
+
+    margin-top: 5px;
+  }
+
+
+
+.d-flex py-3 mb-0 border-bottom{
+  margin:0 auto;
+}
+
+
+a:link {
+    text-decoration: none
+}

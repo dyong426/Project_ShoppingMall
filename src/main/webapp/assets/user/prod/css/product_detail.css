@@ -31,8 +31,11 @@ div[id$="_container"]{
 
 
 #main_review_container{
-    justify-content: center;
+    justify-content: left;
     flex-direction: row;    
+    margin: auto;
+    width:1150px;
+   	
 
 }
 
