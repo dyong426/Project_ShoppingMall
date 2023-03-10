@@ -1,9 +1,5 @@
 package com.ezen.jhc.web.user.dto.contact;
 
-import java.util.Date;
-
-import com.ezen.jhc.web.user.dto.member.MemberDTO;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,11 +14,15 @@ public class ContactDTO {
 	String contact_title;
 	String contact_content;
 	String contact_image_path;
+<<<<<<< HEAD
 	Date contact_regdate;
 	
 	// 테이블 조인 : members
 	String mem_email;
 	String mem_name;
 
+=======
+	String contact_regdate;
+>>>>>>> refs/heads/je
 	String admin_reply;
 }

@@ -60,6 +60,7 @@
       </div>
    </div>
 
+
    <!--마이페이지 드롭다운-->
    <div class="hidden myPage_container" id="myPage_drop-down">
       <button onclick="location.href='<%=request.getContextPath() %>/history'">주문 내역</button>
@@ -162,7 +163,6 @@
                <button id="naver_login" onclick="naverIdLogin_loginButton;">
                   <img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입
                </button>
-
 
             </div>
          </div>

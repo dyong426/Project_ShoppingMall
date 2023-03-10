@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
@@ -60,45 +60,44 @@
 		<div class="home_main_title">
 			<h2>내가 만드는 나의 상품</h2>
 		</div>
-	<div id="recom_box">
-		<div id="home_recom_item_box">
+		<div id="recom_box">
+			<div id="home_recom_item_box">
+				<div class="recom_item">
+					<a href="/jhc/contact" class="recom_item_img">
+						<div>
+							<img
+								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/01.png" />
+						</div>
+					</a>
+				</div>
 
-			<div class="recom_item">
-				<a href="/jhc/contact" class="recom_item_img">
-					<div>
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/recommend/01.png" />
-					</div>
-				</a>
-			</div>
+				<div class="recom_item">
+					<a href="/jhc/contact" class="recom_item_img">
+						<div>
+							<img
+								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/02.png" />
+						</div>
+					</a>
+				</div>
 
-			<div class="recom_item">
-				<a href="/jhc/contact" class="recom_item_img" >
-					<div>
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/recommend/02.png" />
-					</div>
-				</a>
-			</div>
+				<div class="recom_item" style="">
+					<a href="/jhc/contact" class="recom_item_img">
+						<div>
+							<img
+								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/03.png" />
+						</div>
+					</a>
+				</div>
 
-			<div class="recom_item" style="">
-				<a href="/jhc/contact" class="recom_item_img">
-					<div>
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/recommend/03.png" />
-					</div>
-				</a>
+				<div class="recom_item">
+					<a href="/jhc/contact" class="recom_item_img">
+						<div>
+							<img
+								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/04.png" />
+						</div>
+					</a>
+				</div>
 			</div>
-
-			<div class="recom_item">
-				<a href="/jhc/contact" class="recom_item_img">
-					<div>
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/recommend/04.png" />
-					</div>
-				</a>
-			</div>
-		</div>
 		</div>
 	</div>
 
@@ -112,7 +111,7 @@
 					</h2>
 				</div>
 				<div id="all_review">
-					<a href="/jhc/allreview"> 전체보기> </a>
+					<a href="/jhc/allreview?page=1"> 전체보기> </a>
 				</div>
 
 			</div>
@@ -122,8 +121,8 @@
 					style="background-image: url(); list-style: none;">
 
 					<c:forEach items="${review_list}" var="list" begin="0" end="4">
-						<li class="home_review_box">
-							<a href="/jhc/review?review_num=${list.review_num }">
+						<li class="home_review_box"><a
+							href="/jhc/review?review_num=${list.review_num }">
 
 								<div class="home_review_img">
 									<img
@@ -143,8 +142,7 @@
 									<div class="user_name">${list.user_name}</div>
 								</div>
 
-						</a>
-						</li> 
+						</a></li>
 					</c:forEach>
 
 				</ul>

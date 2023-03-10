@@ -1,4 +1,4 @@
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
@@ -12,26 +12,28 @@
 	</div>
 	<div id="re_box">
 
-
+	<c:forEach items="${review}" var="r">
 
 		<div id="review_con">
 			<div id="review_img">
-				<img
-					src="<%=request.getContextPath()%>/assets/user/home/img/review_test/착샷.jpg" />
-			</div>
+				<c:if test="${not empty r.review_image_path}">	
+							<img
+					src="<%=request.getContextPath()%>/${r.review_image_path}" />
+						</c:if>
+						</div>
 
 			<div id="review_content_box">
 				<div id="re_info">
 
-					<div id="re_user_name">yee0***</div>
-					<div class="re_star">★★★★★</div>
-					<div id="re_created_at">2023-02-23</div>
+					<div id="re_user_name">${r.user_name}</div>
+					<div class="re_star">${r.star}</div>
+					<div id="re_created_at">${r.review_regdate }</div>
 
 
 				</div>
 
 				<div id="review_contents">
-					<div id="re_comment">이쁘게나왔어용 책가방에걸어놓아야zㅣ</div>
+					<div id="re_comment">${r.review_content}</div>
 				</div>
 
 
@@ -40,25 +42,25 @@
 
 		<div id="review_pro_box">
 
-			<a href="#">
+			<a href="<%=request.getContextPath()%>/product_details?product_num=${p_num}">
 				<div id="review_pro">
 					<div>
-						<img>제품사진
+						<img src="<%=request.getContextPath()%>/${r.sm_img_path}">
 					</div>
 					<div>
-						<p>제품명</p>
+						<p>${r.p_name}</p>
 					</div>
 				</div>
 			</a>
 			<a id="review_back" href="<%=request.getContextPath()%>/main">
 				돌아가기 
 			</a>
-			<a id="review_all" href="<%=request.getContextPath()%>/allreview">
+			<a id="review_all" href="<%=request.getContextPath()%>/allreview?page=1">
 				전체리뷰
 			</a>
 			
 		</div>
-
+</c:forEach>
 	</div>
 
 </div>

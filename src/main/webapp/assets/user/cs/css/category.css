@@ -47,3 +47,14 @@ input[id*="faq_answer"]:checked+label+div {
 	
 	over-flow: hidden;
 }
+
+.cs_other_questions{
+	padding-top: 100px;
+	padding-bottom: 50px;
+	font-size: 0.8em;
+	font-weight: light;
+}
+
+
+
+
