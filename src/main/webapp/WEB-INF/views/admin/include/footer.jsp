@@ -34,8 +34,8 @@
 <script src=" https://cdn.jsdelivr.net/npm/chart.umd.js.map"></script>
 <script src="/jhc/assets/admin/js/chart.js"></script>
 
-<script src="<%=request.getContextPath()%>/assets/admin/js/prod_reg.js"></script>
 <script src="<%=request.getContextPath()%>/assets/admin/js/prod_view.js"></script>
+<script src="<%=request.getContextPath()%>/assets/admin/js/prod_reg.js"></script>
 <script src="<%=request.getContextPath()%>/assets/admin/js/file_upload.js"></script>
 
 </body>

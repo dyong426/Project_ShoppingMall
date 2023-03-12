@@ -37,7 +37,7 @@ public class ImageViewController {
 		
 		log.info("getImage()---" + fileName);
 		
-		File file = new File("C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\" + fileName);
+		File file = new File("C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\prod\\" + fileName);
 		
 		ResponseEntity<byte[]> result = null;
 		

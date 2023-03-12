@@ -60,14 +60,20 @@ public class AdminProdRegServiceImpl implements AdminProdRegService {
 			image.setMd_img_path(image.getUploadPath(), image.getUuid(), image.getSm_img_path());
 			image.setSm_img_path(image.getUploadPath(), image.getUuid(), image.getSm_img_path());
 		}
-
-		for (ProdColorDTO pcDTO : prodColors.getProdColors()) {
-			pcDTO.setOrigin_img_path(pcDTO.getPc_img_uploadpath(), pcDTO.getPc_img_uuid(), pcDTO.getPc_img_filename());
-			pcDTO.setThumb_img_path(pcDTO.getPc_img_uploadpath(), pcDTO.getPc_img_uuid(), pcDTO.getPc_img_filename());
-			pcDTO.setLg_img_path(pcDTO.getPc_img_uploadpath(), pcDTO.getPc_img_uuid(), pcDTO.getPc_img_filename());
-			pcDTO.setMd_img_path(pcDTO.getPc_img_uploadpath(), pcDTO.getPc_img_uuid(), pcDTO.getPc_img_filename());
-			pcDTO.setSm_img_path(pcDTO.getPc_img_uploadpath(), pcDTO.getPc_img_uuid(), pcDTO.getPc_img_filename());
+		List<ProdColorDTO> pcList = prodColors.getProdColors();
+		for (int i = 0; i < pcList.size(); i++) {
+			if (pcList.get(i).getPc_code() == null && pcList.get(i).getPc_name() == null) {
+				pcList.remove(i);
+			}
+			
+			pcList.get(i).setOrigin_img_path(pcList.get(i).getPc_img_uploadpath(), pcList.get(i).getPc_img_uuid(), pcList.get(i).getPc_img_filename());
+			pcList.get(i).setThumb_img_path(pcList.get(i).getPc_img_uploadpath(), pcList.get(i).getPc_img_uuid(), pcList.get(i).getPc_img_filename());
+			pcList.get(i).setLg_img_path(pcList.get(i).getPc_img_uploadpath(), pcList.get(i).getPc_img_uuid(), pcList.get(i).getPc_img_filename());
+			pcList.get(i).setMd_img_path(pcList.get(i).getPc_img_uploadpath(), pcList.get(i).getPc_img_uuid(), pcList.get(i).getPc_img_filename());
+			pcList.get(i).setSm_img_path(pcList.get(i).getPc_img_uploadpath(), pcList.get(i).getPc_img_uuid(), pcList.get(i).getPc_img_filename());
 		}
+		
+		prodColors.setProdColors(pcList);
 		
 		String explainPath = getTextPath(prodDTO, p_explain);
 		String infoPath = getTextPath(prodDTO, p_info);
@@ -110,7 +116,7 @@ public class AdminProdRegServiceImpl implements AdminProdRegService {
 	public String getTextPath(ProdDTO prodDTO, StringBuilder sb) {
 
 		// 저장 경로 설정
-		String uploadFolder = "C:\\upload\\prod";
+		String uploadFolder = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\prod\\";
 
 		// 파일 이름에 사용할 현재 날짜 가져오기
 		String datePath = util.getNowTime("yyyy-MM-dd", 0).replace("-", File.separator);
