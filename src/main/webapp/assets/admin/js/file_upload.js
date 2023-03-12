@@ -55,7 +55,7 @@ function showUploadImage(uploadResultList) {
     if (!uploadResultList || uploadResultList.length == 0) return;
 
     var uploadResult = $('#uploadResult');
-
+    console.log(uploadResult.length);
     var obj = uploadResultList[0];
 
     var fileCallPath = encodeURIComponent(obj.uploadPath + '/s_' + obj.uuid + '_' + obj.fileName);

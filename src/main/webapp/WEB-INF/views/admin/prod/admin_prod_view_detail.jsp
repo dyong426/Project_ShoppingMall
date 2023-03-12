@@ -76,27 +76,24 @@
 								<tbody id="prod_view_color_table_body">
 								
 									<c:forEach items="${prodColors}" var="prodColor" varStatus="indexStatus">
-									
-										<tr id="color${status.index}">
-											<td><input type="text" class="form-control" name="prodColors[${indexStatus.index}].pc_name" value="${prodColor.pc_name}"></td>
-											<td><input type="color" class="form-control" name="prodColors[${status.index}].pc_code" value="${prodColor.pc_code}"></td>
-											<td><input type="file" class="form-control"	name="prodColors[${status.index}].pc_img_path"></td>
+										<tr id="color${indexStatus.index}">
+											<td><input type="text" class="form-control" name="prodColors[${indexStatus.index},${prodColors.size()-1}].pc_name" value="${prodColor.pc_name}"></td>
+											<td><input type="color" class="form-control" name="prodColors[${indexStatus.index}].pc_code" value="${prodColor.pc_code}"></td>
+											<td><input type="file" class="form-control"	name="prodColors[${indexStatus.index}].pc_img_path"></td>
 											<td>
+									<c:choose>
+										<c:when test="${prodColors.size()-1}==${indexStatus.index}">
+												<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addColorBtn_view(event)"></button>
+												<button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display:none;' onclick="removeColorBtn_view(event)"></button>
+										</c:when>
+										<c:otherwise>
 												<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" style='display:none;' onclick="addColorBtn_view(event)"></button>
 												<button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" onclick="removeColorBtn_view(event)"></button>
-											</td>
+										</c:otherwise>
+									</c:choose>
+										</td>
 										</tr>
 									</c:forEach>
-								
-									<tr id="color">
-											<td><input type="text" class="form-control" name="prodColors[].pc_name"></td>
-											<td><input type="color" class="form-control" name="prodColors[].pc_code"></td>
-											<td><input type="file" class="form-control"	name="prodColors[].pc_img_path"></td>
-											<td>
-												<button type="button" class="btn btn-plus fa-solid fa-circle-plus btn-primary" onclick="addColorBtn_view(event)"></button>
-												<button type="button" class="btn btn-minus fa-solid fa-circle-minus btn-danger" style='display:none;'onclick="removeColorBtn_view(event)"></button>
-											</td>
-										</tr>
 								</tbody>
 							</table>
 						</div>
@@ -878,5 +875,5 @@
 			</div>
 		</div>
 
-</body>
-</html>
+<!-- include footer -->
+		<%@ include file="../include/footer.jsp"%>

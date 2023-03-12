@@ -70,7 +70,7 @@ public class AdminProdRegRestController {
 		}
 		
 		// 저장 경로 설정
-		String uploadFolder = "C:\\upload\\prod";
+		String uploadFolder = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\prod\\";
 
 		// 파일 이름에 사용할 현재 날짜 가져오기
 		String datePath = util.getNowTime("yyyy-MM-dd", 0).replace("-", File.separator);
