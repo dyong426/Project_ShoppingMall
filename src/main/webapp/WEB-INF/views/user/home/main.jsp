@@ -1,50 +1,35 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css">
+	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css?after">
 <!-- main -->
 <div id="home_main">
 
-	<!-- banner (부트스트랩)-->
+	<!-- banner 수정필요-->
 	<div id="home_banner_container" class="h_container">
+		<div style="overflow: hidden; margin: 0;">
 
-		<div id="banner_photo" class="banner_slider">
-
-
-			<div id="carouselExampleInterval" class="carousel slide"
-				data-bs-ride="carousel">
-				<div class="carousel-inner">
-					<div id="banner_img01" class="carousel-item active"
-						data-bs-interval="10000">
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg"
-							class="d-block w-100" alt="...">
-					</div>
-					<div id="banner_img01" class="carousel-item"
-						data-bs-interval="2000">
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너2.jpg"
-							class="d-block w-100" alt="...">
-					</div>
-					<div class="carousel-item">
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg"
-							class="d-block w-100" alt="...">
-					</div>
+			<div class="img_container">
+				<div class="img_wrapper">
+					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg">
 				</div>
-				<button class="carousel-control-prev" type="button"
-					data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
-					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Previous</span>
-				</button>
-				<button class="carousel-control-next" type="button"
-					data-bs-target="#carouselExampleInterval" data-bs-slide="next">
-					<span class="carousel-control-next-icon" aria-hidden="true"></span>
-					<span class="visually-hidden">Next</span>
-				</button>
+				<div class="img_wrapper">
+					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너2.jpg">
+				</div>
+				<div class="img_wrapper">
+					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
+				</div>
+			</div>
+			<div>
+
+				<button class="prev">&lt;</button>
+				<button class="next">&gt;</button>
 			</div>
 
 		</div>
@@ -102,45 +87,45 @@
 		<div class="home_main_title">
 			<h2>내가 만드는 나의 상품</h2>
 		</div>
-	<div id="recom_box">
-		<div id="home_recom_item_box">
+		<div id="recom_box">
+			<div id="home_recom_item_box">
 
-			<div class="recom_item">
-				<a href="/jhc/contact" class="recom_item_img">
-					<div>
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/recommend/01.png" />
-					</div>
-				</a>
-			</div>
+				<div class="recom_item">
+					<a href="/jhc/contact" class="recom_item_img">
+						<div>
+							<img
+								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/01.png" />
+						</div>
+					</a>
+				</div>
 
-			<div class="recom_item">
-				<a href="/jhc/contact" class="recom_item_img" >
-					<div>
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/recommend/02.png" />
-					</div>
-				</a>
-			</div>
+				<div class="recom_item">
+					<a href="/jhc/contact" class="recom_item_img">
+						<div>
+							<img
+								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/02.png" />
+						</div>
+					</a>
+				</div>
 
-			<div class="recom_item" style="">
-				<a href="/jhc/contact" class="recom_item_img">
-					<div>
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/recommend/03.png" />
-					</div>
-				</a>
-			</div>
+				<div class="recom_item" style="">
+					<a href="/jhc/contact" class="recom_item_img">
+						<div>
+							<img
+								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/03.png" />
+						</div>
+					</a>
+				</div>
 
-			<div class="recom_item">
-				<a href="/jhc/contact" class="recom_item_img">
-					<div>
-						<img
-							src="<%=request.getContextPath()%>/assets/user/home/img/recommend/04.png" />
-					</div>
-				</a>
+				<div class="recom_item">
+					<a href="/jhc/contact" class="recom_item_img">
+						<div>
+							<img
+								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/04.png" />
+						</div>
+					</a>
+				</div>
 			</div>
-		</div>
 		</div>
 	</div>
 
@@ -164,8 +149,8 @@
 					style="background-image: url(); list-style: none;">
 
 					<c:forEach items="${review_list}" var="list" begin="0" end="4">
-						<li class="home_review_box">
-							<a href="/jhc/review?review_num=${list.review_num }">
+						<li class="home_review_box"><a
+							href="/jhc/review?review_num=${list.review_num }">
 
 								<div class="home_review_img">
 									<img
@@ -185,8 +170,7 @@
 									<div class="user_name">${list.user_name}</div>
 								</div>
 
-						</a>
-						</li>
+						</a></li>
 					</c:forEach>
 
 				</ul>
@@ -199,3 +183,5 @@
 
 <footer>
 	<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
+	<script
+		src="<%=request.getContextPath()%>/assets/user/home/js/home_main.js"></script>
