@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.user.mapper.cstm.CartMapper">
+
+	<select id="getCartByNum" resultType="com.ezen.jhc.web.user.dto.CartDTO">
+		SELECT * FROM carts WHERE mem_num = #{mem_num}
+	</select>
+	
+	<insert id="insertCart" >
+	
+	</insert>
+	
+	<!-- mem_num 넣어야할지 사용할 때 판단하고 추가 결정 -->
+	<delete id="deleteByCstmNum" parameterType="int">
+		DELETE FROM cart WHERE mem_cstm_num = #{mem_cstm_num}
+	</delete>
+	
+	<delete id="deleteAll" parameterType="int">
+		DELETE FROM cart WHERE mem_num = #{mem_num}
+	</delete>
+
+</mapper>

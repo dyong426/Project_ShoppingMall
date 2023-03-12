@@ -226,7 +226,7 @@ window.onload = function () {
   }
 
   const sizes = document.getElementById('productSizes').children;
-  const sizeInput = document.getElementById('prod_size');
+  const ps_name = document.getElementById('prod_size');
 
   // 사이즈가 한가지면 테두리 없애고 width 조정
   if (sizes.length == 1) {
@@ -234,8 +234,8 @@ window.onload = function () {
     sizes[0].style.width = '300px';
     sizes[0].style.textAlign = 'left';
     sizes[0].style.border = 'none';
-    sizeInput.value = sizes[0].innerText;
-    // sizeInput.value = sizes.value
+    ps_name.value = sizes[0].innerText;
+    // ps_name.value = sizes.value
   } else {
     // 사이즈 버튼 하나만 눌리도록 설정
     for (i = 0; i < sizes.length; ++i) {
@@ -248,8 +248,8 @@ window.onload = function () {
         e.target.style.color = 'skyblue';
         e.target.style.border = '1px skyblue solid';
 
-        sizeInput.value = e.target.innerText;
-        console.log(sizeInput.value);
+        ps_name.value = e.target.innerText;
+        console.log(ps_name.value);
       });
     }
   }
@@ -759,8 +759,8 @@ for (i = 0; i < sampleIconList.length; ++i) {
 
 // 구매, 장바구니 버튼 누르면 이미지 저장 후 이동
 const buttons = document.getElementById('buttons').children;
-
 const loginBtn = document.querySelector('.sign_in');
+const orderForm = document.getElementById('orderForm');
 
 for (i = 0; i < buttons.length; ++i) {
   buttons[i].addEventListener('click', (e) => {
@@ -783,11 +783,18 @@ for (i = 0; i < buttons.length; ++i) {
 
       // 로그인 상태에서 바로구매 버튼 클릭 이벤트
       if (i == 0) {
-
+        orderForm.submit();
       } else {
+        orderForm.action = contextPath + '/cart';
         // 로그인 상태에서 장바구니 버튼 클릭 이벤트
+        const cartPopUp = document.getElementById('cartPopUp');
         buttons[1].addEventListener('click', (e) => {
-
+          if (mem_num != null && ps_name != null) {
+            cartPopUp.style.visibility = 'visible';
+            setTimeout(() => {
+              cartPopUp.style.visibility = 'hidden';
+            }, 2000);
+          }
         });
       }
     }

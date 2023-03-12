@@ -55,6 +55,7 @@ public class ProdDetailController {
 	
 	
 	// 커스텀 이미지 저장
+	// cstmService로 옮기기
 	@PostMapping("/saveImage")
 	public void saveImage(String img, String fileName) throws IOException {
 		

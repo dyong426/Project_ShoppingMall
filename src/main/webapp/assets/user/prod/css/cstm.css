@@ -391,3 +391,19 @@ option:hover {
 	color: white;
 }
 
+
+#cartPopUp {
+	position: absolute;
+	top: 70%;
+	left: 69.3%;
+	width: fit-content;
+	height: fit-content;
+	padding: 20px;
+	border: 1px rgb(175, 174, 174) solid;
+	visibility: hidden;
+	transition: 3s;
+}
+
+#cartPopUp > div[class="subTitle"] {
+	text-align: center;
+}
