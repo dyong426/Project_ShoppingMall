@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.dto.review.ReviewDTO;
-import com.ezen.jhc.web.user.mapper.mypage.MypageMapper;
+import com.ezen.jhc.web.user.mapper.mypage.MyPageMapper;
 import com.ezen.jhc.web.user.service.mypage.WriteReviewService;
 
 
@@ -29,7 +29,7 @@ public class MypageController {
 	DataSource ds;
 	
 	@Autowired
-	MypageMapper mm_mapper;
+	MyPageMapper mm_mapper;
 	
 	@Autowired
 	WriteReviewService wr_service;

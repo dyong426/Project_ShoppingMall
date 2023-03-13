@@ -1,7 +1,7 @@
 package com.ezen.jhc.web.user.dto.review;
 
 import java.util.Date;
-
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
