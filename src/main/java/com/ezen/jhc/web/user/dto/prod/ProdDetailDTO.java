@@ -29,6 +29,5 @@ public class ProdDetailDTO {
 	String	pi_main_path;
 	String	pi_thumb_path;
 	
-	Integer pd_stock;
-	
+	Integer pd_stock;	
 }

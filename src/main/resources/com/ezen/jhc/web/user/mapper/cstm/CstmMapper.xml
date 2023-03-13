@@ -5,19 +5,19 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.jhc.web.user.mapper.cstm.CstmMapper">
 
-	<select id="getCstmByNum" resultType="com.ezen.jhc.web.user.dto.MemberCstmDTO">
+	<select id="getCstmByNum" resultType="com.ezen.jhc.web.user.dto.cstm.MemberCstmDTO">
 		SELECT * FROM member_cstms WHERE mem_cstm_num = #{mem_cstm_num}
 	</select>
 	
-	<insert id="insertCstm" parameterType="com.ezen.jhc.web.user.dto.MemberCstmDTO">
+	<insert id="insertCstm" parameterType="com.ezen.jhc.web.user.dto.cstm.MemberCstmDTO">
 		<selectKey keyProperty="mem_cstm_num" order="BEFORE" resultType="int">
 			SELECT mem_cstm_num_seq.nextval FROM DUAL
 		</selectKey>
-		INSERT INTO member_cstms VALUES {
+		INSERT INTO member_cstms VALUES (
 			#{mem_cstm_num},
 			#{mem_num},
 			#{mem_cstm_path}
-		}
+		)
 	</insert>
 
 </mapper>

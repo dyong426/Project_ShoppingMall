@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
+import com.ezen.jhc.web.user.dto.prod.ProductDetailDTO;
 
 public interface ProductService {
 
@@ -17,4 +18,6 @@ public interface ProductService {
 	public ProdDTO getProd(int p_num);
 	
 	public ProdColorDTO getInitialColor(int p_num);
+	
+	public ProductDetailDTO getProdDetailByPNum(int p_num, String pc_name, String ps_name);
 }

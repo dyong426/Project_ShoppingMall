@@ -3,14 +3,24 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ezen.jhc.web.user.mapper.cstm.CartMapper">
+<mapper namespace="com.ezen.jhc.web.user.mapper.cart.CartMapper">
 
-	<select id="getCartByNum" resultType="com.ezen.jhc.web.user.dto.CartDTO">
+	<select id="getCartByMemNum" resultType="com.ezen.jhc.web.user.dto.cart.CartDTO">
 		SELECT * FROM carts WHERE mem_num = #{mem_num}
 	</select>
-	
-	<insert id="insertCart" >
-	
+			
+	<insert id="insertCart" parameterType="com.ezen.jhc.web.user.dto.cart.CartDTO">
+		<selectKey keyProperty="cart_num" order="BEFORE" resultType="int">
+			SELECT cart_num_seq.nextval FROM DUAL 
+		</selectKey>
+		INSERT INTO carts VALUES (
+			#{cart_num},
+			#{mem_num},
+			#{pd_num},
+			#{mem_cstm_num},
+			#{cart_quantity},
+			#{cart_amount}
+		)
 	</insert>
 	
 	<!-- mem_num 넣어야할지 사용할 때 판단하고 추가 결정 -->

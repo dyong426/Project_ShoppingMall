@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdSizeDTO;
+import com.ezen.jhc.web.user.dto.prod.ProductDetailDTO;
 import com.ezen.jhc.web.user.mapper.prod.ProductMapper;
 
 @Service
@@ -56,6 +57,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public ProdColorDTO getInitialColor(int p_num) {
 		return prodMapper.getInitialColorByNum(p_num);
+	}
+
+	@Override
+	public ProductDetailDTO getProdDetailByPNum(int p_num, String pc_name, String ps_name) {
+		return prodMapper.getProdDetailByPNum(p_num, pc_name, ps_name);
 	}
 
 }

@@ -102,13 +102,13 @@
 				</div>
 			</div>
 		</div>
-
+		
 		<div id="buttons">
 			<form action="<%=request.getContextPath()%>/order" method="POST" id="orderForm">
 				<input type="submit" class="buttons" id="directPurchase" value="바로 구매하기"></input>
 				<input type="hidden" id="prod_size" name="prod_size" />
-				<input type="submit" class="buttons" id="intoCart" value="장바구니 담기"></input>
 			</form>
+			<button class="buttons" id="intoCart">장바구니 담기</button>
 		</div>
 
 		<div id="menu">
@@ -127,7 +127,7 @@
 	</div>
 
 	<div id="cartPopUp">
-		<div class="subTitle">상품을 장바구니에 담았습니다.</div>
+		<div class="subTitle"></div>
 	</div>
 
 	<br> <br> <br> <br> <br>
@@ -366,13 +366,15 @@
 
 </div>
 
-<script src="assets/user/prod/js/cstm.js"></script>
 
 <script>
-	const contextPath = <%=request.getContextPath()%>;
-	const mem_num = ${member.mem_num};
-	const color = ${color.pc_name};
-	const p_num = ${prod.p_num}
+	const contextPath = '<%=request.getContextPath()%>';
+	const mem_num = '${member.mem_num}';
+	const pc_name = '${color.pc_name}';
+	const p_num = '${prod.p_num}';
+	const p_price = '${prod.p_price}';
 </script>
+
+<script src="assets/user/prod/js/cstm.js"></script>
 
 <%@ include file="../common/footer.jsp"%>
