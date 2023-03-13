@@ -73,6 +73,11 @@
 	margin-left: 150px;
 	margin-right: 150px;
 	height: 100px;
+	padding: 40px;
+}
+
+#review_pro > div{
+	text-align: center;
 }
 
 #review_back {

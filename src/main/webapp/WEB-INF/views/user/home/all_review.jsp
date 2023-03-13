@@ -4,7 +4,7 @@
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/home/css/review.css?after">
+	href="<%=request.getContextPath()%>/assets/user/home/css/review.css">
 
 <div id="all_review_background">
 

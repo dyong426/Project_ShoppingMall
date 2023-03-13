@@ -4,7 +4,7 @@
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css?after">
+	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css">
 <!-- main -->
 <div id="home_main">
 

@@ -112,6 +112,11 @@
 	margin-bottom: 20px;
 }
 
+
+.mp_cont > label {
+	font-weight: bold;
+}
+
 .mp_container {
 	border-bottom: 1px solid #969696;
 	padding: 10px;

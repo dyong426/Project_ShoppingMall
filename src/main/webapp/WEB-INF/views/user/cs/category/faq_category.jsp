@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/views/user/cs/body/cateBody.jsp" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/cs/css/category.css?after">
+	href="<%=request.getContextPath()%>/assets/user/cs/css/category.css">
 
 <tr>
 	<th colspan="${num_of_ctgr}">

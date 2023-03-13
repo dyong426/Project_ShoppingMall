@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/mypage/contact/css/mp_contact_list.css?after">
+	href="<%=request.getContextPath()%>/assets/user/mypage/contact/css/mp_contact.css">
 
 <div class="mp_contact_main">
 
