@@ -34,7 +34,7 @@ public class OrderDTO {
 	String	payment_name;
 	
 	//prods
-	Integer p_name;
+	String p_name;
 	//prod_images
 	String origin_img_path;
 	//order_details

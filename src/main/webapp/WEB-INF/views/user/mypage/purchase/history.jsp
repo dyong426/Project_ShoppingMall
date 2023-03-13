@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/orderList.css">
 
@@ -41,50 +41,36 @@
                             
                             <p>주문일자(주문번호) : <strong>2022-01-02 (2201021303351347)</strong></p>
                             <table class="pd_info">
+                            <colgroup>
+                                     <col style="width: 100px;">
+                                     <col style="width: 100px;">
+                                     <col style="width: 200px;">
+                                     <col style="width: 110px;">
+                                     <col style="width: 110px;">
+                                     <col style="width: 100px;">
+                                        </colgroup>
                                 <thead>
                                     <tr>
-                                        <th style="width: 170px;">주문일자[주문번호]</th>
-                                        <th style="width: 80px;">상품정보/주문금액/수량</th>
-                                        <th style="width: 340px;">결제금액</th>
-                                        <th style="width: 60px;">수량</th>
-                                        <th style="width: 120px;">상품구매금액</th>
+                                        <th>주문일자<br>[주문번호]</th>
+                                        <th>이미지</th>
+                                        <th>상품정보/주문금액/수량</th>
+                                        <th>결제 금액</th>
                                         <th>주문처리상태</th>
                                         <th>취소/교환/반품</th>
                                     </tr>
                                 </thead>
-
+				<c:forEach var="order" items="${history }" >
                                 <tbody class="product_list">
                                     <tr class="product">
-                                        <td class="order_number">
-                                            2022-09-29
-                                            <p><a href="<%=request.getContextPath() %>/details" class="order_number">[20220929-0001079]</a></p>
-                                        </td >
-                                        <td class="product_img">
-                                            <a href=""><!-- 여기 클릭하면 판매 페이지로 이동 --></a>
-                                            <img style="width: 50px; height: 50px;" src="<%=request.getContextPath() %>/assets/common/cstm_img/착샷1.jpg" alt="상품 사진">
-                                        </td>
-                                        <td class="product_check">
-                                            <strong class="product_name">
-                                                <a href="" class="ec_prouduct_name">보송보송 너무나도 예쁜 하얀 목티<!-- 여기 클릭하면 판매 페이지로 이동 --></a>
-                                            </strong>
-                                            <div class="op">
-                                                <div>옵션 :&nbsp;</div>
-                                                <div>텍스트 추가, 사진 추가</div>
-                                            </div>
-                                        </td>
-                                        <td class="product_amount">1</td>
-                                        <td class="product_price">
-                                            <strong>29,000원</strong>
-                                        </td>
-                                        <td class="product_state">
-                                            <p class="txtEm" style="padding-top: 15px;">배송 완료</p>
-                                        </td>
-                                        <td class="order_change">
-                                            <a href="">주문 취소</a> <br>
-                                            <a href="">교환/반품 신청</a> <br>
-                                        </td>
+                                       <td>${order.ord_date }</td>
+                                       <td><img width=100px; src="${order.origin_img_path }" alt="" /></td>
+                                       <td>${order.p_name }</td>
+                                       <td>${order.od_amount }</td>
+                                       <td>${order.ord_status }</td>
+                                       <td><a href="#">취소</a><a href="#">교환/반품</a></td>
                                     </tr>
                                 </tbody>
+				</c:forEach>
     
                             </table>
                             
