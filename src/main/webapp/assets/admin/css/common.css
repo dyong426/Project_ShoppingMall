@@ -35,7 +35,16 @@ label {
 
 .align-items-left {
     align-items: left;
+    text-align: left;
+}
+
+.align-items-center {
+    align-items: center;
     text-align: center;
+}
+
+.text-align-left {
+	text-align: left;
 }
 
 .grid-top {

@@ -85,8 +85,6 @@ const plugin = {
     }
 };
 
-
-
 const chartDoughnut = new Chart(doughnut, {
     type: 'doughnut',
     data: category,
@@ -95,7 +93,6 @@ const chartDoughnut = new Chart(doughnut, {
         responsive: false,
        
     }
-
 });
 
 const monthlySales = document.getElementById('barChart');

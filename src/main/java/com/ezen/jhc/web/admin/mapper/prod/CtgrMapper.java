@@ -10,4 +10,6 @@ public interface CtgrMapper {
 	public List<MainCtgrDTO> getMainCtgr();
 	
 	public List<SubCtgrDTO> getSubCtgr(Integer m_ctgr_num);
+	
+	public List<SubCtgrDTO> getSubCtgrs();
 }

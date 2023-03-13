@@ -55,6 +55,8 @@
 			ps.ps_num as ps_num,
 			ps_name,
 			pd_stock
+			od_quantity,
+			od_amount
 
 		FROM order_details od 
 		INNER JOIN orders ord ON ord.ord_num = od.ord_num 
