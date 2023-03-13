@@ -83,8 +83,6 @@ public class CsController {
 	
 		String insert = contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title,contact_content);
 		
-		System.out.println("insert: " + insert);
-		
 		 return "redirect:/contact";
 	}
 	

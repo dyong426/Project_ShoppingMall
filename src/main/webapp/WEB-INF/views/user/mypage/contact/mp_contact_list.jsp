@@ -28,10 +28,12 @@
 					<c:forEach items="${list}" var="l">
 						<tr class="con_list">
 							<td class="con_list_cate">[${l.cs_ctgr_name }]</td>
-							<td class="con_list_date">${l.contact_regdate}</td>
+							<td class="con_list_date">${l.con_only_date}</td>
 							<td>
 								<div class="con_list_content">
-									<a id=""
+									<a 
+									
+									id=""
 										href="<%=request.getContextPath()%>/contact/view?contact_num=${l.contact_num}">
 										${l.contact_title} </a>
 								</div>

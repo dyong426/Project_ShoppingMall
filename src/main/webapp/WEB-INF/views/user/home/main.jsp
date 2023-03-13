@@ -4,7 +4,7 @@
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css">
+	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css?after">
 <!-- main -->
 <div id="home_main">
 
@@ -166,7 +166,7 @@
 								</div>
 
 								<div class="info">
-									<div class="created_at">${list.review_regdate}</div>
+									<div class="created_at">${list.rev_only_date}</div>
 									<div class="user_name">${list.user_name}</div>
 								</div>
 
