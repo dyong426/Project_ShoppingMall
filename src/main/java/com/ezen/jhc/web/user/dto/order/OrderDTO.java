@@ -2,11 +2,12 @@ package com.ezen.jhc.web.user.dto.order;
 
 import java.util.Date;
 
-import com.ezen.jhc.web.user.dto.member.MemberAddressesDTO;
+import org.springframework.stereotype.Component;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Component
 @NoArgsConstructor
 @Data
 public class OrderDTO {
@@ -19,8 +20,6 @@ public class OrderDTO {
 	String	mem_addr1;
 	String	mem_addr2;
 	Character addr_save;
-	
-	
 	Date	ord_date;
 	Integer	ord_zipcode;
 	String	ord_addr1;
@@ -33,4 +32,13 @@ public class OrderDTO {
 	// 테이블 조인 : payments
 	Integer	payment_num;
 	String	payment_name;
+	
+	//prods
+	Integer p_name;
+	//prod_images
+	String origin_img_path;
+	//order_details
+	Integer od_quantity;
+	Integer od_amount;
+	
 }

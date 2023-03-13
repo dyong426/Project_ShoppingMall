@@ -40,26 +40,36 @@ public class MypageController {
 	JavaMailSender mailSender;
 	
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
-	public String mpInfo() {
+	public String mpInfo(HttpSession session) {
 
+		if (session.getAttribute("member") == null) {
+			return "user/common/loginPlease";
+		}
 		return "user/mypage/personal_information/my_info";
 	}
 
 	@RequestMapping(value = "/writeable_reviews", method = RequestMethod.GET)
-	public String mpWriteReviewCheck() {
-
+	public String mpWriteReviewCheck(HttpSession session) {
+		if (session.getAttribute("member") == null) {
+			return "user/common/loginPlease";
+		}
 		return "user/mypage/myreview/writeable_reviews";
 	}
 
 	@RequestMapping(value = "/watching_review", method = RequestMethod.GET)
-	public String mpWatchReview() {
-
+	public String mpWatchReview(HttpSession session) {
+		if (session.getAttribute("member") == null) {
+			return "user/common/loginPlease";
+		}
 		return "user/mypage/myreview/wrote_review";
 	}
 
 	@RequestMapping(value = "/writing_review", method = RequestMethod.GET)
-	public String mpWriteReview(Model model) {
+	public String mpWriteReview(HttpSession session, Model model) {
 
+		if (session.getAttribute("member") == null) {
+			return "user/common/loginPlease";
+		}
 		OrderDetailDTO od_dto = mm_mapper.getAll(7, 42, 41);
 		model.addAttribute("review_pd", od_dto);
 

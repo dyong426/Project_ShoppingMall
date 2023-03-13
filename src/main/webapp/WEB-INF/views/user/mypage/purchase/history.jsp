@@ -39,13 +39,13 @@
                             <br>
                             <br>
                             
-                            <span class="product_info">주문 상품 정보</span>
+                            <p>주문일자(주문번호) : <strong>2022-01-02 (2201021303351347)</strong></p>
                             <table class="pd_info">
                                 <thead>
                                     <tr>
                                         <th style="width: 170px;">주문일자[주문번호]</th>
-                                        <th style="width: 80px;">이미지</th>
-                                        <th style="width: 340px;">상품정보</th>
+                                        <th style="width: 80px;">상품정보/주문금액/수량</th>
+                                        <th style="width: 340px;">결제금액</th>
                                         <th style="width: 60px;">수량</th>
                                         <th style="width: 120px;">상품구매금액</th>
                                         <th>주문처리상태</th>
