@@ -10,7 +10,7 @@
 	display: grid;
 	grid-template-rows: 0.1fr 1fr;
 	margin-bottom: 100px;
-	margin-top: 50px;
+	padding-top: 50px;
 	width: 1000px;
 }
 

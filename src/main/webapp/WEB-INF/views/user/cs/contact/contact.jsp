@@ -37,7 +37,7 @@
 					<br>
 					<div id="oneOnOne_file" class="oneOnOne inside_form">
 
-						<label for="">첨부파일 </label> <input type="file" name="contact_image_path" accept="image/png, image/jpeg/" multiple>
+						<label for="">첨부파일 </label> <input type="file" name="contact_image_path" accept="image/png, image/jpeg/">
 
 					</div>
 					<br>
@@ -67,7 +67,6 @@
 						<a href="<%=request.getContextPath()%>/main">
 					<div id="cs_submit" class="oneOnOne inside_form">
 						<input type="submit" value="제출" style="width: 100px;" />
-
 					</div>
 						</a>
 
