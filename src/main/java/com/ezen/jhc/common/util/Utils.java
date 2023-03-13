@@ -1,5 +1,6 @@
 package com.ezen.jhc.common.util;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -22,6 +23,23 @@ public class Utils {
 		String nowTime = dayTime.format(new Date(time));
 		
 		return nowTime;
+	}
+	
+public static Date getFormatTime(Date date) {
+		
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String formatTime = dayTime.format(date);
+		System.out.println(formatTime);
+		Date formatDate = new Date();
+		try {
+			formatDate = dayTime.parse(formatTime);
+			System.out.println(dayTime.parse(formatTime));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}		
+		return formatDate;
 	}
 
 }

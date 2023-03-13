@@ -46,29 +46,70 @@
                         </thead>
                         <tbody class="table-border-bottom-0">
                         
-                        	<c:forEach items="orders" var="order">
+                        	<c:forEach items="${orders}" var="order">
                         	
                         		<tr>
                         			<td>${order.ord_num}</td>
-                        			<td>${order.mem_id}</td>
-                        			<td><button type="button" class="btn btn-xs btn-outline-dark">상세보기</button></td>
+                        			<td>${order.mem_email}</td>
+                        			<td><button type="button" class="btn btn-xs btn-outline-dark" id="">상세보기</button></td>
                         			<td>${order.ord_date}</td>
-                        			<td>${order.ord_status}</td>
-                        		<tr>
+                        			<td>
+                        			<c:choose>
+                        				<c:when test="${order.ord_status eq 0}">
+                        					<span class="badge bg-warning me-1">${order.status_name}</span>
+                        				</c:when>
+                        				<c:when test="${order.ord_status eq 1}">
+                        					<span class="badge bg-primary me-1">${order.status_name}</span>
+                        				</c:when>
+                        				<c:when test="${order.ord_status eq 2}">
+                        					<span class="badge bg-info me-1">${order.status_name}</span>
+                        				</c:when>
+                        				<c:when test="${order.ord_status eq 3}">
+                        					<span class="badge bg-info me-1">${order.status_name}</span>
+                        				</c:when>
+                        				<c:when test="${order.ord_status eq 4}">
+                        					<span class="badge bg-info me-1">${order.status_name}</span>
+                        				</c:when>
+                        				<c:when test="${order.ord_status eq 5}">
+                        					<span class="badge bg-danger me-1">${order.status_name}</span>
+                        				</c:when>
+                        				<c:when test="${order.ord_status eq 6}">
+                        					<span class="badge bg-danger me-1">${order.status_name}</span>
+                        				</c:when>
+                        				<c:when test="${order.ord_status eq 7}">
+                        					<span class="badge bg-danger me-1">${order.status_name}</span>
+                        				</c:when>
+                        			</c:choose>
+                        			</td>
                         		
                         		<c:choose>
-                        			<c:when test="${order.ord_status eq 0}">
+                        			<c:when test="${order.ord_status eq 0 || order.ord_status eq 1}">
                         				<td>
-                               			<button type="button" class="btn btn-xs btn-outline-dark">확인</button>
-                                			/
+                               			<button type="button" class="btn btn-xs btn-outline-dark">접수</button>
+                                		/
                                 		<button type="button" class="btn btn-xs btn-outline-dark">취소</button>
+                                		/
+                                		<button type="button" class="btn btn-xs btn-outline-dark">교환</button>
+                                		/
+                                		<button type="button" class="btn btn-xs btn-outline-dark">환불</button>
+                                		
                             			</td>
+                        			</c:when>
+                        			<c:when test="${order.ord_status eq 2 || order.ord_status eq 3 || order.ord_status eq 4}">
+                        				<td>
+                        				<button type="button" class="btn btn-xs btn-outline-dark">취소</button>
+                                		/
+                                		<button type="button" class="btn btn-xs btn-outline-dark">교환</button>
+                                		/
+                                		<button type="button" class="btn btn-xs btn-outline-dark">환불</button>
+                                		</td>
                         			</c:when>
                         			<c:otherwise>
                         				<td>
                         				</td>
                         			</c:otherwise>
                         		</c:choose>
+                        		</tr>
                         	</c:forEach>
                           
                         </tbody>

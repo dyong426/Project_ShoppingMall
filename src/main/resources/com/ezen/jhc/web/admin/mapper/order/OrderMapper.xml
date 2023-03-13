@@ -4,8 +4,41 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.jhc.web.admin.mapper.order.OrderMapper">
 
+	<select id="getOrders" resultType="com.ezen.jhc.web.admin.dto.order.OrderDTO">
+		SELECT 
+			ord_num,
+			mem_email, 
+			ord_date, 
+			ord.ord_status as ord_status,
+			os.status_name as status_name, 
+			total_amount 
+		FROM 
+			orders ord 
+		INNER JOIN 
+			members m 
+		ON 
+			m.mem_num = ord.mem_num
+		INNER JOIN
+			order_statuses os
+		ON
+			os.ord_status = ord.ord_status
+		ORDER BY 
+			ord_date DESC
+	</select>
+	
 	<select id="getOrder" resultType="com.ezen.jhc.web.admin.dto.order.OrderDTO">
-		SELECT * FROM orders ORDERBY DESC
+		SELECT * FROM orders WHERE ord_num = #{ord_num}
+	</select>
+	
+	<select id="getOrderDetails" resultType="com.ezen.jhc.web.admin.dto.order.OrderDetailDTO">
+		SELECT * FROM order_details od 
+		INNER JOIN orders ord ON ord.ord_num = od.ord_num 
+		INNER JOIN prod_details pd ON pd.pd_num = od.pd_num
+		INNER JOIN member_cstms mc ON mc.mem_cstm_num = od.mem_cstm_num
+		INNER JOIN prods p ON p.p_num = pd.p_num
+		INNER JOIN prod_colors pc ON pc.pc_num = pd.pc_num
+		INNER JOIN prod_sizes ps ON ps.ps_num = pd.ps_num
+		WHERE ord_num = #{ord_num}
 	</select>
 
 
