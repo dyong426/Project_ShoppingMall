@@ -3,7 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/mypage/contact/css/mp_contact_list.css">
+	href="<%=request.getContextPath()%>/assets/user/mypage/contact/css/mp_contact_list.css?after">
 
 <div class="mp_contact_main">
 
@@ -33,7 +33,7 @@
 								<div class="con_list_content">
 									<a id=""
 										href="<%=request.getContextPath()%>/contact/view?contact_num=${l.contact_num}">
-										${l.contact_title} ${l.admin_reply }  </a>
+										${l.contact_title} </a>
 								</div>
 							</td>
 							<td class="con_list_answer"><c:if

@@ -23,7 +23,6 @@ public class ContactController_mp {
 		List<ContactDTO> list = contact_mapper.getContactList();
 		
 		model.addAttribute("list", list);
-		System.out.println(list);
 		return "user/mypage/contact/mp_contact_list";
 	}
 	// 마이 페이지 내 1:1 문의 확인 (문의 번호로 조회)
@@ -34,7 +33,6 @@ public class ContactController_mp {
 		
 		model.addAttribute("contact", contact);
 		
-		System.out.println(contact);
 		
 		return "user/mypage/contact/mp_contact";
 	}
