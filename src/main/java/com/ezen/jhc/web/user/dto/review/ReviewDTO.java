@@ -52,4 +52,7 @@ public class ReviewDTO {
 		}
 		return user_name;
 	}
+	
+	/* 이미지 정보 */
+	private List<AttachImageVO> imageList;
 }
