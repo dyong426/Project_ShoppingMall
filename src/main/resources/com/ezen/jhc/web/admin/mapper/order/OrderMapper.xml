@@ -31,14 +31,39 @@
 	</select>
 	
 	<select id="getOrderDetails" resultType="com.ezen.jhc.web.admin.dto.order.OrderDetailDTO">
-		SELECT * FROM order_details od 
+		SELECT 
+			od_num, 
+			od.ord_num as ord_num, 
+			od.pd_num as pd_num,
+			od.mem_cstm_num as mem_cstm_num,
+			ord_date,
+			ord_zipcode,
+			ord_addr1,
+			ord_addr2,
+			receiver_name,
+			receiver_phone,
+			total_amount,
+			ord_status,
+			ord_request,
+			payment_num,
+			mem_cstm_path,
+			p.p_num as p_num,
+			p_name,
+			p_price,
+			pc.pc_num as pc_num,
+			pc_name,
+			ps.ps_num as ps_num,
+			ps_name,
+			pd_stock
+
+		FROM order_details od 
 		INNER JOIN orders ord ON ord.ord_num = od.ord_num 
 		INNER JOIN prod_details pd ON pd.pd_num = od.pd_num
 		INNER JOIN member_cstms mc ON mc.mem_cstm_num = od.mem_cstm_num
 		INNER JOIN prods p ON p.p_num = pd.p_num
 		INNER JOIN prod_colors pc ON pc.pc_num = pd.pc_num
 		INNER JOIN prod_sizes ps ON ps.ps_num = pd.ps_num
-		WHERE ord_num = #{ord_num}
+		WHERE od.ord_num = #{ord_num}
 	</select>
 
 

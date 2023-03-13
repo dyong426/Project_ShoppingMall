@@ -37,6 +37,7 @@
 <script src="<%=request.getContextPath()%>/assets/admin/js/prod_view.js"></script>
 <script src="<%=request.getContextPath()%>/assets/admin/js/prod_reg.js"></script>
 <script src="<%=request.getContextPath()%>/assets/admin/js/file_upload.js"></script>
+<script src="<%=request.getContextPath()%>/assets/admin/js/order_view.js"></script>
 
 </body>
 

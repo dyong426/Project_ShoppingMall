@@ -17,10 +17,10 @@ public class AdminOrderViewController {
 	@Autowired
 	AdminOrderService orderService;
 	
-	@Autowired
+	@Autowired(required = false)
 	OrderDTO orderDTO;
 	
-	@Autowired
+	@Autowired(required = false)
 	List<OrderDetailDTO> orderDetails;
 	
 	@GetMapping("admin/order/detail")

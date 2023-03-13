@@ -51,7 +51,7 @@
                         		<tr>
                         			<td>${order.ord_num}</td>
                         			<td>${order.mem_email}</td>
-                        			<td><button type="button" class="btn btn-xs btn-outline-dark" id="">상세보기</button></td>
+                        			<td><button type="button" class="btn btn-xs btn-outline-dark" onclick="orderViewDetail(event, ${order.ord_num})">상세보기</button></td>
                         			<td>${order.ord_date}</td>
                         			<td>
                         			<c:choose>
