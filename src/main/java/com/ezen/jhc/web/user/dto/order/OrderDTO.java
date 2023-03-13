@@ -1,8 +1,11 @@
 package com.ezen.jhc.web.user.dto.order;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.springframework.stereotype.Component;
+
+import com.ezen.jhc.common.util.OrderNumGenerator;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -40,5 +43,22 @@ public class OrderDTO {
 	//order_details
 	Integer od_quantity;
 	Integer od_amount;
+	
+	//자바에서 생성한 주문번호
+	String new_order_num;
+	
+	public String getOrd_date() {
+		SimpleDateFormat dayTime= new SimpleDateFormat("yyyy-MM-dd");
+		
+		String formatTime = dayTime.format(this.ord_date);
+		
+		return formatTime;
+	}
+	
+	public String getNew_order_num() {
+		
+		return getOrd_date() + "-" + getOrd_num();
+
+	}
 	
 }

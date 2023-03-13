@@ -109,3 +109,9 @@ select {
 	color: gray;
 	padding-top: 20px;
 }
+
+.order_history_main_contents{
+	display:flex;
+	flex-direction: column;
+	
+}

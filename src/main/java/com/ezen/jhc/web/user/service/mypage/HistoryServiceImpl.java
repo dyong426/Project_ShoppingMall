@@ -1,6 +1,7 @@
 package com.ezen.jhc.web.user.service.mypage;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,10 +18,9 @@ public class HistoryServiceImpl implements HistoryService {
 
 	@Override
 	public List<OrderDTO> getOrderHistory(Integer mem_num) {
-
+		// TODO Auto-generated method stub
 		return orderMapper.selectOrderHistory(mem_num);
 	}
-	
-	
+
 	
 }

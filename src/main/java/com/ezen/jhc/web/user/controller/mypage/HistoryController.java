@@ -2,8 +2,6 @@ package com.ezen.jhc.web.user.controller.mypage;
 
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -30,32 +28,25 @@ public class HistoryController {
 		if (session.getAttribute("member") == null) {
 			return "user/common/loginPlease";
 		}
-		SimpleDateFormat myDate = new SimpleDateFormat("yyyy-MM-dds");
 		
 		MemberDTO member = (MemberDTO) session.getAttribute("member"); 
 		OrderStatusConverter conv = new OrderStatusConverter();
 		Integer mem_num = member.getMem_num();
-	
 		
-		List<OrderDTO> orders = (List<OrderDTO>) historyService.getOrderHistory(mem_num);
+		List<OrderDTO> orders = historyService.getOrderHistory(mem_num);
 		
+			
 		for(int i = 0; i < orders.size(); i++) {
 			
+			
 			 String status = conv.orderStatusToKorean(Integer.parseInt(orders.get(i).getOrd_status()));
-			 orders.get(i).setOrd_status(status);
+			 orders.get(i).setOrd_status(status);    
+		
 			
-			
-			
-
-
-	        
 			
 		}
-		
-		model.addAttribute("history", orders); 
-		
-		
-		return "user/mypage/purchase/history";
+		model.addAttribute("orders", orders); 
+			return "user/mypage/purchase/history";
 	}
 
 	@RequestMapping(value = "/details", method = RequestMethod.GET)
