@@ -14,5 +14,7 @@ public interface MemberService {
 	 void join(MemberDTO dto);
 	 Integer checkEmailPW(String mem_email, String mem_pw);
 	 void changePw(String mem_pw, String mem_email);
+	 void deleteAccount(int mem_num);
+	 
 	
 }

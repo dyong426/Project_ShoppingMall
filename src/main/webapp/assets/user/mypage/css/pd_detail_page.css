@@ -9,7 +9,7 @@ a:hover {
 }
 
 .title_area > *{
-    font-family: 'Gowun Dodum', sans-serif;
+	font-weight: 100;
     font-style: normal;
     box-sizing: content-box;
 }
@@ -34,9 +34,9 @@ h3 {
 }
 
 .title_area {
-    height: 150px;
+    height: 120px;
     background-color: rgb(248, 249, 250);
-    margin-top: 20px;
+
 }
 
 .title {
@@ -73,6 +73,10 @@ table {
     padding: 15px;
   }
 
+.base_table_total {
+	margin-top:-10px;
+	
+}
   .base_table_type {
     justify-self: center;
     margin: 0 auto;
@@ -138,7 +142,7 @@ table {
 }
 
 .detail_main {
-    margin: -100px 0px 0px 20px;
+    margin: 43px 20px 0px 40px;
 }
 
 

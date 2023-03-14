@@ -19,7 +19,6 @@ import com.ezen.jhc.common.util.Jwt;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.mapper.mypage.MyPageMapper;
-import com.ezen.jhc.web.user.service.member.MemberService;
 
 
 /**@author 김주희
@@ -106,13 +105,22 @@ public class MypageController {
 	    mailMessage.setText(emailBody);
 	    mailSender.send(mailMessage);
 	
-	    // 메일 변경 완료 메세지
-	    return "user/mypage/personal_information/mail";
-    
+
+    return "user/mypage/personal_information/mail";
+	}
+	
+	// 메일 전송 완료 메세지
+	@GetMapping("/password/mail")
+	public String mailSent() {
+		
+		
+		return "user/mypage/personal_information/mail";
+		
+		
 	}
 	
 	
-	// 이메일로 전송된 링크를 누르면 비밀번호 변경 폼 열어줌
+	// 비밀번호 변경 폼
 	@GetMapping("/password/reset")
 	public String showResetPasswordFrom(HttpSession session, Model model, @RequestParam("token")String token, @RequestParam("mem_email")String mem_email) {
 		if(!Jwt.verifyToken(token, mem_email)) {

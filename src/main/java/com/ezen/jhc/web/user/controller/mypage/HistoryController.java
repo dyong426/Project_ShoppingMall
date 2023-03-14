@@ -11,8 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ezen.jhc.common.util.OrderStatusConverter;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDTO;
 import com.ezen.jhc.web.user.service.mypage.HistoryService;
@@ -30,28 +30,29 @@ public class HistoryController {
 		}
 		
 		MemberDTO member = (MemberDTO) session.getAttribute("member"); 
-		OrderStatusConverter conv = new OrderStatusConverter();
+	
 		Integer mem_num = member.getMem_num();
 		
 		List<OrderDTO> orders = historyService.getOrderHistory(mem_num);
 		
-			
-		for(int i = 0; i < orders.size(); i++) {
-			
-			
-			 String status = conv.orderStatusToKorean(Integer.parseInt(orders.get(i).getOrd_status()));
-			 orders.get(i).setOrd_status(status);    
 		
-			
-			
-		}
 		model.addAttribute("orders", orders); 
 			return "user/mypage/purchase/history";
 	}
 
 	@RequestMapping(value = "/details", method = RequestMethod.GET)
-	public String mpDetails() {
+	public String mpDetails(Model model, HttpSession session, @RequestParam Integer ord_num) {
 
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		Integer mem_num = member.getMem_num();
+		String mem_name = member.getMem_name();
+		
+		OrderDTO order = historyService.getAll(mem_num, ord_num);
+	
+		model.addAttribute("mem_name", mem_name);
+		model.addAttribute("order", order);
+				
+		
 		return "user/mypage/purchase/details";
 	}
 

@@ -1,8 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>   
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/pd_detail_page.css">
+
 
   <!-- main -->
   <div class="pd_container">
@@ -26,23 +28,28 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">주문번호</th>
-                                    <td>20220929-0001079</td>
+                                    <td>${order.new_order_num }</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">주문일자</th>
-                                    <td>2022-09-29 18:55:24</td>
+                                    <td>${order.od_ord_date }</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">주문자</th>
                                     <td>
-                                        <span>김주희</span>
+                                        <span>${mem_name }</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th scope="row">주문처리상태</th>
                                     <td>
-                                        입금 전
+                                        <c:if test="${order.ord_statusKor  eq '입금 전' }" >
+	                                     ${order.ord_statusKor }
                                         <button type="submit" class="order_cancellation" onclick="location.href='<%=request.getContextPath() %>/cancel'">주문취소</button>
+                                        </c:if>
+                                        <c:if test="${order.ord_statusKor ne '입금 전' }">
+                                        ${order.ord_statusKor }
+                                        </c:if>
                                     </td>
                                 </tr>
                             </tbody>
@@ -62,10 +69,10 @@
                                 </colgroup>
                                 <tbody>
                                     <tr class="sum">
-                                        <th scope="row">총 주문금액</th>
+                                        <th scope="row">총 주문 금액</th>
                                         <td>
                                             <span>
-                                                <strong>29,000</strong>원
+                                                <strong><fmt:formatNumber value="${order.total_amount }" pattern="#,###,##0" /></strong>원
                                                 <!-- <span class="dispaynone"></span> -->
                                             </span>
                                         </td>
@@ -82,11 +89,12 @@
                                 </colgroup>
                                 <tbody>
                                     <tr>
-                                        <th scope="row">총 결제금액</th>
+										<!-- 포인트 제외 금액 넣어야 합니다-->
+                                        <th scope="row">총 결제 금액</th>
                                         <td>
                                             <span class="txtEm">
-                                                <strong class="txt18">29,000</strong>원
-                                                <!-- <span class="dispaynone"></span> -->
+                                                <strong class="txt18"><fmt:formatNumber value="${order.total_amount }" pattern="#,###,##0" /></strong>원
+                                                
                                             </span>
                                         </td>
                                     </tr>
@@ -94,7 +102,7 @@
                                         <th scope="row">결제수단</th>
                                         <td>
                                             <strong>
-                                                <span>카드결제</span>
+                                                <span>${order.payment_name }</span>
                                             </strong>
                                         </td>
                                     </tr>
@@ -137,7 +145,7 @@
                                                 상품구매금액
                                                 <strong>0</strong>
                                                 <span class="displaynone"> + 부가세 0</span>
-                                                + 배송비 0 + 지역별배송비 0"
+                                                + 배송비 0 + 지역별배송비 0
                                                 <span class="displaynone"> - 상품할인금액</span>
                                                 = 합계 :
                                                 <strong class="txtEm">
@@ -202,32 +210,32 @@
                                     <tr>
                                         <th scope="row">받으시는분</th>
                                         <td>
-                                            <span>김주희</span>
+                                            <span>${order.receiver_name }</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">우편번호</th>
                                         <td>
-                                            <span>11921</span>
+                                            <span>${order.ord_zipcode }</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">주소</th>
                                         <td>
-                                            <span>경기도 구리시 건원대로 44 태영빌딩 4층 409호</span>
+                                            <span>${order.ord_addr1}&nbsp;${order.ord_addr2 }</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">휴대전화</th>
                                         <td>
-                                            <span>010-1234-1234</span>
+                                            <span>${order.receiver_phone}</span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">배송메시지</th>
                                         <td>
                                             <span>
-                                                문앞에 두고가주세요.
+                                                ${order.ord_request }
                                             </span>
                                         </td>
                                     </tr>

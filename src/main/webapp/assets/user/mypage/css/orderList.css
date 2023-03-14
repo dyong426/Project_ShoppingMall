@@ -23,11 +23,9 @@ a {
 	justify-self: center;
 	display: flex;
 	display: grid;
-	grid-template-rows: 0.3fr 1fr;
 	margin: 0 auto;
 	width: 1080px;
-	height: 762.8px;
-	margin-bottom: 150px;
+	margin-bottom:100px;	
 }
 
 .contents {
@@ -113,5 +111,47 @@ select {
 .order_history_main_contents{
 	display:flex;
 	flex-direction: column;
+	text-align: center;
+	margin: auto;
+	margin-top:320px;
 	
+}
+
+
+.pd_info th{
+	border:1px solid rgb(241,240,240);
+	font-size:15px;
+	height: 60px;
+	background-color:rgb(241,240,240);
+	
+}
+
+.pd_info{
+	margin-bottom: 55px;
+}
+
+.product {
+	font-size:15px;
+	border:solid 1px rgb(226, 228, 230);
+}
+
+table th:first-child,
+table td:first-child {
+	border-left: 0;
+}
+table th:last-child,
+table td:last-child {
+	border-right: 0;
+}
+
+.product img{
+	padding : 5px;
+}
+
+
+.unable_refund{
+	text-decoration:none;
+	text-decoration:line-through;
+	cursor: default;
+	pointer-events:none;
 }

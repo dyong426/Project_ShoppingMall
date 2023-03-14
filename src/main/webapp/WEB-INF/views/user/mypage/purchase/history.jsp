@@ -50,6 +50,7 @@
 	                                     <col style="width: auto;">
 	                                     <col style="width: 300px;">
 	                                     <col style="width: 100px;">
+	                                     <col style="width: 100px;">
 	                                     <col style="width: 130px;">
 	                                     <col style="width: 130px;">
 	                                        </colgroup>
@@ -57,7 +58,8 @@
 	                                    <tr>
 	                                        <th>주문일자<br>[주문번호]</th>
 	                                        <th>이미지</th>
-	                                        <th>상품정보/주문금액/수량</th>
+	                                        <th>상품정보</th>
+	                                        <th>수량</th>
 	                                        <th>결제 금액</th>
 	                                        <th>주문처리상태</th>
 	                                        <th>취소/교환/반품</th>
@@ -66,12 +68,20 @@
 									<c:forEach var="order" items="${orders }" >
 	                                <tbody class="product_list">
 	                                    <tr class="product">
-	                                       <td>${order.ord_date }</td>
+	                                       <td>${order.new_ord_date }<br><a href="/jhc/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a></td>
 	                                       <td><img width=70px; src="${order.origin_img_path }" alt="" /></td>
-	                                       <td>${order.p_name }</td>
+	                                       <td><a href="/jhc/product_details?p_num=${order.p_num}">${order.p_name }</a></td>
+	                                       <td>${order.od_quantity }</td>
 	                                       <td>￦<fmt:formatNumber value="${order.od_amount }" pattern="#,###,##0"/></td>
-	                                       <td>${order.ord_status }</td>
-	                                       <td><a href="#">취소</a><a href="#">교환/반품</a></td>
+	                                       <c:if test="${order.ord_statusKor eq '주문 취소'}">
+	                                       <td style="color:red">${order.ord_statusKor }</td>
+	                                       <td class="unable_refund"><a href="#">취소</a><br><a href="#">교환/반품</a></td>
+	                                       </c:if>	                                   
+	                                       <c:if test="${order.ord_statusKor ne '주문 취소' }">
+	                                       <td>${order.ord_statusKor }</td>
+	                                       <td><a href="#">취소</a><br><a href="#">교환/반품</a></td>
+	                                       </c:if>
+	                                       
 	                                    </tr>
 	                                </tbody>
 								</c:forEach>

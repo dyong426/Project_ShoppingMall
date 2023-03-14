@@ -46,6 +46,12 @@ public class MemberServiceImpl implements MemberService{
 		memberMapper.changePassword(mem_pw, mem_email);
 		
 	}
+
+	@Override
+	public void deleteAccount(int mem_num) {
+		memberMapper.deleteAccount(mem_num);
+		
+	}
 	
 	
 	
