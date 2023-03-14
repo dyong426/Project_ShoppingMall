@@ -17,6 +17,7 @@
 					<img
 						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
 				</div>
+				<!-- 배너 이미지 forEach -->
 				<div class="img_wrapper">
 					<img
 						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg">
@@ -29,15 +30,20 @@
 					<img
 						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
 				</div>
+				<!-- 배너 이미지 /forEach -->
 				<div class="img_wrapper">
 					<img
-						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너１3.jpg">
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg">
 				</div>
 			</div>
 			<div>
 
-				<button class="prev">&lt;</button>
-				<button class="next">&gt;</button>
+				<button class="prev">
+					<span class="material-symbols-outlined"> arrow_back_ios </span>
+				</button>
+				<button class="next">
+					<span class="material-symbols-outlined"> arrow_forward_ios </span>
+				</button>
 			</div>
 
 		</div>
