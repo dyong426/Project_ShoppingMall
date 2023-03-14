@@ -28,6 +28,7 @@ public class ProdDetailController {
 	@GetMapping("/prodDetail")
 	public String prodDetail(Model model, Integer p_num, HttpSession session) {
 		
+		// 임시 member 데이터
 		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
 		
 		Map<String, ProdColorDTO> colors = prodService.getColors(p_num);

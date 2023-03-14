@@ -3,6 +3,7 @@ package com.ezen.jhc.web.user.service.prod;
 import java.util.List;
 import java.util.Map;
 
+import com.ezen.jhc.web.user.dto.cart.IntoCartDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.dto.prod.ProductDetailDTO;
@@ -19,5 +20,5 @@ public interface ProductService {
 	
 	public ProdColorDTO getInitialColor(int p_num);
 	
-	public ProductDetailDTO getProdDetailByPNum(int p_num, String pc_name, String ps_name);
+	public ProductDetailDTO getProdDetailByIntoCartDto(IntoCartDTO cartDto);
 }

@@ -8,6 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.jhc.web.user.dto.cart.IntoCartDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdSizeDTO;
@@ -60,8 +61,8 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public ProductDetailDTO getProdDetailByPNum(int p_num, String pc_name, String ps_name) {
-		return prodMapper.getProdDetailByPNum(p_num, pc_name, ps_name);
+	public ProductDetailDTO getProdDetailByIntoCartDto(IntoCartDTO cartDto) {
+		return prodMapper.getProdDetailByIntoCartDto(cartDto);
 	}
 
 }

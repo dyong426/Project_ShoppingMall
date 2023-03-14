@@ -160,10 +160,8 @@ stage.on('mousedown', function (e) {
   }
 });
 
+
 const colorName = document.getElementById('colorName');
-
-
-
 
 // 배경 이미지 생성 및 추가/변경
 function setBackground() {
@@ -789,20 +787,46 @@ for (i = 0; i < buttons.length; ++i) {
         // cstm 테이블 insert
         const xhttp = new XMLHttpRequest();
 
-        xhttp.open('POST', '/jhc/intoCart');
+        xhttp.open('POST', '/jhc/insertCstm');
         xhttp.setRequestHeader('Content-Type', 'application/json');
+
+        console.log(p_name);
+        console.dir(p_num);
 
         const jsonObj = {
           mem_num : mem_num,
-          mem_cstm_path : fileName,
-          cart_quantity_num : 1,
-          cart_amount_num : p_price,
-          p_num : p_num,
-          pc_name : pc_name,
-          ps_name : ps_name
+          mem_cstm_path : `${fileName}`
         };
 
         xhttp.send(JSON.stringify(jsonObj));
+
+        xhttp.addEventListener('readystatechange', () => {
+          console.log('readyStateChange');
+          if (xhttp.status == 200 && xhttp.readyState == 4) {
+            const xhttp2 = new XMLHttpRequest();
+    
+            xhttp2.open('POST', '/jhc/insertCart');
+            xhttp2.setRequestHeader('Content-Type', 'application/json');
+    
+            console.log(p_name);
+            console.log('pc_name: ', colorName.innerText);
+            console.dir(p_num);
+            console.log('p_price : ', p_price);
+    
+            const jsonObj2 = {
+              p_num : p_num,
+              p_price : p_price,
+              pc_name : colorName.innerText,
+              ps_name : ps_name,
+              p_name : p_name
+            };
+    
+            console.log(jsonObj2);
+    
+            xhttp2.send(JSON.stringify(jsonObj2));
+          }
+        });
+
       }
     } else {
       // 로그인 되어 있지만 사이즈를 선택하지 않으면

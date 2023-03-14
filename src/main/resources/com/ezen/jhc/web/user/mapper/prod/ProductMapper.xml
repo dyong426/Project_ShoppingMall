@@ -25,10 +25,11 @@
 		SELECT * FROM prod_colors WHERE p_num = #{p_num} AND pc_name = 'WHITE'
 	</select>
 	
-	<select id="getProdDetailByPNum" resultType="com.ezen.jhc.web.user.dto.prod.ProductDetailDTO">
-		SELECT * FROM prod_details pd WHERE pd.p_num = #{p_num} AND
-		pd.pc_num = (SELECT pc.pc_num FROM prod_colors pc WHERE pc_name = '#{pc_name}' AND pc.p_num = #{p_num}) AND
-		pd.ps_num = (SELECT ps.ps_num FROM prod_sizes ps WHERE ps_name = '#{ps_name}' AND ps.p_num = #{p_num})
+	<select id="getProdDetailByIntoCartDto" resultType="com.ezen.jhc.web.user.dto.prod.ProductDetailDTO">
+		SELECT pd_num, pd.p_num, pc_num, pc_name, pc_code, ps_num, ps_name, pd_stock FROM prod_details pd
+		INNER JOIN prod_colors USING (pc_num)
+		INNER JOIN prod_sizes USING (ps_num)
+		WHERE pd.p_num = #{p_num} AND pc_name = #{pc_name} AND ps_name = #{ps_name}
 	</select>
 
 </mapper>

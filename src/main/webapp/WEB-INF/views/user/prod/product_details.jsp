@@ -359,7 +359,6 @@
 						id="customer_review_date">12.14</span>
 				</div>
 				<div id="customer_review_contents">옷 좋아요</div>
-
 			</div>
 		</div>
 	</div>
@@ -370,8 +369,8 @@
 <script>
 	const contextPath = '<%=request.getContextPath()%>';
 	const mem_num = '${member.mem_num}';
-	const pc_name = '${color.pc_name}';
 	const p_num = '${prod.p_num}';
+	const p_name = '${prod.p_name}';
 	const p_price = '${prod.p_price}';
 </script>
 

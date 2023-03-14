@@ -18,7 +18,7 @@
 			#{mem_num},
 			#{pd_num},
 			#{mem_cstm_num},
-			#{cart_quantity},
+			1,
 			#{cart_amount}
 		)
 	</insert>

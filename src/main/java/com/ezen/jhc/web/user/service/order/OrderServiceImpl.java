@@ -21,9 +21,14 @@ public class OrderServiceImpl implements OrderService {
 
 	@Override
 	public MemberAddressDTO getAddressByNum(int mem_num) {
+		MemberAddressDTO memAddressDto = ordererMapper.getAddressByNum(mem_num);
 		
-		return ordererMapper.getAddressByNum(mem_num);
-	}
-	
+		if (memAddressDto == null) {
+			return null;
+		} else if (memAddressDto.getAddr_save() == 0) {
+			return null;
+		}
+		return memAddressDto;
+	}	
 	
 }

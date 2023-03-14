@@ -49,8 +49,7 @@ public class CstmServiceImpl implements CstmService {
 			ImageIO.write(image, "png", new File(uploadPath, file));		
 		} catch (IOException e) {
 			e.printStackTrace();
-		}
-		
+		}		
 		
 	}
 
