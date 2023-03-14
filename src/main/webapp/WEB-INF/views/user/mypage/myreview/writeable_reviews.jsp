@@ -32,10 +32,10 @@
             </div>
        
         </div>
-        <div class="write_review" total_count="0">
-       <!-- <c:forEach items="${rv_list}" var="rv">  --> 
-          <div class="order_date"><span>주문일&nbsp;</span>&nbsp;&nbsp;ㄴㅇㄹㄴㅇㄹ</div>
-          <!-- </c:forEach> -->
+        <div class="write_review">
+          <form action=""> 
+          <div class="order_date"><span>주문일&nbsp;</span>&nbsp;&nbsp;${rv.ord_date}</div>
+          </form> 
             <table class="wr_info">
                 <thead>
                     <tr>
@@ -46,8 +46,9 @@
                         <th style="width: 180px;">리뷰 작성</th>
                     </tr>
                 </thead>
-				<c:forEach items="${rv_list}" var="rv"> 
+				
                 <tbody class="wr_list">
+                <c:forEach items="${rv_list}" var="rv"> 
                     <tr class="wr">
                         <td class="od_number">
                             
@@ -70,12 +71,15 @@
                             <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?p_num=${rv.p_num}'">리뷰 작성 하기</button>
                         </td>
                     </tr>
+                    </c:forEach> 
                 </tbody>
-                </c:forEach> 
+                
             </table>
             
         </div>
     </div>
+     <footer>
+   <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
   </div>
 
 
@@ -102,8 +106,5 @@
 
 
 
- <footer>
-   <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
-    ?v=<%=System.currentTimeMillis() %>   
-	<script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/mypage/js/review_popup.js?ver=1"></script>
+
 

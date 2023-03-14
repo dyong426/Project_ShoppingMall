@@ -1,7 +1,3 @@
-a {
-	text-decoration-line: none;
-}
-
 @font-face {
    font-family: 'Pretendard-Regular';
    src:
@@ -13,10 +9,6 @@ a {
 
 body {
    overflow-x: hidden;
-}
-
-body {
-	overflow-x: hidden;
 }
 
 * {
@@ -48,41 +40,24 @@ div[class^="header_container"] {
    /* border: solid 1px black; */
 }
 
-<<<<<<< HEAD
 #header_top button {
-	text-align: center;
+   text-align: center;
 
 }
 
 #logoutBtn{
-	position: absolute;
-	left: 58px;
+   position: absolute;
+   left: 58px;
 }
 
-=======
-#header_top button{
-   
-   text-align:center;
-   margin-right: 0px;
-   margin-left: -9px;
-   width: 60px;
-}
->>>>>>> refs/heads/juhee
 #header_top>div {
-<<<<<<< HEAD
-	position: relative;
-	/* border: 1px solid black; */
-	left: 71%;
-	top: 20%;
-	width: 170px;
-	display: flex;
-    justify-content:space-between;
-=======
    position: relative;
    /* border: 1px solid black; */
-   left: 71.7%;
+   left: 71%;
    top: 20%;
->>>>>>> refs/heads/juhee
+   width: 170px;
+   display: flex;
+    justify-content:space-between;
 }
 
 .header_container_bottom {
@@ -110,24 +85,15 @@ div[class^="header_container"] {
 }
 
 .header_container_bottom div:nth-child(3)>button {
-
    position: relative;
 }
 
 .user_welcome_text {
-<<<<<<< HEAD
-	width: fit-content;
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	align-items: center;
-=======
-   width:fit-content;
+   width: fit-content;
    display: flex;
    justify-content: center;
    text-align: center;
    align-items: center;
->>>>>>> refs/heads/juhee
 }
 
 #myCart {
@@ -146,7 +112,6 @@ div[class^="header_container"] {
    width: fit-content;
    margin: 0px 10px;
    cursor: pointer;
-   
 }
 
 #myPage_drop-down {
@@ -178,41 +143,9 @@ div[class^="header_container"] {
    color: #063970;
 }
 
-<<<<<<< HEAD
-=======
-.hidden {
-   display: none;
-}
->>>>>>> refs/heads/juhee
 
-<<<<<<< HEAD
-=======
-.hidden_visibility{
-   visibility: hidden!important;
-   }
->>>>>>> refs/heads/juhee
 /*login & join*/
-<<<<<<< HEAD
 .login_popup, .join_popup {
-	z-index: 3;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100%;
-	position: absolute;
-	top: 0;
-	left: 0;
-	background-color: rgba(0, 0, 4, 0.7);
-}
-
-#join_agree {
-	height: auto;
-	display: inline-block;
-	width: auto;
-	margin-right: 6px;
-=======
-div[class$="in_popup"] {
    z-index: 3;
    display: flex;
    justify-content: center;
@@ -223,51 +156,36 @@ div[class$="in_popup"] {
    top: 0;
    left: 0;
    background-color: rgba(0, 0, 4, 0.7);
->>>>>>> refs/heads/juhee
 }
 
-<<<<<<< HEAD
+#join_agree {
+   height: auto;
+   display: inline-block;
+   width: auto;
+   margin-right: 6px;
+}
+
 #mem_pw_recheck+div {
-	margin-top: 10px;
-	margin-left: 3px;
-	font-size: 14px;
-	display: flex;
+   margin-top: 10px;
+   margin-left: 3px;
+   font-size: 14px;
+   display: flex;
 }
 
 .popup_logo>div:first-child {
-	display: inline-block;
-	width: fit-content;
-	margin: 40px 0px 20px 0px;
-	margin-left: 8%;
-=======
-.popup_logo>div:first-child{
    display: inline-block;
-   
-   width:fit-content;   
+   width: fit-content;
    margin: 40px 0px 20px 0px;
-   margin-left:8%;
-   
-   
->>>>>>> refs/heads/juhee
+   margin-left: 8%;
 }
 
 div[class$="in_container"]>div>button:nth-child(2) {
-<<<<<<< HEAD
-	display: inline-block;
-	position: absolute;
-	top: 41px;
-	margin-left: 50%;
-	width: fit-content;
-	height: fit-content;
-=======
-   
    display: inline-block;
    position: absolute;
    top: 41px;
    margin-left: 50%;
    width: fit-content;
    height: fit-content;
->>>>>>> refs/heads/juhee
 }
 
 div[class$="in_container"]>div:nth-child(3) {
@@ -276,19 +194,11 @@ div[class$="in_container"]>div:nth-child(3) {
 }
 
 #join_submit, #login_submit {
-<<<<<<< HEAD
-	background-color: #063970;
-	color: white;
-	margin-top: 15px;
-	border: none;
-	/* 	padding-left: 0px; */
-=======
    background-color: #063970;
    color: white;
    margin-top: 15px;
    border: none;
-/*    padding-left: 0px; */
->>>>>>> refs/heads/juhee
+   /*    padding-left: 0px; */
 }
 
 .join_container input, .login_container input {
@@ -302,45 +212,33 @@ div[class$="in_container"]>div:nth-child(3) {
    border-radius: 3px;
 }
 
-<<<<<<< HEAD
 .login_container {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	width: 450px;
-	height: 630px;
-	background-color: #fff;
-	border-radius: 5px;
-	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-	backdrop-filter: blur(1.5px);
-	border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-.join_container {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
-	width: 450px;
-	height: 770px;
-	background-color: #fff;
-	border-radius: 5px;
-	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-	backdrop-filter: blur(1.5px);
-	border: 1px solid rgba(255, 255, 255, 0.18);
-=======
-div[class$="in_container"] {
    display: flex;
    align-items: center;
    flex-direction: column;
-   width: 25%;
-   height: 650px;
+   width: 450px;
+   height: 630px;
    background-color: #fff;
    border-radius: 5px;
    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
    backdrop-filter: blur(1.5px);
    border: 1px solid rgba(255, 255, 255, 0.18);
->>>>>>> refs/heads/juhee
 }
+
+.join_container {
+   display: flex;
+   align-items: center;
+   flex-direction: column;
+   width: 450px;
+   height: 770px;
+   background-color: #fff;
+   border-radius: 5px;
+   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+   backdrop-filter: blur(1.5px);
+   border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+
 
 button[class$="_closeBtn"] {
    all: unset;
@@ -363,16 +261,6 @@ button[class$="_closeBtn"] {
 }
 
 #kakao_login, #naver_login {
-<<<<<<< HEAD
-	text-align: center;
-	font-size: 90%;
-	width: 100%;
-	height: 45px;
-	margin: 2px;
-	border: none;
-	border-radius: 2px;
-	background-color: unset;
-=======
    text-align: center;
    font-size: 90%;
    width: 100%;
@@ -381,31 +269,17 @@ button[class$="_closeBtn"] {
    border: none;
    border-radius: 2px;
    background-color: unset;
-   
->>>>>>> refs/heads/juhee
 }
 
 #naver_login {
-<<<<<<< HEAD
-	text-align: center;
-	font-size: 90%;
-	width: 300px;
-	height: 45px;
-	margin: 2px 8px;
-	border: none;
-	border-radius: 5px;
-	background-color: #2DB400;
-=======
    text-align: center;
    font-size: 90%;
    width: 300px;
    height: 45px;
-   margin: 2px 16px;
+   margin: 2px 8px;
    border: none;
    border-radius: 5px;
    background-color: #2DB400;
-
->>>>>>> refs/heads/juhee
 }
 
 button img {
@@ -419,23 +293,13 @@ button img {
 }
 
 .or_container {
-<<<<<<< HEAD
-	display: flex;
-	align-items: center;
-	flex-direction: row;
-	justify-content: space-between;
-	font-size: 90%;
-	color: gray;
-	margin: 20px 0px 40px 0px;
-=======
    display: flex;
    align-items: center;
    flex-direction: row;
    justify-content: space-between;
    font-size: 90%;
    color: gray;
-   margin: 12% 0%;
->>>>>>> refs/heads/juhee
+   margin: 20px 0px 40px 0px;
 }
 
 .or_container div {
@@ -446,25 +310,20 @@ button img {
 }
 
 .or_container>div:nth-child(2) {
-<<<<<<< HEAD
-	all: unset;
+   all: unset;
 }
 
 .hidden {
-	display: none;
+   display: none;
 }
 
 .hidden_visibility {
-	visibility: hidden !important;
+   visibility: hidden !important;
 }
 
 
 .login_error_wrap, .join_error_wrap{
-	margin: 10px 0px 0px 8px;
-	font-size:14px;
-	color:crimson;
+   margin: 10px 0px 0px 8px;
+   font-size:14px;
+   color:crimson;
 }
-=======
-   all: unset;
-}
->>>>>>> refs/heads/juhee
