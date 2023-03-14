@@ -15,6 +15,10 @@
 			<div class="img_container">
 				<div class="img_wrapper">
 					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
+				</div>
+				<div class="img_wrapper">
+					<img
 						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg">
 				</div>
 				<div class="img_wrapper">
@@ -24,6 +28,10 @@
 				<div class="img_wrapper">
 					<img
 						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
+				</div>
+				<div class="img_wrapper">
+					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너１3.jpg">
 				</div>
 			</div>
 			<div>

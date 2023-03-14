@@ -34,12 +34,16 @@ input[id*="faq_answer"]+label+div {
 	font-size : 15px;
 	text-align: left;
 	font-size: 15px;
+	width: 1000px;
 }
 
 input[id*="faq_answer"]+label+div p {
 	display: inline-block;
 	padding: 20px;
 	font-size: 15px;
+	font-weight: 100;
+	width: 1000px;
+	overflow: visible;
 }
 
 input[id*="faq_answer"]:checked+label+div {
@@ -48,12 +52,6 @@ input[id*="faq_answer"]:checked+label+div {
 	over-flow: hidden;
 }
 
-.cs_other_questions{
-	padding-top: 100px;
-	padding-bottom: 50px;
-	font-size: 0.8em;
-	font-weight: light;
-}
 
 
 
