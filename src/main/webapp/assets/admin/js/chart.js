@@ -232,20 +232,49 @@ function colorize() {
 	return color;
 }
 
-var jsonData = JSON.parse('${json}');
-console.log(jsonData);
-var jsonObject = JSON.stringify(jsonData);
-var jData = JSON.parse(jsonObject);
+
+var mCtgrArr = new Array();
+var mCtgrs = $('.mCtgrs');
+console.log(mCtgrs);
+for (i = 0; i < mCtgrs.length; i++) {
+    console.log(mCtgrs[i]);
+    console.log(mCtgrs[i].value);
+    mCtgrArr.push(mCtgrs[i].value);
+}
+console.log(mCtgrArr);
+
+var jsonData = new Array(); 
+
+for (i = 0; i < mCtgrArr.length; i++) {
+    var mCtgrNum = mCtgrArr[i];
+
+    var dailySales = $(`.dailysales[${mCtgrNum}]`);
+    console.log(dailySales);
+        console.log(dailySales);
+        const dailySalesDTO = {
+            s_ctgr_name: `${dailySales[0]}`,
+            m_ctgr_num: `${dailySales[1]}`,
+            daily_sales: `${dailySales[2]}`,
+            daily_amount: `${dailySales[3]}`
+        };
+        console.log(dailySalesDTO)
+        jsonData.push(dailySalesDTO);
+    
+}
+
+console.log(jsonData)
 
 var labelList = new Array();
 var valueList = new Array();
 var colorList = new Array();
 		
-for(var i = 0; i<jData.length; i++) {
-	var d = jData[i];
+for(var i = 0; i<jsonData.length; i++) {
+	var d = JSON.parse(jsonData[i]);
     console.log(d);
 	labelList.push(d.s_ctgr_name);
+    console.log(d.s_ctgr_name);
 	valueList.push(d.daily_sales);
+    console.log(d.daily_sales);
 	colorList.push(colorize());
 }
 

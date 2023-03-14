@@ -27,8 +27,19 @@
 <link rel="stylesheet" href="/jhc/assets/admin/summernote/summernote-lite.css">
 <script src="/jhc/assets/admin/js/summernote.js"></script>
 
+<!-- 폰트 어썸 -->
 <script src="https://kit.fontawesome.com/2a15985a96.js" crossorigin="anonymous"></script>
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src=" https://cdn.jsdelivr.net/npm/chart.umd.js.map"></script>
+
 	
 <link rel="stylesheet" href="/jhc/assets/admin/css/common.css">
+<script src="<%=request.getContextPath()%>/assets/admin/js/prod_view.js"></script>
+<script src="<%=request.getContextPath()%>/assets/admin/js/prod_reg.js"></script>
+<script src="<%=request.getContextPath()%>/assets/admin/js/file_upload.js"></script>
+<script src="<%=request.getContextPath()%>/assets/admin/js/order_view.js"></script>
+<script src="<%=request.getContextPath()%>/assets/admin/js/sales.js"></script>
 
 </head>
