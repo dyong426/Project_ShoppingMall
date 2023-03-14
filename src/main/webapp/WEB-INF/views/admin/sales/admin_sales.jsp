@@ -50,15 +50,15 @@
 											</tr>
 										</thead>
 										<tbody>
-											<c:forEach items="${sCtgrs}" var="sCtgr">
+											<c:forEach items="${dailySales}" var="dailysales">
 											
 												<c:choose>
-													<c:when test="${sCtgr.m_ctgr_num eq mCtgr.m_ctgr_num}">
+													<c:when test="${dailysales.m_ctgr_num eq mCtgr.m_ctgr_num}">
 														<tr>
                                                 			<td></td>
-                                                			<td>${sCtgr.s_ctgr_name}</td>
-                                                			<td>100</td>
-                                                			<td>100,000</td>
+                                                			<td>${dailysales.s_ctgr_name}</td>
+                                                			<td>${dailysales.daily_sales}</td>
+                                                			<td>${dailysales.daily_amount}</td>
                                                 			<td></td>
                                             			</tr>
 													</c:when>
@@ -68,7 +68,7 @@
 										</tbody>
 									</table>
 									</c:forEach>                                    
-                                    <canvas id="daily-chart" width="300" height="200"></canvas>
+                                    <canvas id="dailyChart" width="300" height="200"></canvas>
                                 </div>
 
                                 <
