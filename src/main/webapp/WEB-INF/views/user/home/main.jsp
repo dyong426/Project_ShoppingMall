@@ -33,7 +33,7 @@
 						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
 				</div>
 				<!-- 배너 이미지 /forEach -->
-				<!-- 배너 첫번쨰 -->
+				<!-- 배너 첫번쨰-->
 				<div class="img_wrapper">
 					<img
 						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg">
