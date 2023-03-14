@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/my_review.css">
@@ -34,7 +34,7 @@
         </div>
         <div class="write_review" total_count="0">
        <!-- <c:forEach items="${rv_list}" var="rv">  --> 
-          <div class="order_date"><span>주문일&nbsp;</span>&nbsp;&nbsp;${rv.ord_date}</div>
+          <div class="order_date"><span>주문일&nbsp;</span>&nbsp;&nbsp;ㄴㅇㄹㄴㅇㄹ</div>
           <!-- </c:forEach> -->
             <table class="wr_info">
                 <thead>
