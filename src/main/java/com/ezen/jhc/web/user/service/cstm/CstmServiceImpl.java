@@ -46,11 +46,10 @@ public class CstmServiceImpl implements CstmService {
 		
 		try {
 			BufferedImage image = ImageIO.read(new ByteArrayInputStream(imageBytes));
-			ImageIO.write(image, "png", new File(uploadPath, file));		
+			ImageIO.write(image, "png", new File(uploadPath, file));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}		
-		
 	}
 
 	@Override

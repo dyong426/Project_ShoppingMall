@@ -5,6 +5,7 @@
 body {
 	background-color: rgb(245, 245, 245);
 	overflow-x : hidden;
+	width: 100%;
 }
 
 #outer {
@@ -14,14 +15,14 @@ body {
 	user-select: none;
 	display: grid;
 	grid-template-columns: 3fr 2fr;
-	padding: 50px 100px;
+	padding: 0 100px;
 }
 
 #rightOuter {
 	width: 25%;
 	height: fit-content;
 	position: fixed;
-	left: 56.8%;
+	left: 56.7%;
 }
 
 #mainTitle {
@@ -140,9 +141,26 @@ input {
 	display: grid;
 	grid-template-columns: 1fr 2fr;
 	column-gap: 20px;
+	margin: 10px 0;
+	padding: 10px;
 }
 
 .rowSpan {
 	grid-row: span 5;
 }
 
+#ord_request {
+	resize: none;
+}
+
+.orderProd {
+	margin-left: 30px;
+}
+
+.orderProd > div:first-child {
+	font-size: large;
+}
+
+#ord_request {
+	border: 1px rgb(175, 174, 174) solid;
+}

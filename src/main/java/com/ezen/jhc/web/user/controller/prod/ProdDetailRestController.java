@@ -40,8 +40,9 @@ public class ProdDetailRestController {
 	
 	// 바로구매 처리(주문서 작성 페이지에서 결제하면 cstm, order insert 처리)
 //	@PostMapping(value = "/directPurchase", produces = MediaType.APPLICATION_JSON_VALUE)
-//	public String insertCstm(@RequestBody MemberCstmDTO cstmDto, ) {
+//	public String directPurchase(@RequestBody MemberCstmDTO cstmDto) {
 //		cstmService.insertCstm(cstmDto);
+//		return "";
 //	}
 	
 	

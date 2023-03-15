@@ -31,14 +31,14 @@ recipientPhone.addEventListener('keyup', (e) => {
 // 전화번호 입력칸 문자 입력하면 초기화하는 함수
 function isNumber(target) {
 	if (isNaN(target.value)) {
-        console.log(target.value);
+		console.log(target.value);
 		target.value = "";
 	}
 }
 
 
 // 다음 주소 API 설정
-const zoneCode = document.getElementById('zoneCode');
+const zipCode = document.getElementById('zipCode');
 const addr1 = document.getElementById('addr1');
 
 function searchPostNumber() {
@@ -46,16 +46,16 @@ function searchPostNumber() {
 	var popUpHeight = 600; //팝업의 높이
 	new daum.Postcode({
 		width: popUpWidth, //생성자에 크기 값을 명시적으로 지정해야 합니다.
-	    height: popUpHeight,
-		oncomplete : function(data) {
+		height: popUpHeight,
+		oncomplete: function (data) {
 			// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
 			// 예제를 참고하여 다양한 활용법을 확인해 보세요.
-			zoneCode.value = data.zonecode;
+			zipCode.value = data.zoneCode;
 			addr1.value = data.address;
 		}
 	}).open({
-	    left: (window.screen.width / 2) - (popUpWidth / 2),
-	    top: (window.screen.height / 2) - (popUpHeight / 2)
+		left: (window.screen.width / 2) - (popUpWidth / 2),
+		top: (window.screen.height / 2) - (popUpHeight / 2)
 	});
 }
 
@@ -88,16 +88,15 @@ const rightOuter = document.getElementById('rightOuter');
 const leftOuter = document.getElementById('leftOuter');
 
 window.onscroll = () => {
-    let rightOuterBottom = window.scrollY + rightOuter.clientHeight;
+	let rightOuterBottom = window.scrollY + rightOuter.clientHeight;
 
-    if (leftOuter.clientHeight <= rightOuterBottom) {
-        
-        rightOuter.style.position = 'absolute';
-        rightOuter.style.top = (leftOuter.clientHeight - rightOuter.clientHeight + leftOuter.offsetTop) + 'px';
-    } else {
-        rightOuter.style.position = 'fixed';
-        rightOuter.style.top = null;
-    }
+	if (leftOuter.clientHeight <= rightOuterBottom) {
+		rightOuter.style.position = 'absolute';
+		rightOuter.style.top = (leftOuter.clientHeight - rightOuter.clientHeight + leftOuter.offsetTop) + 'px';
+	} else {
+		rightOuter.style.position = 'fixed';
+		rightOuter.style.top = null;
+	}
 }
 
 
@@ -133,8 +132,35 @@ const addr2 = document.getElementById('addr2');
 window.onload = () => {
 	if (memberAddress.addr_save == 1) {
 		saveDestination.checked = true;
-		zoneCode.value = memberAddress.mem_zipcode;
+		zipCode.value = memberAddress.mem_zipcode;
 		addr1.value = memberAddress.mem_addr1;
 		addr2.value = memberAddress.mem_addr2;
 	}
 };
+
+
+
+// 총 결제 금액 관련 설정
+const orderProd = document.getElementsByClassName('orderProd');
+let od_quantity = 0;
+let od_amount = 0;
+for (i = 0; i < orderProd.length; ++i) {
+	od_quantity += parseInt(orderProd[i].children[3].lastChild.innerText);
+	od_amount += parseInt(orderProd[i].children[4].lastChild.innerText);
+}
+
+const total_quantity = document.getElementById('total_quantity');
+const total_amount = document.getElementById('total_amount');
+const shipping_price = document.getElementById('shipping_price');
+const total_price = document.getElementById('total_price');
+const total_price2 = document.getElementById('total_price2');
+
+total_quantity.innerText = od_quantity + '개';
+total_amount.innerText = od_amount + '원';
+if (od_quantity >= 50000) {
+	shipping_price.innerText = 0 + '원';
+} else {
+	shipping_price.innerText = 3000 + '원';
+}
+total_price.innerText = total_amount + shipping_price;
+total_price2.innerText = total_amount + shipping_price;

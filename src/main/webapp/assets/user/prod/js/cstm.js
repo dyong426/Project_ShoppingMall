@@ -784,14 +784,11 @@ for (i = 0; i < buttons.length; ++i) {
 
       if (e.target.id == 'intoCart') {
         // 로그인 상태에서 장바구니 버튼 클릭 이벤트
-        // cstm 테이블 insert
+        // cstm, cart insert
         const xhttp = new XMLHttpRequest();
 
         xhttp.open('POST', '/jhc/insertCstm');
         xhttp.setRequestHeader('Content-Type', 'application/json');
-
-        console.log(p_name);
-        console.dir(p_num);
 
         const jsonObj = {
           mem_num : mem_num,
@@ -808,11 +805,6 @@ for (i = 0; i < buttons.length; ++i) {
             xhttp2.open('POST', '/jhc/insertCart');
             xhttp2.setRequestHeader('Content-Type', 'application/json');
     
-            console.log(p_name);
-            console.log('pc_name: ', colorName.innerText);
-            console.dir(p_num);
-            console.log('p_price : ', p_price);
-    
             const jsonObj2 = {
               p_num : p_num,
               p_price : p_price,
@@ -820,13 +812,21 @@ for (i = 0; i < buttons.length; ++i) {
               ps_name : ps_name,
               p_name : p_name
             };
-    
-            console.log(jsonObj2);
-    
+
             xhttp2.send(JSON.stringify(jsonObj2));
           }
         });
+      } else {
+        // 로그인 상태에서 사이즈 선택후 바로구매 버튼 클릭 이벤트        
+        const pcInput = document.getElementById('pc_name');
+        const psInput = document.getElementById('ps_name');
+        const cstmInput = document.getElementById('mem_cstm_path');
 
+        pcInput.value = colorName.innerText;
+        psInput.value = ps_name;
+        cstmInput.value = fileName;
+
+        orderForm.onsubmit();
       }
     } else {
       // 로그인 되어 있지만 사이즈를 선택하지 않으면
@@ -836,13 +836,9 @@ for (i = 0; i < buttons.length; ++i) {
       cartPopUp.children[0].innerText = '사이즈를 선택해주세요.';
     }
 
-    if (e.target.id == 'directPurchase') {
-      orderForm.submit();
-    } else {
-      cartPopUp.style.opacity = 1;
-      setTimeout(() => {
-        cartPopUp.style.opacity = 0;
-      }, 1500);
-    }
+    cartPopUp.style.opacity = 1;
+    setTimeout(() => {
+      cartPopUp.style.opacity = 0;
+    }, 1500);
   });
 }

@@ -49,17 +49,17 @@ public class ProductServiceImpl implements ProductService {
 		}
 		return sizes;
 	}
-
+	
 	@Override
 	public ProdDTO getProd(int p_num) {
 		return prodMapper.getProdByNum(p_num);
 	}
-
+	
 	@Override
 	public ProdColorDTO getInitialColor(int p_num) {
 		return prodMapper.getInitialColorByNum(p_num);
 	}
-
+	
 	@Override
 	public ProductDetailDTO getProdDetailByIntoCartDto(IntoCartDTO cartDto) {
 		return prodMapper.getProdDetailByIntoCartDto(cartDto);

@@ -79,7 +79,7 @@
 						<!-- DB에서 가져온 색들 중 선택된 색의 이름을 색상명에 넣음 -->
 						<div>
 							<b class="subTitle"> 색상 - <span id="colorName"
-								data-imagePath="${color.pc_img_path}"> ${color.pc_name} </span>
+								data-imagePath="${color.pc_img_path}">${color.pc_name}</span>
 							</b>
 						</div>
 						<div id="productColors">
@@ -104,18 +104,22 @@
 		</div>
 		
 		<div id="buttons">
-			<form action="<%=request.getContextPath()%>/order" method="POST" id="orderForm">
+			<form action="<%=request.getContextPath()%>/order/directPurchase" method="POST" id="orderForm">
 				<input type="submit" class="buttons" id="directPurchase" value="바로 구매하기"></input>
-				<input type="hidden" id="prod_size" name="prod_size" />
+				<input type="hidden" id="ps_name" name="ps_name"/>
+				<input type="hidden" id="pc_name" name="pc_name"/>
+				<input type="hidden" id="mem_cstm_path" name="mem_cstm_path"/>
+				<input type="hidden" id="p_name" name="p_name" value="${prod.p_name}"/>
+				<input type="hidden" id="p_price" name="p_price" value="${prod.p_price}"/>
 			</form>
 			<button class="buttons" id="intoCart">장바구니 담기</button>
 		</div>
-
+		
 		<div id="menu">
 			<button id="delete-button">Delete</button>
 		</div>
 	</div>
-
+	
 	<div id="sampleIconPopUpBackground">
 		<div id="sampleIconPopUp">
 			<div id="sampleIconPopUpHeader">
@@ -125,14 +129,14 @@
 			<div id="sampleIcons"></div>
 		</div>
 	</div>
-
+	
 	<div id="cartPopUp">
 		<div class="subTitle"></div>
 	</div>
-
+	
 	<br> <br> <br> <br> <br>
 	<!-- 상품 정보 -->
-
+	
 	<!-- 사이즈 정보 -->
 	<div class="subject">사이즈</div>
 	<table id="size_table">
@@ -146,7 +150,6 @@
 				<th>2XL(105)</th>
 				<th>3XL(110)</th>
 			</tr>
-
 			<tr>
 				<th>총기장</th>
 				<td>64</td>
@@ -156,7 +159,6 @@
 				<td>72</td>
 				<td>75</td>
 			</tr>
-
 			<tr>
 				<th>어깨넓이</th>
 				<td>39</td>
