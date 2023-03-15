@@ -18,7 +18,7 @@
 }
 
 .img_container{
-  
+  	transform: translate(-100vw);
     transition: transform 0.5s;
 }
 

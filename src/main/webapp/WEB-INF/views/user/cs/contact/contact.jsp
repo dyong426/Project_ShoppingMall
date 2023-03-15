@@ -42,7 +42,7 @@
 						<div id="oneOnOne_file" class="oneOnOne inside_form">
 
 							<label for="">첨부파일 </label> <input type="file"
-								name="contact_image_path" accept="image/png, image/jpeg/">
+								name="contact_image_path" accept="image/png, image/jpeg/" multiple>
 
 						</div>
 						<br>
@@ -87,30 +87,7 @@
 			</c:if>
 
 			<!-- 제목 및 내용 미입력 -->
-			<script>
-				function doAction() {
-					let con_title = document.getElementById("contact_title");
-					let con_content = document
-							.getElementById("contact_content");
-					let con_form = document.getElementById("oneOnOne_form");
-
-					if (oneOnOne_form.contact_title.value == "") {
-						oneOnOne_form.contact_title.focus();
-						alert("제목을 입력해주세요");
-						
-						return false;
-					}
-					
-					if (oneOnOne_form.contact_content.value == "") {
-						oneOnOne_form.contact_content.focus();
-						alert("내용을 입력해주세요");
-
-						return false;
-
-					}
-						return true;
-				}
-			</script>
+	
 
 		</div>
 	</th>
@@ -120,5 +97,6 @@
 </div>
 
 </div>
-
 <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
+<script
+		src="<%=request.getContextPath()%>/assets/user/cs/js/contact.js"></script>

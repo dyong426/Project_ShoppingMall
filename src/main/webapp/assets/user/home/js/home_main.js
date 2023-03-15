@@ -10,10 +10,12 @@ container.style.width = img_count * 100 + 'vw';
 let prevBtn = document.querySelector('.prev');
 let nextBtn = document.querySelector('.next');
 
-let currCnt = 1;
+let currCnt = 1;                                                               
 
 // 다음으로 넘어가는 함수
 function next(){
+    
+    
     container.style.transform = 'translate(' + ( currCnt * (-100)) + 'vw)';
     container.style.transition = '0.5s';
     console.log('함수 시작' + currCnt);
@@ -27,9 +29,9 @@ function next(){
         currCnt = 1;
     }
     if(currCnt >= img_count-1 ){
-        currCnt = 0;
+        currCnt = 1;
     }
-    currCnt++; 
+     currCnt++;
     console.log('함수끝' + currCnt);
     
 };
@@ -63,14 +65,10 @@ function prev() {
    
 }
 
-// 무한으로 돌려면  맨 앞 맨 뒤를 복사함 
-// 
 
 
 
-
-
-// 자동 슬라이드(마우스가 올라가잇으면 자동 슬라이드 멈춤)
+// 자동 슬라이드(마우스가 올라가있으면 자동 슬라이드 멈춤)
 let auto = setInterval(next, 3000);
 let container2 = document.querySelector('#home_banner_container');
 

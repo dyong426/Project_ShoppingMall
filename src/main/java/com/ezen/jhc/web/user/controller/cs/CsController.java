@@ -9,11 +9,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.jhc.web.user.dto.faq.FaqDTO;
 import com.ezen.jhc.web.user.mapper.cs.ContactMapper;
 import com.ezen.jhc.web.user.mapper.cs.FaqMapper;
+
 
 @Controller
 public class CsController {
@@ -64,8 +66,7 @@ public class CsController {
 		return "user/cs/contact/contact";
 	}
 	
-	
-	
+
 	@PostMapping("/customerservice/con")
 	public String cs_contatct_( 
 			@Param("mem_num") Integer mem_num,
