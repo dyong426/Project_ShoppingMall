@@ -9,16 +9,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.ezen.jhc.web.user.dto.faq.FaqDTO;
 import com.ezen.jhc.web.user.mapper.cs.ContactMapper;
 import com.ezen.jhc.web.user.mapper.cs.FaqMapper;
-import com.ezen.jhc.web.user.service.csService.FaqServiceImpl;
+
 
 @Controller
 public class CsController {
-	@Autowired
-	FaqServiceImpl faq_service;
+
 	
 	@Autowired
 	FaqMapper faq_mapper;
@@ -65,38 +66,27 @@ public class CsController {
 		return "user/cs/contact/contact";
 	}
 	
-	
-	
+
 	@PostMapping("/customerservice/con")
-	public String cs_contatct_(@Param("mem_num") Integer mem_num, 
+	public String cs_contatct_( 
+			@Param("mem_num") Integer mem_num,
 			@Param("contact_ctgr") Integer contact_ctgr, @Param("contact_title") String contact_title,
-			@Param("contact_content") String contact_content) {
-		//@Param("contact_image_path") String contact_image_path
+			@Param("contact_content") String contact_content){
+	//			@Param("contact_image_path") String contact_image_path) 
+		
 		
 		System.out.println(mem_num);
 		System.out.println(contact_ctgr);
 		System.out.println(contact_title);
 		System.out.println(contact_content);
 		//System.out.println(contact_image_path);
-		
-		//int insert = contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title, contact_content, contact_image_path);
-		
+	
+	
+		String insert = contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title,contact_content);
 		
 		 return "redirect:/contact";
 	}
 	
-	// 마이 페이지 내 1:1 문의 리스트
-	@GetMapping("/contact")
-	public String contact_mp_list() {
-		
-		return "user/mypage/contact/mp_contact_list";
-	}
 	
-	// 마이 페이지 내 1:1 문의 확인 (문의 번호로 조회)
-	@GetMapping("/contact/01")
-	public String contact_mp() {
-		
-		return "user/mypage/contact/mp_contact";
-	}
 	
 }

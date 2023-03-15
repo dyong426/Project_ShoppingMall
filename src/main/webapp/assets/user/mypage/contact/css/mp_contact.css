@@ -1,1 +1,160 @@
-@charset "UTF-8";
+/* 마이페이지 1:1 문의창*/
+.mp_contact_main {
+	background-color: rgb(248, 249, 250);
+	min-height: 1300px;
+}
+/*0.1fr- 나의 문의 1fr- list_box*/
+.mp_contact_box {
+	text-align: center;
+	margin: auto;
+	display: grid;
+	grid-template-rows: 0.1fr 1fr;
+	margin-bottom: 100px;
+	padding-top: 50px;
+	width: 1000px;
+}
+
+.mp_contact_title {
+	padding-bottom: 30px;
+	padding-top: 30px;
+}
+
+#mp_contact_list_box {
+	display: grid;
+	border-top: 2px solid rgb(241, 240, 240);
+	margin-top: 30px;
+	background-color: white;
+}
+/**/
+#con_list_table {
+	border: 1px solid rgb(241, 240, 240);
+	border-collapse: collapse;
+}
+
+#con_list_title {
+	background-color: rgb(241, 240, 240);
+	height: 50px;
+}
+
+.con_list {
+	height: 100px;
+	border-top: 1px solid rgb(241, 240, 240);
+}
+
+.con_list_content {
+	width: 400px;
+	margin: auto;
+}
+
+.con_list_content>a {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	color: black;
+}
+
+/* 답변 완료 */
+.answer_status {
+	color: black;
+	width: 70px;
+	height: 30px;
+	border-radius: 10px;
+	margin: auto;
+	background-color: #cccde8;
+	text-aglin: center;
+	padding-top: 3px;
+	border: 1px black solid;
+}
+
+/* 답변예정 */
+.answer_status2 {
+	color: black;
+	width: 70px;
+	height: 30px;
+	border-radius: 10px;
+	margin: auto;
+	background-color: #e8cccc;
+	text-aglin: center;
+	padding-top: 3px;
+	border: 1px black solid;
+}
+
+
+
+/* 답변확인창 */
+
+.mp_my_contact_title{
+	padding-bottom: 30px;
+    padding-top: 30px;
+    margin: auto;
+    width: 150px;
+}
+#my_con_box{
+	padding: 20px;
+	background-color: white;
+	width: 1000px;
+	margin: auto;
+	border-top: 2px solid rgb(241, 240, 240);
+}
+
+
+#mp_contact_box {
+	background-color: white;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: 1px solid rgb(241, 240, 240);
+}
+
+
+.mp_cont {
+	margin-top: 10px;
+	margin-bottom: 20px;
+}
+
+
+.mp_cont > label {
+	font-weight: bold;
+}
+
+.mp_container {
+	border-bottom: 1px solid #969696;
+	padding: 10px;
+	margin-top: 10px;
+	background-color:white;
+}
+
+.mp_cont>label {
+	font-size: 20px;
+}
+
+
+/*돌아가기 버튼*/
+#mp_list_back>a {
+	padding: 10px 15px;
+	display: inline-block;
+	border: 1px solid rgba(0, 0, 0, 0.21);
+	border-bottom-color: rgba(0, 0, 0, 0.34);
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
+	color: black;
+	border-radius: 10px;
+}
+
+#mp_list_back{
+	padding-top: 20px;
+	text-align: right;
+}
+
+#mp_contact_img_container{
+	margin-bottom: 20px;
+}
+
+/* 문의 답변 */
+#mp_con_answer {
+	border-top: 1px solid rgb(241, 240, 240);
+	
+	padding-top: 30px;
+}
+#mp_con_answer>div>div{
+	min-height: 80px;
+}

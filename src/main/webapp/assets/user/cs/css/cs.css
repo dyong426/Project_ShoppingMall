@@ -22,10 +22,20 @@
 }
 
 /* 1:1 FAQ 선택 */
-#cs_nav {
+#cs_nav > th {
 	width: 200px;
 	height: 70px;
 	text-align: center;
+	color:black;
+	font-weight: 200;
+	padding-top: 50px;
+	padding-bottom: 30px;
+}
+#cs_nav > th > a{
+	font-size: 1.5em;
+	color: black;	
+	padding: 20px;
+	border-bottom: 1px solid rgb(134, 136, 138);
 }
 
 .cate_body_ctgr {
@@ -33,7 +43,7 @@
 	width: 400px;
 	line-height: 80px;
 	text-align: center;
-	border-bottom: solid 1px black;
+	
 	color: black;
 	font-size: 20px;
 	margin: auto;
@@ -63,6 +73,9 @@
 	margin: auto;
 	margin-top: 20px;
 	margin-bottom: 20px;
+	font-size: 17px;
+    font-weight: 200;
+}
 }
 
 .cs_cate_body>th>a:focus {
@@ -75,9 +88,11 @@
 #cs_contact_title {
 	text-align: center;
 	 margin: auto;
-	 width: 850px;
+	 width: 1000px;
 	 margin-bottom:50px;
-	border-bottom: 1px solid rgb(134, 136, 138);
+	 height: 70px;
+	border-bottom:1px solid lightgray;
+	margin-top: 20px;
 }
 
 #oneOn_box {
@@ -109,6 +124,36 @@
 
 .con_ctgr_radio{
 	margin-right: 10px;
+}
+
+/* 첨부파일 미리보기 */
+#result_card_con img{
+		max-width: 100%;
+	    height: auto;
+	    display: block;
+	    padding: 5px;
+	    margin-top: 10px;
+	    margin: auto;	
+	}
+#result_card_con{
+	position: relative;
+}
+
+.imgDeleteBtn_con{
+    position: absolute;
+    top: 0;
+    right: 5%;
+    background-color: #ef7d7d;
+    color: wheat;
+    font-weight: 900;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    line-height: 26px;
+    text-align: center;
+    border: none;
+    display: block;
+    cursor: pointer;	
 }
 
 /*로그인 상태가 아닐 경우*/

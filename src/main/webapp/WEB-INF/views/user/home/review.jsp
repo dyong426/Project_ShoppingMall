@@ -4,7 +4,7 @@
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/home/css/review.css">
+	href="<%=request.getContextPath()%>/assets/user/home/css/review.css?after">
 
 <div id="review_main_container">
 	<div id="re_title">
@@ -42,7 +42,7 @@
 
 		<div id="review_pro_box">
 
-			<a href="<%=request.getContextPath()%>/product_details?product_num=${p_num}">
+			<a href="<%=request.getContextPath()%>/product_details?product_num=${r.p_num}">
 				<div id="review_pro">
 					<div>
 						<img src="<%=request.getContextPath()%>/${r.sm_img_path}">

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.user.mapper.mypage.ContactMapper_mp">
+
+	<select id="get_contact_list" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
+		SELECT c.cs_ctgr_name AS ctgr_name, contact_title, contact_regdate, admin_reply, contact_num
+		from cs_ctgr c, contact c
+		WHERE c.cs_ctgr_num = c.cs_ctgr_num 
+	</select> 
+</mapper> 

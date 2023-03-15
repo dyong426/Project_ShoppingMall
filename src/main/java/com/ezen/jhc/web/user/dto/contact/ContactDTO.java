@@ -1,5 +1,8 @@
 package com.ezen.jhc.web.user.dto.contact;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +17,22 @@ public class ContactDTO {
 	String contact_title;
 	String contact_content;
 	String contact_image_path;
-	String contact_regdate;
+	Date contact_regdate;
 	String admin_reply;
+	String cs_ctgr_name;
+	
+	String con_only_date;
+	
+	public String getContact_regdate() {
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		String formatTime = dayTime.format(this.contact_regdate);
+		return formatTime;
+	}
+	
+	public String getCon_only_date() {
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
+		String formatTime = dayTime.format(this.contact_regdate);
+		return formatTime;
+	}
+	
 }

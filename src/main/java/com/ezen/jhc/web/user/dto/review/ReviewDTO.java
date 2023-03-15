@@ -1,5 +1,6 @@
 package com.ezen.jhc.web.user.dto.review;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -15,14 +16,12 @@ public class ReviewDTO {
 	String review_image_path;
 	Integer review_star;
 	Date review_regdate;
-	Integer mem_num;
 	String mem_name;
-
 	Integer p_num;
 	String p_name;
 	String sm_img_path;
 
-	
+	String rev_only_date;
 	String star;
 	String user_name;
 	
@@ -41,7 +40,7 @@ public class ReviewDTO {
 			return "★★★★★";
 		}
 	
-		return "없음";
+		return "";
 	}
 
 	public String getUser_name() {
@@ -52,7 +51,16 @@ public class ReviewDTO {
 		}
 		return user_name;
 	}
+
+	public String getReview_regdate() {
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		String formatTime = dayTime.format(this.review_regdate);
+		return formatTime;
+	}
 	
-	/* 이미지 정보 */
-	private List<AttachImageVO> imageList;
+	public String getRev_only_date() {
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
+		String formatTime = dayTime.format(this.review_regdate);
+		return formatTime;
+	}
 }

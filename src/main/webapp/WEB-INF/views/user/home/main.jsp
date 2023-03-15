@@ -4,11 +4,54 @@
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css">
+	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css?after">
 <!-- main -->
 <div id="home_main">
+	<!-- banner 수정필요-->
+	<div id="home_banner_container" class="h_container">
+		<div style="overflow: hidden; margin: 0;">
 
+			<div class="img_container">
+			
+			<!-- 배너 마지막 이미지  -->
+				<div class="img_wrapper">
+					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
+				</div>
+				<!-- 배너 이미지 forEach -->
+				<div class="img_wrapper">
+					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg">
+				</div>
+				<div class="img_wrapper">
+					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너2.jpg">
+				</div>
+				<div class="img_wrapper">
+					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
+				</div>
+				<!-- 배너 이미지 /forEach -->
+				
+				<!-- 배너 첫번쨰-->
+				<div class="img_wrapper">
+					<img
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg">
+				</div>
+			</div>
+			<div>
 
+				<button class="prev">
+					<span class="material-symbols-outlined"> arrow_back_ios </span>
+				</button>
+				<button class="next">
+					<span class="material-symbols-outlined"> arrow_forward_ios </span>
+				</button>
+			</div>
+
+		</div>
+
+	</div>
 	<!-- category icon -->
 	<div id="home_cate_icon_container" class="h_container">
 		<div id="home_cate_icon_box">
@@ -79,7 +122,6 @@
 						</div>
 					</a>
 				</div>
-
 				<div class="recom_item" style="">
 					<a href="/jhc/contact" class="recom_item_img">
 						<div>
@@ -88,7 +130,6 @@
 						</div>
 					</a>
 				</div>
-
 				<div class="recom_item">
 					<a href="/jhc/contact" class="recom_item_img">
 						<div>
@@ -138,7 +179,7 @@
 								</div>
 
 								<div class="info">
-									<div class="created_at">${list.review_regdate}</div>
+									<div class="created_at">${list.rev_only_date}</div>
 									<div class="user_name">${list.user_name}</div>
 								</div>
 
@@ -155,3 +196,5 @@
 
 <footer>
 	<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
+	<script
+		src="<%=request.getContextPath()%>/assets/user/home/js/home_main.js"></script>
