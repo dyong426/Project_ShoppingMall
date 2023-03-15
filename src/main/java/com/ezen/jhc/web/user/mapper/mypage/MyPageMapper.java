@@ -35,7 +35,7 @@ public interface MyPageMapper {
 	Integer add(ReviewDTO review);
 	
 	
-	// 주문 내역
+	// 내가 쓴 리뷰 내역 쿼리문
 //	@Select ()
 //	OrderDTO getOrderHistory(int mem_num);
 

@@ -142,6 +142,9 @@ $("#file").on('change',function(){
 	/* 이미지 출력 */
 	function showUploadImage(uploadResultArr){
 		
+		
+	
+		
 		/* 전달받은 데이터 검증 */
 		if(!uploadResultArr || uploadResultArr.length == 0){return}
 		
@@ -154,7 +157,7 @@ $("#file").on('change',function(){
 		let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
 		
 		str += "<div id='result_card'>";
-		str += "<img src='/jhc/display?fileName=" + fileCallPath +"'>";
+		str += "<img src='/jhc/display/image?fileName=" + fileCallPath +"'>";
 		str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
 		str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
 		str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
@@ -162,6 +165,7 @@ $("#file").on('change',function(){
 		str += "</div>";		
 		
    		uploadResult.append(str); 
+		
 		
 	}
 	

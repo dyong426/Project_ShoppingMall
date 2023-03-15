@@ -5,6 +5,8 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Controller;
@@ -33,6 +35,8 @@ public class MypageController {
 	
 	@Autowired
 	WriteReviewService wr_service;
+	
+	
 	
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
 	public String mpInfo() {
