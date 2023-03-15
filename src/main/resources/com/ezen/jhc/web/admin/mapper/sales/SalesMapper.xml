@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.admin.mapper.sales.SalesMapper">
+
+	<select id="getDailySales" resultType="com.ezen.jhc.web.admin.dto.sales.DailySalesDTO">
+		SELECT
+			sc.s_ctgr_num,
+        	s_ctgr_name,
+        	m_ctgr_num,
+        	count(sc.s_ctgr_name) as daily_sales,
+        	sum(total_amount) as daily_amount
+        	
+    	FROM 
+    		order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    	WHERE ord_date = to_date(20230307)
+    	GROUP BY sc.s_ctgr_num, s_ctgr_name, m_ctgr_num
+    	ORDER BY m_ctgr_num
+    	
+	</select>
+	
+	<select id="getWeeklySalesMainCtgr" resultType="com.ezen.jhc.web.admin.dto.sales.WeeklySalesDTO">
+		SELECT
+    (SELECT
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.m_ctgr_num = #{m_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyymmdd'))
+    AS "mon",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.m_ctgr_num = #{m_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-6, 'yyyymmdd'))
+    AS "tues",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.m_ctgr_num = #{m_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-5, 'yyyymmdd'))
+    AS "wednes",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.m_ctgr_num = #{m_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-4, 'yyyymmdd'))
+    AS "thurs",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.m_ctgr_num = #{m_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-3, 'yyyymmdd'))
+    AS "fri",(SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.m_ctgr_num = #{m_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-2, 'yyyymmdd'))
+    AS "satur",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.m_ctgr_num = #{m_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyymmdd'))
+    AS "sun",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.m_ctgr_num = #{m_ctgr_num}
+    AND
+        TO_DATE(ord_date) <![CDATA[<]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyymmdd')) 
+    AND 
+        TO_DATE(ord_date)  <![CDATA[>]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyymmdd')))
+    AS "total",
+    #{m_ctgr_num} as "m_ctgr_num",
+    (SELECT m_ctgr_name FROM main_ctgr WHERE m_ctgr_num = #{m_ctgr_num}) ctgr_name
+	FROM DUAL
+	</select>
+	
+	
+	<select id="getWeeklySalesSubCtgr" resultType="com.ezen.jhc.web.admin.dto.sales.WeeklySalesDTO">
+	SELECT
+    (SELECT
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.s_ctgr_num = #{s_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyymmdd'))
+    AS "mon",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.s_ctgr_num = #{s_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-6, 'yyyymmdd'))
+    AS "tues",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.s_ctgr_num = #{s_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-5, 'yyyymmdd'))
+    AS "wednes",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.s_ctgr_num = #{s_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-4, 'yyyymmdd'))
+    AS "thurs",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.s_ctgr_num = #{s_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-3, 'yyyymmdd'))
+    AS "fri",(SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.s_ctgr_num = #{s_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-2, 'yyyymmdd'))
+    AS "satur",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.s_ctgr_num = #{s_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyymmdd'))
+    AS "sun",
+    (SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.s_ctgr_num = #{s_ctgr_num}
+    AND
+        TO_DATE(ord_date) <![CDATA[<]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyymmdd')) 
+    AND 
+        TO_DATE(ord_date) <![CDATA[>]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyymmdd')))
+    AS "total",
+    #{m_ctgr_num} as "m_ctgr_num",
+    (SELECT s_ctgr_name FROM sub_ctgr WHERE s_ctgr_num = #{s_ctgr_num}) ctgr_name
+    
+	FROM DUAL
+	</select>
+	
+	<select id="getPeriodSales" resultType="com.ezen.jhc.web.admin.dto.sales.PeriodSalesDTO">
+		SELECT ord_date, count(*) count, sum(total_amount) total_amount FROM orders 
+		WHERE ord_date <![CDATA[>]]>= to_date(#{startDate}) AND ord_date <![CDATA[<]]>= to_date(#{endDate})
+		GROUP BY ord_date
+		ORDER BY ord_date
+	</select>
+
+</mapper>
+

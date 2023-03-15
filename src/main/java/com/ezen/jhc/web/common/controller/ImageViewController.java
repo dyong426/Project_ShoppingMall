@@ -37,7 +37,7 @@ public class ImageViewController {
 		
 		log.info("getImage()---" + fileName);
 		
-		File file = new File("C:\\upload\\" + fileName);
+		File file = new File("C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\prod\\" + fileName);
 		
 		ResponseEntity<byte[]> result = null;
 		
@@ -66,7 +66,7 @@ public class ImageViewController {
 		try {
 			
 			// 썸네일 파일 삭제
-			file = new File("C:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
+			file = new File("C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\prod\\" + URLDecoder.decode(fileName, "UTF-8"));
 			
 			file.delete();
 			

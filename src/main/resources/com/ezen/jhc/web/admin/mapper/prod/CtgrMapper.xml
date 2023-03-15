@@ -11,5 +11,10 @@
 	<select id="getSubCtgr" resultType="com.ezen.jhc.web.admin.dto.prod.SubCtgrDTO">
 		SELECT * FROM sub_ctgr WHERE m_ctgr_num = #{m_ctgr_num}
 	</select>
+	
+	<select id="getSubCtgrs" resultType="com.ezen.jhc.web.admin.dto.prod.SubCtgrDTO">
+		SELECT * FROM sub_ctgr
+	</select>
+	
 
 </mapper>

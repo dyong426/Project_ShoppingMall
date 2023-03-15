@@ -1,0 +1,386 @@
+						
+						
+<!-- 브랜드 스토리 -->
+
+<div class="header">
+	<div class="title">
+		<div class="body" style="color: #000000;">null</div>
+	</div>
+	<div class="description">
+		<div class="body" style="color: #000000;">null</div>
+	</div>
+	<div class="background_url">
+		<div class="body"
+			style="background: url() no-repeat center center; background-size: cover; height: 0px;"></div>
+	</div>
+</div>
+<div class="design_collection_contents">
+	<div class="design_collection_content"
+		design_collection_content_id="7064"
+		_sel="./_->design_collection_contents->(#7064)" type="full_img"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img src="/jhc/assets/admin/images/admin.png"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4154"
+		_sel="./_->design_collection_contents->(#4154)" type="h1"
+		style="margin-bottom: 17.142857142857142px;">
+		<div class="body val" style="color: #000000;">실패 없는 커스텀 웨어</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4155"
+		_sel="./_->design_collection_contents->(#4155)" type="p1"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body val" style="color: #000000;">
+			남녀노소 누구나 만족하는 후드 집업<br>나만의 디자인으로 특별함을 더해보세요.
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4156"
+		_sel="./_->design_collection_contents->(#4156)" type="full_img"
+		style="margin-bottom: 8.571428571428571px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/9/original/52ba977faad3f1f195a78d720f617db6f08c41631.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4318"
+		_sel="./_->design_collection_contents->(#4318)" type="full_img"
+		style="margin-bottom: 128.57142857142858px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/9/original/e245cba9bed38aa312ea0302c3ca6026861fa6351.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="6123"
+		_sel="./_->design_collection_contents->(#6123)" type="h1"
+		style="margin-bottom: 17.142857142857142px;">
+		<div class="body val" style="color: #000000;">5장부터 단체 할인이 적용돼요.</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="6124"
+		_sel="./_->design_collection_contents->(#6124)" type="p1"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body val" style="color: #000000;">
+			마플은 단 1장도 가능하지만<br>단체 구매는 할인 혜택이 있어요.<br>장바구니 담기 후 수량별 할인을
+			확인하세요.
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="6125"
+		_sel="./_->design_collection_contents->(#6125)" type="full_img"
+		style="margin-bottom: 128.57142857142858px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/10/original/e5242329dda01dc2c2448c7a7d471020d66119fe1.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4277"
+		_sel="./_->design_collection_contents->(#4277)" type="h1"
+		style="margin-bottom: 17.142857142857142px;">
+		<div class="body val" style="color: #000000;">ABOUT BRAND</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="6038"
+		_sel="./_->design_collection_contents->(#6038)" type="full_img"
+		style="margin-bottom: 34.285714285714285px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/10/original/5a55623f630e63c76504a50ac2266eeb323380ce1.png"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4278"
+		_sel="./_->design_collection_contents->(#4278)" type="p1"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body val" style="color: #000000;">
+			아시아 NO.1 무지 티셔츠 브랜드<br>프린트스타 & 글리머는 동양인 체형에 최적화된<br>핏과 스타일을
+			제안합니다.<br>뛰어난 품질을 합리적인 가격으로 만나보세요.<br>*젤란은 프린트스타로 통합되었습니다.
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4279"
+		_sel="./_->design_collection_contents->(#4279)" type="full_img"
+		style="margin-bottom: 128.57142857142858px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1325934/2022/11/original/6d3b249511dbb0ce81a55627a3f41f4a1010d4f21.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4157"
+		_sel="./_->design_collection_contents->(#4157)" type="h1"
+		style="margin-bottom: 17.142857142857142px;">
+		<div class="body val" style="color: #000000;">나만의 애착 후드 집업</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4158"
+		_sel="./_->design_collection_contents->(#4158)" type="p1"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body val" style="color: #000000;">
+			반려동물, 나의 최애, 좋아하는 사진이나 그림,<br>무엇이든 가능해요.<br>입고 있는 순간, 매일이
+			행복할거에요.
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4159"
+		_sel="./_->design_collection_contents->(#4159)" type="full_img"
+		style="margin-bottom: 128.57142857142858px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/9/original/52c20ef879b3c88fb0dcb8b51feb5acb757eda6b1.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4160"
+		_sel="./_->design_collection_contents->(#4160)" type="h1"
+		style="margin-bottom: 17.142857142857142px;">
+		<div class="body val" style="color: #000000;">소속감, 단결, 팀웍</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4161"
+		_sel="./_->design_collection_contents->(#4161)" type="p1"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body val" style="color: #000000;">
+			우리를 상징하는 로고, 슬로건으로<br>단체 유니폼을 제작해보세요.<br>팀웍은 물론이고 구성원의 전문성이
+			더 돋보일거에요.
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4162"
+		_sel="./_->design_collection_contents->(#4162)" type="full_img"
+		style="margin-bottom: 128.57142857142858px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/9/original/c71e4d730c3b9f52386077805913671ce9adece61.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4163"
+		_sel="./_->design_collection_contents->(#4163)" type="h1"
+		style="margin-bottom: 17.142857142857142px;">
+		<div class="body val" style="color: #000000;">소중한 기념일을 더 특별하게</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4164"
+		_sel="./_->design_collection_contents->(#4164)" type="p1"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body val" style="color: #000000;">
+			가족, 커플, 친구와의 여행을 계획한다면<br>우리만의 커스텀 웨어로 특별한 추억을 선물하세요.
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4165"
+		_sel="./_->design_collection_contents->(#4165)" type="full_img"
+		style="margin-bottom: 128.57142857142858px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/9/original/641c98a91e8294182924ecc5c052073abfe6cc301.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4169"
+		_sel="./_->design_collection_contents->(#4169)" type="h1"
+		style="margin-bottom: 17.142857142857142px;">
+		<div class="body val" style="color: #000000;">사진 후기만 무려 9만 개</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4170"
+		_sel="./_->design_collection_contents->(#4170)" type="p1"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body val" style="color: #000000;">
+			마플만의 독보적인 인쇄 퀄리티는 이미 검증되었어요.<br />너, 나, 우리를 표현할 아이디어만 준비하세요.
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4171"
+		_sel="./_->design_collection_contents->(#4171)" type="full_img"
+		style="margin-bottom: 128.57142857142858px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/9/original/485b7d602803adb75619526d5bebc2acd70b9db61.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4172"
+		_sel="./_->design_collection_contents->(#4172)" type="h1"
+		style="margin-bottom: 17.142857142857142px;">
+		<div class="body val" style="color: #000000;">타협 없는 품질에 대한 자부심</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4173"
+		_sel="./_->design_collection_contents->(#4173)" type="p1"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body val" style="color: #000000;">
+			마플은 디지털 프린팅, 실크 스크린, 플렉스, 전사, 자수 등<br>각 의류 특성에 적합한 풍부한 인쇄 방식을
+			제공합니다.<br>업계 최고의 기술력을 갖춘 전문가에게 맡기세요.
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4174"
+		_sel="./_->design_collection_contents->(#4174)" type="full_img"
+		style="margin-bottom: 8.571428571428571px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/9/original/428d63e5f02f87f57c9429dd06d081726a32638b1.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4175"
+		_sel="./_->design_collection_contents->(#4175)" type="full_img"
+		style="margin-bottom: 128.57142857142858px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="thumbnail_url">
+					<div class="body">
+						<img
+							src="//s3.marpple.co/files/u_1364732/2022/9/original/759d30a3f30ee430b11b4cb4567072d558f582751.jpg"></img>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4176"
+		_sel="./_->design_collection_contents->(#4176)" type="h1"
+		style="margin-bottom: 42.857142857142854px;">
+		<div class="body val" style="color: #000000;">후드 집업과 함께 보면 좋은 상품</div>
+	</div>
+	<div class="design_collection_content"
+		design_collection_content_id="4177"
+		_sel="./_->design_collection_contents->(#4177)" type="items"
+		style="margin-bottom: 0px;">
+		<div class="body">
+			<div class="wrapper">
+				<div class="design_collection_content_items" lines="1">
+					<div class="design_collection_content_item"
+						_sel="./_->design_collection_content_items->(#5089)"">
+						<div class=" wrapper">
+							<a href="/product/detail?bp_id=4673&pc_id=11276216"
+								class="img_wrapper"><img
+								src="https://image1.marpple.co/files/u_1812399/2022/9/original/968948ad118ce96b66e7457622830f61b8de8ff91.png?q=90&w=484&f=jpeg&bg=f6f6f6"></a>
+							<div class="info">
+								<div class="name">
+									<div class="pc_name">필잇 시그니처 오버핏 기모 맨투맨</div>
+								</div>
+								<div class="mp_currency price">20,900</div>
+							</div>
+						</div>
+					</div>
+					<div class="design_collection_content_item"
+						_sel="./_->design_collection_content_items->(#5090)"">
+						<div class=" wrapper">
+							<a href="/product/detail?bp_id=3125&pc_id=11276217"
+								class="img_wrapper"><img
+								src="https://image1.marpple.co/files/u_1812399/2022/9/original/35f1282374ad0c5045a96d981a7ec89513d87b661.png?q=90&w=484&f=jpeg&bg=f6f6f6"></a>
+							<div class="info">
+								<div class="name">
+									<div class="pc_name">길단 12500 베이직 후드 (USA 핏) 기능성/기모</div>
+								</div>
+								<div class="mp_currency price">30,900</div>
+							</div>
+						</div>
+					</div>
+					<div class="design_collection_content_item"
+						_sel="./_->design_collection_content_items->(#5091)"">
+						<div class=" wrapper">
+							<a href="/product/detail?bp_id=4663&pc_id=11276218"
+								class="img_wrapper"><img
+								src="https://image1.marpple.co/files/u_1812399/2022/9/original/b7ca4a88bc9a7728194f79459e2bd23baa4117311.png?q=90&w=484&f=jpeg&bg=f6f6f6&r=85"></a>
+							<div class="info">
+								<div class="name">
+									<div class="pc_name">페어플레이 에센셜 와이드 스웨트 팬츠</div>
+								</div>
+								<div class="mp_currency price">32,000</div>
+							</div>
+						</div>
+					</div>
+					<div class="design_collection_content_item"
+						_sel="./_->design_collection_content_items->(#5092)"">
+						<div class="
+            wrapper">
+							<a href="/product/detail?bp_id=4112&pc_id=11276219"
+								class="img_wrapper"><img
+								src="https://image1.marpple.co/files/u_1812399/2022/9/original/16e1d7a76af56deee7c5d494c699b98752b920e71.png?q=90&w=484&f=jpeg&bg=f6f6f6"></a>
+							<div class="info">
+								<div class="name">
+									<div class="pc_name">프린트스타 17수 라운드 티셔츠(남녀공용)</div>
+								</div>
+								<div class="mp_currency price">8,900</div>
+							</div>
+						</div>
+					</div>
+				</div>
+						
+						

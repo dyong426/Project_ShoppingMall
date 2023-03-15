@@ -40,7 +40,7 @@
                         <tbody>
                         	<c:forEach items="${prods}" var="prod">
                         		<tr class="prod-info">
-                                	<td class="m-ctgr-name">${prod.m_ctgr_name}</th>
+                                	<td class="m-ctgr-name">${prod.m_ctgr_name}</td>
                                 	<td class="s-ctgr-name">${prod.s_ctgr_name}</td>
                                 	<td class="p-num">${prod.p_num}</td>
                                 	<td class="p-name">${prod.p_name}</td>
