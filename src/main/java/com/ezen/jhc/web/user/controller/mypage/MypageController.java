@@ -46,10 +46,13 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value ="/writeable_reviews", method = RequestMethod.GET)
-	public String mpWriteReviewCheck(Integer mem_num, String ord_status, Model model) {
+	public String mpWriteReviewCheck(Integer mem_num, Model model) {
 		
-	List<OrderDetailDTO> rv_dto = mm_mapper.buyProds(mem_num, ord_status);
-	model.addAttribute("rv_list", rv_dto);
+	List<OrderDetailDTO> pd_info = mm_mapper.buyProds(mem_num);
+	OrderDetailDTO pd_count = mm_mapper.buyProdsCount(mem_num);
+	
+	model.addAttribute("pd_info", pd_info);
+	model.addAttribute("pd_count", pd_count);
 		
 		return "user/mypage/myreview/writeable_reviews";
 	}

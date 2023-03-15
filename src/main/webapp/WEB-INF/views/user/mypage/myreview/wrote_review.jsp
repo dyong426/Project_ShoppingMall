@@ -3,7 +3,7 @@
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/mypage/css/my_review2.css?after">
+	href="<%=request.getContextPath()%>/assets/user/mypage/css/wrote_review.css?after">
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/user/mypage/css/review_popup.css">
 

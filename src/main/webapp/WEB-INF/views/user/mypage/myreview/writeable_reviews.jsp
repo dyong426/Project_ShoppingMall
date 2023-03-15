@@ -5,7 +5,7 @@
 
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/my_review.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/writeable_reviews.css">
 
   <!-- main -->
   <div class="rv_container">
@@ -20,10 +20,11 @@
             </div>
         </div>
         <div class="header_my_review">
-       
+       		<c:forEach items="${pd_count}" var="pc"> 
             <div class="info1">
-                작성 가능한 상품이 <span>0</span> 개 있습니다.
+                작성 가능한 상품이 <span>${pc.size}</span> 개 있습니다.
             </div>
+            </c:forEach>
             <div class="info2">
                 리뷰 작성 시 적립금 100P, 사진과 함께 리뷰를 작성해주시면 500P를 지급해 드립니다.
             </div>
@@ -33,9 +34,6 @@
        
         </div>
         <div class="write_review">
-          <form action=""> 
-          <div class="order_date"><span>주문일&nbsp;</span>&nbsp;&nbsp;${rv.ord_date}</div>
-          </form> 
             <table class="wr_info">
                 <thead>
                     <tr>
@@ -48,7 +46,7 @@
                 </thead>
 				
                 <tbody class="wr_list">
-                <c:forEach items="${rv_list}" var="rv"> 
+                <c:forEach items="${pd_info}" var="pi"> 
                     <tr class="wr">
                         <td class="od_number">
                             
@@ -56,21 +54,21 @@
                         </td >
                         <td class="wr_img">
                             <a href=""><!-- 여기 클릭하면 판매 페이지로 이동 --></a>
-                            <img style="width: 50px; height: 50px;" src="${rv.origin_img_path}" alt="상품 사진">
+                            <img style="width: 50px; height: 50px;" src="${pi.origin_img_path}" alt="상품 사진">
                         </td>
                         <td class="wr_check">
                             <strong class="wr_name">
-                                <a href="" class="ec_wr_name">${rv.p_name}</a>
+                                <a href="" class="ec_wr_name">${pi.p_name}</a>
                             </strong>
                         </td>
                         <td>
-                          <span>${rv.pc_name}</span>
+                          <span>${pi.pc_name}</span>
                         </td>
                         <td class="wr_amount">
-                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?p_num=${rv.p_num}&pc_num=${rv.pc_num}&ps_num=${rv.ps_num}'">리뷰 작성 하기</button>
+                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?p_num=${pi.p_num}&pc_num=${pi.pc_num}&ps_num=${pi.ps_num}'">리뷰 작성 하기</button>
                         </td>
                     </tr>
-                        ${rv.p_num } ${rv.pc_num } ${rv.ps_num }
+                       ${pi.pc_num } ${pi.ps_num }
                     </c:forEach> 
                 </tbody>
                 
