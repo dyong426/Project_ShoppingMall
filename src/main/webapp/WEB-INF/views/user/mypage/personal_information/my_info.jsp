@@ -21,10 +21,8 @@
             <div class="pw_ctr">
                 <label for="">비밀번호</label>
                 <div class="input">
-                <form action="/jhc/password/change" method="POST">
                     <button class="btn_change_pw" type="submit">비밀번호 변경 링크 받기 (이메일 전송)</button>
-                </form>
-                
+           
                 </div>
             </div>
     
@@ -57,11 +55,17 @@
             
         </div>
         <div class="buttons">
-            <button class="modify" type="button" >변경</button>
+            
             <button class="withdrawal" type="button">회원 탈퇴</button>
         </div>
     </div>
   </div>
+
+
+  <script>
+  var mem_num = "${member.mem_num}";
+  </script>
+
 
  <footer>
    <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />

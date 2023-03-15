@@ -37,7 +37,10 @@ public class OrderDetailDTO {
 	//테이블 조인 : prod_images
 	Integer	pi_num;
 	String	origin_img_path;
-	String	pi_thumb_path;
+	String	thumb_img_path;
+	String	lg_img_path;
+	String	md_img_path;
+	String	sm_img_path;
 	
 	// 테이블 조인 : member_cstm
 	Integer	mem_cstm_num;

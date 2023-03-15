@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
    pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/orderList.css">
 
@@ -38,56 +39,51 @@
 
                             <br>
                             <br>
-                            
-                            <span class="product_info">주문 상품 정보</span>
-                            <table class="pd_info">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 170px;">주문일자[주문번호]</th>
-                                        <th style="width: 80px;">이미지</th>
-                                        <th style="width: 340px;">상품정보</th>
-                                        <th style="width: 60px;">수량</th>
-                                        <th style="width: 120px;">상품구매금액</th>
-                                        <th>주문처리상태</th>
-                                        <th>취소/교환/반품</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody class="product_list">
-                                    <tr class="product">
-                                        <td class="order_number">
-                                            2022-09-29
-                                            <p><a href="<%=request.getContextPath() %>/details" class="order_number">[20220929-0001079]</a></p>
-                                        </td >
-                                        <td class="product_img">
-                                            <a href=""><!-- 여기 클릭하면 판매 페이지로 이동 --></a>
-                                            <img style="width: 50px; height: 50px;" src="<%=request.getContextPath() %>/assets/common/cstm_img/착샷1.jpg" alt="상품 사진">
-                                        </td>
-                                        <td class="product_check">
-                                            <strong class="product_name">
-                                                <a href="" class="ec_prouduct_name">보송보송 너무나도 예쁜 하얀 목티<!-- 여기 클릭하면 판매 페이지로 이동 --></a>
-                                            </strong>
-                                            <div class="op">
-                                                <div>옵션 :&nbsp;</div>
-                                                <div>텍스트 추가, 사진 추가</div>
-                                            </div>
-                                        </td>
-                                        <td class="product_amount">1</td>
-                                        <td class="product_price">
-                                            <strong>29,000원</strong>
-                                        </td>
-                                        <td class="product_state">
-                                            <p class="txtEm" style="padding-top: 15px;">배송 완료</p>
-                                        </td>
-                                        <td class="order_change">
-                                            <a href="">주문 취소</a> <br>
-                                            <a href="">교환/반품 신청</a> <br>
-                                        </td>
-                                    </tr>
-                                </tbody>
-    
-                            </table>
-                            
+                            <div class="order_history_main_contents">
+	                            <table class="pd_info">
+	                            <colgroup>
+	                                     <col style="width: 200px;">
+	                                     <col style="width: 100px;">
+	                                     <col style="width: 300px;">
+	                                     <col style="width: 120px;">
+	                                     <col style="width: 140px;">
+	                                     <col style="width: 130px;">
+                                </colgroup>
+	                                <thead>
+	                                    <tr>
+	                                        <th>주문일자<br>[주문번호]</th>
+	                                        <th>이미지</th>
+	                                        <th>상품정보</th>
+	                                        
+	                                        <th>결제 금액</th>
+	                                        <th>주문처리상태</th>
+	                                        <th>취소/교환/반품</th>
+	                                    </tr>
+	                                </thead>
+									<c:forEach var="order" items="${orders }" >
+	                                <tbody class="product_list">
+	                                    <tr class="product">
+	                                       <td>${order.new_ord_date }<br><a href="/jhc/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a></td>
+	                                       <td><img width=70px; src="${order.origin_img_path }" alt="" /></td>
+	                                       <td>${order.p_name } 외</td>
+	                                       
+	                                       <td>￦<fmt:formatNumber value="${order.od_amount }" pattern="#,###,##0"/></td>
+	                                       <c:if test="${order.ord_statusKor eq '주문 취소'}">
+	                                       <td style="color:red">${order.ord_statusKor }</td>
+	                                       <td class="unable_refund"><a href="#">취소</a><br><a href="#">교환/반품</a></td>
+	                                       </c:if>	                                   
+	                                       <c:if test="${order.ord_statusKor ne '주문 취소' }">
+	                                       <td>${order.ord_statusKor }</td>
+	                                       <td><a href="#">취소</a><br><a href="#">교환/반품</a></td>
+	                                       </c:if>
+	                                       
+	                                    </tr>
+	                                </tbody>
+								</c:forEach>
+	    
+	                            </table>
+                                
+                            </div>
                 </div>
         </div>
   </div>

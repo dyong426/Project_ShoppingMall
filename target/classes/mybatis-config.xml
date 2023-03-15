@@ -3,10 +3,14 @@
 <!DOCTYPE configuration
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "https://mybatis.org/dtd/mybatis-3-config.dtd">
+  
 <configuration>
-	<!-- mybatis로 넘어오는 parameter가 null인 경우, jdbcType을 Setting -->
-	<!-- value="NULL" 을 넣을시 꼭 대문자 사용 -->
-  	<settings>
-		<setting name="jdbcTypeForNull" value="NULL" />    
+
+	
+	<settings>
+	    <setting name="cacheEnabled" value="false" />
+		<setting name="jdbcTypeForNull" value="NULL" />
 	</settings>
+	
 </configuration>
+

@@ -57,10 +57,41 @@
          </div>
       </div>
    </div>
+			<div class="header_container_bottom_contents">
+				<a href="<%=request.getContextPath() %>/main">
+				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo.png" alt="로고" width="170px" />
+				</a>
+			</div>
 
+			<div class="header_container_bottom_contents">
+				<a href="/jhc/main_category?m_ctgr_num=1">의류</a>
+				<a href="/jhc/main_category?m_ctgr_num=2">폰케이스/테크</a>
+				<a href="/jhc/main_category?m_ctgr_num=3">홈데코/리빙</a>
+				<a href="/jhc/main_category?m_ctgr_num=4">액자</a>
+			</div>
+		<c:set var="member" value="${sessionScope.member }"/>
+		
+			<div class="header_container_bottom_contents">
+				<span class="user_welcome_text hidden_visilbility" id="user_welcome_text">${member.mem_name}님, 환영합니다.</span>
+				<button id="myCart">
+				<span class="material-symbols-outlined">shopping_cart</span>
+				</button>
+				<button id="myPage">
 
-   <!--마이페이지 드롭다운-->
-   <div class="hidden myPage_container" id="myPage_drop-down">
+				<div>
+					<span class="material-symbols-outlined">person</span>
+
+					<span id="drop-down_arrow" class="material-symbols-outlined">
+						arrow_drop_down </span>
+				</div>
+				
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<!--마이페이지 드롭다운-->
+	<div class="hidden myPage_container" id="myPage_drop-down">
       <button onclick="location.href='<%=request.getContextPath() %>/history'">주문 내역</button>
       <button onclick="location.href='<%=request.getContextPath() %>/writeable_reviews'">나의 리뷰</button>
       <button onclick="location.href='<%=request.getContextPath() %>/info'">나의 정보</button>

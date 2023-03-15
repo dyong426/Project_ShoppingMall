@@ -1,5 +1,6 @@
 /* footer */
 .footer_container {
+
 	font-size: 13px;
 	display: flex;
 	flex-direction: column;
@@ -26,7 +27,6 @@
 	margin-top: 50px;
 	
 }
-
 
 .footer_bottom{
 	display: flex;
