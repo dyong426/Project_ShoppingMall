@@ -16,7 +16,7 @@ a:hover {
 
 #pd_img {
     width: 50px;
-    height: 50px;
+    
 }
 
 h2 {
@@ -24,11 +24,9 @@ h2 {
     font-weight: bold;
     margin: 60px 0px 10px;
 }
-
-h3 {
-    font-size: x-large;
+.title h3{
+	font-size:30px;
 }
-
 .order_area {
     padding-right: 20px;
 }
@@ -109,12 +107,6 @@ table {
 
 
 
-  .base_table_type > table > .individual_delivery > tr > td > .txtEm{
-    font-size: 20px;
-  }
-
-
-
   .base_table_type > table > .product_link > tr > td{
     text-align: center;
   }
@@ -158,6 +150,9 @@ table {
     background-color: black;
 }
 
+.order_status{
+	
+}
 
 .order_list_btn {
     display: flex;

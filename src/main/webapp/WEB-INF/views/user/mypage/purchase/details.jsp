@@ -41,11 +41,16 @@
                                     </td>
                                 </tr>
                                 <tr>
+	                                     
                                     <th scope="row">주문처리상태</th>
                                     <td>
                                         <c:if test="${order.ord_statusKor  eq '입금 전' }" >
 	                                     ${order.ord_statusKor }
-                                        <button type="submit" class="order_cancellation" onclick="location.href='<%=request.getContextPath() %>/cancel'">주문취소</button>
+	                                     <script>
+	                                     const ord_num = parseInt("${order.ord_num}");
+										  </script>
+	                                      <button type="submit" class="order_cancellation">주문취소</button>
+	                
                                         </c:if>
                                         <c:if test="${order.ord_statusKor ne '입금 전' }">
                                         ${order.ord_statusKor }
@@ -123,8 +128,8 @@
                                         <col style="width: auto;">
                                         <col style="width: 60px;">
                                         <col style="width: 100px;">
-                                        <col style="width: 95px;">
-                                        <col style="width: 110px;">
+                                      
+                                    
                                         <col style="width: 110px;">
                                     </colgroup>
                                     <thead class="info_box">
@@ -133,62 +138,61 @@
                                             <th scope="col">상품정보</th>
                                             <th scope="col">수량</th>
                                             <th scope="col">판매가</th>
-                                            <th scope="col">배송구분</th>
+                             
                                             <th scope="col">주문처리상태</th>
-                                            <th scope="col">취소/교환/반품</th>
+                               
                                         </tr>
                                     </thead>
                                     <tfoot class="individual_delivery">
                                         <tr>
-                                            <td colspan="7">
-                                                <span class="shipping_method">[개별배송]</span>
-                                                상품구매금액
-                                                <strong>0</strong>
-                                                <span class="displaynone"> + 부가세 0</span>
-                                                + 배송비 0 + 지역별배송비 0
-                                                <span class="displaynone"> - 상품할인금액</span>
+                                            <td colspan="9">
+                                    
+                                                상품 구매 금액
+                                                <strong><fmt:formatNumber value="${order.total_amount * 0.9}" pattern="###,##0"/></strong>
+                                                <span class="displaynone"> + 부가세 <fmt:formatNumber value="${order.total_amount * 0.1 }" pattern="###,##0"/></span>
+                                                + 배송비 3,000
+                                                <span class="displaynone"> - 상품할인금액 1,500</span>
                                                 = 합계 :
                                                 <strong class="txtEm">
-                                                    <span class="txt18">0원</span>
+                                                    <span class="txt18"><fmt:formatNumber value="${order.total_amount -1500+ 3000}" pattern="#,###,##0"/>원</span>
                                                 </strong>
                                                 <!-- <span class="dispaynone"></span> -->
                                             </td>
                                         </tr>
                                     </tfoot>
                                     <tbody class="product_link">
+                                    
+                                    <c:forEach items="${orderDetails }" var="od">
+                               
                                         <tr class="link_record">
-                                            <td class="thumb">
-                                                <a href="<%=request.getContextPath() %>/history">
-                                                    <img id="pd_img" src="<%=request.getContextPath() %>/assets/common/cstm_img/products/clothes/착샷.jpg" alt="예쁜 옷">
-                                                </a>
+                                            <td class="thumb">                                              
+                                               <img id="pd_img" src="${od.origin_img_path }" alt="상품 사진">                      
                                             </td>
                                             <td class="product_info">
-                                                <strong class="name">
-                                                    <a href=""></a>
-                                                </strong>
+                                                    <a href="/jhc/product_details?p_num=${od.p_num}">${od.p_name }</a>                            
                                                 <div class="option"></div>
                                             </td>
-                                            <td>1</td>
+                                            <td>${od.od_quantity}</td>
                                             <td class="product_price">
                                                 <div>
-                                                    <strong>0원</strong>
-                                                    <!-- <div class="displaynone"></div> -->
+                                                    <fmt:formatNumber value="${od.od_amount }" pattern="#,###,##0"/>
                                                 </div>
-                                                <!-- <div class="displaynone">
-                                                    <strong>0원</strong>
-                                                    <div class="displaynone"></div>
-                                                </div> -->
+                                              
                                             </td>
-                                            <td class="delivery_state">
-                                               <p class="txtEm">배송준비중</p>
-                                            </td>
-                                            <td>
-                                                <p>취소/교환/반품 상태값</p>
-                                            </td>
-                                            <td>
-                                                <p>-</p>
-                                            </td>
+                                            <c:if test="${order.ord_statusKor eq '주문 취소'}">
+	                                            <td class="order_status" style="color:red">
+	                                              ${order.ord_statusKor }
+	                                            </td>
+                                            </c:if>
+                                            <c:if test="${order.ord_statusKor ne '주문 취소'}">
+                                             <td class="order_status">
+	                                              ${order.ord_statusKor }
+	                                            </td>
+                                            </c:if>
+                                     
+                                           
                                         </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>

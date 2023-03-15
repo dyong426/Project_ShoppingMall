@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ezen.jhc.web.user.dto.order.OrderDTO;
+import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.mapper.order.OrderMapper;
 
 @Service
@@ -26,6 +27,18 @@ public class HistoryServiceImpl implements HistoryService {
 	public OrderDTO getAll(Integer mem_num, Integer ord_num) {
 		// TODO Auto-generated method stub
 		return orderMapper.selectAll(mem_num, ord_num);
+	}
+
+	@Override
+	public List<OrderDetailDTO> getOrderDetails(Integer ord_num) {
+		// TODO Auto-generated method stub
+		return orderMapper.selectOrderDetails(ord_num);
+	}
+
+	@Override
+	public void orderCancel(Integer ord_num) {
+			orderMapper.cancleOrder(ord_num);
+		
 	}
 
 	

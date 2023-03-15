@@ -47,9 +47,12 @@ clickToChangePW.addEventListener('click', function(){
 
             url:'/jhc/password/change',
             type:'POST',
-            success:function(response){
+            success:function(){
                 location.replace('/jhc/password/mail');
-            console.log('위치');
+
+            },
+            error: function(){
+                console.log('비밀번호 변경 중 오류');
             }
         })
     }

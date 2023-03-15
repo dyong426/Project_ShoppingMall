@@ -9,12 +9,15 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDTO;
+import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.service.mypage.HistoryService;
 
 @Controller
@@ -41,7 +44,7 @@ public class HistoryController {
 	}
 
 	@RequestMapping(value = "/details", method = RequestMethod.GET)
-	public String mpDetails(Model model, HttpSession session, @RequestParam Integer ord_num) {
+	public String mpDetails(Model model, HttpSession session, @RequestParam(value="ord_num", required=false) Integer ord_num) {
 
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		Integer mem_num = member.getMem_num();
@@ -49,22 +52,30 @@ public class HistoryController {
 		
 		OrderDTO order = historyService.getAll(mem_num, ord_num);
 	
+		List<OrderDetailDTO> orderDetails = historyService.getOrderDetails(ord_num);
+		
 		model.addAttribute("mem_name", mem_name);
 		model.addAttribute("order", order);
+		model.addAttribute("orderDetails", orderDetails);
 				
 		
 		return "user/mypage/purchase/details";
 	}
 
+	// 주문 취소
+	@PostMapping(value = "/order/cancel")
+	@ResponseBody
+	public void orderCancel(@RequestParam(value="ord_num", required=false)Integer ord_num) {
+		
+		
+		historyService.orderCancel(ord_num);
+	}
+	
 	@RequestMapping(value = "/er", method = RequestMethod.GET)
 	public String orderER() {
 
 		return "user/mypage/purchase/exchange_refund";
 	}
 
-	@RequestMapping(value = "/cancel", method = RequestMethod.GET)
-	public String orderCancel() {
-
-		return "user/mypage/purchase/cancel";
-	}
+	
 }
