@@ -103,18 +103,6 @@ public class MypageController {
 		return "user/mypage/myreview/wrote_review";
 	}
 
-	@RequestMapping(value = "/details", method = RequestMethod.GET)
-	public String mpDetails() {
-
-		return "user/mypage/purchase/details";
-	}
-	
-	@RequestMapping(value ="/er", method = RequestMethod.GET)
-	public String orderER() {
-		
-		return "user/mypage/purchase/exchange_refund";
-	}
-	
 	@RequestMapping(value ="/cancel", method = RequestMethod.GET)
 	public String orderCancel() {
 		

@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ezen.jhc.common.util.Utils;
 import com.ezen.jhc.web.admin.dto.order.OrderDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderDetailDTO;
-import com.ezen.jhc.web.admin.mapper.order.OrderMapper;
+import com.ezen.jhc.web.admin.mapper.order.AdminOrderMapper;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -17,7 +17,7 @@ import lombok.extern.log4j.Log4j2;
 public class AdminOrderServiceImpl implements AdminOrderService{
 
 	@Autowired
-	OrderMapper orderMapper;
+	AdminOrderMapper orderMapper;
 
 	@Override
 	public List<OrderDTO> getOrderList() {

@@ -5,7 +5,7 @@ import java.util.List;
 import com.ezen.jhc.web.admin.dto.order.OrderDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderDetailDTO;
 
-public interface OrderMapper {
+public interface AdminOrderMapper {
 	
 	List<OrderDTO> getOrders();
 	
