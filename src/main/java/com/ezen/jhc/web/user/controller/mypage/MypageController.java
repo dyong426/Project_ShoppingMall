@@ -47,11 +47,8 @@ public class MypageController {
 	
 	
 	@RequestMapping(value = "/info", method = RequestMethod.GET)
-	public String mpInfo(HttpSession session) {
+	public String mpInfo() {
 
-		if (session.getAttribute("member") == null) {
-			return "user/common/loginPlease";
-		}
 		return "user/mypage/personal_information/my_info";
 	}
 	
@@ -60,32 +57,14 @@ public class MypageController {
 		
 	List<OrderDetailDTO> rv_dto = mm_mapper.buyProds(mem_num, ord_status);
 	model.addAttribute("rv_list", rv_dto);
+		
 		return "user/mypage/myreview/writeable_reviews";
 	}
-
-	@RequestMapping(value = "/writeable_reviews", method = RequestMethod.GET)
-	public String mpWriteReviewCheck(HttpSession session) {
-		if (session.getAttribute("member") == null) {
-			return "user/common/loginPlease";
-		}
-		return "user/mypage/myreview/writeable_reviews";
-	}
-
-	@RequestMapping(value = "/watching_review", method = RequestMethod.GET)
-	public String mpWatchReview(HttpSession session) {
-		if (session.getAttribute("member") == null) {
-			return "user/common/loginPlease";
-		}
-		return "user/mypage/myreview/wrote_review";
-	}
-
-	@RequestMapping(value = "/writing_review", method = RequestMethod.GET)
-	public String mpWriteReview(HttpSession session, Model model) {
-
-		if (session.getAttribute("member") == null) {
-			return "user/common/loginPlease";
-		}
-		List<OrderDetailDTO> od_dto = mm_mapper.getAll(7, 42, 41);
+	
+	@RequestMapping(value ="/writing_review", method = RequestMethod.GET)
+	public String mpWriteReview(@RequestParam("p_num")Integer p_num, @RequestParam("pc_num")Integer pc_num, @RequestParam("ps_num")Integer ps_num, Model model) {
+		
+		List<OrderDetailDTO> od_dto = mm_mapper.getAll(p_num, pc_num, ps_num);
 		model.addAttribute("review_pd", od_dto);
 		System.out.println("내가 원하는 정보 : " + od_dto);
 		
@@ -108,7 +87,6 @@ public class MypageController {
 		
 		return "user/mypage/purchase/cancel";
 	}
-
 
 	@GetMapping("/password/change")
 	public String showPasswordChangeForm() {
