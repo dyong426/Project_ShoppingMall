@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/my_review.css">
@@ -32,9 +32,10 @@
             </div>
        
         </div>
-        <div class="write_review" total_count="0">
-       <!--  <c:forEach items="${review_ch}" var="ch"> -->
-          <div class="order_date"><span>주문일&nbsp;</span>&nbsp;&nbsp;${ch.ord_date}</div>
+        <div class="write_review">
+          <form action=""> 
+          <div class="order_date"><span>주문일&nbsp;</span>&nbsp;&nbsp;${rv.ord_date}</div>
+          </form> 
             <table class="wr_info">
                 <thead>
                     <tr>
@@ -45,8 +46,9 @@
                         <th style="width: 180px;">리뷰 작성</th>
                     </tr>
                 </thead>
-
+				
                 <tbody class="wr_list">
+                <c:forEach items="${rv_list}" var="rv"> 
                     <tr class="wr">
                         <td class="od_number">
                             
@@ -54,28 +56,55 @@
                         </td >
                         <td class="wr_img">
                             <a href=""><!-- 여기 클릭하면 판매 페이지로 이동 --></a>
-                            <img style="width: 50px; height: 50px;" src="<%=request.getContextPath() %>/assets/common/cstm_img/products/clothes/젤란 라이트 후드집업.png" alt="상품 사진">
+                            <img style="width: 50px; height: 50px;" src="${rv.origin_img_path}" alt="상품 사진">
                         </td>
                         <td class="wr_check">
                             <strong class="wr_name">
-                                <a href="" class="ec_wr_name">${ch.p_name}</a>
+                                <a href="" class="ec_wr_name">${rv.p_name}</a>
                             </strong>
                         </td>
                         <td>
-                          <span>${ch.pc_name}</span>
+                          <span>${rv.pc_name}</span>
                         </td>
-                        
                         <td class="wr_amount">
-                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review'">리뷰 작성 하기</button>
+                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?p_num=${rv.p_num}&pc_num=${rv.pc_num}&ps_num=${rv.ps_num}'">리뷰 작성 하기</button>
                         </td>
                     </tr>
+                        ${rv.p_num } ${rv.pc_num } ${rv.ps_num }
+                    </c:forEach> 
                 </tbody>
+                
             </table>
-           <!--  </c:forEach> -->
+            
         </div>
     </div>
+     <footer>
+   <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
   </div>
 
 
- <footer>
-   <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
+	<script>
+		var rv_modal = document.querySelector(".rv_modal");
+		var ec_wr_name = document.querySelector(".ec_wr_name");
+		var rv_closeButton = document.querySelector(".rv_close-button");
+		
+		
+		function toggleModal() {
+			rv_modal.classList.toggle("show-rv_modal");
+		}
+		
+		function windowOnClick(event) {
+			if (event.target === rv_modal) {
+				toggleModal();
+			}
+		}
+		
+		ec_wr_name.addEventListener("click", toggleModal);
+		rv_closeButton.addEventListener("click", toggleModal);
+		window.addEventListener("click", windowOnClick);
+	</script>
+
+
+
+
+

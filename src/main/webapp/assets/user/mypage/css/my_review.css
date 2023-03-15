@@ -30,7 +30,6 @@ a:hover {
 .my_review{
     font-size: 30px;
     width: 992px;
-    height: 43.2px;
     margin: 86px 0px 40px;
     font-weight: 900;
     
@@ -39,7 +38,7 @@ a:hover {
 .rv_container {
     display: inline-block;
     width: 100%;
-    height: 100%;
+     margin: 10px auto;
     background-color: rgb(248, 249, 250);
 }
 
@@ -47,9 +46,8 @@ a:hover {
     display: flex;
     justify-self: center;
     display: grid;
-    grid-template-rows: 0.5fr 0.1fr 0.1fr;
+    /* grid-template-rows: 0.5fr 0.1fr 0.1fr; */
     width: 992px;
-    height: auto;
     margin: 0 auto;
     padding: 40px 0px 120px;
     
@@ -58,7 +56,6 @@ a:hover {
 .header_tab {
     display: flex;
     width: 100%;
-    height: 38.4px;
 }
 
 .header_tab > .tab_left, .tab_right{
@@ -66,7 +63,6 @@ a:hover {
     font-size: 20px;
     font-weight: 700;
     width: 496px;
-    height: 38.4px;
     padding: 0px 0px 16px;
 }
 
@@ -78,9 +74,8 @@ a:hover {
     border-bottom: solid 1px rgb(213, 219, 224);
 }
 
-.header_my_review {
+.header_my_review {1
     width: 992px;
-    height: 102.04px;
     margin: 0px 0px 24px;
     padding: 24px;
     background-color: rgb(241, 240, 240);
@@ -106,21 +101,19 @@ a:hover {
 }
 
 .write_review {
+	height: 960px;
+	 font-size: 15px;
+    font-weight: bold;
     width: 992px;
-    height: 285.6px;
-    max-height: auto;
+    
     padding: 15px;
+    margin: 10px auto;
     background-color: white;
 }
 
-.write_review {
-    font-size: 15px;
-    font-weight: bold;
-  }
 
   .wr_info {
     width: 960px;
-    height: auto;
     border-collapse: collapse;
     position: absolute;
   }

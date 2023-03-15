@@ -1,0 +1,19 @@
+package com.ezen.jhc.web.user.dto.review;
+
+import lombok.Data;
+
+@Data
+public class AttachImageVO {
+	
+	/* 경로 */
+	private String uploadPath;
+	
+	/* uuid */
+	private String uuid;
+	
+	/* 파일 이름 */
+	private String fileName;
+	
+
+	
+}

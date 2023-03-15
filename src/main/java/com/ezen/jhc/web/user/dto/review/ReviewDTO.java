@@ -1,7 +1,7 @@
 package com.ezen.jhc.web.user.dto.review;
 
 import java.util.Date;
-
+import java.util.List;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -52,4 +52,7 @@ public class ReviewDTO {
 		}
 		return user_name;
 	}
+	
+	/* 이미지 정보 */
+	private List<AttachImageVO> imageList;
 }
