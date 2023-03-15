@@ -124,7 +124,7 @@
 				</div>
 
 
-				<button id="kakao_login" onclick="kakaoLogin(); requestUserInfo();">
+				<button id="kakao_login" onclick="kakaoLogin();">
 					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_login.png" alt="">
 				</button>
 				<button id="naver_login" onclick="naverIdLogin_loginButton();">
@@ -171,7 +171,7 @@
 						<div>또는</div>
 						<div></div>
 					</div>
-					<button id="kakao_login" onclick="kakaoLogin(); requestUserInfo();">
+					<button id="kakao_login" onclick="kakaoJoin();">
 						<img src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_join.png" alt="카카오로 시작하기">
 					</button>
 

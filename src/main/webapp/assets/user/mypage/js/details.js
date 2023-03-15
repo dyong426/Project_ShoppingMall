@@ -25,6 +25,8 @@ cancleOrder.addEventListener('click', function () {
 
 
         })
+    } else{
+        location.reload();
     }
 
 

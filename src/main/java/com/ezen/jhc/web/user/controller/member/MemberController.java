@@ -1,6 +1,7 @@
 package com.ezen.jhc.web.user.controller.member;
 
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.Date;
 
 import javax.servlet.http.Cookie;
@@ -12,6 +13,7 @@ import javax.sql.DataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
@@ -66,6 +68,7 @@ public class MemberController {
 
 	// 세션과 쿠키를 이용한 로그인 유지 방식
 	@PostMapping("/login.do")
+	@ResponseBody
 	public String login(@RequestParam("mem_email") String memEmail, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) {
 
@@ -161,6 +164,34 @@ public class MemberController {
 
 	}
 
+	// 카카오 가입
+	@PostMapping("/kakao/join")
+	@ResponseBody
+	public boolean kakao_join(@RequestParam("kakao_id") String kakao_id, @RequestParam("kakao_name") String kakao_name) {
+
+		boolean isSuccess = true;
+
+		// 중복 계정일 경우 catch문 실행
+		try {
+			MemberDTO kakao_member = new MemberDTO();
+
+			kakao_member.setMem_email(kakao_id);
+			kakao_member.setMem_name(kakao_name);
+			memberService.join(kakao_member);
+
+		} catch (DataIntegrityViolationException e) {
+		    if (e.getCause() instanceof SQLIntegrityConstraintViolationException) {
+		        
+		        isSuccess = false;
+		    } else {
+		        throw e;
+		    }
+		}
+
+		return isSuccess;
+
+	}
+	
 	private static final Logger log = LoggerFactory.getLogger(MemberController.class);
 
 	public void printSessionInfo(HttpServletRequest request, String sessionId) {

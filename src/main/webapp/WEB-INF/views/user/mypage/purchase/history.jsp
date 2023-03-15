@@ -15,13 +15,14 @@
                                 <div class="search_date">
                                     <select name="" id="">
                                         <option value="">전체 주문 처리 상태</option>
-                                        <option value="0">입금전</option>
-                                        <option value="1">배송준비중</option>
-                                        <option value="2">배송중</option>
-                                        <option value="3">배송완료</option>
-                                        <option value="4">취소</option>
-                                        <option value="5">교환</option>
-                                        <option value="6">반품</option>
+                                        <option value="0">입금 전</option>
+                                        <option value="1">결제 완료</option>
+                                        <option value="2">배송 준비 중</option>
+                                        <option value="3">배송 중</option>
+                                        <option value="4">배송 완료</option>
+                                        <option value="6">취소</option>
+                                        <option value="7">교환</option>
+                                        <option value="8">반품</option>
                                     </select> &nbsp; &nbsp;
 
                                     <input class="select_date" type="date"><span class="symbol">&nbsp; ~ &nbsp;</span>
@@ -69,15 +70,14 @@
 	                                    <tr class="product">
 	                                       <td>${order.new_ord_date }<br><a href="/jhc/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a></td>
 	                                       <td><img width=70px; src="${order.origin_img_path }" alt="" /></td>
-	                                       <td>${order.p_name } 외</td>
-	                                       
+	                                       <td>${order.p_name } <strong>외</strong></td>
 	                                       <td>￦<fmt:formatNumber value="${order.od_amount }" pattern="#,###,##0"/></td>
-	                                       <c:if test="${order.ord_statusKor eq '주문 취소'}">
-	                                       <td style="color:red">${order.ord_statusKor }</td>
+	                                       <c:if test="${order.status_name eq '주문 취소'}">
+	                                       <td style="color:red">${order.status_name }</td>
 	                                       <td class="unable_refund"><a href="#">취소</a><br><a href="#">교환/반품</a></td>
 	                                       </c:if>	                                   
-	                                       <c:if test="${order.ord_statusKor ne '주문 취소' }">
-	                                       <td>${order.ord_statusKor }</td>
+	                                       <c:if test="${order.status_name ne '주문 취소' }">
+	                                       <td>${order.status_name }</td>
 	                                       <td><a href="#">취소</a><br><a href="#">교환/반품</a></td>
 	                                       </c:if>
 	                                       

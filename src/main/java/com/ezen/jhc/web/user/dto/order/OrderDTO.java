@@ -47,6 +47,9 @@ public class OrderDTO {
 	Integer od_quantity;
 	Integer od_amount;
 	
+	//order_statuses
+	String status_name;
+	
 	//자바에서 생성
 	String new_ord_date;
 	String new_order_num;
@@ -74,45 +77,6 @@ public class OrderDTO {
 		SimpleDateFormat dayTime= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
 		return dayTime.format(this.ord_date);
-		
-	}
-	
-	public String getOrd_statusKor() {
-		Integer status = Integer.parseInt(ord_status);
-	
-		String orderStatus = "";
-
-		if (status == 0) {
-			orderStatus = "입금 전";
-		}
-
-		if (status == 1) {
-			orderStatus = "배송 준비 중";
-		}
-
-		if (status == 2) {
-			orderStatus = "배송 중";
-		}
-
-		if (status == 3) {
-			orderStatus = "배송 완료";
-		}
-
-		if (status == 4) {
-			orderStatus = "주문 취소";
-		}
-		
-		if (status == 5) {
-			orderStatus = "교환";
-		}
-
-		if (status == 6) {
-			orderStatus = "반품";
-		}
-
-		return orderStatus;
-		
-	
 		
 	}
 	

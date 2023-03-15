@@ -44,4 +44,7 @@ public class OrderDetailDTO {
 	Integer	mem_cstm_num;
 	String	mem_cstm_path;
 	
+	//order_Statuses
+	String status_name;
+	
 }
