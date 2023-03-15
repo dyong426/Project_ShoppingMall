@@ -35,9 +35,9 @@ $("input[type='file']").on("change", function(e){
 	let fileList = fileInput[0].files;
 	let fileObj = fileList[0];
 	
-	if(!fileCheck(fileObj.name, fileObj.size)){
-			return false;
-	}
+	//if(!fileCheck(fileObj.name, fileObj.size)){
+	//		return false;
+	//}
 	 //파일 여러개 받아올 때 multiple
 	for (let i = 0; i < fileList.length; ++i){
 		formData.append("uploadFile", fileList[i]);
@@ -57,6 +57,10 @@ $("input[type='file']").on("change", function(e){
 	    	dataType : 'json',
 	    	success : function(result){
 	    		console.log(result);
+	    		showUploadImage(result);
+	    	},
+	    	error : function(result){
+	    		alert("이미지 파일이 아닙니다.");
 	    	}
 	});
 		/*
@@ -88,6 +92,35 @@ function fileCheck(fileName, fileSize){
 	return true;		
 	
 }
+
+/* 이미지 출력 */
+function showUploadImage(uploadResultArr){
+	
+	/* 전달받은 데이터 검증 */
+	if(!uploadResultArr || uploadResultArr.length == 0){return}
+	
+	let uploadResult = $("#uploadResult_con");
+	
+	let obj = uploadResultArr[0];
+	
+	let str = "";
+	
+	let fileCallPath = obj.uploadPath + "/s_" + obj.uuid + "_" + obj.fileName;
+
+	str += "<div id='result_card'>";
+		str += "<img src='/display?fileName=" + fileCallPath +"'>";
+		str += "<div class='imgDeleteBtn'>x</div>";
+		str += "</div>";
+
+}
+
+
+
+
+
+
+
+
 
 
 

@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <jsp:include page="../body/body.jsp" />
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/cs/css/cs.css?after">
+
 
 <tr>
 	<th colspan="2">
@@ -10,7 +12,7 @@
 
 
 		<div id="cs_contact_box">
-			
+
 			<div id="cs_contact_title">
 				<h3>1:1 문의</h3>
 			</div>
@@ -32,21 +34,36 @@
 
 					<form id="oneOnOne_form" action="" method="POST"
 						enctype="multipart/form-data" onsubmit="return doAction();">
-
+						<!-- 제목 -->
 						<div id="oneOnOne_title" class="oneOnOne inside_form">
 							<label for="">제목 </label> <input type="text" name="contact_title"
 								style="width: 300px;" id="contact_title"
 								placeholder="제목을 입력하세요." />
 						</div>
+						
 						<br>
+						
+						<!-- 첨부파일 -->
 						<div id="oneOnOne_file" class="oneOnOne inside_form">
 
 							<label for="">첨부파일 </label> <input type="file"
-								name="contact_image_path" accept="image/png, image/jpeg/" multiple>
-								
+								name="contact_image_path" accept="image/png, image/jpeg/"
+								multiple>
+							<div id="uploadResult_con">
+
+								<!-- 
+								<div id="result_card_con">
+									<div class="imgDeleteBtn_con">x</div>
+									<img src="<%=request.getContextPath()%>/assets/user/cs/img/3.jpg">
+								</div>
+								 -->
+							
+							</div>
 						</div>
+						
 						<br>
 
+						<!-- 카테고리 -->
 						<div id="oneOnOne_cate" class="oneOnOne inside_form">
 							<c:forEach items="${ctgr0}" var="ct">
 								<label class="con_ctgr_radio"><input type="radio"
@@ -62,8 +79,10 @@
 							<!-- ${mem.mem_num} -->
 							<input type="hidden" name="mem_num" value="4">
 						</div>
+						
 						<br>
 
+						<!-- 문의사항 -->
 						<div id="oneOnOne_contents" class="oneOnOne inside_form">
 							<label for="">문의사항 </label>
 							<div>
@@ -87,7 +106,7 @@
 			</c:if>
 
 			<!-- 제목 및 내용 미입력 -->
-	
+
 
 		</div>
 	</th>
@@ -98,5 +117,4 @@
 
 </div>
 <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
-<script
-		src="<%=request.getContextPath()%>/assets/user/cs/js/contact.js"></script>
+<script src="<%=request.getContextPath()%>/assets/user/cs/js/contact.js"></script>
