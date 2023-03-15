@@ -13,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.dto.review.ReviewDTO;
@@ -45,20 +46,20 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value ="/writeable_reviews", method = RequestMethod.GET)
-	public String mpWriteReviewCheck(Integer mem_num, Model model) {
+	public String mpWriteReviewCheck(Integer mem_num, String ord_status, Model model) {
 		
-	List<OrderDetailDTO> rv_dto = mm_mapper.buyProds(mem_num);
+	List<OrderDetailDTO> rv_dto = mm_mapper.buyProds(mem_num, ord_status);
 	model.addAttribute("rv_list", rv_dto);
 		
 		return "user/mypage/myreview/writeable_reviews";
 	}
 	
 	@RequestMapping(value ="/writing_review", method = RequestMethod.GET)
-	public String mpWriteReview(Integer p_num, Integer pc_num, Integer ps_num, Model model) {
+	public String mpWriteReview(@RequestParam("p_num")Integer p_num, @RequestParam("pc_num")Integer pc_num, @RequestParam("ps_num")Integer ps_num, Model model) {
 		
 		List<OrderDetailDTO> od_dto = mm_mapper.getAll(p_num, pc_num, ps_num);
 		model.addAttribute("review_pd", od_dto);
-		
+		System.out.println("내가 원하는 정보 : " + od_dto);
 		
 		return "user/mypage/myreview/writing_review";
 	}

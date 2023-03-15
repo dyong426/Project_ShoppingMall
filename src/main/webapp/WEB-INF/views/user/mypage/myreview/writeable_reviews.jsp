@@ -66,11 +66,11 @@
                         <td>
                           <span>${rv.pc_name}</span>
                         </td>
-                        
                         <td class="wr_amount">
-                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?p_num=${rv.p_num}'">리뷰 작성 하기</button>
+                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?p_num=${rv.p_num}&pc_num=${rv.pc_num}&ps_num=${rv.ps_num}'">리뷰 작성 하기</button>
                         </td>
                     </tr>
+                        ${rv.p_num } ${rv.pc_num } ${rv.ps_num }
                     </c:forEach> 
                 </tbody>
                 

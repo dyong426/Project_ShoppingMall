@@ -19,9 +19,9 @@ public interface MyPageMapper {
 	// 주문 상품 정보 쿼리문(리뷰 작성 가능 페이지)
 	@Select("select m.mem_num, m.mem_name, ord.ord_date, od.ord_num, p.p_name, pi.origin_img_path, pd.p_num, pc.pc_name "
 			+ "from members m, orders ord, order_details od, prod_details pd, prods p, prod_images pi, prod_colors pc "
-			+ "where m.mem_num = 5 and ord_status = 3 and ord.mem_num = m.mem_num and ord.ord_num = od.ord_num "
+			+ "where m.mem_num = #{mem_num} and ord_status = #{ord_status} and ord.mem_num = m.mem_num and ord.ord_num = od.ord_num "
 			+ "and pd.pd_num = od.pd_num and pd.p_num = p.p_num and pi.p_num = p.p_num and pd.pd_num = od.pd_num and pc.pc_num = pd.pc_num order by ord_date desc")
-	List <OrderDetailDTO> buyProds(Integer mem_num);
+	List <OrderDetailDTO> buyProds(@Param("mem_num")Integer mem_num, @Param("ord_status")String ord_status);
 	
 	// 주문 상품 정보 쿼리문(리뷰 작성용)
 	@Select("select p.p_name, pc.pc_name, pi.origin_img_path AS origin_img_path, ps.ps_name from prods p, prod_sizes ps, prod_colors pc, prod_details pd, prod_images pi "
