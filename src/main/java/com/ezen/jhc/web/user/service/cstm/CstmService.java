@@ -1,6 +1,12 @@
 package com.ezen.jhc.web.user.service.cstm;
 
+import java.io.IOException;
+
+import com.ezen.jhc.web.user.dto.cstm.MemberCstmDTO;
+
 public interface CstmService {
 
-//	public int insert
+	public void saveImage(String img, String fileName);
+	
+	public int insertCstm(MemberCstmDTO cstmDto);
 }

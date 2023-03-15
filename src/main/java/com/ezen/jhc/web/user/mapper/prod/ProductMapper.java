@@ -2,9 +2,12 @@ package com.ezen.jhc.web.user.mapper.prod;
 
 import java.util.List;
 
+import com.ezen.jhc.web.user.dto.cart.IntoCartDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
+import com.ezen.jhc.web.user.dto.prod.ProdDetailDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdSizeDTO;
+import com.ezen.jhc.web.user.dto.prod.ProductDetailDTO;
 
 public interface ProductMapper {
 
@@ -17,4 +20,6 @@ public interface ProductMapper {
 	ProdDTO getProdByNum(int p_num);
 	
 	ProdColorDTO getInitialColorByNum(int p_num);
+	
+	ProductDetailDTO getProdDetailByIntoCartDto(IntoCartDTO cartDto);
 }

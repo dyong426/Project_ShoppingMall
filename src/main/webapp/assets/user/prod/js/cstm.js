@@ -13,7 +13,6 @@ fileInput.onclick = (e) => {
 fileInput.onchange = (e) => {
   // image 업로드 이벤트
   const fi = e.target.files[0];
-  console.dir(fi);
   const reader = new FileReader();
 
   reader.readAsDataURL(fi);
@@ -161,10 +160,8 @@ stage.on('mousedown', function (e) {
   }
 });
 
+
 const colorName = document.getElementById('colorName');
-
-
-
 
 // 배경 이미지 생성 및 추가/변경
 function setBackground() {
@@ -192,6 +189,8 @@ function setBackground() {
 }
 setBackground();
 
+
+let ps_name = null;
 
 window.onload = function () {
   // 색상 선택하면 해당 색상 상품으로 이미지 변경
@@ -226,7 +225,6 @@ window.onload = function () {
   }
 
   const sizes = document.getElementById('productSizes').children;
-  const sizeInput = document.getElementById('prod_size');
 
   // 사이즈가 한가지면 테두리 없애고 width 조정
   if (sizes.length == 1) {
@@ -234,8 +232,7 @@ window.onload = function () {
     sizes[0].style.width = '300px';
     sizes[0].style.textAlign = 'left';
     sizes[0].style.border = 'none';
-    sizeInput.value = sizes[0].innerText;
-    // sizeInput.value = sizes.value
+    ps_name = sizes[0].innerText;
   } else {
     // 사이즈 버튼 하나만 눌리도록 설정
     for (i = 0; i < sizes.length; ++i) {
@@ -248,8 +245,7 @@ window.onload = function () {
         e.target.style.color = 'skyblue';
         e.target.style.border = '1px skyblue solid';
 
-        sizeInput.value = e.target.innerText;
-        console.log(sizeInput.value);
+        ps_name = e.target.innerText;
       });
     }
   }
@@ -758,38 +754,91 @@ for (i = 0; i < sampleIconList.length; ++i) {
 // 커스텀 이미지 저장 기능 (이미지를 service로 넘겨서 파일 output)
 
 // 구매, 장바구니 버튼 누르면 이미지 저장 후 이동
-const buttons = document.getElementById('buttons').children;
-
+const buttons = document.getElementsByClassName('buttons');
 const loginBtn = document.querySelector('.sign_in');
+const orderForm = document.getElementById('orderForm');
+const cartPopUp = document.getElementById('cartPopUp');
 
 for (i = 0; i < buttons.length; ++i) {
   buttons[i].addEventListener('click', (e) => {
     // 세션에 member가 없으면 페이지 이동하지 않고 로그인 화면 띄우기
-    if (window.sessionStorage.getItem('member') == null) {
+    if (!mem_num) {
       e.preventDefault();
       loginBtn.click();
-    } else {
-      // 로그인 되어 있으면 버튼 상관없이 이미지 저장
-      // 이미지 저장
+    } else if (ps_name != null) {
+      // 로그인 되어 있고 사이즈를 선택했으면 버튼 상관없이 이미지 저장
       var cstm_img = stage.toDataURL().split(',')[1];
       var fileName = 'cstm_img_' + mem_num + '_' + new Date().getMilliseconds() + '.png';
 
       const xhttp = new XMLHttpRequest();
 
-      xhttp.open('post', '/jhc/saveImage');
+      xhttp.open('POST', '/jhc/saveImage');
       xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
       xhttp.send(`img=${cstm_img}&fileName=${fileName}`);
 
-      // 로그인 상태에서 바로구매 버튼 클릭 이벤트
-      if (i == 0) {
+      // 사이즈 선택하고 버튼 클릭시
+      cartPopUp.style.border = '1px rgba(128, 128, 128, 0.5) solid';
+      cartPopUp.children[0].style.color = 'black';
+      cartPopUp.children[0].innerText = '상품을 장바구니에 담았습니다.';
 
-      } else {
+      if (e.target.id == 'intoCart') {
         // 로그인 상태에서 장바구니 버튼 클릭 이벤트
-        buttons[1].addEventListener('click', (e) => {
+        // cstm, cart insert
+        const xhttp = new XMLHttpRequest();
 
+        xhttp.open('POST', '/jhc/insertCstm');
+        xhttp.setRequestHeader('Content-Type', 'application/json');
+
+        const jsonObj = {
+          mem_num : mem_num,
+          mem_cstm_path : `${fileName}`
+        };
+
+        xhttp.send(JSON.stringify(jsonObj));
+
+        xhttp.addEventListener('readystatechange', () => {
+          console.log('readyStateChange');
+          if (xhttp.status == 200 && xhttp.readyState == 4) {
+            const xhttp2 = new XMLHttpRequest();
+    
+            xhttp2.open('POST', '/jhc/insertCart');
+            xhttp2.setRequestHeader('Content-Type', 'application/json');
+    
+            const jsonObj2 = {
+              p_num : p_num,
+              p_price : p_price,
+              pc_name : colorName.innerText,
+              ps_name : ps_name,
+              p_name : p_name
+            };
+
+            xhttp2.send(JSON.stringify(jsonObj2));
+          }
         });
+      } else {
+        // 로그인 상태에서 사이즈 선택후 바로구매 버튼 클릭 이벤트        
+        const pcInput = document.getElementById('pc_name');
+        const psInput = document.getElementById('ps_name');
+        const cstmInput = document.getElementById('mem_cstm_path');
+
+        pcInput.value = colorName.innerText;
+        psInput.value = ps_name;
+        cstmInput.value = fileName;
+
+        orderForm.onsubmit();
       }
+    } else {
+      // 로그인 되어 있지만 사이즈를 선택하지 않으면
+      e.preventDefault();
+      cartPopUp.style.border = '1px rgba(255, 0, 0, 0.5) solid';
+      cartPopUp.children[0].style.color = 'red';
+      cartPopUp.children[0].innerText = '사이즈를 선택해주세요.';
     }
+
+    cartPopUp.style.opacity = 1;
+    setTimeout(() => {
+      cartPopUp.style.opacity = 0;
+    }, 1500);
   });
 }

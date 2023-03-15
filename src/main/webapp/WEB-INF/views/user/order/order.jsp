@@ -2,6 +2,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="../common/header.jsp"%>
 
 <link rel="stylesheet" href="assets/user/order/css/order.css" />
@@ -52,21 +53,21 @@
 			<div id="shipping" class="rowGrid">
 				<div class="columnGrid">
 					<div>수취인</div>
-					<input type="text" id="recipient" placeholder="이름을 입력해주세요." />
+					<input type="text" name="recieverName" id="recipient" placeholder="이름을 입력해주세요." />
 				</div>
 				<div class="columnGrid">
 					<div>연락처</div>
-					<input type="text" id="recipientPhone" placeholder="- 없이 00000000000" />
+					<input type="text" name="recieverPhone" id="recipientPhone" placeholder="- 없이 00000000000" />
 				</div>
 				<div id="destination" class="columnGrid">
 					<div>배송지</div>
 					<div>
-						<input type="text" id="zoneCode" placeholder="우편번호" readonly />
+						<input type="text" name="ord_zipCode" id="zipCode" placeholder="우편번호" readonly />
 						<button onclick="searchPostNumber()" class="buttons">우편번호 검색</button>
 					</div>
 					<div>
-						<input type="text" id="addr1" placeholder="주소" readonly />
-						<input type="text" id="addr2" placeholder="상세 주소를 입력해주세요." />
+						<input type="text" name="ord_addr1" id="addr1" placeholder="주소" readonly />
+						<input type="text" name="ord_addr2" id="addr2" placeholder="상세 주소를 입력해주세요." />
 					</div>
 				</div>
 			</div>
@@ -87,35 +88,32 @@
 		</div>
 		
 		<div class="box">
+			<div class="subTitle">주문 요청사항</div>
+			<div class="rowGrid">
+				<textarea rows="5" placeholder="요청사항을 입력해주세요." name="ord_request" id="ord_request"></textarea>
+			</div>
+		</div>
+		
+		<div class="box">
 			<div class="subTitle">총 결제 금액</div>
 			<div id="summary" class="rowGrid">
-				<div id="totalQty" class="columnGrid">
+				<div class="columnGrid">
 					<div>총 수량</div>
-					<div class="rightAlign"><b>총 수량개<%-- ${총 수량}개 --%></b></div>
+					<div class="rightAlign"><b id="total_quantity"></b></div>
 				</div>
-				<div id="totalPrice" class="columnGrid">
+				<div class="columnGrid">
 					<div>총 상품 금액</div>
-					<div class="rightAlign"><b>총 상품 금액원<%-- ${총 금액}원 --%></b></div>
+					<div class="rightAlign"><b id="total_amount"></b></div>
 				</div>
-				<div id="shippingFare" class="columnGrid">
+				<div class="columnGrid">
 					<div>배송비</div>
-					<div class="rightAlign"><b>
-					<%--
-						<c:choose>
-							<c:when test="${${총 금액} > 50000}">
-								0원
-							</c:when>
-							<c:otherwise>
-								3000원
-							</c:otherwise>
-						</c:choose>
-					--%>
-					3000원
-					</b></div>
+					<div class="rightAlign">
+						<b id="shipping_price">3000원</b>
+					</div>
 				</div>
 				<div id="total" class="columnGrid">
 					<div class="subTitle">총 결제 금액</div>
-					<div class="rightAlign"><h5><b>총 결제 금액원<%-- ${총 금액 + 배송비} --%></b></h5></div>
+					<div class="rightAlign"><h5><b id="total_price"></b></h5></div>
 				</div>
 			</div>
 		</div>
@@ -134,29 +132,29 @@
 		</div>
 	</div>
 	
+	
 	<div id="rightOuter">
 		<div class="box">
 			<div class="columnGrid">
 				<div class="subTitle">주문 정보</div>
-				<div class="rightAlign">총 결제 금액</div>
+				<div class="rightAlign" id="total_price2">총 결제 금액</div>
 			</div>
 			<hr />
 			<br />
-			<%--
-			<c:forEach items="${주문 상품들}" var="prod">
+			<c:forEach items="${cartDto}" var="cart">
 				<div class="orderList">
-					<div class="rowSpan">이미지</div>
-					<div>제품명${prod.p_name}</div>
-					<div>색상 : ${prod.pc_name}</div>
-					<div>사이즈 : ${prod.ps_name}</div>
-					<div>수량 :</div>
-					<div>가격${수량 * ${prod.p_price}}</div>
+					<div class="rowSpan"><img src="${cart.mem_cstm_path}" alt="주문 상품 이미지"/></div>
+					<div class="orderProd">
+						<div><b>${cart.p_name}</b></div>
+						<div>색상&emsp;&emsp;:&emsp;${cart.pc_name}</div>
+						<div>사이즈&emsp;:&emsp;${cart.ps_name}</div>
+						<div>수량&emsp;&emsp;:&emsp;<span>${cart.od_quantity}</span></div>
+						<div>가격&emsp;&emsp;:&emsp;<span>${cart.cart_quantity * cart.cart_amount}</span></div>
+					</div>
 				</div>
 			</c:forEach>
-			--%>
 		 </div>
 	</div>
-	
 </div>
 
 <script>
