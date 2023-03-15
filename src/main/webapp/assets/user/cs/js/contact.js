@@ -40,7 +40,7 @@ $("input[type='file']").on("change", function(e){
 	}
 	 //파일 여러개 받아올 때 multiple
 	for (let i = 0; i < fileList.length; ++i){
-		formData.append("uploadFile", fileObj[i]);
+		formData.append("uploadFile", fileList[i]);
 	}
 	
 	//formData.append("uploadFile", fileObj);
