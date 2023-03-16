@@ -41,5 +41,6 @@
 <script src="<%=request.getContextPath()%>/assets/admin/js/file_upload.js"></script>
 <script src="<%=request.getContextPath()%>/assets/admin/js/order_view.js"></script>
 <script src="<%=request.getContextPath()%>/assets/admin/js/sales.js"></script>
+<script src="<%=request.getContextPath()%>/assets/admin/js/member.js"></script>
 
 </head>

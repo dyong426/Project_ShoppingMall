@@ -1,5 +1,6 @@
 package com.ezen.jhc.web.admin.dto.order;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import lombok.Data;
@@ -37,5 +38,15 @@ public class OrderDetailDTO {
 		
 		Integer od_quantity;
 		Integer od_amount;
+		Date ord_date;
+		
+		public String getOrd_date() {
+			
+			SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+			
+			String formatTime = dayTime.format(this.ord_date);
+			
+			return formatTime;
+		}
 
 }

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.admin.mapper.member.AdminMemberMapper">
+
+	<select id="getMembers" resultType="com.ezen.jhc.web.admin.dto.member.MemberDTO">
+		SELECT * FROM members ORDER BY mem_num DESC
+	</select>
+	
+	<select id="getMember" resultType="com.ezen.jhc.web.admin.dto.member.MemberDTO">
+	select
+	mem_num,
+	mem_name,
+	mem_email,
+	CASE
+	WHEN mem_birth IS NULL THEN '등록 정보 없음'
+	ELSE mem_birth
+	END as mem_birth,
+	CASE
+	WHEN mem_phone IS NULL THEN '등록 정보 없음'
+	ELSE mem_phone
+	END as mem_phone,
+	mem_point,
+	mem_note,
+	mem_regdate
+	from members WHERE mem_num = #{mem_num}
+	</select>
+
+</mapper>

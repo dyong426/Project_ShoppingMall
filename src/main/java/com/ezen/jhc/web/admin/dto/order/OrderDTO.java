@@ -35,7 +35,7 @@ public class OrderDTO {
 	
 	public String getOrd_date() {
 		
-		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm");
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		
 		String formatTime = dayTime.format(this.ord_date);
 		
