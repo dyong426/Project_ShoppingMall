@@ -28,35 +28,6 @@
       
       <!--로고, 카테고리, 프로필-->
       <div class="header_container_bottom">
-         <div class="header_container_bottom_contents">
-            <a href="<%=request.getContextPath() %>/main">
-            <img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo.png" alt="로고" width="170px" />
-            </a>
-         </div>
-         <div class="header_container_bottom_contents">
-            <a href="/jhc/category_clothes">의류</a>
-            <a href="/jhc/category_phone_case">폰케이스/테크</a>
-            <a href="/jhc/category_home">홈데코/리빙</a>
-            <a href="/jhc/category_frame">액자</a>
-         </div>
-         <div class="header_container_bottom_contents">
-            <span class="user_welcome_text">정수정님, 환영합니다.</span>
-            <button id="myCart" onclick="location.href='<%=request.getContextPath() %>/cart'">
-            <span class="material-symbols-outlined">shopping_cart</span>
-            </button>
-            <button id="myPage">
-
-            <div>
-               <span class="material-symbols-outlined">person</span>
-
-               <span id="drop-down_arrow" class="material-symbols-outlined">
-                  arrow_drop_down </span>
-            </div>
-            
-            </button>
-         </div>
-      </div>
-   </div>
 			<div class="header_container_bottom_contents">
 				<a href="<%=request.getContextPath() %>/main">
 				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo.png" alt="로고" width="170px" />
