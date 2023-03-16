@@ -16,17 +16,12 @@ import com.ezen.jhc.web.user.dto.review.ReviewDTO;
 // 정수정
 public interface MyPageMapper {
 	
-	// 배송 완료 상품 개수 쿼리문(리뷰 작성 가능 페이지)
-	@Select("SELECT COUNT(*) FROM members m JOIN orders o ON m.mem_num = o.mem_num JOIN order_details od on o.ord_num = od.ord_num "
-			+ "JOIN prod_details pd on pd.pd_num = od.pd_num JOIN prods p on pd.p_num = p.p_num JOIN prod_images pi on pi.p_num = p.p_num "
-			+ "JOIN prod_colors pc on pc.pc_num = pd.pc_num WHERE m.mem_num = ${mem_num} and ord_status = 3")
-	OrderDetailDTO buyProdsCount(@Param("mem_num")Integer mem_num);
-	
 	// 배송 완료 상품 정보 쿼리문(리뷰 작성 가능 페이지)
-	@Select("select m.mem_num, m.mem_name, ord.ord_date, od.ord_num, p.p_name, pi.origin_img_path, pd.p_num, pc.pc_name "
-			+ "from members m, orders ord, order_details od, prod_details pd, prods p, prod_images pi, prod_colors pc "
-			+ "where m.mem_num = #{mem_num} and ord_status = 3 and ord.mem_num = m.mem_num and ord.ord_num = od.ord_num "
-			+ "and pd.pd_num = od.pd_num and pd.p_num = p.p_num and pi.p_num = p.p_num and pd.pd_num = od.pd_num and pc.pc_num = pd.pc_num order by ord_date desc")
+	@Select(" select m.mem_num, m.mem_name, ord.ord_date, od.ord_num, p.p_name, pi.origin_img_path, pd.p_num, pc.pc_name "
+			+ "from members m, orders ord, order_details od, prod_details pd, prods p, prod_images pi, prod_colors pc, reviews r "
+			+ "where m.mem_num = #{mem_num} and ord_status = 4 and ord.mem_num = m.mem_num and ord.ord_num = od.ord_num and p.p_num = r.p_num and ord.mem_num != r.mem_num "
+			+ "and pd.pd_num = od.pd_num and pd.p_num = p.p_num and pi.p_num = p.p_num and pd.pd_num = od.pd_num and pc.pc_num = pd.pc_num "
+			+ " order by ord_date desc")
 	List <OrderDetailDTO> buyProds(@Param("mem_num")Integer mem_num);
 	
 	// 주문 상품 정보 쿼리문(리뷰 작성용)
@@ -42,7 +37,11 @@ public interface MyPageMapper {
 	
 	
 	// 내가 쓴 리뷰 내역 쿼리문
-//	@Select ()
-//	OrderDTO getOrderHistory(int mem_num);
+	@Select (" select ord.ord_date, ord.ord_num, r.review_regdate, r.review_content, r.review_star, r.review_image_path "
+			+ "from members m, orders ord, order_details od, prod_details pd, prods p, prod_images pi, prod_colors pc, reviews r "
+			+ "where m.mem_num = #{mem_num} and ord.ord_status = 4 and ord.mem_num = m.mem_num and ord.ord_num = od.ord_num and p.p_num = r.p_num and ord.mem_num = r.mem_num "
+			+ "and pd.pd_num = od.pd_num and pd.p_num = p.p_num and pi.p_num = p.p_num and pd.pd_num = od.pd_num and pc.pc_num = pd.pc_num"
+			+ " order by ord_date desc")
+	List <OrderDetailDTO> getOrderHistory(@Param("mem_num")Integer mem_num);
 
 }

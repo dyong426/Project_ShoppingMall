@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/user/mypage/css/wrote_review.css?after">
@@ -13,11 +13,11 @@
 		<div class="header_title2">
 			<span class="my_review2">나의 리뷰</span>
 		</div>
+		<c:set var="member" value="${sessionScope.member }"/>
 		<div class="header_tab">
 			<div class="tab_left" type="order_list">
 				<a class="ok_review"
-					href="<%=request.getContextPath()%>/writeable_reviews?mem_num=${mem_num}&ord_status=${ord_status}">작성 가능한
-					리뷰</a>
+					href="<%=request.getContextPath()%>/writeable_reviews?mem_num=${member.mem_num}">작성 가능한 리뷰</a>
 			</div>
 			<div class="tab_right" type="review_list">내가 쓴 리뷰</div>
 		</div>
@@ -26,27 +26,26 @@
 				<thead>
 					<tr>
 						<th style="width: 180px;">주문일자[주문번호]</th>
-						<th style="width: 120px;">작성일자</th>
-						<th style="width: 260px;">내용</th>
+						<th style="width: 100px;">작성일자</th>
+						<th style="width: 280px;">내용</th>
 						<th style="width: 100px;">별점</th>
 						<th style="width: 100px;">내 사진</th>
-						<th style="width: 140px;">포인트</th>
 					</tr>
 				</thead>
 
 				<tbody class="wr_list">
+				<c:forEach items="${rv_history}" var="rh">
 					<tr class="wr">
-						<td class="od_number">2022-09-29
+						<td class="od_number">
 							<p>
 								<a href="<%=request.getContextPath()%>/details"
-									class="order_number">[20220929-0001079]</a>
+									class="order_number">[${rh.new_order_num}]</a>
 							</p>
 						</td>
-						<td class="wr_img">2022-10-02</td>
+						<td class="wr_img">${rh.od_ord_date}</td>
 						<td class="wr_check"><strong class="wr_name">
 								<div class="sentence">
-									<a href="" class="ec_wr_name" onclick="return false;">실물 깡패
-										완전 존예입니다. 받자마자 너무 예뻐서 네이비로 재주문 함</a>
+									<a href="" class="ec_wr_name" onclick="return false;">${rh.review_content}</a>
 								</div>
 						</strong></td>
 						<td class="wr_amount">
@@ -61,12 +60,10 @@
 							</div>
 						</td>
 						<td><img id="picture"
-							src="<%=request.getContextPath() %>/${review_pd.origin_img_path}"
+							src="<%=request.getContextPath() %>/${rh.review_image_path}"
 							alt=""></td>
-						<td>
-							<div class="point_clear">포인트 지급 완료</div>
-						</td>
 					</tr>
+					</c:forEach> 
 				</tbody>
 			</table>
 		</div>
@@ -138,6 +135,5 @@
 
 <footer>
 	<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
-	?v=<%=System.currentTimeMillis()%>
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/assets/user/mypage/js/review_popup.js?ver=1"></script>

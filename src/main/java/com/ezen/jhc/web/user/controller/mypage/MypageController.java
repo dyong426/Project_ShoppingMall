@@ -49,10 +49,9 @@ public class MypageController {
 	public String mpWriteReviewCheck(Integer mem_num, Model model) {
 		
 	List<OrderDetailDTO> pd_info = mm_mapper.buyProds(mem_num);
-	OrderDetailDTO pd_count = mm_mapper.buyProdsCount(mem_num);
 	
 	model.addAttribute("pd_info", pd_info);
-	model.addAttribute("pd_count", pd_count);
+	model.addAttribute("pd_count", pd_info.size());
 		
 		return "user/mypage/myreview/writeable_reviews";
 	}
@@ -68,12 +67,12 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value ="/wrote_review", method = RequestMethod.GET)
-	public String mpWriteReview2(ReviewDTO rv_dto, HttpSession session) {
+	public String mpWriteReview2(Integer mem_num, Model model) {
 		
-//		MemberDTO member = (MemberDTO)session.getAttribute("mem_num");
-//		rv_dto.setMem_num(member.getMem_num());
-//		
-//		mm_mapper.add(rv_dto);
+		List<OrderDetailDTO> rv_history = mm_mapper.getOrderHistory(mem_num);
+		
+		model.addAttribute("rv_history", rv_history);
+		System.out.println("내가 원하는 정보: " + rv_history);
 
 		return "user/mypage/myreview/wrote_review";
 	}

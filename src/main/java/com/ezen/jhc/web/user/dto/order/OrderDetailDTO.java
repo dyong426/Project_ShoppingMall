@@ -1,5 +1,6 @@
 package com.ezen.jhc.web.user.dto.order;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.ezen.jhc.web.user.dto.cstm.MemberCstmDTO;
@@ -48,5 +49,37 @@ public class OrderDetailDTO {
 	
 	// 테이블 조인 : oders
 	Date ord_date;
+	
+	// 테이블 조인 : reviews
+	String review_content;
+	String review_image_path;
+	Date review_regdate;
+	String sm_img_path;
+	
+	String new_order_num;
+	String new_order_date;
+	String od_ord_date;
+	
+	
+	public String getNew_ord_date() {
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String formatTime = dayTime.format(this.ord_date);
+		
+		return formatTime;
+	}
+	
+	public String getNew_order_num() {
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyMMdd-mmss");
+		
+		return dayTime.format(this.ord_date) + getOrd_num();
+	}
+	
+	
+	public String getOd_ord_date() {
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		
+		return dayTime.format(this.ord_date);
+	}
 	
 }

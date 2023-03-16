@@ -13,18 +13,19 @@
         <div class="header_title">
             <span class="my_review">나의 리뷰</span>
         </div>
+        
+         <c:set var="member" value="${sessionScope.member }"/>
+        
         <div class="header_tab">
             <div class="tab_left" type="order_list">작성 가능한 리뷰</div>
             <div class="tab_right" type="review_list">
-                <a class="writed_review" href="<%=request.getContextPath() %>/wrote_review">내가 쓴 리뷰</a>
+                <a class="writed_review" href="<%=request.getContextPath() %>/wrote_review?mem_num=${member.mem_num}">내가 쓴 리뷰</a>
             </div>
         </div>
         <div class="header_my_review">
-       		<c:forEach items="${pd_count}" var="pc"> 
             <div class="info1">
-                작성 가능한 상품이 <span>${pc.size}</span> 개 있습니다.
+                작성 가능한 상품이 <span>${pd_count}</span> 개 있습니다.
             </div>
-            </c:forEach>
             <div class="info2">
                 리뷰 작성 시 적립금 100P, 사진과 함께 리뷰를 작성해주시면 500P를 지급해 드립니다.
             </div>
@@ -50,7 +51,7 @@
                     <tr class="wr">
                         <td class="od_number">
                             
-                            <p><a href="<%=request.getContextPath() %>/details" class="order_number">[20220929-0001079]</a></p>
+                            <p><a href="<%=request.getContextPath() %>/details" class="order_number">[${pi.new_order_num}]</a></p>
                         </td >
                         <td class="wr_img">
                             <a href=""><!-- 여기 클릭하면 판매 페이지로 이동 --></a>

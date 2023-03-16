@@ -1,5 +1,6 @@
 package com.ezen.jhc.web.user.dto.order;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import com.ezen.jhc.web.user.dto.member.MemberAddressesDTO;
@@ -33,6 +34,8 @@ public class OrderDTO {
 	// 테이블 조인 : payments
 	Integer	payment_num;
 	String	payment_name;
+	
+	
 	
 	
 }
