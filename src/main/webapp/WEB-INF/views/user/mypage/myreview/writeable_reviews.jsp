@@ -5,7 +5,7 @@
 
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/writeable_reviews.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/review/css/writeable_reviews.css">
 
   <!-- main -->
   <div class="rv_container">

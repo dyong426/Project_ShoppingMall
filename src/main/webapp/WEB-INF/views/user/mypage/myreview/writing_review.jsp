@@ -4,7 +4,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/wr_review.css">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/review/css/wr_review.css">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/clipfile.css?ver1.1">
 <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

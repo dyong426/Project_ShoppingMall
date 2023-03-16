@@ -23,26 +23,7 @@ public class ReviewDTO {
 	String sm_img_path;
 
 	
-	String star;
-	String user_name;
 	
-	public String getStar() {
-		if (review_star == 0) {
-			return "☆☆☆☆☆";
-		} else if (review_star == 1) {
-			return "★☆☆☆☆";
-		} else if (review_star == 2) {
-			return "★★☆☆☆";
-		} else if (review_star == 3) {
-			return "★★★☆☆";
-		} else if (review_star == 4) {
-			return "★★★★☆";
-		} else if (review_star == 5) {
-			return "★★★★★";
-		}
-	
-		return "";
-	}
 
 	public String getUser_name() {
 		String user_name = mem_name.replace(mem_name.charAt(1), '*');

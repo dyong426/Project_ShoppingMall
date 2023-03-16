@@ -3,9 +3,9 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/mypage/css/wrote_review.css?after">
+	href="<%=request.getContextPath()%>/assets/user/mypage/review/css/wrote_review.css?after">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/mypage/css/review_popup.css">
+	href="<%=request.getContextPath()%>/assets/user/mypage/review/css/review_popup.css">
 
 <!-- main -->
 <div class="rv_container2">
@@ -46,16 +46,12 @@
 						<td class="wr_img">${rh.new_order_date}</td>
 						<td class="wr_check"><strong class="wr_name">
 								<div class="sentence">
-									<a href="" class="ec_wr_name" onclick="return false;">${rh.review_content}</a>
+									<a href="<%=request.getContextPath()%>/review_poprup" class="ec_wr_name" onclick="return false;">${rh.review_content}</a>
 								</div>
 						</strong></td>
 						<td class="wr_amount">
 							<div class="star-ratings">
-								<div class="star-ratings-fill space-x-2 text-lg"
-									:style="{ width: ratingToPercent + '%' }">
-									${rh.star}
-								</div>
-								<div class="star-ratings-base space-x-2 text-lg">
+								<div class="star-ratings-fill">
 									${rh.star}
 								</div>
 							</div>
@@ -91,6 +87,10 @@
 				</div>
 				<div class="point_clear2">포인트 지급 완료</div>
 			</div>
+			<div class="input_file">
+				<div class="upload_picture"></div>
+				<div class="plus_box">+</div>
+			</div>
 			<div class="rv_check_box">
 				<form class="mb-1" name="myform" id="myform" method="post">
 					<fieldset>
@@ -113,7 +113,8 @@
 	</div>
 </div>
 
-<script>
+<!-- 작성된 리뷰 팝업창 열기 닫기 -->
+<script type="text/javascript">
 	var rv_modal = document.querySelector(".rv_modal");
 	var ec_wr_name = document.querySelector(".ec_wr_name");
 	var rv_closeButton = document.querySelector(".rv_close-button");
@@ -131,6 +132,23 @@
 	ec_wr_name.addEventListener("click", toggleModal);
 	rv_closeButton.addEventListener("click", toggleModal);
 	window.addEventListener("click", windowOnClick);
+</script>
+
+<c:set var="path" value="${pageContext.request.contextPath}" />
+<script type="text/javascript">
+    var path = "${pageContext.request.contextPath }";
+ 
+    $(function(){
+        $("#resTb tbody").append($("#resInfoTr").html());
+
+
+    });
+    
+    function resOpenPopup(){
+        var pop = window.open("${path}/list_popup.do?","resPopup","width=1100,height=900, scrollbars=yes, resizable=yes"); 
+        pop.focus();
+    }
+        
 </script>
 
 
