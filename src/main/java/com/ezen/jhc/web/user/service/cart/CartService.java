@@ -3,6 +3,10 @@ package com.ezen.jhc.web.user.service.cart;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.http.ResponseEntity;
 
 import com.ezen.jhc.web.user.dto.cart.CartDTO;
 import com.ezen.jhc.web.user.dto.cart.IntoCartDTO;
@@ -12,7 +16,7 @@ public interface CartService {
 	
 	public int insertCart(MemberCstmDTO cstmDto, IntoCartDTO cartDto);
 	
-	public CartDTO getCartDto(int mem_num, HttpServletRequest req);
+	public void getCartDto(HttpSession session, HttpServletRequest req, HttpServletResponse resp);
 	
 	public List<CartDTO> getCarts(int mem_num);
 }

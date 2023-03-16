@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,21 +34,14 @@ public class OrderController {
 	CartServiceImpl cartService;
 	
 	@PostMapping("/directPurchase")
-	public String order(HttpSession session, HttpServletRequest req, Model model) {		
+	public String order(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {		
 		// 임시 정보
-		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
+		session.setAttribute("member", new MemberDTO(2, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
 		
-		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		cartService.getCartDto(session, req, resp);
 		
-		MemberAddressDTO memberAddress = orderService.getAddressByNum(member.getMem_num());
+		log.info(((List<CartDTO>)req.getAttribute("cart")).get(0).getMem_cstm_path());
 		
-		session.setAttribute("memberAddress", memberAddress);
-		
-		List<CartDTO> list = new ArrayList<CartDTO>();
-		list.add(cartService.getCartDto(member.getMem_num(), req));
-		
-		model.addAttribute("cart", list);
-		log.info(list.get(0));
 		return "user/order/order";
 	}
 	

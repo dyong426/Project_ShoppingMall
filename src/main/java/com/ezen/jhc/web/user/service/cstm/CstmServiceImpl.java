@@ -53,7 +53,7 @@ public class CstmServiceImpl implements CstmService {
 	}
 
 	@Override
-	public int insertCstm(MemberCstmDTO cstmDto) {
+	public MemberCstmDTO insertCstm(MemberCstmDTO cstmDto) {
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
@@ -66,7 +66,7 @@ public class CstmServiceImpl implements CstmService {
 		
 		cstmMapper.insertCstm(cstmDto);
 		
-		return cstmDto.getMem_cstm_num();
+		return cstmDto;
 	}	
 
 }

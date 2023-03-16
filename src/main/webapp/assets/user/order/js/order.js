@@ -164,3 +164,6 @@ if (od_quantity >= 50000) {
 }
 total_price.innerText = total_amount + shipping_price;
 total_price2.innerText = total_amount + shipping_price;
+
+const cstmImg = document.getElementsByClassName('cstmImg')[0];
+console.dir(cstmImg);

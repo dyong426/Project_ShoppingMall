@@ -37,20 +37,10 @@ public class ProdDetailRestController {
 		cstmService.saveImage(img, fileName);
 	}
 	
-	
-	// 바로구매 처리(주문서 작성 페이지에서 결제하면 cstm, order insert 처리)
-//	@PostMapping(value = "/directPurchase", produces = MediaType.APPLICATION_JSON_VALUE)
-//	public String directPurchase(@RequestBody MemberCstmDTO cstmDto) {
-//		cstmService.insertCstm(cstmDto);
-//		return "";
-//	}
-	
-	
 	// 장바구니 처리
 	@PostMapping(value = "/insertCstm", produces = MediaType.APPLICATION_JSON_VALUE)
 	public void insertCstm(@RequestBody MemberCstmDTO cstmDto) {
-		cstmService.insertCstm(cstmDto);
-		this.cstmDto = cstmDto;
+		this.cstmDto = cstmService.insertCstm(cstmDto);
 	}
 	
 	@PostMapping(value = "/insertCart", produces = MediaType.APPLICATION_JSON_VALUE)

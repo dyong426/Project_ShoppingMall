@@ -35,8 +35,7 @@ public class OrderServiceImpl implements OrderService {
 	CartMapper cartMapper;
 	
 	@Override
-	public MemberDTO getMemberByNum(int mem_num) {
-		
+	public MemberDTO getMemberByNum(int mem_num) {		
 		return ordererMapper.getMemberByNum(mem_num);
 	}
 	

@@ -132,7 +132,6 @@
 		</div>
 	</div>
 	
-	
 	<div id="rightOuter">
 		<div class="box">
 			<div class="columnGrid">
@@ -143,11 +142,11 @@
 			<br />
 			<c:forEach items="${cart}" var="cart">
 				<div class="orderList">
-					<div class="rowSpan"><img src="C:/upload/cstm_img/${cart.mem_cstm_path}" alt="주문 상품 이미지"/></div>
+					<div class="rowSpan"><img class="cstmImg" src="${cart.mem_cstm_path}" alt="주문 상품 이미지"/></div>
 					<div class="orderProd">
 						<div><b>${cart.p_name}</b></div>
-						<div>색상&emsp;&emsp;:&emsp;${cart.pc_name}</div>
-						<div>사이즈&emsp;:&emsp;${cart.ps_name}</div>
+						<div>색상&emsp;&emsp;:&emsp;<span>${cart.pc_name}</span></div>
+						<div>사이즈&emsp;:&emsp;<span>${cart.ps_name}</span></div>
 						<div>수량&emsp;&emsp;:&emsp;<span>${cart.cart_quantity}</span></div>
 						<div>가격&emsp;&emsp;:&emsp;<span>${cart.cart_quantity * cart.cart_amount}</span></div>
 					</div>
