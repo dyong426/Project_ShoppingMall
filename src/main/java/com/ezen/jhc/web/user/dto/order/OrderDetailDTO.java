@@ -60,7 +60,7 @@ public class OrderDetailDTO {
 	String new_order_date;
 	
 	
-	public String getNew_ord_date() {
+	public String getNew_order_date() {
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		
 		String formatTime = dayTime.format(this.ord_date);

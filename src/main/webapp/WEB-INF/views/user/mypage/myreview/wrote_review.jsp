@@ -38,7 +38,7 @@
 					<tr class="wr">
 						<td class="od_number">
 							<p>
-							${rh.new_order_date}
+							${rh.new_order_date} <br>
 								<a href="<%=request.getContextPath()%>/details"
 									class="order_number">[${rh.new_order_num}]</a>
 							</p>
