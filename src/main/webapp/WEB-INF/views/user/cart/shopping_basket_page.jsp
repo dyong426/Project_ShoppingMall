@@ -84,6 +84,10 @@
 	</div>
 </div>
 
+<script src="assets/user/cart/js/color_popup.js"></script>
+<script src="assets/user/cart/js/color_select.js"></script>
+<script src="assets/user/cart/js/size_popup.js"></script>
+<script src="assets/user/cart/js/size_count.js"></script>
 
 <footer>
 	<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
