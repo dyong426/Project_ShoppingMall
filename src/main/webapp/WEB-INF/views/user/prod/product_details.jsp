@@ -107,6 +107,7 @@
 			<form action="<%=request.getContextPath()%>/order/directPurchase" method="POST" id="orderForm">
 				<input type="submit" class="buttons" id="directPurchase" value="바로 구매하기"></input>
 				<input type="hidden" id="ps_name" name="ps_name"/>
+				<input type="hidden" id="p_num" name="p_num" value="${prod.p_num}"/>
 				<input type="hidden" id="pc_name" name="pc_name"/>
 				<input type="hidden" id="mem_cstm_path" name="mem_cstm_path"/>
 				<input type="hidden" id="p_name" name="p_name" value="${prod.p_name}"/>

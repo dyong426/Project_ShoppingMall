@@ -1,0 +1,136 @@
+#add_btn{
+    width: 127px;
+    height: 48px;
+    text-align: center;
+    border: none;
+    margin-top: 20px;
+    cursor: pointer;
+}
+#add_btn:hover{
+    color: #fff;
+    background-color: #216282;
+    opacity: 0.9;
+}
+
+
+.cl_modal {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(1.1);
+    transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.cl_modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 44px 40px 40px;
+    width: 30%;
+    height: 40%;
+}
+
+.cl_close-button {
+    display: block;
+    background-color: transparent;
+    position: absolute;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 13px;
+    background-image: url(https://s3.marpple.co/files/u_193535/2018/12/original/f_18632_1545117841977_a8X6NA3p8T4cNCvpowk4t.png);
+    width: 26px;
+    height: 26px;
+    top: 11px;
+    right: 12px;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    cursor: pointer;
+    transition: background 0.5s ease-in-out;
+}
+.cl_close-button:hover {
+    background-color: rgb(209, 209, 209);
+}
+.show-cl_modal {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.0);
+    transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.cl_title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+}
+
+.colors_container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-top: 0 30px;
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 5px;
+    font-size: 14px;
+    max-height: 264px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.color_item {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 125px;
+    height: 22px;
+}
+
+.code {
+    width: 13px;
+    height: 13px;
+    border-radius: 16px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    box-shadow: 0 0 0 0.5px rgba(red, green, blue, 100%);
+}
+
+.click {
+    box-shadow: 0 0 0 0.5px #0157ff;
+}
+
+
+.code_wrap {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+    padding: 1px;
+}
+
+.name {
+    font-size: 14px;
+}
+
+.done {
+    margin-top: 200px;
+    margin: auto;
+    font-size: 14px;
+    height: 48px;
+    background-color: #000;
+    text-align: center;
+    color: #fff;
+    outline: none;
+    width: 220px;
+}

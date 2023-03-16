@@ -302,6 +302,10 @@ option:hover {
 	overflow: auto;
 }
 
+#sampleIconPopUp::-webkit-scrollbar {
+	border-radius: 0 5px 5px 0;
+}
+
 #sampleIcons {
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);

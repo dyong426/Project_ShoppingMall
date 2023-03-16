@@ -33,7 +33,7 @@ public class OrderController {
 	CartServiceImpl cartService;
 	
 	@PostMapping("/directPurchase")
-	public String order(HttpSession session, HttpServletRequest req, Model model) {				
+	public String order(HttpSession session, HttpServletRequest req, Model model) {		
 		// 임시 정보
 		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
 		
@@ -46,15 +46,15 @@ public class OrderController {
 		List<CartDTO> list = new ArrayList<CartDTO>();
 		list.add(cartService.getCartDto(member.getMem_num(), req));
 		
-		model.addAttribute("cartDto", list);
-		
+		model.addAttribute("cart", list);
+		log.info(list.get(0));
 		return "user/order/order";
 	}
 	
 	@PostMapping("/fromCart")
 	public String order2(HttpSession session, HttpServletRequest req, Model model) {
 		List<CartDTO> list = cartService.getCarts(((MemberDTO)session.getAttribute("member")).getMem_num());
-		model.addAttribute("cartDto", list);
+		model.addAttribute("cart", list);
 		
 		return "user/order/order";
 	}

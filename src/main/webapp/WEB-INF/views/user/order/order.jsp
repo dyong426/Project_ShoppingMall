@@ -5,7 +5,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ include file="../common/header.jsp"%>
 
-<link rel="stylesheet" href="assets/user/order/css/order.css" />
+<link rel="stylesheet" href="${contextPath}/assets/user/order/css/order.css" />
 
 <title>juhee custom - 주문서 작성</title>
 
@@ -141,14 +141,14 @@
 			</div>
 			<hr />
 			<br />
-			<c:forEach items="${cartDto}" var="cart">
+			<c:forEach items="${cart}" var="cart">
 				<div class="orderList">
-					<div class="rowSpan"><img src="${cart.mem_cstm_path}" alt="주문 상품 이미지"/></div>
+					<div class="rowSpan"><img src="C:/upload/cstm_img/${cart.mem_cstm_path}" alt="주문 상품 이미지"/></div>
 					<div class="orderProd">
 						<div><b>${cart.p_name}</b></div>
 						<div>색상&emsp;&emsp;:&emsp;${cart.pc_name}</div>
 						<div>사이즈&emsp;:&emsp;${cart.ps_name}</div>
-						<div>수량&emsp;&emsp;:&emsp;<span>${cart.od_quantity}</span></div>
+						<div>수량&emsp;&emsp;:&emsp;<span>${cart.cart_quantity}</span></div>
 						<div>가격&emsp;&emsp;:&emsp;<span>${cart.cart_quantity * cart.cart_amount}</span></div>
 					</div>
 				</div>
@@ -172,7 +172,7 @@
 <%-- 네이버페이 API 참조 스크립트 --%>
 <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 
-<script src="assets/user/order/js/order.js"></script>
+<script src="${contextPath}/assets/user/order/js/order.js"></script>
 
 
 <%@ include file="../common/footer.jsp"%>

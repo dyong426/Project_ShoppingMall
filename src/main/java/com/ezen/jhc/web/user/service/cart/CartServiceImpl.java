@@ -1,6 +1,8 @@
 package com.ezen.jhc.web.user.service.cart;
 
 import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -52,16 +54,31 @@ public class CartServiceImpl implements CartService {
 	}
 	
 	@Override
-	public CartDTO getCartDto(int mem_num, HttpServletRequest req) {		
+	public CartDTO getCartDto(int mem_num, HttpServletRequest req) {
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
 		String newFolder = LocalDateTime.now().format(formatter).replace("-", File.separator);
 		
-		String image = newFolder + "\\" + req.getParameter("mem_cstm_path");
+		String image = newFolder + "/" + req.getParameter("mem_cstm_path");
+		
+//		String imagePath = null;
+//		try {
+//			imagePath = URLEncoder.encode(image, "UTF-8");
+//		} catch (UnsupportedEncodingException e) {
+//			e.printStackTrace();
+//		}
+		
+		int pd_num = prodMapper.getProdDetailByIntoCartDto(
+				new IntoCartDTO(
+						Integer.parseInt(req.getParameter("p_num")),
+						Integer.parseInt(req.getParameter("p_price")),
+						req.getParameter("pc_name"),
+						req.getParameter("ps_name"),
+						req.getParameter("p_name"))).getPd_num();
 		
 		return new CartDTO(
 				mem_num,
-				Integer.parseInt(req.getParameter("pd_num")),
+				pd_num,
 				Integer.parseInt(req.getParameter("p_num")),
 				req.getParameter("p_name"),
 				Integer.parseInt(req.getParameter("p_price")),

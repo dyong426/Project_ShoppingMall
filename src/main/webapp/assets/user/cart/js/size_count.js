@@ -1,41 +1,43 @@
-window.onload = function () {
-  function decrement(e) {
-    const btn = e.target.parentNode.parentElement.querySelector(
-      'div[data-action="decrement"]'
-    );
-    const target = btn.nextElementSibling;
-    let value = Number(target.value);
-    if (value > 0) {
-      value--;
-      target.value = value;
-    } else if (value <= 0) {
-      target.value = 0;
-    }
-  }
+const minusBtns = document.getElementsByClassName('minus');
+const plusBtns = document.getElementsByClassName('plus');
+const quantities = document.getElementsByClassName('quantity');
+const total_amt = document.getElementById('total_amt');
+const price = document.getElementsByClassName('price')[0];
+const totalPrice = document.getElementsByClassName('sb_tt_price')[0];
 
-  function increment(e) {
-    const btn = e.target.parentNode.parentElement.querySelector(
-      'div[data-action="decrement"]'
-    );
-    const target = btn.nextElementSibling;
-    let value = Number(target.value);
-    value++;
-    target.value = value;
-  }
+let totalQuantity = 0;
 
-  const decrementButtons = document.querySelectorAll(
-    `div[data-action="decrement"]`
-  );
-
-  const incrementButtons = document.querySelectorAll(
-    `div[data-action="increment"]`
-  );
-
-  decrementButtons.forEach(btn => {
-    btn.addEventListener("click", decrement);
-  });
-
-  incrementButtons.forEach(btn => {
-    btn.addEventListener("click", increment);
-  });
+for (i = 0; i < quantities.length; ++i) {
+    totalQuantity = parseInt(totalQuantity) + parseInt(quantities[i].value);
 }
+
+for (i = 0; i < minusBtns.length; ++i) {
+    minusBtns[i].addEventListener('click', (e) => {
+        let quantity = e.target.nextElementSibling.value;
+        if (quantity > 0) {
+            e.target.nextElementSibling.value -= 1;
+            totalQuantity -= 1;
+            total_amt.value = totalQuantity;
+            totalPrice.innerText = (parseInt(totalQuantity) * parseInt(price.innerText)).toLocaleString('ko-KR') + '원';
+        }
+    });
+
+    plusBtns[i].addEventListener('click', (e) => {
+        let quantity = e.target.previousElementSibling.value;
+        if (quantity < 100) {
+            e.target.previousElementSibling.value = parseInt(quantity) + 1;
+            totalQuantity = parseInt(totalQuantity) + 1;
+            total_amt.value = totalQuantity;
+            totalPrice.innerText = (parseInt(totalQuantity) * parseInt(price.innerText)).toLocaleString('ko-KR') + '원';
+        }
+    });
+}
+
+const submit = document.getElementById('submit');
+const initQuantity = document.getElementsByClassName('initQuantity')[0];
+
+submit.addEventListener('click', (e) => {
+  initQuantity.lastElementChild.innerText = totalQuantity;
+  price.innerText = totalPrice.innerText;
+  closeButton.click();
+});

@@ -19,7 +19,6 @@
 	font-weight: normal;
 }
 
-
 .basket_top {
 	font-size: 24px;
 	font-weight: bold;
@@ -33,16 +32,11 @@
 	font-style: normal;
 }
 
-.basket_top > span {
-	font-family: 'Gowun Dodum', sans-serif;
-	font-size: 35px;
-	font-style: normal;
-}
 
 .basket_process {
 	font-size: 14px;
-	color: #494d4f;
-	font-weight: bold;
+	color: #868e96;
+	font-weight: normal;
 	position: absolute;
 	right: 0;
 	bottom: 0;
@@ -57,15 +51,14 @@
 	margin: 0 auto;
 	margin-top: 70px;
 	width: 992px;
-	height: fit-content;
+	height: 290px;
 	background-color: #fff;
 	border-top: #28292A solid 1px;
-	padding-bottom: 20px;
 }
 
 .basket_middle {
 	display: grid;
-	grid-template-columns: 2.3fr repeat(4, 1fr);
+	grid-template-columns: 2fr repeat(4, 1fr);
 	width: 988px;
 	height: 49.6px;
 	padding: 15px 0px;
@@ -80,38 +73,62 @@
 }
 
 .basket_bottom {
-    width: 992px;
-    height: fit-content;
-    background-color: #fff;
+	width: 992px;
+	height: 233.6px;
+	padding: 10px;
 }
 
-.name {
+.basket_body {
 	display: grid;
-	grid-template-columns: repeat(2, 1fr);
-	column-gap: 20px;
+	grid-template-columns: 2fr repeat(4, 1fr);
+	color: black;
+}
+
+.basket_body > div {
+	margin: auto;
+}
+
+#img {
+	width: 100px;
+	height: 100px;
+}
+
+#prodInfo {
+	display: grid;
+	grid-template-columns: 1fr 2fr;
+}
+
+#prodDetail {
+	margin: auto;
+}
+
+#btns {
+	display: grid;
+	grid-template-rows: repeat(3, 1fr);
+}
+
+.print {
+	display: grid;
+	grid-template-columns: 0.2fr 1fr;
 }
 
 #printing {
 	color: rgb(169, 174, 180);
 }
 
-#printing > span {
-	color: black;
-}
-
-#img {
+.basket_body>#img {
 	width: 100px;
 	height: 100px;
 	margin-right: 40px;
-	margin: auto;
 }
 
-.print {
+.name {
 	display: grid;
 	grid-template-rows: 0.5fr 1fr;
 	width: 230px;
 	color: #28292A;
-	margin-top: 23px;
+	margin-left: -20px;
+	padding: 0px;
 }
 
 .product_info {
@@ -119,28 +136,36 @@
 	grid-template-columns: 1.5fr repeat(4, 1fr);
 }
 
-.product_info > div {
-	margin: auto;
-}
-
 .list {
 	width: 100%;
-	height: 200px;
-	padding: 15px;
+	height: 160.8px;
 	color: rgb(138, 146, 153);
-	border-bottom: 1px solid lightgrey;
 	background-color: #fff;
-	margin: auto;
 }
 
-.list_top {
-	margin-bottom: 20px;
-}
 
 .list_top>span {
 	font-size: small;
 }
 
+.total_amount {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	width: 145px;
+	height: 25.6px;
+	margin-left: -20px;
+}
+
+.quantity {
+	width: 45.6px;
+	height: 25.6px;
+	background-color: white;
+	border: #ececec solid 1px;
+}
+
+.blank {
+    width: 80px;
+}
 
 .size{
     width: 7.44px;
@@ -157,20 +182,23 @@
 	margin-left: -10px;
 }
 
-.initQuantity {
-	width: 45.6px;
-	height: 25.6px;
-	margin-top: 2px;
-	background-color: white;
-	border: #ececec solid 1px;
+.quantity {
+    width: 45.6px;
+    height: 25.6px;
+    margin-top: 2px;
+    background-color: white;
+    border: #ececec solid 1px;
 }
 
+.btn_box {
+	padding-top: 17px;
+}
 
 .val{
-	justify-content: center;
-	display: flex;
-	font-size: medium;
-	color: black;
+    justify-content: center;
+    display: flex;
+    font-size: medium;
+    color: black;
 }
 
 .btn_box>button {
@@ -178,16 +206,12 @@
 	display: flex;
 	width: 88px;
 	height: 24px;
+	margin: 4px;
+	margin-left: 50px;
 	padding: 2px;
 	font-size: small;
-	background-color: transparent;
-	border: #063970 solid 1px;
-	color: black;
-	margin-left: 10px;
-}
-
-.delete {
-	margin-top: 5px;
+	background-color: white;
+	border: lightgrey solid 1px;
 }
 
 .add_btn {
@@ -195,6 +219,7 @@
 	display: flex;
 	height: 44.8px;
 	padding: 16px 0px;
+	border-top: 1px solid lightgrey;
 }
 
 .add_color {
@@ -204,10 +229,6 @@
 	color: rgb(1, 87, 255);
 }
 
-.add_color:hover {
-	cursor: pointer;
-}
-
 .summary {
 	justify-content: center;
 	margin: 0 auto;
@@ -215,7 +236,7 @@
 	grid-template-columns: 1fr 0.7fr 0.7fr 1fr;
 	margin-top: 65px;
 	width: 992px;
-	height: fit-content;
+	height: 140px;
 	background-color: #fff;
 	border-top: #28292A solid 1px;
 	z-index: -1;
@@ -284,18 +305,19 @@
 	width: 343px;
 	height: 48px;
 	margin-top: 65px;
-	background-color: #063970;
-	color: white;
+	background-color: #122529;
 }
 
 .checkout_btn>span {
 	margin: 0 auto;
-	line-height: 35px;
-	color: white;
+	justify-content: center;
+	display: flex;
+	line-height: 45px;
+	color: #fff;
 	height: 20px;
 }
 
-#total_amt {
+#total-amt {
 	width: 25px;
 	height: auto;
 	text-align: center;
