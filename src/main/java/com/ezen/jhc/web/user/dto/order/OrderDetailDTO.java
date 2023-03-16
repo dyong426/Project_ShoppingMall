@@ -58,7 +58,6 @@ public class OrderDetailDTO {
 	
 	String new_order_num;
 	String new_order_date;
-	String od_ord_date;
 	
 	
 	public String getNew_ord_date() {
@@ -76,10 +75,6 @@ public class OrderDetailDTO {
 	}
 	
 	
-	public String getOd_ord_date() {
-		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-		
-		return dayTime.format(this.ord_date);
-	}
+
 	
 }

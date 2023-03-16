@@ -38,11 +38,12 @@
 					<tr class="wr">
 						<td class="od_number">
 							<p>
+							${rh.new_order_date}
 								<a href="<%=request.getContextPath()%>/details"
 									class="order_number">[${rh.new_order_num}]</a>
 							</p>
 						</td>
-						<td class="wr_img">${rh.od_ord_date}</td>
+						<td class="wr_img">${rh.new_order_date}</td>
 						<td class="wr_check"><strong class="wr_name">
 								<div class="sentence">
 									<a href="" class="ec_wr_name" onclick="return false;">${rh.review_content}</a>
