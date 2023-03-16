@@ -2,6 +2,7 @@ package com.ezen.jhc.web.user.controller.mypage;
 
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -33,7 +35,7 @@ public class HistoryController {
 		}
 		
 		MemberDTO member = (MemberDTO) session.getAttribute("member"); 
-	
+		
 		Integer mem_num = member.getMem_num();
 		
 		List<OrderDTO> orders = historyService.getOrderHistory(mem_num);
@@ -43,6 +45,22 @@ public class HistoryController {
 			return "user/mypage/purchase/history";
 	}
 
+	@GetMapping(value="/history/selected")
+	public String historySelected(HttpSession session, Model model, @RequestParam("select_order_status")String ord_status, @RequestParam("select_start_date")String start_date, @RequestParam("select_end_date")String end_date) {
+		
+	MemberDTO member = (MemberDTO) session.getAttribute("member"); 
+		
+		Integer mem_num = member.getMem_num();
+		List<OrderDTO> orders = historyService.getOrderHistorySelectedAll(mem_num, ord_status, start_date, end_date);
+		
+		System.out.println(mem_num + ord_status + start_date + end_date);
+		
+		
+		model.addAttribute("orders", orders);
+		
+		return "user/mypage/purchase/history";
+	}
+	
 	@RequestMapping(value = "/details", method = RequestMethod.GET)
 	public String mpDetails(Model model, HttpSession session, @RequestParam(value="ord_num", required=false) Integer ord_num) {
 

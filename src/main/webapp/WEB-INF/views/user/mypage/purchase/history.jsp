@@ -13,7 +13,8 @@
                         <div class="search">주문내역조회</div>
                             <div class="search_form">
                                 <div class="search_date">
-                                    <select name="" id="">
+                                <form action="/jhc/history/selected" method="GET">
+                                    <select name="select_order_status" id="">
                                         <option value="">전체 주문 처리 상태</option>
                                         <option value="0">입금 전</option>
                                         <option value="1">결제 완료</option>
@@ -24,11 +25,12 @@
                                         <option value="7">교환</option>
                                         <option value="8">반품</option>
                                     </select> &nbsp; &nbsp;
+                                    <input class="select_date" name="select_start_date" type="date"><span class="symbol">&nbsp; ~ &nbsp;</span>
+                                    <input class="select_date" name="select_end_date" type="date"> &nbsp;
+                                    &nbsp;<button type="submit" class="inquiry">조회</button>
+                                </form>
 
-                                    <input class="select_date" type="date"><span class="symbol">&nbsp; ~ &nbsp;</span>
-                                    <input class="select_date" type="date"> &nbsp;
                                     
-                                    &nbsp;<button type="button" class="inquiry">조회</button>
                                 </div>
 
                                 <ol class="explanation" style="list-style-type:disc;">

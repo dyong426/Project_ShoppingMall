@@ -68,7 +68,6 @@ public class MemberController {
 
 	// 세션과 쿠키를 이용한 로그인 유지 방식
 	@PostMapping("/login.do")
-	@ResponseBody
 	public String login(@RequestParam("mem_email") String memEmail, HttpServletRequest request,
 			HttpServletResponse response, HttpSession session) {
 

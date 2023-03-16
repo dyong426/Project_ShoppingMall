@@ -1,5 +1,6 @@
 package com.ezen.jhc.web.user.service.mypage;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -21,6 +22,11 @@ public class HistoryServiceImpl implements HistoryService {
 	@Override
 	public List<OrderDTO> getOrderHistory(Integer mem_num) {
 		return orderMapper.selectOrderHistory(mem_num);
+	}
+	
+	@Override
+	public List<OrderDTO> getOrderHistorySelectedAll(Integer mem_num, String ord_status, String start_date, String end_date) {
+		return orderMapper.selectOrderHistorySelectedAll(mem_num, ord_status, start_date, end_date);
 	}
 
 	@Override
