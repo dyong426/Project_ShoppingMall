@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.admin.mapper.contact.AdminContactMapper">
+
+	<select id="getContactContents" resultType="com.ezen.jhc.web.admin.dto.contact.ContactDTO">
+
+	SELECT
+		contact_num,
+		cs_ctgr_name,
+		contact_title,
+		contact_content,
+		contact_regdate,
+		admin_reply,
+		cs.mem_num,
+		mem_email,
+		mem_name
+	FROM contact cs
+		INNER JOIN cs_ctgr csc ON csc.cs_ctgr_num = cs.cs_ctgr_num
+		INNER JOIN members m ON m.mem_num = cs.mem_num
+	ORDER BY contact_regdate DESC
+		
+	</select>
+
+</mapper>

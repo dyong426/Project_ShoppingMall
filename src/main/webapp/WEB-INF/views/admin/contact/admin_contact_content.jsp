@@ -21,34 +21,16 @@
 
 			<div class="card grid-main">
 
-				<div class="card-header">게시판 관리</div>
+				<div class="card-header">1:1 문의</div>
 		
 		<!-- Content wrapper -->
 		
-				<div class="card-body">
-				
-					<table>
-						<thead>
-							
-							<tr>
-								
-							
-							</tr>
-						
-						
-						</thead>
-						
-						
-						<tbody></tbody>
+					<div class="card-body">
 					
-					</table>
-				
-				
-				</div>
-		
+					</div>
           
         <!-- / Content -->
-
+		</div>
 
 		<!-- include footer -->
 		<%@ include file="../include/footer.jsp"%>

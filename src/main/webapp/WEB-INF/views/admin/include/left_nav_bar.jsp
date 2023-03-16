@@ -10,7 +10,7 @@
 		<li><a href="/jhc/admin/order">주문관리</a></li>
 		<li><a href="/jhc/admin/prod/view">제품관리</a></li>
 		<li><a href="/jhc/admin/sales">매출관리</a></li>
-		<li><a href="/jhc/admin/board">게시판관리</a></li>
+		<li><a href="/jhc/admin/contact">게시판관리</a></li>
 		<li><a href="/jhc/admin/member">회원관리</a></li>
 		<li><a href="#">설정</a></li>
 	</ul>
