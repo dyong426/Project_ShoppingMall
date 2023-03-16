@@ -149,7 +149,6 @@ a:hover {
     display: flex;
     top: -10px;
     left: 10px;
-    overflow: hidden;
     -webkit-text-fill-color: gray;
     position: absolute;
   }

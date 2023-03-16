@@ -54,11 +54,11 @@ public class OrderDetailDTO {
 	String review_content;
 	String review_image_path;
 	Date review_regdate;
-	String sm_img_path;
+	Integer review_star;
 	
 	String new_order_num;
 	String new_order_date;
-	
+	String star;
 	
 	public String getNew_order_date() {
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
@@ -72,6 +72,24 @@ public class OrderDetailDTO {
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyMMdd-mmss");
 		
 		return dayTime.format(this.ord_date) + getOrd_num();
+	}
+	
+	public String getStar() {
+		if (review_star == 0) {
+			return "☆☆☆☆☆";
+		} else if (review_star == 1) {
+			return "★☆☆☆☆";
+		} else if (review_star == 2) {
+			return "★★☆☆☆";
+		} else if (review_star == 3) {
+			return "★★★☆☆";
+		} else if (review_star == 4) {
+			return "★★★★☆";
+		} else if (review_star == 5) {
+			return "★★★★★";
+		}
+	
+		return "";
 	}
 	
 	

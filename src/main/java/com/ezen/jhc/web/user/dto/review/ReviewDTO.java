@@ -26,7 +26,7 @@ public class ReviewDTO {
 	String star;
 	String user_name;
 	
-	public String getStar () {
+	public String getStar() {
 		if (review_star == 0) {
 			return "☆☆☆☆☆";
 		} else if (review_star == 1) {
@@ -41,7 +41,7 @@ public class ReviewDTO {
 			return "★★★★★";
 		}
 	
-		return "없음";
+		return "";
 	}
 
 	public String getUser_name() {
