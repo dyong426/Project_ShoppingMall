@@ -65,11 +65,9 @@
 			</table>
 		</div>
 		<div id="page_num_container">
-            			<form id="all_review_page" action="<%=request.getContextPath()%>/writeable_reviews?mem_num=${member.mem_num}&page=${page}" method="get">
 		            		<div id="page_num_box">
 		            		
 		            		</div>
-            			</form>
             		</div>
 	</div>
 </div>
@@ -121,24 +119,25 @@
 
 
 <script>
-	let total = ${rh_count};
-	console.log(total);
+	let total = ${pd_count};
 	
 	let page_box = document.getElementById('page_num_box');
 	
-	console.log(total);
 	function createPageBtn(cnt) {
-	    page_box.innerHTML += '<div class="page_num_div"><input class="page_num" type="submit" name="page" value="' + cnt + '"></input></div>';
+	    page_box.innerHTML += '<div class="page_num_div"><button class="page_num" type="button" name="page" value="' + cnt + '" onclick="goToPage(' + cnt + ');">' + cnt + '</button></div>';
 	}
 	
 	let total_page = Math.ceil(total/10);
 	
-	console.log(total_page);
 	
 	let cnt = 1;
 	
 	for(let i = 0; i < total_page; ++i) {
 	    createPageBtn(cnt++);
+	}
+	
+	function goToPage(page) {
+	    location.href = "/jhc/writeable_reviews?mem_num=${member.mem_num}&page=" + page;
 	}
 </script>
 

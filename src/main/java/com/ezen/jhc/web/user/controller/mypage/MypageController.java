@@ -94,6 +94,8 @@ public class MypageController {
 	@RequestMapping(value ="/wrote_review", method = RequestMethod.GET)
 	public String mpWriteReview2(Integer mem_num, Model model, Integer page) {
 		
+		model.addAttribute("page", page);
+		
 		List<OrderDetailDTO> rv_history = mm_mapper.getOrderHistory(mem_num);
 		int list_end = Integer.parseInt(page + "") * 10 - 1;
 		
@@ -104,7 +106,6 @@ public class MypageController {
 		if (list_end >= rv_history.size()) {
 			 list_end = rv_history.size() - 1;
 		}
-
 		model.addAttribute("rh_count", rv_history.size());
 		
 		model.addAttribute("start", list_begin);
