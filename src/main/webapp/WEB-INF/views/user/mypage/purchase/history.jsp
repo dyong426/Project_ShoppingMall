@@ -28,11 +28,14 @@
 						</select> &nbsp; &nbsp;
 						<input class="select_date" value="${start_date }" name="select_start_date"	type="date">
 						<span class="symbol">&nbsp; ~ &nbsp;</span>
-						<input	class="select_date" value="${end_date }" name="select_end_date" type="date">
+						<input	class="select_date" id="end_date" value="${end_date }" name="select_end_date" type="date">
 						&nbsp; &nbsp;
 						<button type="submit" class="inquiry">조회</button>
 					</form>
-			
+					<script>
+					  var today = new Date().toISOString().substr(0, 10);
+					  document.getElementById("end_date").value = today;
+					</script>
 
 				</div>
 
