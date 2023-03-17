@@ -108,8 +108,11 @@ function showUploadImage(uploadResultArr){
 	let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
 
 	str += "<div id='result_card'>";
-		str += "<img class='img_con' src='/display?fileName=" + fileCallPath +"'>";
-		str += "<div class='imgDeleteBtn'>x</div>";
-		str += "</div>";
+	str += "<img class='img_con' src='/display?fileName=" + fileCallPath +"'>";
+	str += "<div class='imgDeleteBtn'>x</div>";
+	str += "</div>";
+		
+   		uploadResult.append(str);  
+   		console.log(str);
 
 }

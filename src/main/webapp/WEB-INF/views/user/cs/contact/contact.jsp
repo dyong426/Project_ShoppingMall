@@ -3,7 +3,6 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="../body/body.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/cs/css/cs.css?after">
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/cs/css/image.css?after">
 
 
 <tr>
@@ -120,4 +119,3 @@
 
 </div>
 <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
-<script src="<%=request.getContextPath()%>/assets/user/cs/js/contact.js"></script>

@@ -29,4 +29,7 @@
     border: none;
     display: block;
     cursor: pointer;	
+    -webkit-text-stroke-width: 0.001px;
+    -webkit-text-stroke-color: red;
+
 }

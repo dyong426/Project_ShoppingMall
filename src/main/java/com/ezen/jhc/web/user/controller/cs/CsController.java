@@ -71,7 +71,7 @@ public class CsController {
 	public String cs_contatct_( 
 			@Param("mem_num") Integer mem_num,
 			@Param("contact_ctgr") Integer contact_ctgr, @Param("contact_title") String contact_title,
-			@Param("contact_content") String contact_content,@Param("contact_image_path") String contact_image_path){
+			@Param("contact_content") String contact_content){
 				 
 		
 		
@@ -79,7 +79,7 @@ public class CsController {
 		System.out.println(contact_ctgr);
 		System.out.println(contact_title);
 		System.out.println(contact_content);
-		System.out.println(contact_image_path);
+		System.out.println();
 	
 	
 		//String insert = contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title,contact_content);
