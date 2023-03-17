@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ezen.jhc.web.user.dto.contact.AttachImageVO;
+import com.ezen.jhc.web.user.dto.contact.AttachImageDTO;
 
 import net.coobird.thumbnailator.Thumbnails;
 
@@ -33,7 +33,7 @@ public class CsRestController {
 	/* 첨부 파일 업로드 */
 	
 	@PostMapping(value="/uploadAjaxAction_contact", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<AttachImageVO>> uploadAjaxActionPOST(MultipartFile[] uploadFile) {
+	public ResponseEntity<List<AttachImageDTO>> uploadAjaxActionPOST(MultipartFile[] uploadFile) {
 		
 		System.out.println("uploadAjaxActionPOST..........");
 		
@@ -53,7 +53,7 @@ public class CsRestController {
 			
 			if(!type.startsWith("image")) {
 				
-				List<AttachImageVO> list = null;
+				List<AttachImageDTO> list = null;
 				
 			}
 			
@@ -81,12 +81,12 @@ public class CsRestController {
 		}
 		
 		//이미지 정보 담는 객체
-		List<AttachImageVO> list = new ArrayList();
+		List<AttachImageDTO> list = new ArrayList();
 		
 		// 향상된 for
 		for(MultipartFile multipartFile : uploadFile) {
 			// 이미지 정보 객체
-			AttachImageVO vo = new AttachImageVO();
+			AttachImageDTO vo = new AttachImageDTO();
 			
 			/* 파일 이름 */
 			String uploadFileName = multipartFile.getOriginalFilename();			
@@ -153,7 +153,7 @@ public class CsRestController {
 		
 		} //for
 		
-		ResponseEntity<List<AttachImageVO>> result = new ResponseEntity<List<AttachImageVO>>(list, HttpStatus.OK);
+		ResponseEntity<List<AttachImageDTO>> result = new ResponseEntity<List<AttachImageDTO>>(list, HttpStatus.OK);
 		
 		return result;
 	
