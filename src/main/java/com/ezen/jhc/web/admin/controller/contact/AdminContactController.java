@@ -24,6 +24,9 @@ public class AdminContactController {
 	@Autowired(required = false)
 	List<ContactDTO> contents;
 	
+	@Autowired(required = false)
+	ContactDTO content;
+	
 	@GetMapping("/contact")
 	public String getContacts(Model model) {
 		
@@ -36,9 +39,13 @@ public class AdminContactController {
 	}
 	
 	@GetMapping("/contact/content")
-	public String getContent() {
+	public String getContent(Model model, Integer contact_num) {
 		
+		content = csService.getContactContent(contact_num);
 		
+		log.info(content);
+		
+		model.addAttribute("content", content);
 		
 		return "admin/contact/admin_contact_content";
 	}

@@ -19,4 +19,10 @@ public class AdminContactServiceImpl implements AdminContactService{
 		
 		return csMapper.getContactContents();
 	}
+	
+	@Override
+	public ContactDTO getContactContent(Integer contact_num) {
+		
+		return csMapper.getContactContent(contact_num);
+	}
 }

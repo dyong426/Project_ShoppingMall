@@ -10,4 +10,6 @@ import com.ezen.jhc.web.admin.dto.contact.ContactDTO;
 public interface AdminContactService {
 	
 	public List<ContactDTO> getContactContentList();
+	
+	public ContactDTO getContactContent(Integer contact_num);
 }

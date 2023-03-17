@@ -7,4 +7,6 @@ import com.ezen.jhc.web.admin.dto.contact.ContactDTO;
 public interface AdminContactMapper {
 	
 	public List<ContactDTO> getContactContents();
+	
+	public ContactDTO getContactContent(Integer contact_num);
 }
