@@ -36,13 +36,14 @@
 	</delete>
 
 	<select id="getCarts" resultType="com.ezen.jhc.web.user.dto.cart.CartDTO">
-		SELECT mem_cstm_path, c.mem_num, pd_num, p_name, pc_name, ps_name, cart_quantity, cart_amount FROM carts c
+		SELECT mem_cstm_path, c.mem_num, p_num, pd_num, p_name, pc_name, ps_name, p_price, cart_quantity, cart_amount
+		FROM carts c
 		INNER JOIN prod_details pd USING (pd_num)
 		INNER JOIN prod_colors USING (pc_num)
 		INNER JOIN prod_sizes USING (ps_num)
 		INNER JOIN prods USING (p_num)
 		INNER JOIN member_cstms USING (mem_cstm_num)
-		WHERE c.mem_num = #{mem_num};
+		WHERE c.mem_num = #{mem_num}
 	</select>
 
 </mapper>

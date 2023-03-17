@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 
@@ -15,82 +16,59 @@
 		<div class="basket_top">
 			<span id="my_basket">내 장바구니</span>
 			<div class="basket_process">
-				<span id="poket">장바구니</span> <span class="other">&gt;</span> <span
-					class="other">주문서작성</span> <span class="other">&gt;</span> <span
-					class="other">주문완료</span>
+				<span id="pocket">장바구니</span>
+				<span class="other">&gt;</span>
+				<span class="other">주문서작성</span>
+				<span class="other">&gt;</span>
+				<span class="other">주문완료</span>
 			</div>
-
 		</div>
 		<div class="basket">
 			<div class="basket_middle">
-				<span>상품정보</span> <span>사이즈</span> <span>수량</span> <span>가격</span> <span>편집</span>
+				<span>상품정보</span>
+				<span>사이즈</span>
+				<span>수량</span>
+				<span>가격</span>
+				<span>편집</span>
 			</div>
 			<div class="basket_bottom">
-				<div class="list">
-					<div class="list_top">
-						<span>2023-02-13 12:04</span><span> | No. 9471967</span>
-					</div>
-					<div class="basket_body">
-						<div class="product_info">
-							<div class="name">
-								<img id="img"
-									src="assets/common/cstm_img/products/clothes/특양면 베이직 후드.png"
-									alt="상품 이미지">
-								<div class="print">
-									후드집업(남여공용)[블루]
-									<div id="printing">
-										인쇄 : <span>없음</span>
+				<c:forEach items="${carts}" var="cart">
+					<div class="list">
+						<div class="list_top">
+							<span>20230213-5015022</span>
+						</div>
+						<div class="basket_body">
+							<div class="product_info">
+								<div class="name">
+									<img class="img" src="${cart.mem_cstm_path}" alt="상품 이미지">
+									<div class="prodDetail">
+										${cart.p_name}
+										<div class="prodColor">
+											색상 : <span>${cart.pc_name}</span>
+										</div>
 									</div>
 								</div>
-							</div>
-							<div class="size">L</div>
-							<div class="initQuantity">
-								<span class="val">1</span>
-							</div>
-							<div class="price">29200원</div>
-							<div class="btn_box">
-								<button type='button' class='btn edit'>옵션 변경</button>
-								<button type='button' class='btn delete'>삭제</button>
+								<div class="size">
+									<span>${cart.ps_name}</span>
+								</div>
+								<div class="initQuantity">
+									<table class="quantityTable">
+										<tr>
+											<td class="minus" data-action="decrement"></td>
+											<td class="val">1</td>
+											<td class="plus" data-action="increment"></td>
+										</tr>
+									</table>
+								</div>
+								<div class="price" data-price="${cart.p_price}">${cart.p_price}원</div>
+								<div class="btn_box">
+									<button type='button' class='btn edit' data-pNum="${cart.p_num}">옵션 변경</button>
+									<button type='button' class='btn delete'>삭제</button>
+								</div>
 							</div>
 						</div>
-
-
 					</div>
-				</div>
-				<div class="add_btn">
-					<div class="add_color">색상추가+</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="summary">
-			<div>
-				<span class="sm">총 수량</span> <span class='total_quantity'>1</span>
-			</div>
-			<div>
-				<span class="sm">가격</span> <span class="all_price">29,200</span>
-			</div>
-			<div>
-				<span class="sm">배송비</span> <span class="delivery_charge">3000</span>
-			</div>
-			<div>
-				<span class="sm" id="total">합계</span> <span class="total_price">32,200</span>
-			</div>
-			<div class="border_bar"></div>
-			<div class="math_symbol">
-				<div></div>
-				<div class="sm_plus">+</div>
-				<div class="equal">=</div>
-			</div>
-
-		</div>
-
-		<button class="checkout_btn">
-			<span>주문서 작성</span>
-		</button>
-	</div>
-</div>
-
+<%--
 <!-- 사이즈 옵션 팝업 창-->
 <div class="main">
 	<div class="modal">
@@ -105,53 +83,11 @@
 				<span class="close-button">&times;</span>
 				<div class="title">수량을 선택해주세요</div>
 				<div class="pd_main_box">
-					<div class="sub">후드집업(남녀공용) [블루]</div>
+					<div class="sub">${cart.p_name} [${cart.pc_name}]</div>
 					<form action="#post.php" method="POST">
 						<div class="pd_size">
 							<div class="size_input">
-								<span>S(85)</span>
-								<div class="pd_amount">
-									<div class="minus" data-action="decrement"></div>
-									<input type="number" class="quantity" value="0" min="1"
-										max="100" inputmode="numeric" pattern="[0-9]*">
-									<div class="plus" data-action="increment"></div>
-								</div>
-							</div>
-							<div class="pd_price_box">
-								<div class="pd_price"></div>
-							</div>
-						</div>
-						<div class="pd_size">
-							<div class="size_input">
-								<span>M(90)</span>
-								<div class="pd_amount">
-									<div class="minus" data-action="decrement"></div>
-									<input type="number" class="quantity" value="0" min="1"
-										max="100" inputmode="numeric" pattern="[0-9]*">
-									<div class="plus" data-action="increment"></div>
-								</div>
-							</div>
-							<div class="pd_price_box">
-								<div class="pd_price"></div>
-							</div>
-						</div>
-						<div class="pd_size">
-							<div class="size_input">
-								<span>L(95)</span>
-								<div class="pd_amount">
-									<div class="minus" data-action="decrement"></div>
-									<input type="number" class="quantity" value="0" min="1"
-										max="100" inputmode="numeric" pattern="[0-9]*">
-									<div class="plus" data-action="increment"></div>
-								</div>
-							</div>
-							<div class="pd_price_box">
-								<div class="pd_price"></div>
-							</div>
-						</div>
-						<div class="pd_size">
-							<div class="size_input">
-								<span>XL(100)</span>
+								<span>${size.ps_name}</span>
 								<div class="pd_amount">
 									<div class="minus" data-action="decrement"></div>
 									<input type="number" class="quantity" value="0" min="1"
@@ -169,18 +105,58 @@
 					<div class="tt_check_box">
 						<div class="sub_title">
 							<input type="number" min="1" max="100" inputmode="numeric"
-								id="total_amt" value="0" readonly>개 상품의 금액
+								class="total_amt" value="0" readonly>개 상품의 금액
 						</div>
 						<div class="sb_tt_price">0원</div>
 					</div>
 					<div class="buttons">
-						<button type="button" id="submit">확인</button>
+						<button class="submit">확인</button>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+--%>
+				</c:forEach>
+				<div class="add_btn">
+					<div class="add_color">색상추가+</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="summary">
+			<div>
+				<span class="sm">총 수량</span>
+				<span class="total_quantity">1</span>
+			</div>
+			<div>
+				<span class="sm">가격</span>
+				<span class="all_price">29,200</span>
+			</div>
+			<div>
+				<span class="sm">배송비</span>
+				<span class="delivery_charge">3000</span>
+			</div>
+			<div>
+				<span class="sm" id="total">합계</span>
+				<span class="total_price">32,200</span>
+			</div>
+			<div class="border_bar"></div>
+			<div class="math_symbol">
+				<div></div>
+				<div class="sm_plus">+</div>
+				<div class="equal">=</div>
+			</div>
+
+		</div>
+
+		<button class="checkout_btn">
+			<span>주문서 작성</span>
+		</button>
+	</div>
+</div>
+
 
 <!-- 색상 추가 팝업 창-->
 <div class="cl_modal">
@@ -250,9 +226,9 @@
 <script type="text/javascript"
 	src="assets/user/cart/js/color_popup.js?ver=1"></script>
 <script type="text/javascript"
-	src="assets/user/cart/js/size_popup.js?ver=1"></script>
-<script type="text/javascript"
 	src="assets/user/cart/js/size_count.js?ver=1"></script>
+<script type="text/javascript"
+	src="assets/user/cart/js/size_popup.js?ver=1"></script>
 <script type="text/javascript"
 	src="assets/user/cart/js/color_select.js?ver=1"></script>
 

@@ -36,11 +36,9 @@ public class OrderController {
 	@PostMapping("/directPurchase")
 	public String order(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {		
 		// 임시 정보
-		session.setAttribute("member", new MemberDTO(2, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
+		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
 		
 		cartService.getCartDto(session, req, resp);
-		
-		log.info(((List<CartDTO>)req.getAttribute("cart")).get(0).getMem_cstm_path());
 		
 		return "user/order/order";
 	}
@@ -48,7 +46,7 @@ public class OrderController {
 	@PostMapping("/fromCart")
 	public String order2(HttpSession session, HttpServletRequest req, Model model) {
 		List<CartDTO> list = cartService.getCarts(((MemberDTO)session.getAttribute("member")).getMem_num());
-		model.addAttribute("cart", list);
+		model.addAttribute("carts", list);
 		
 		return "user/order/order";
 	}

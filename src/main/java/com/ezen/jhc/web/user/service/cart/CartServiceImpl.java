@@ -99,8 +99,7 @@ public class CartServiceImpl implements CartService {
 					image,
 					1,
 					Integer.parseInt(req.getParameter("p_price"))));
-		req.setAttribute("cart", list);
-		log.info(image);
+		req.setAttribute("carts", list);
 	}
 
 }

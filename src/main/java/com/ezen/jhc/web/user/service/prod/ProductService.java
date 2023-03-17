@@ -6,6 +6,7 @@ import java.util.Map;
 import com.ezen.jhc.web.user.dto.cart.IntoCartDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
+import com.ezen.jhc.web.user.dto.prod.ProdSizeDTO;
 import com.ezen.jhc.web.user.dto.prod.ProductDetailDTO;
 
 public interface ProductService {
@@ -14,7 +15,7 @@ public interface ProductService {
 	
 	public ProdColorDTO getColor(int pc_num);
 	
-	public List<String> getSizes(int p_num);
+	public List<ProdSizeDTO> getSizes(int p_num);
 	
 	public ProdDTO getProd(int p_num);
 	

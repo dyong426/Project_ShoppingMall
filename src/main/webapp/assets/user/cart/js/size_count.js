@@ -1,43 +1,53 @@
 const minusBtns = document.getElementsByClassName('minus');
 const plusBtns = document.getElementsByClassName('plus');
 const quantities = document.getElementsByClassName('quantity');
-const total_amt = document.getElementById('total_amt');
-const price = document.getElementsByClassName('price')[0];
-const totalPrice = document.getElementsByClassName('sb_tt_price')[0];
+const total_amts = document.getElementsByClassName('total_amt');
+const prices = document.getElementsByClassName('price');
+const totalPrices = document.getElementsByClassName('sb_tt_price');
+const closeButtons = document.getElementsByClassName("close-button");
+const val = document.getElementsByClassName('val');
 
-let totalQuantity = 0;
+const submits = document.getElementsByClassName('submit');
+const initQuantities = document.getElementsByClassName('initQuantity');
 
-for (i = 0; i < quantities.length; ++i) {
-    totalQuantity = parseInt(totalQuantity) + parseInt(quantities[i].value);
-}
+// for (i = 0; i < submits.length; ++i) {
+//     let total_amt = total_amts[i];
+//     let price = prices[i];
+//     let totalPrice = totalPrices[i];
+//     let submit = submits[i];
+//     let initQuantity = initQuantities[i];
+//     let closeButton = closeButtons[i];
+
+//     submit.addEventListener('click', (e) => {
+//         initQuantity.lastElementChild.innerText = totalQuantity;
+//         price.innerText = totalPrice.innerText;
+
+//         closeButton.click();
+//     });
+// }
 
 for (i = 0; i < minusBtns.length; ++i) {
-    minusBtns[i].addEventListener('click', (e) => {
-        let quantity = e.target.nextElementSibling.value;
-        if (quantity > 0) {
-            e.target.nextElementSibling.value -= 1;
-            totalQuantity -= 1;
-            total_amt.value = totalQuantity;
-            totalPrice.innerText = (parseInt(totalQuantity) * parseInt(price.innerText)).toLocaleString('ko-KR') + '원';
-        }
-    });
+    let totalQty = parseInt(prices[i].innerText.substring(0, prices[i].innerText.length - 1));
+    let qtyVal = val[i];
+    let price = prices[i];
 
-    plusBtns[i].addEventListener('click', (e) => {
-        let quantity = e.target.previousElementSibling.value;
-        if (quantity < 100) {
-            e.target.previousElementSibling.value = parseInt(quantity) + 1;
-            totalQuantity = parseInt(totalQuantity) + 1;
-            total_amt.value = totalQuantity;
-            totalPrice.innerText = (parseInt(totalQuantity) * parseInt(price.innerText)).toLocaleString('ko-KR') + '원';
+    minusBtns[i].addEventListener('click', (e) => {
+        let quantity = parseInt(e.target.nextElementSibling.innerText);
+        if (quantity > 0) {
+            e.target.nextElementSibling.innerText = quantity - 1;
+            // qtyVal.innerText = totalQty;
+            price.innerText = (parseInt(totalQty) * parseInt(price.dataset.price)).toLocaleString('ko-KR') + '원';
         }
+        updateSummary();
+    });
+    
+    plusBtns[i].addEventListener('click', (e) => {
+        let quantity = parseInt(e.target.previousElementSibling.innerText);
+        if (quantity < 100) {
+            e.target.previousElementSibling.innerText = quantity + 1;
+            // qtyVal.innerText = totalQty;
+            price.innerText = (parseInt(totalQty) * parseInt(price.dataset.price)).toLocaleString('ko-KR') + '원';
+        }
+        updateSummary();
     });
 }
-
-const submit = document.getElementById('submit');
-const initQuantity = document.getElementsByClassName('initQuantity')[0];
-
-submit.addEventListener('click', (e) => {
-  initQuantity.lastElementChild.innerText = totalQuantity;
-  price.innerText = totalPrice.innerText;
-  closeButton.click();
-});

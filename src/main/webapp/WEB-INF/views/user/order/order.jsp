@@ -19,10 +19,18 @@
 <c:set value="${sessionScope.member}" var="member" />
 <c:set value="${sessionScope.memberAddress}" var="memberAddress" />
 
-<div id="mainTitle">주문서 작성</div>
+<div class="basket_top">
+	<span id="my_basket">내 장바구니</span>
+	<div class="basket_process">
+		<span class="other">장바구니</span>
+		<span class="other">&gt;</span>
+		<span >주문서작성</span>
+		<span class="other">&gt;</span>
+		<span class="other">주문완료</span>
+	</div>
+</div>
 
 <div id="outer">
-
 	<div id="leftOuter">
 		<div class="box">
 			<div class="subTitle">주문자 정보</div>
@@ -140,7 +148,7 @@
 			</div>
 			<hr />
 			<br />
-			<c:forEach items="${cart}" var="cart">
+			<c:forEach items="${carts}" var="cart">
 				<div class="orderList">
 					<div class="rowSpan"><img class="cstmImg" src="${cart.mem_cstm_path}" alt="주문 상품 이미지"/></div>
 					<div class="orderProd">

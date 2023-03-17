@@ -27,12 +27,6 @@
 	position: relative;
 }
 
-.basket_top>span {
-	font-family: 'Gowun Dodum', sans-serif;
-	font-size: 35px;
-	font-style: normal;
-}
-
 .basket_top > span {
 	font-family: 'Gowun Dodum', sans-serif;
 	font-size: 35px;
@@ -91,22 +85,22 @@
 	column-gap: 20px;
 }
 
-#printing {
+.prodColor {
 	color: rgb(169, 174, 180);
 }
 
-#printing > span {
+.prodColor > span {
 	color: black;
 }
 
-#img {
+.img {
 	width: 100px;
 	height: 100px;
 	margin-right: 40px;
 	margin: auto;
 }
 
-.print {
+.prodDetail {
 	display: grid;
 	grid-template-rows: 0.5fr 1fr;
 	width: 230px;
@@ -142,11 +136,18 @@
 }
 
 
-.size{
-    width: 7.44px;
-    height: 16.8px;
-    margin-left: 20px;
+.size, .initQuantity{
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 10px;
     color: black;
+}
+
+td {
+	width: 30px;
+	border: #ececec solid 1px;
+	text-align: center;
 }
 
 .price {
@@ -157,21 +158,6 @@
 	margin-left: -10px;
 }
 
-.initQuantity {
-	width: 45.6px;
-	height: 25.6px;
-	margin-top: 2px;
-	background-color: white;
-	border: #ececec solid 1px;
-}
-
-
-.val{
-	justify-content: center;
-	display: flex;
-	font-size: medium;
-	color: black;
-}
 
 .btn_box>button {
 	justify-content: center;
@@ -295,7 +281,7 @@
 	height: 20px;
 }
 
-#total_amt {
+.total_amt {
 	width: 25px;
 	height: auto;
 	text-align: center;

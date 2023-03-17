@@ -96,7 +96,7 @@
 					<b class="subTitle">사이즈</b>
 					<div id="productSizes">
 						<c:forEach items="${sizes}" var="size">
-							<div class="sizeHover">${size}</div>
+							<div class="sizeHover">${size.ps_name}</div>
 						</c:forEach>
 					</div>
 				</div>

@@ -169,3 +169,33 @@ input {
 #ord_request {
 	border: 1px rgb(175, 174, 174) solid;
 }
+
+
+.basket_top {
+	width: 65%;
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 40px;
+	position: relative;
+	margin: 80px;
+	margin-left: 16%;
+}
+
+.basket_top > span {
+	font-family: 'Gowun Dodum', sans-serif;
+	font-size: 35px;
+	font-style: normal;
+}
+
+.basket_process {
+	font-size: 14px;
+	color: #494d4f;
+	font-weight: bold;
+	position: absolute;
+	right: 0;
+	bottom: 0;
+}
+
+.other {
+	color: rgb(169, 174, 180);
+}
