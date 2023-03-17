@@ -1,0 +1,32 @@
+/* 첨부파일 미리보기 */
+#uploadResult_con{
+	display: flex;
+}
+
+.img_con{
+	width: 100px;
+    height: auto;
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+    margin: auto;	
+}
+
+#result_card_con{
+	position: relative;
+}
+
+.imgDeleteBtn_con{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    color: white;
+    font-weight: 900;
+    width: 20px;
+    height: 20px;
+    line-height: 17px;
+    text-align: center;
+    border: none;
+    display: block;
+    cursor: pointer;	
+}

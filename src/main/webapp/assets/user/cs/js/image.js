@@ -96,41 +96,20 @@ function fileCheck(fileName, fileSize){
 /* 이미지 출력 */
 function showUploadImage(uploadResultArr){
 	
-/* 전달받은 데이터 검증 */
-		if(!uploadResultArr || uploadResultArr.length == 0){return}
-		
-		let uploadResult = $("#uploadResult_con");
-		
-		let obj = uploadResultArr[0];
-		
-		let str = "";
-		
-		// 변경 후
-		let fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName;
+	/* 전달받은 데이터 검증 */
+	if(!uploadResultArr || uploadResultArr.length == 0){return}
+	
+	let uploadResult = $("#uploadResult_con");
+	
+	let obj = uploadResultArr[0];
+	
+	let str = "";
+	
+	let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
 
-		str += "<div id='result_card_con'>";
+	str += "<div id='result_card'>";
 		str += "<img class='img_con' src='/display?fileName=" + fileCallPath +"'>";
-		str += "<div class='imgDeleteBtn_con'>x</div>";
-		str += "</div>";		
-		
-   		uploadResult.append(str);  
-   		console.log(str);
+		str += "<div class='imgDeleteBtn'>x</div>";
+		str += "</div>";
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

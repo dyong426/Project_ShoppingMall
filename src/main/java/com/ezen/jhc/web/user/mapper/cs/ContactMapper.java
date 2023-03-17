@@ -15,4 +15,6 @@ public interface ContactMapper {
 	List<ContactDTO> getContactList();
 	
 	List<ContactDTO> getContactById(Integer contact_num);
+	
+	String insert_contact_img(Integer contact_num, String contact_img, String contact_s_img); 
 }

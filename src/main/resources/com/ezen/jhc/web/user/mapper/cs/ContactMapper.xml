@@ -24,4 +24,8 @@
 	<select id="getContactById" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
 		SELECT * FROM contact WHERE contact_num = ${contact_num}
 	</select>
+	
+	<select id="insert_contact_img" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
+		INSERT INTO contact_images  VALUE (${conatct_num}, ${contact_img}, ${contact_s_img})
+	</select>
 </mapper> 

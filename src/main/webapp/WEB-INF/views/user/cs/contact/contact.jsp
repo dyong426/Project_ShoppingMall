@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <jsp:include page="../body/body.jsp" />
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/cs/css/cs.css?after">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/cs/css/image.css?after">
 
 
 <tr>
@@ -51,12 +52,14 @@
 								multiple>
 							<div id="uploadResult_con">
 
-								<!-- 
+								 <!-- 
 								<div id="result_card_con">
 									<div class="imgDeleteBtn_con">x</div>
-									<img src="<%=request.getContextPath()%>/assets/user/cs/img/3.jpg">
+									<img class="img_con" src="<%=request.getContextPath()%>/assets/user/cs/img/기프티콘.png">
 								</div>
-								 -->
+								  -->
+							
+								
 							
 							</div>
 						</div>

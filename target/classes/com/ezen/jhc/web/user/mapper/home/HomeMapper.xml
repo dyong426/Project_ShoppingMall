@@ -12,6 +12,7 @@
 		FROM reviews r, members m WHERE r.mem_num = m.mem_num AND
 		review_image_path IS NOT NULL ORDER BY review_num DESC
 	</select>
+	
 	<select id="get_review"
 		resultType="com.ezen.jhc.web.user.dto.review.ReviewDTO">
 		SELECT
