@@ -1,21 +1,21 @@
 window.onload = function(){
-var modal = document.querySelector(".modal");
-var ec_wr_name = document.querySelector(".ec_wr_name");
-var closeButton = document.querySelector(".close-button");
+	var rv_modal = document.querySelector(".rv_modal");
+	var ec_wr_names = document.querySelectorAll(".ec_wr_name");
+	var rv_closeButton = document.querySelector(".rv_close-button");
 
-//console.log(modal);
-
-function toggleModal() {
-	modal.classList.toggle("show-modal");
-}
-
-function windowOnClick(event) {
-	if (event.target === modal) {
-		toggleModal();
+	function toggleModal() {
+		rv_modal.classList.toggle("show-rv_modal");
 	}
-}
 
-ec_wr_name.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);
+	function windowOnClick(event) {
+		if (event.target === rv_modal) {
+			toggleModal();
+		}
+	}
+
+	ec_wr_names.forEach( (ec_wr_name) => {
+		ec_wr_name.addEventListener('click', toggleModal)
+	});
+	rv_closeButton.addEventListener("click", toggleModal);
+	window.addEventListener("click", windowOnClick);
 }

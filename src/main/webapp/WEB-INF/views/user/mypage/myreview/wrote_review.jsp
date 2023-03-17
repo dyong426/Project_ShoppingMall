@@ -17,7 +17,7 @@
 		<div class="header_tab">
 			<div class="tab_left" type="order_list">
 				<a class="ok_review"
-					href="<%=request.getContextPath()%>/writeable_reviews?mem_num=${member.mem_num}">작성 가능한 리뷰</a>
+					href="<%=request.getContextPath()%>/writeable_reviews?mem_num=${member.mem_num}&page=1">작성 가능한 리뷰</a>
 			</div>
 			<div class="tab_right" type="review_list">내가 쓴 리뷰</div>
 		</div>
@@ -34,7 +34,7 @@
 				</thead>
 
 				<tbody class="wr_list">
-				<c:forEach items="${rv_history}" var="rh">
+				<c:forEach items="${rv_history}" var="rh" begin="${start }" end="${end }">
 					<tr class="wr">
 						<td class="od_number">
 							<p>
@@ -64,6 +64,13 @@
 				</tbody>
 			</table>
 		</div>
+		<div id="page_num_container">
+            			<form id="all_review_page" action="<%=request.getContextPath()%>/writeable_reviews?mem_num=${member.mem_num}&page=${page}" method="get">
+		            		<div id="page_num_box">
+		            		
+		            		</div>
+            			</form>
+            		</div>
 	</div>
 </div>
 
@@ -85,12 +92,8 @@
 					<div class="rv_name">넘나 힙한 츄리닝 [Brown]</div>
 					<div class="rv_price">29,000원</div>
 				</div>
-				<div class="point_clear2">포인트 지급 완료</div>
 			</div>
-			<div class="input_file">
-				<div class="upload_picture"></div>
-				<div class="plus_box">+</div>
-			</div>
+			
 			<div class="rv_check_box">
 				<form class="mb-1" name="myform" id="myform" method="post">
 					<fieldset>
@@ -105,51 +108,43 @@
 					</fieldset>
 				</form>
 			</div>
-			<form action="#post.php" method="POST">
-				<textarea name="message" required="required" spellcheck="false"></textarea>
-				<input type="submit" id="submit" value="수정하기">
-			</form>
+				<div class="text_box">리뷰 내용</div>
+				<div class="input_file">
+				<div class="upload_space"></div>
+				<div class="plus_box" id="uploadResult">
+				</div>
+			</div>
 		</div>
 	</div>
 </div>
 
-<!-- 작성된 리뷰 팝업창 열기 닫기 -->
-<script type="text/javascript">
-	var rv_modal = document.querySelector(".rv_modal");
-	var ec_wr_name = document.querySelector(".ec_wr_name");
-	var rv_closeButton = document.querySelector(".rv_close-button");
 
-	function toggleModal() {
-		rv_modal.classList.toggle("show-rv_modal");
+
+<script>
+	let total = ${rh_count};
+	console.log(total);
+	
+	let page_box = document.getElementById('page_num_box');
+	
+	console.log(total);
+	function createPageBtn(cnt) {
+	    page_box.innerHTML += '<div class="page_num_div"><input class="page_num" type="submit" name="page" value="' + cnt + '"></input></div>';
 	}
-
-	function windowOnClick(event) {
-		if (event.target === rv_modal) {
-			toggleModal();
-		}
+	
+	let total_page = Math.ceil(total/10);
+	
+	console.log(total_page);
+	
+	let cnt = 1;
+	
+	for(let i = 0; i < total_page; ++i) {
+	    createPageBtn(cnt++);
 	}
-
-	ec_wr_name.addEventListener("click", toggleModal);
-	rv_closeButton.addEventListener("click", toggleModal);
-	window.addEventListener("click", windowOnClick);
 </script>
 
-<c:set var="path" value="${pageContext.request.contextPath}" />
-<script type="text/javascript">
-    var path = "${pageContext.request.contextPath }";
- 
-    $(function(){
-        $("#resTb tbody").append($("#resInfoTr").html());
 
 
-    });
-    
-    function resOpenPopup(){
-        var pop = window.open("${path}/list_popup.do?","resPopup","width=1100,height=900, scrollbars=yes, resizable=yes"); 
-        pop.focus();
-    }
-        
-</script>
+
 
 
 <footer>

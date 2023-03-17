@@ -25,7 +25,7 @@ form {
     margin: 0 auto;
     width: 459px;
 }
-input, textarea {
+textarea {
     width: 439px;
     height: 27px;
     background-color: #efefef;
@@ -40,9 +40,12 @@ input, textarea {
         border: 1px solid #97d6eb;
     }
 
-textarea{
+.text_box{
     height: 100px;
-    background-color: #efefef;
+    max-height: auto;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(240, 239, 239);
 }
 #submit{
     width: 127px;
@@ -90,7 +93,6 @@ textarea{
     background-color: white;
     padding: 1rem 1.5rem;
     width: 500px;
-    height: 420px;
 }
 .rv_close-button {
     float: right;
@@ -149,9 +151,10 @@ textarea{
     position: absolute;
 }
 
-textarea {
-    
-    resize: none;
+
+
+.plus_box lable {
+	font-size: 10px;	
 }
 
 /* 별점 css 설정 값 */

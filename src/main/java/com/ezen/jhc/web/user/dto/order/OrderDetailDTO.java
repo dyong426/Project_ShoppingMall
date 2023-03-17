@@ -8,6 +8,7 @@ import com.ezen.jhc.web.user.dto.prod.ProdDetailDTO;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 
 @NoArgsConstructor
 @Data
@@ -73,6 +74,7 @@ public class OrderDetailDTO {
 		
 		return dayTime.format(this.ord_date) + getOrd_num();
 	}
+	
 	
 	public String getStar() {
 		if (review_star == 0) {

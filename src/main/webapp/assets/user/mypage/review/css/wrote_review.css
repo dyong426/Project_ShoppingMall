@@ -177,9 +177,6 @@ a:hover {
   .sentence {
     display: block;
     width: 250px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     margin: auto;
   }
 
@@ -192,4 +189,32 @@ a:hover {
     z-index: 2;
     left: 310px;
     position: absolute;
+  }
+  
+    #page_num_container {
+  	margin-top: 40px;
+  }
+  
+  #page_num_box {
+  	display: flex;
+  	margin: auto; 
+  	justify-content: center;
+  }
+  
+  #all_review_page {
+  	margin: auto;
+  }
+  
+  .page_num_div {
+  	
+  	margin-left: 10px;
+  	
+  }
+  
+  .page_num {
+  	margin-right: 5px;
+  	border: none;
+  	background-color: rgb(248, 249, 250);
+  	
+  	border-bottom: 1px gray solid;
   }

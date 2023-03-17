@@ -10,6 +10,7 @@
   <!-- main -->
   <div class="rv_container">
     <div class="rv_body">
+    
         <div class="header_title">
             <span class="my_review">나의 리뷰</span>
         </div>
@@ -19,7 +20,7 @@
         <div class="header_tab">
             <div class="tab_left" type="order_list">작성 가능한 리뷰</div>
             <div class="tab_right" type="review_list">
-                <a class="writed_review" href="<%=request.getContextPath() %>/wrote_review?mem_num=${member.mem_num}">내가 쓴 리뷰</a>
+                <a class="writed_review" href="<%=request.getContextPath() %>/wrote_review?mem_num=${member.mem_num}&page=1">내가 쓴 리뷰</a>
             </div>
         </div>
         <div class="header_my_review">
@@ -47,7 +48,7 @@
                 </thead>
 				
                 <tbody class="wr_list">
-                <c:forEach items="${pd_info}" var="pi"> 
+               <c:forEach items="${pd_info}" var="pi" begin="${start }" end="${end }"> 
                     <tr class="wr">
                         <td class="od_number">
                             
@@ -62,46 +63,61 @@
                                 <a href="" class="ec_wr_name">${pi.p_name}</a>
                             </strong>
                         </td>
-                        <td>
+                        <td> 
                           <span>${pi.pc_name}</span>
                         </td>
                         <td class="wr_amount">
-                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?p_num=${pi.p_num}&pc_num=${pi.pc_num}&ps_num=${pi.ps_num}'">리뷰 작성 하기</button>
+                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?mem_num=${member.mem_num}&p_num=${pi.p_num}&pc_num=${pi.pc_num}&ps_num=${pi.ps_num}'">리뷰 작성 하기</button>
                         </td>
                     </tr>
-                       ${pi.pc_num } ${pi.ps_num }
                     </c:forEach> 
+                     
                 </tbody>
-                
+               
             </table>
             
+            		
+            
         </div>
+        
+        <div id="page_num_container">
+            			<form id="all_review_page" action="<%=request.getContextPath()%>/writeable_reviews?mem_num=${member.mem_num}&page=${page}" method="get">
+		            		<div id="page_num_box">
+		            		
+		            		</div>
+            			</form>
+            		</div>
     </div>
+    
+    <script>
+	    let total = ${pd_count};
+		console.log(total);
+		
+		let page_box = document.getElementById('page_num_box');
+	
+	    console.log(total);
+	    function createPageBtn(cnt) {
+	        page_box.innerHTML += '<div class="page_num_div"><input class="page_num" type="submit" name="page" value="' + cnt + '"></input></div>';
+	    }
+	
+	    let total_page = Math.ceil(total/10);
+	
+	    console.log(total_page);
+	
+	    let cnt = 1;
+	
+	    for(let i = 0; i < total_page; ++i) {
+	        createPageBtn(cnt++);
+	    }
+    </script>
+    
+    
      <footer>
    <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
   </div>
 
 
-	<script>
-		var rv_modal = document.querySelector(".rv_modal");
-		var ec_wr_name = document.querySelector(".ec_wr_name");
-		var rv_closeButton = document.querySelector(".rv_close-button");
-		
-		
-		function toggleModal() {
-			rv_modal.classList.toggle("show-rv_modal");
-		}
-		
-		function windowOnClick(event) {
-			if (event.target === rv_modal) {
-				toggleModal();
-			}
-		}
-		
-		ec_wr_name.addEventListener("click", toggleModal);
-		rv_closeButton.addEventListener("click", toggleModal);
-		window.addEventListener("click", windowOnClick);
-	</script>
+	
 
 
 

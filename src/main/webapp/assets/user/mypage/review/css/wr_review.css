@@ -31,8 +31,6 @@ textarea:focus {
 
 .wr_review{
     font-size: 30px;
-    width: 992px;
-    height: 43.2px;
     margin: 86px 0px 40px;
     font-weight: 900;
   }
@@ -168,10 +166,16 @@ textarea:focus {
 
 .registration {
     justify-self: right;
+    width: 99.35px;
+    height: 40px;
     right: 0px;
     color: white;
     line-height: 10px;
     background-color: black;
+}
+
+.review_textarea{
+	resize: none;
 }
 
 .warning_msg {
