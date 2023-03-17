@@ -25,4 +25,16 @@ public class AdminContactServiceImpl implements AdminContactService{
 		
 		return csMapper.getContactContent(contact_num);
 	}
+	
+	@Override
+	public Integer updateReply(Integer contact_num, String admin_reply) {
+		
+		return csMapper.updateReply(contact_num, admin_reply);
+	}
+	
+	@Override
+	public Integer deleteReply(Integer contact_num) {
+		
+		return csMapper.deleteReply(contact_num);
+	}
 }

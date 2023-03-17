@@ -28,7 +28,8 @@
 					<div class="card-body">
 					
 						<table class="table">
-							
+						<form action="/jhc/admin/contact/content/reply/delete" method="GET" id="reply_delete_form">
+						<input type="hidden" value="${content.contact_num}" form="reply_delete_form">
 							<tbody>
 								<tr class="table-secondary">
 									<td style="width: 80%;">${content.contact_title}</td>
@@ -59,8 +60,8 @@
 											<th colspan=2 class="badge text-bg-primary">답변 작성</th>
 										</tr>
 										<tr>
-											<td class="dflex flex-row">
-												<textarea rows="5" cols="220"></textarea>
+											<td id="admin_reply_form">
+												<textarea rows="5" cols="220" id="admin_reply_input"></textarea>
 											</td>
 											<td>
 												<input type="submit" value="등록" class="button text-bg-light" style="height: 120px;"/>
@@ -71,16 +72,24 @@
 										<tr>
 											<th colspan=2 class="badge text-bg-primary">답변</th>
 										</tr>
-										<tr class="table-secondary">
+										<tr class="table-light">
 											<td colspan=2>관리자</td>
 										</tr>
 										<tr>
-											<td colspan=2>${content.admin_reply}</td>
+											<td id="admin_reply_reg_form">
+												<textarea class="form-control"  style="height: 120px;" id="admin_reply_reg" readonly>${content.admin_reply}</textarea>
+											</td>
+											<td class="d-flex flex-row" id="reply_button_form">
+												<button type="button" class="form-control" style="width: 50px;"><i class="fa-solid fa-pen" onclick="modifyBtn(${content.contact_num})"></i></button>
+												<button type="submit" class="form-control" form="reply_delete_form" style="width: 50px;"><i class="fa-solid fa-trash-can"></i></button>
+												
+											</td>
 										</tr>
 									
 									</c:otherwise>
 								</c:choose>								
 							</tbody>
+						</form>
 						</table>
 					
 					</div>

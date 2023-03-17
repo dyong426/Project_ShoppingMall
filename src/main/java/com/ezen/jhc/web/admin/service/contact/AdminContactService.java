@@ -12,4 +12,8 @@ public interface AdminContactService {
 	public List<ContactDTO> getContactContentList();
 	
 	public ContactDTO getContactContent(Integer contact_num);
+	
+	public Integer updateReply(Integer contact_num, String admin_reply);
+	
+	public Integer deleteReply(Integer contact_num);
 }

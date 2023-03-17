@@ -49,4 +49,14 @@ public class AdminContactController {
 		
 		return "admin/contact/admin_contact_content";
 	}
+	
+	@GetMapping("/contact/content/reply/delete")
+	public String deleteContent(Integer contact_num) {
+		log.info(contact_num);
+		int result = csService.deleteReply(contact_num);
+		
+		log.info(result);
+		
+		return "redirect:/admin/contact/content?contact_num=" + contact_num;
+	}
 }

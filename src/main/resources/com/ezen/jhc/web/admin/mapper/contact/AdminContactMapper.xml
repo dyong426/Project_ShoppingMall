@@ -39,5 +39,13 @@
 			INNER JOIN members m ON m.mem_num = cs.mem_num
 		WHERE contact_num = #{contact_num}
 	</select>
+	
+	<update id="updateReply">
+		UPDATE contact SET admin_reply = #{admin_reply} WHERE contact_num = ${contact_num}
+	</update>
+	
+	<delete id="deleteReply">
+		DELETE FROM contact WHERE contact_num = #{contact_num}
+	</delete>
 
 </mapper>
