@@ -84,6 +84,7 @@ h1 {
 }
 
 select {
+	height: 32.5px;
 	width: 150px;
 	padding: 3px;
 	font-size: 15px;
@@ -114,6 +115,7 @@ select {
 	text-align: center;
 	margin: auto;
 	margin-top:320px;
+	padding-bottom: 50px;
 	
 }
 

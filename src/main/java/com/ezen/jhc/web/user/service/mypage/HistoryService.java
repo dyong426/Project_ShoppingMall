@@ -23,9 +23,11 @@ public interface HistoryService {
 	List<OrderDTO> getOrderHistorySelectedAll(Integer mem_num, String ord_status, String start_date, String end_date);
 	
 	// 상태만 선택 된 경우
-//	List<OrderDTO> getOrderHistoryStatusSelected(Integer mem_num, String ord_status, String start_date, String end_date);
+	List<OrderDTO> getOrderHistoryStatusSelected(Integer mem_num, String ord_status);
 	
 	// 날짜만 선택 된 경우
+	List<OrderDTO> getOrderHistoryDateSelected(Integer mem_num, String start_date, String end_date);
+	
 	OrderDTO getAll(Integer mem_num, Integer ord_num);
 	
 	// 상세 주문 내역

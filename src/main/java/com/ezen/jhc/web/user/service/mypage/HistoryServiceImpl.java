@@ -1,8 +1,9 @@
 package com.ezen.jhc.web.user.service.mypage;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,7 +27,7 @@ public class HistoryServiceImpl implements HistoryService {
 	
 	@Override
 	public List<OrderDTO> getOrderHistorySelectedAll(Integer mem_num, String ord_status, String start_date, String end_date) {
-		return orderMapper.selectOrderHistorySelectedAll(mem_num, ord_status, start_date, end_date);
+		return orderMapper.selectOrderHistorySelected(mem_num, ord_status, start_date, end_date);
 	}
 
 	@Override
@@ -47,5 +48,29 @@ public class HistoryServiceImpl implements HistoryService {
 		
 	}
 
+	//상태만 선택 된 경우
+	@Override
+	public List<OrderDTO> getOrderHistoryStatusSelected(Integer mem_num, String ord_status) {
+		
+		return orderMapper.selectOrderHistoryStatusSelected(mem_num, ord_status);
+	}
+
+	//날짜만 선택 된 경우
+	@Override
+	public List<OrderDTO> getOrderHistoryDateSelected(Integer mem_num, String start_date, String end_date) {
+	
+			
+		SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
+		if (start_date == "") {
+		    start_date = "20/01/01";
+		} else if (end_date == "") {
+		    end_date = sdf.format(new Date());
+		}
+		return orderMapper.selectOrderHistoryDateSelected(mem_num, start_date, end_date);
+	}
+
+	
+	
+	
 	
 }

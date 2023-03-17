@@ -2,11 +2,10 @@ package com.ezen.jhc.web.user.dto.order;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Random;
+
 
 import org.springframework.stereotype.Component;
 
-import com.ezen.jhc.common.util.OrderNumGenerator;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

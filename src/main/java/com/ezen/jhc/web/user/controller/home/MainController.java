@@ -38,7 +38,6 @@ public class MainController {
 	@RequestMapping(value = "/main")
 	public String main(Model model, HttpServletRequest request, HttpSession session) {
 
-
 		return "user/home/main";
 	}
 
