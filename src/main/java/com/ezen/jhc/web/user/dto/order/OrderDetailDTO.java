@@ -60,9 +60,18 @@ public class OrderDetailDTO {
 	
 	String new_order_num;
 	String new_order_date;
+	String rv_write_date;
 	String star;
 	
 	public String getNew_order_date() {
+		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
+		
+		String formatTime = dayTime.format(this.review_regdate);
+		
+		return formatTime;
+	}
+	
+	public String getRv_write_date() {
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		
 		String formatTime = dayTime.format(this.ord_date);

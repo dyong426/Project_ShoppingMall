@@ -16,9 +16,6 @@
             <div class="header_title2">
                 <span class="wr_review">리뷰 작성하기</span>
             </div>
-            <!-- <input type="hidden" name="p_num" id="rate" value="${pd_info.p_num}"/>
-            <input type="hidden" name="pc_num" id="rate" value="${pd_info.pc_num}"/>
-            <input type="hidden" name="ps_num" id="rate" value="${pd_info.ps_num}"/>  -->
 	            <div class="pd_info">
 	                <div class="pd_image">
 	                    <img style="width: 100px; height: 100px;" src="<%=request.getContextPath() %>/${review_pd[0].origin_img_path} " alt="">
@@ -29,11 +26,15 @@
 	                    <div class="ps_size">${review_pd[0].ps_name} size</div>
 	                </div>
 	            </div>
-	             <form onsubmit="return doCheck();" id="rv_check_form" action="<%=request.getContextPath() %>/add_review?mem_num=${member.mem_num}&page=1" method="POST"> 
 	            <c:set var="member" value="${sessionScope.member }"/>
-	            <input type="hidden" name="mem_num" id="rate" value="${member.mem_num}"/>
-	            <input type="hidden" name="p_num" id="rate" value="${pd_info.p_num}"/>
-	            <input type="hidden" name="od_num" id="rate" value="${pd_info.od_num}"/>
+	            
+	             <form action="/jhc/review/add?mem_num=${member.mem_num}&page=1" onsubmit="return doCheck();" id="rv_check_form"  method="POST">
+	             
+	              	         
+	            <input type="hidden" name="mem_num" id="mem_num" value="${member.mem_num}"/>
+	          <input type="hidden" name="p_num" value="${param.p_num}" />
+  				<input type="hidden" name="od_num" value="${param.od_num}" />
+	            
 	            <div class="check_box">
 	            	<div class="mb-1" name="myform" id="myform" >
 	            	<div class="warning_msg">별점을 선택해 주세요.</div>
@@ -61,7 +62,7 @@
 					    <label for="file">파일 찾기</label> 
 					    <input type="file" name=review_image_path id="file">
 						    <div class="button_box" style="float:right">
-		                    	<input type="submit" value="리뷰 등록" class="registration" />
+		                    	<input type="submit" value="리뷰 등록" class="registration" id="save"/>
 		                	</div>
 					</div>
 	                <div id="uploadResult">
@@ -71,35 +72,7 @@
         </div>
   </div>
   
- <script>
- function doCheck = () => {
-	    let rv_star = document.getElementsByClassName("review_star");
-	    let rv_content = document.getElementById("review_content");
-	    let rv_form = document.getElementById("rv_check_form");
 
-	    if (rv_form.rv_star.value == "") {
-	        rv_form.rv_star.focus();
-	        alert("별점을 선택해주세요");
-	        
-	        return false;
-	    }
-
-	    if (rv_form.rv_content.value == "") {
-	        rv_form.rv_content.focus();
-	        alert("내용을 입력해주세요");
-	        if (rv_form.rv_content.value.length > 5) {
-	            alert("5자 이상 적어주세요");
-	        } else if (rv_form.rv_content.value.length < 100) {
-	        	alert("100자 이하로 적어주세요");
-	        }
-	        
-
-	        return false;
-		}
-		return true;
-	}
-
- </script>
   
 <!-- 첨부파일 이미지 이름 자르기 -->
 <script>

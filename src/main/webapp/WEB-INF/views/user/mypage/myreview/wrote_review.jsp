@@ -17,7 +17,7 @@
 		<div class="header_tab">
 			<div class="tab_left" type="order_list">
 				<a class="ok_review"
-					href="<%=request.getContextPath()%>/writeable_reviews?mem_num=${member.mem_num}&page=1">작성 가능한 리뷰</a>
+					href="<%=request.getContextPath()%>/review/write?mem_num=${member.mem_num}&page=1">작성 가능한 리뷰</a>
 			</div>
 			<div class="tab_right" type="review_list">내가 쓴 리뷰</div>
 		</div>
@@ -35,11 +35,14 @@
 
 				<tbody class="wr_list">
 				<c:forEach items="${rv_history}" var="rh" begin="${start }" end="${end }">
+				
+				
 					<tr class="wr" id="${rh.review_num}">
+					
 						<td class="od_number">
 							<p>
-							${rh.new_order_date} <br>
-								<a href="<%=request.getContextPath()%>/details"
+							${rh.rv_write_date} <br>
+								<a href="<%=request.getContextPath()%>/review/list"
 									class="order_number">[${rh.new_order_num}]</a>
 							</p>
 						</td>
@@ -72,7 +75,8 @@
 	</div>
 </div>
 
-<!-- 팝업 창 -->
+<!-- 팝업 창 
+<c:set var="review_info" value="${rh.review_num}"  />
 <div class="rv_main">
 	<div class="rv_modal">
 		<div class="rv_modal-content">
@@ -86,8 +90,9 @@
 						src="<%=request.getContextPath()%>/assets/common/cstm_img/products/clothes/젤란 라이트 후드집업.png"
 						alt="" style="width: 70px; height: 70px;">
 				</div>
+				<c:set var="defaultValue" value="default value" />
 				<div class="rv_">
-					<div class="rv_name">${rv_history[0].p_name} [Brown] [L size]</div>
+					<div class="rv_name">${empty click_pname ? defaultValue : review_info} [Brown] [L size]</div>
 					<div class="rv_price">29,000원</div>
 				</div>
 			</div>
@@ -115,11 +120,11 @@
 		</div>
 	</div>
 </div>
+-->
 
-
-
+<!-- 페이징 -->
 <script>
-	let total = ${pd_count};
+	let total = ${rh_count};
 	
 	let page_box = document.getElementById('page_num_box');
 	
@@ -137,7 +142,7 @@
 	}
 	
 	function goToPage(page) {
-	    location.href = "/jhc/writeable_reviews?mem_num=${member.mem_num}&page=" + page;
+	    location.href = "/jhc/review/list?mem_num=${member.mem_num}&page=" + page;
 	}
 </script>
 

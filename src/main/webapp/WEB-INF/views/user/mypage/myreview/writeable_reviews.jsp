@@ -20,7 +20,7 @@
         <div class="header_tab">
             <div class="tab_left" type="order_list">작성 가능한 리뷰</div>
             <div class="tab_right" type="review_list">
-                <a class="writed_review" href="<%=request.getContextPath() %>/wrote_review?mem_num=${member.mem_num}&page=1">내가 쓴 리뷰</a>
+                <a class="writed_review" href="<%=request.getContextPath() %>/review/list?mem_num=${member.mem_num}&page=1">내가 쓴 리뷰</a>
             </div>
         </div>
         <div class="header_my_review">
@@ -52,11 +52,11 @@
                     <tr class="wr">
                         <td class="od_number">
                             
-                            <p><a href="<%=request.getContextPath() %>/details" class="order_number">[${pi.new_order_num}]</a></p>
+                            <p><a href="<%=request.getContextPath() %>/review/write" class="order_number">[${pi.new_order_num}]</a></p>
                         </td >
                         <td class="wr_img">
                             <a href=""><!-- 여기 클릭하면 판매 페이지로 이동 --></a>
-                            <img style="width: 50px; height: 50px;" src="${pi.origin_img_path}" alt="상품 사진">
+                            <img style="width: 50px; height: 50px;" src="<%=request.getContextPath() %>/${pi.origin_img_path}" alt="상품 사진">
                         </td>
                         <td class="wr_check">
                             <strong class="wr_name">
@@ -67,7 +67,7 @@
                           <span>${pi.pc_name}</span>
                         </td>
                         <td class="wr_amount">
-                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?mem_num=${member.mem_num}&p_num=${pi.p_num}&pc_num=${pi.pc_num}&ps_num=${pi.ps_num}&od_num=${pi.od_num}'">리뷰 작성 하기</button>
+                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/review/check?mem_num=${member.mem_num}&p_num=${pi.p_num}&pc_num=${pi.pc_num}&ps_num=${pi.ps_num}&od_num=${pi.od_num}'">리뷰 작성 하기</button>
                         </td>
                     </tr>
                     </c:forEach> 
@@ -86,7 +86,9 @@
 		            		</div>
             		</div>
     </div>
-    
+
+
+<!-- 페이징 -->    
     <script>
     
 	    let total = ${pd_count};
@@ -107,7 +109,7 @@
 	    }
 	    
 	    function goToPage(page) {
-	        location.href = "/jhc/writeable_reviews?mem_num=${member.mem_num}&page=" + page;
+	        location.href = "/jhc/review/write?mem_num=${member.mem_num}&page=" + page;
 	    }
     </script>
     
