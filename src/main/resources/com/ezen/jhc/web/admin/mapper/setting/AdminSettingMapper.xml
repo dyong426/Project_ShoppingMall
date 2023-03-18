@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.admin.mapper.setting.AdminSettingMapper">
+
+	<insert id="regMainCtgr">
+		<selectKey resultType="int" keyProperty="m_ctgr_num" order="BEFORE">
+			SELECT mctgr_seq.nextval FROM DUAL
+		</selectKey>
+		
+		INSERT INTO main_ctgr VALUES(#{m_ctgr_num},#{m_ctgr_name}, #{m_ctgr_icon_path}, #{m_ctgr_color_code})
+		
+	</insert>
+	
+	<update id="modifyMainCtgr">
+		UPDATE 
+			main_ctgr 
+		SET 
+			m_ctgr_name=#{m_ctgr_name},
+			m_ctgr_color_code=#{m_ctgr_color_code},
+			m_ctgr_icon_path=#{m_ctgr_icon_path}
+		WHERE
+			m_ctgr_num=#{m_ctgr_num}
+	</update>
+	
+	<delete id="deleteMainCtgr">
+		DELETE FROM
+			main_ctgr
+		WHERE
+			m_ctgr_num=#{m_ctgr_num}
+	</delete>
+	
+	<insert id="regSubCtgr">
+		<selectKey resultType="int" keyProperty="s_ctgr_num" order="BEFORE">
+			SELECT sctgr_seq.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO sub_ctgr VALUES(#{s_ctgr_num},#{s_ctgr_name},#{m_ctgr_num})
+	</insert>
+	
+	<update id="modifySubCtgr">
+		UPDATE 
+			sub_ctgr
+		SET
+			s_ctgr_name = #{s_ctgr_name},
+			m_ctgr_num = #{m_ctgr_num}
+		WHERE
+			s_ctgr_num = #{s_ctgr_num}
+	</update>
+	
+	<delete id="deleteSubCtgr">
+		DELETE FROM
+			sub_ctgr
+		WHERE
+			s_ctgr_num = #{s_ctgr_num}
+	</delete>
+	
+	<select id="getBanners" resultType="com.ezen.jhc.web.admin.dto.setting.BannerDTO">
+		SELECT * FROM banner
+	</select>
+	
+	<insert id="regBanner">
+		<selectKey resultType="int" keyProperty="banner_num" order="BEFORE">
+			SELECT bn_seq.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO banner VALUES(#{banner_num}, #{banner_name}, #{banner_img_path})
+	</insert>
+	
+	<update id="modifyBanner">
+		UPDATE 
+			banner
+		SET
+			banner_name=#{banner_name},
+			banner_img_path=#{banner_img_path}
+		WHERE
+			banner_num=#{banner_num}
+	</update>
+	
+	<delete id="deleteBanner">
+		DELETE FROM
+			banner
+		WHERE
+			banner_num=#{banner_num}
+	</delete>
+</mapper>

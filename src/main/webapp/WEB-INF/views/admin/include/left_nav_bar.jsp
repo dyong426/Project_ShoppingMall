@@ -12,6 +12,6 @@
 		<li><a href="/jhc/admin/sales">매출관리</a></li>
 		<li><a href="/jhc/admin/contact">게시판관리</a></li>
 		<li><a href="/jhc/admin/member">회원관리</a></li>
-		<li><a href="#">설정</a></li>
+		<li><a href="/jhc/admin/setting/mctgr">설정</a></li>
 	</ul>
 </div>

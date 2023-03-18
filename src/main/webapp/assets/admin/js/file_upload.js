@@ -267,3 +267,240 @@ function deleteColorImgFile(event) {
     });
     console.log("삭제완료");
 }
+
+function inputMctgrImg(event){
+    console.log(event.target);
+    console.log('카테고리 아이콘 업로드');
+    // FormData.append(key, value)
+    var formData = new FormData();
+
+    var fileInput = document.getElementsByName('uploadCtgrIcon');
+    // $('input[name="uploadCtgrIcon"]');
+
+    console.log(fileInput);
+    var fileList = fileInput[0].files;
+    console.log(fileInput[0].files);
+    
+    var fileObj = fileList[0];
+    console.log(fileObj);
+    console.log(fileObj.name);
+    console.log(fileObj.size);
+    console.log(fileObj.type);
+
+    if (!fileCheck(fileObj.name, fileObj.size)) {
+        return false;
+    }
+
+    for (var i = 0; i < fileList.length; i++) {
+        formData.append("uploadFile", fileList[i]);
+    }
+
+    $.ajax({
+        url: '/jhc/admin/uploadAjaxAction',
+        processData : false,
+        contentType : false,
+        data : formData,
+        type : 'POST',
+        dataType : 'json',
+        success: function(result) {
+        	console.log(result);
+            showUploadCtgrImage(result);
+        },
+        error : function(result) {
+        	alert('이미지 파일이 아닙니다.');
+        } 
+    });
+}
+
+// 업로드 카테고리 아이콘 출력
+function showUploadCtgrImage(uploadResultList){
+	
+	console.log("showupload ctgr");
+
+    // 전달 받은 데이터 검증
+    if (!uploadResultList || uploadResultList.length == 0) return;
+
+    // var uploadResult = document.getElementById('ctgr-upload-icon');
+    var uploadResult = $("#ctgr-upload-icon");
+    
+    console.log(uploadResult);
+
+	uploadResult.empty();
+
+    var obj = uploadResultList[0];
+
+    console.log(obj);
+    
+    var fileCallPath = encodeURIComponent(obj.uploadPath + '/s_' + obj.uuid + '_' + obj.fileName);
+    var objFileName = obj.fileName;
+    
+    console.log(objFileName);
+    console.log(fileCallPath);
+    // var str = '';
+
+    // str += `<div id="${obj.fileName}-div" class="upload-img">`;
+    // str += '<img src="/jhc/display/image?fileName=' + fileCallPath +'">';
+    // str += `<button type="button" id="${obj.fileName}-btn" class="upload-img-delete-btn btn btn-minus fa-solid fa-circle-minus btn-danger" data-file="` + fileCallPath + '" onclick="deleteFile(event)"></button>'
+    // str += '</div>';
+
+    var showCtgrImgHtml = showCtgrImg(obj, fileCallPath);
+
+    uploadResult.html(showCtgrImgHtml); 
+    var regIconPath = $('#regIconPath');
+    regIconPath.val(fileCallPath);
+    console.log(regIconPath.val());
+}
+
+function showCtgrImg(obj, fileCallPath) {
+
+    var str = '';
+    console.log(obj);
+    console.log(fileCallPath);
+
+    str += `<div id="${obj.fileName}-div" data-file="${fileCallPath}" class="upload-ctgr-img">`;
+    str += `<img src="/jhc/display/image?fileName=${fileCallPath}" id="${obj.fileName}">`;
+    str += `<input type="hidden" name="m_ctgr_icon_uploadpath" value="${fileCallPath}${obj.fileName}">`;
+    str += `<input type="hidden" name="m_ctgr_icon_uuid" value="${obj.uuid}">`;
+    str += '</div>';
+
+    console.log(str);
+    return str;
+}
+
+// 업로드 카테고리 이미지 삭제 메서드
+function deleteCtgrImgFile(event) {
+    console.log("삭제실행");
+    var targetName = event.target;
+
+    var uploadTargetId = targetName.name.replace(".pc_img_filename", "-uploadImg");
+
+    var uploadTarget = document.getElementById(uploadTargetId);
+
+    if (uploadTarget.children.length == 0) return;
+    console.log(targetName);
+    var uploadTargetDataId = event.target.value;
+    console.log(uploadTargetDataId);
+    console.log(uploadTarget.children[0]);
+    var targetFile = uploadTarget.children[0].dataset['file'];
+    console.log(targetFile);
+
+    $.ajax({
+        url : '/jhc/deleteFile',
+        data : {fileName : targetFile},
+        dataType : 'text',
+        type : 'POST',
+        success : function(result) {
+                console.log('삭제');
+                uploadTarget.children[0].remove();
+        },
+        error : function(result) {
+                console.log(result);
+
+                alert('파일을 삭하제지 못하였습니다.');
+        }
+    });
+    console.log("삭제완료");
+}
+
+
+function modifyMctgrImg(inputId){
+    console.log(inputId);
+    var modifyInput = inputId;
+    console.log('카테고리 아이콘 업로드');
+    // FormData.append(key, value)
+    var formData = new FormData();
+
+    var fileInput = $('#'+ modifyInput);
+    // $('input[name="uploadCtgrIcon"]');
+
+    console.log(fileInput);
+    var fileList = fileInput[0].files;
+    console.log(fileList);
+    
+    var fileObj = fileList[0];
+    console.log(fileObj);
+    console.log(fileObj.name);
+    console.log(fileObj.size);
+    console.log(fileObj.type);
+
+    if (!fileCheck(fileObj.name, fileObj.size)) {
+        return false;
+    }
+
+    for (var i = 0; i < fileList.length; i++) {
+        formData.append("uploadFile", fileList[i]);
+    }
+
+    $.ajax({
+        url: '/jhc/admin/uploadAjaxAction',
+        processData : false,
+        contentType : false,
+        data : formData,
+        type : 'POST',
+        dataType : 'json',
+        success: function(result) {
+        	console.log(result);
+            showUploadModifyCtgrImage(inputId,result);
+        },
+        error : function(result) {
+        	alert('이미지 파일이 아닙니다.');
+        } 
+    });
+}
+
+// 업로드 카테고리 아이콘 출력
+function showUploadModifyCtgrImage(inputId,uploadResultList){
+	
+	console.log("showupload modifyCtgr");
+
+    // 전달 받은 데이터 검증
+    if (!uploadResultList || uploadResultList.length == 0) return;
+
+    // var uploadResult = document.getElementById('ctgr-upload-icon');
+    var uploadDiv = inputId.replace("-upload-img","-upload-icon");
+    var modifyIconPath = inputId.replace("-upload-img","-IconPath");
+    var uploadResult = $("#"+uploadDiv);
+    
+    console.log(uploadResult);
+
+	uploadResult.empty();
+
+    var obj = uploadResultList[0];
+
+    console.log(obj);
+    
+    var fileCallPath = encodeURIComponent(obj.uploadPath + '/s_' + obj.uuid + '_' + obj.fileName);
+    var objFileName = obj.fileName;
+    
+    console.log(objFileName);
+    console.log(fileCallPath);
+    // var str = '';
+
+    // str += `<div id="${obj.fileName}-div" class="upload-img">`;
+    // str += '<img src="/jhc/display/image?fileName=' + fileCallPath +'">';
+    // str += `<button type="button" id="${obj.fileName}-btn" class="upload-img-delete-btn btn btn-minus fa-solid fa-circle-minus btn-danger" data-file="` + fileCallPath + '" onclick="deleteFile(event)"></button>'
+    // str += '</div>';
+
+    var showCtgrImgHtml = showModifyCtgrImg(obj, fileCallPath);
+
+    uploadResult.html(showCtgrImgHtml); 
+    var modifyIcon = $('#' + modifyIconPath);
+    modifyIcon.val(fileCallPath);
+    console.log( modifyIcon.val());
+}
+
+function showModifyCtgrImg(obj, fileCallPath) {
+
+    var str = '';
+    console.log(obj);
+    console.log(fileCallPath);
+
+    str += `<div id="${obj.fileName}-div" data-file="${fileCallPath}" class="upload-ctgr-img">`;
+    str += `<img src="/jhc/display/image?fileName=${fileCallPath}" id="${obj.fileName}">`;
+    str += `<input type="hidden" name="m_ctgr_icon_uploadpath" value="${fileCallPath}${obj.fileName}">`;
+    str += `<input type="hidden" name="m_ctgr_icon_uuid" value="${obj.uuid}">`;
+    str += '</div>';
+
+    console.log(str);
+    return str;
+}

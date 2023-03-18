@@ -20,6 +20,7 @@
 	rel="stylesheet"
 	integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
 	crossorigin="anonymous">
+<script src="/jhc/assets/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 <!-- 서머노트 -->
 <script src="/jhc/assets/admin/summernote/summernote-lite.js"></script>
@@ -36,12 +37,13 @@
 
 	
 <link rel="stylesheet" href="/jhc/assets/admin/css/common.css">
-<script src="<%=request.getContextPath()%>/assets/admin/js/prod_view.js"></script>
-<script src="<%=request.getContextPath()%>/assets/admin/js/prod_reg.js"></script>
-<script src="<%=request.getContextPath()%>/assets/admin/js/file_upload.js"></script>
-<script src="<%=request.getContextPath()%>/assets/admin/js/order_view.js"></script>
-<script src="<%=request.getContextPath()%>/assets/admin/js/sales.js"></script>
-<script src="<%=request.getContextPath()%>/assets/admin/js/member.js"></script>
-<script src="<%=request.getContextPath()%>/assets/admin/js/contact.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/prod_view.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/prod_reg.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/file_upload.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/order_view.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/sales.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/member.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/contact.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/setting.js"></script>
 
 </head>

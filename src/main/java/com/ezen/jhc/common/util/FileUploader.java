@@ -3,11 +3,16 @@ package com.ezen.jhc.common.util;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
 public class FileUploader {
+	
+	static String uploadFolder = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\";
 	
 	/**
 	 * 파일명 변경하여 업로드
@@ -153,5 +158,34 @@ public class FileUploader {
 				}
 			}
 		}
+	}
+	
+	public static boolean deleteImg(String fileName) {
+		
+		File file = null;
+		
+		try {
+
+			file = new File(uploadFolder + URLDecoder.decode(fileName, "UTF-8"));
+			
+			// 원본 파일 삭제
+			File originFile = new File(file.getAbsolutePath().replace("s_", ""));
+			File thumbnailFile = new File(file.getAbsolutePath());
+			File lgImg = new File(file.getAbsolutePath().replace("s_", "lg_"));
+			File mdImg = new File(file.getAbsolutePath().replace("s_", "md_"));
+			File smImg = new File(file.getAbsolutePath().replace("s_", "sm_"));
+			
+			originFile.delete();
+			thumbnailFile.delete();
+			lgImg.delete();
+			mdImg.delete();
+			smImg.delete();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+		}
+		
+		return true;
 	}
 }

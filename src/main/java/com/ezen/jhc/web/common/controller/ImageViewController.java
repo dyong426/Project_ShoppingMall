@@ -26,7 +26,7 @@ import lombok.extern.log4j.Log4j2;
 @Controller
 public class ImageViewController {
 	
-	
+	static String uploadFolder = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\";
 	/**
 	 * 
 	 * @param fileName
@@ -37,7 +37,7 @@ public class ImageViewController {
 		
 		log.info("getImage()---" + fileName);
 		
-		File file = new File("C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\prod\\" + fileName);
+		File file = new File(uploadFolder + fileName);
 		
 		ResponseEntity<byte[]> result = null;
 		
@@ -52,6 +52,7 @@ public class ImageViewController {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		log.info(file);
 		
 		return result;
 	}
@@ -66,7 +67,7 @@ public class ImageViewController {
 		try {
 			
 			// 썸네일 파일 삭제
-			file = new File("C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\prod\\" + URLDecoder.decode(fileName, "UTF-8"));
+			file = new File(uploadFolder + URLDecoder.decode(fileName, "UTF-8"));
 			
 			file.delete();
 			
