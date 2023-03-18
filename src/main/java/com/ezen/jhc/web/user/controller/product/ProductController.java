@@ -29,8 +29,8 @@ public class ProductController {
 	@GetMapping(value="/product_details")
 	public String product_details(Model model, @RequestParam("product_num")int p_num) {
 
-		ProdDTO p_dto = prod_mapper.getAll(p_num);
-		List<ReviewDTO> r_dto = review_mapper.getAll(p_num); 
+		ProdDTO p_dto = prod_mapper.getProdsAll(p_num);
+		List<ReviewDTO> r_dto = review_mapper.getReviewAll(p_num); 
 		Double starAvg = review_mapper.getStarAvg(p_num);
 		
 		model.addAttribute("prod", p_dto);

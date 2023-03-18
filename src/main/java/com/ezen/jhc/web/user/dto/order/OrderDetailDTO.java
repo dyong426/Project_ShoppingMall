@@ -52,6 +52,7 @@ public class OrderDetailDTO {
 	Date ord_date;
 	
 	// 테이블 조인 : reviews
+	Integer review_num;
 	String review_content;
 	String review_image_path;
 	Date review_regdate;

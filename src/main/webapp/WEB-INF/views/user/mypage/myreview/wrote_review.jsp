@@ -24,7 +24,7 @@
 		<div class="wrote_review" total_count="0">
 			<table class="wr_info">
 				<thead>
-					<tr>
+					<tr >
 						<th style="width: 180px;">주문일자[주문번호]</th>
 						<th style="width: 100px;">작성일자</th>
 						<th style="width: 280px;">내용</th>
@@ -35,7 +35,7 @@
 
 				<tbody class="wr_list">
 				<c:forEach items="${rv_history}" var="rh" begin="${start }" end="${end }">
-					<tr class="wr">
+					<tr class="wr" id="${rh.review_num}">
 						<td class="od_number">
 							<p>
 							${rh.new_order_date} <br>
@@ -87,7 +87,7 @@
 						alt="" style="width: 70px; height: 70px;">
 				</div>
 				<div class="rv_">
-					<div class="rv_name">넘나 힙한 츄리닝 [Brown]</div>
+					<div class="rv_name">${rv_history[0].p_name} [Brown] [L size]</div>
 					<div class="rv_price">29,000원</div>
 				</div>
 			</div>

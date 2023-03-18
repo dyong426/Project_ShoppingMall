@@ -13,7 +13,7 @@ function doCheck() {
     if (rv_form.rv_content.value == "") {
         rv_form.rv_content.focus();
         alert("내용을 입력해주세요");
-        if (rv_form.rv_content.value.length < 5) {
+        if (rv_form.rv_content.value.length < 5 && rv_form.rv_content.value.length < 100) {
             alert("5자 이상 적어주세요");
         }
 

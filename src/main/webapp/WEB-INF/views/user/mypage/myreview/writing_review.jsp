@@ -29,24 +29,24 @@
 	                    <div class="ps_size">${review_pd[0].ps_name} size</div>
 	                </div>
 	            </div>
-	             <form id="rv_check_form" action="" method="POST"
-	             		enctype="multipart/form-data" onsubmit="return doCheck();"> 
+	             <form onsubmit="return doCheck();" id="rv_check_form" action="<%=request.getContextPath() %>/add_review?mem_num=${member.mem_num}&page=1" method="POST"> 
 	            <c:set var="member" value="${sessionScope.member }"/>
 	            <input type="hidden" name="mem_num" id="rate" value="${member.mem_num}"/>
-	            
+	            <input type="hidden" name="p_num" id="rate" value="${pd_info.p_num}"/>
+	            <input type="hidden" name="od_num" id="rate" value="${pd_info.od_num}"/>
 	            <div class="check_box">
 	            	<div class="mb-1" name="myform" id="myform" >
 	            	<div class="warning_msg">별점을 선택해 주세요.</div>
-	                    <fieldset>
-	                        <input type="radio" name="review_star" value="5" id="rate1" class="rate_radio"><label
+	                    <fieldset>  
+	                        <input type="radio" name="review_star" value="5" id="rate1" class="review_star"><label
 	                            for="rate1">★</label>
-	                        <input type="radio" name="review_star" value="4" id="rate2" class="rate_radio"><label
+	                        <input type="radio" name="review_star" value="4" id="rate2" class="review_star"><label
 	                            for="rate2">★</label>
-	                        <input type="radio" name="review_star" value="3" id="rate3" class="rate_radio"><label
+	                        <input type="radio" name="review_star" value="3" id="rate3" class="review_star"><label
 	                            for="rate3">★</label>
-	                        <input type="radio" name="review_star" value="2" id="rate4" class="rate_radio"><label
+	                        <input type="radio" name="review_star" value="2" id="rate4" class="review_star"><label
 	                            for="rate4">★</label>
-	                        <input type="radio" name="review_star" value="1" id="rate5" class="rate_radio"><label
+	                        <input type="radio" name="review_star" value="1" id="rate5" class="review_star"><label
 	                            for="rate5">★</label>
 	                    </fieldset>
 	                    </div>
@@ -54,15 +54,15 @@
 	            </div>
 	            <div class="main_box">
 	                <div class="write_box">
-	                    <textarea name="review_content" id="wr_review" cols="110" rows="11" spellcheck="false" class="review_textarea" placeholder="5자 이상으로 작성해 주세요."/></textarea>
+	                    <textarea name="review_content" id="review_content" cols="110" rows="11" spellcheck="false" class="review_textarea" placeholder="5자 이상으로 작성해 주세요."/></textarea>
 	                </div>
 	                <div class="filebox">
 					    <input class="upload-name" placeholder="Image Name" disabled="disabled">
 					    <label for="file">파일 찾기</label> 
 					    <input type="file" name=review_image_path id="file">
-					    <div class="button_box" style="float:right">
-	                    	<input type="submit" value="리뷰 등록" class="registration" id="save">
-	                	</div>
+						    <div class="button_box" style="float:right">
+		                    	<input type="submit" value="리뷰 등록" class="registration" />
+		                	</div>
 					</div>
 	                <div id="uploadResult">
 					</div>
@@ -70,6 +70,36 @@
 	       </form> 
         </div>
   </div>
+  
+ <script>
+ function doCheck = () => {
+	    let rv_star = document.getElementsByClassName("review_star");
+	    let rv_content = document.getElementById("review_content");
+	    let rv_form = document.getElementById("rv_check_form");
+
+	    if (rv_form.rv_star.value == "") {
+	        rv_form.rv_star.focus();
+	        alert("별점을 선택해주세요");
+	        
+	        return false;
+	    }
+
+	    if (rv_form.rv_content.value == "") {
+	        rv_form.rv_content.focus();
+	        alert("내용을 입력해주세요");
+	        if (rv_form.rv_content.value.length > 5) {
+	            alert("5자 이상 적어주세요");
+	        } else if (rv_form.rv_content.value.length < 100) {
+	        	alert("100자 이하로 적어주세요");
+	        }
+	        
+
+	        return false;
+		}
+		return true;
+	}
+
+ </script>
   
 <!-- 첨부파일 이미지 이름 자르기 -->
 <script>

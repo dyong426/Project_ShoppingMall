@@ -67,7 +67,7 @@
                           <span>${pi.pc_name}</span>
                         </td>
                         <td class="wr_amount">
-                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?mem_num=${member.mem_num}&p_num=${pi.p_num}&pc_num=${pi.pc_num}&ps_num=${pi.ps_num}'">리뷰 작성 하기</button>
+                            <button type="button" onclick="location.href='<%=request.getContextPath() %>/writing_review?mem_num=${member.mem_num}&p_num=${pi.p_num}&pc_num=${pi.pc_num}&ps_num=${pi.ps_num}&od_num=${pi.od_num}'">리뷰 작성 하기</button>
                         </td>
                     </tr>
                     </c:forEach> 

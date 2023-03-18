@@ -66,11 +66,12 @@ public class MypageController {
 	
 	
 	
+	
 	@RequestMapping(value ="/writing_review", method = RequestMethod.GET)
 	public String mpWriteReview(
 			@RequestParam("p_num")Integer p_num, @RequestParam("pc_num")Integer pc_num, @RequestParam("ps_num")Integer ps_num, Model model) {
 		
-		List<OrderDetailDTO> od_dto = mm_mapper.getAll(p_num, pc_num, ps_num);
+		List<OrderDetailDTO> od_dto = mm_mapper.mpGetAllReview(p_num, pc_num, ps_num);
 		model.addAttribute("review_pd", od_dto);
 		
 		return "user/mypage/myreview/writing_review";
@@ -78,23 +79,39 @@ public class MypageController {
 	
 	
 	
-	@RequestMapping(value ="/writing_review", method = RequestMethod.POST)
+	@RequestMapping(value ="/add_review", method = RequestMethod.POST)
 	public String mpWriting(
 			@RequestParam("p_num")Integer p_num, @RequestParam("mem_num")Integer mem_num, @RequestParam("review_content")String review_content, 
-			@RequestParam("review_image_path")String review_image_path, @RequestParam("review_star")Integer review_star,Model model, Integer page) {
+			@RequestParam("review_image_path")String review_image_path, @RequestParam("review_star")Integer review_star, @RequestParam("od_num")Integer od_num, Model model, Integer page) {
 		
-		Integer add_review = mm_mapper.addReview(p_num, mem_num, review_content, review_image_path, review_star);
+		List<OrderDetailDTO> rv_history = mm_mapper.getOrderHistory(mem_num);
+		int list_end = Integer.parseInt(page + "") * 10 - 1;
+		
+		int list_begin = list_end - 9;
+
+		model.addAttribute("end", list_end);
+		
+		if (list_end >= rv_history.size()) {
+			 list_end = rv_history.size() - 1;
+		}
+		model.addAttribute("rh_count", rv_history.size());
+		
+		model.addAttribute("start", list_begin);
+		model.addAttribute("rv_history", rv_history);
+		
+		Integer add_review = mm_mapper.addReview(p_num, mem_num, review_content, review_image_path, review_star, od_num);
 		model.addAttribute("add_review", add_review);
+		
+		
 		
 		return "redirect:/wrote_review";
 	}
-	
+	 
 	
 	
 	@RequestMapping(value ="/wrote_review", method = RequestMethod.GET)
 	public String mpWriteReview2(Integer mem_num, Model model, Integer page) {
 		
-		model.addAttribute("page", page);
 		
 		List<OrderDetailDTO> rv_history = mm_mapper.getOrderHistory(mem_num);
 		int list_end = Integer.parseInt(page + "") * 10 - 1;
@@ -128,32 +145,9 @@ public class MypageController {
 	
 	
 	
-	@RequestMapping(value ="/cancel", method = RequestMethod.GET)
-	public String orderCancel() {
-		
-		return "user/mypage/purchase/cancel";
-	}
+	
+	
 
-	
-	
-//	@RequestMapping(value = "/info", method = RequestMethod.GET)
-//	public String mpInfo() {
-//
-//		return "user/mypage/personal_information/my_info";
-//	}
-	
-//	@RequestMapping(value = "/history", method = RequestMethod.GET)
-//	public String mpHistory() {
-//
-//		return "user/mypage/purchase/history";
-//	}
-//
-//	@RequestMapping(value = "/details", method = RequestMethod.GET)
-//	public String mpDetails() {
-//
-//		return "user/mypage/purchase/details";
-//	}
-	
 	
 
 }
