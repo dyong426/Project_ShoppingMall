@@ -125,10 +125,10 @@
 
 
 				<button id="kakao_login" onclick="kakaoLogin();">
-					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_login.png" alt="">
+					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/kakao_login.png" alt="">
 				</button>
 				<button id="naver_login" onclick="naverIdLogin_loginButton();">
-<%-- 					<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 로그인 --%>
+					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/naver_login.png" alt="">
 				</button>
 
 
@@ -172,11 +172,11 @@
 						<div></div>
 					</div>
 					<button id="kakao_login" onclick="kakaoJoin();">
-						<img src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_join.png" alt="카카오로 시작하기">
+						<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/kakao_join.png" alt="카카오로 시작하기">
 					</button>
 
 					<button id="naver_login" onclick="naverIdLogin_loginButton;">
-<%-- 						<img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입 --%>
+						<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/naver_join.png" alt="네이버 간편가입">
 					</button>
 
 

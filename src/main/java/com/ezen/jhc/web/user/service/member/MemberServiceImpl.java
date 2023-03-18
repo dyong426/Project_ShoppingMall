@@ -52,6 +52,12 @@ public class MemberServiceImpl implements MemberService{
 		memberMapper.deleteAccount(mem_num);
 		
 	}
+
+	@Override
+	public void changeMyInfo(int mem_num, String mem_birth, String mem_phone) {
+		memberMapper.updateMyInfo(mem_num, mem_birth, mem_phone);
+		
+	}
 	
 	
 	

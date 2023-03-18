@@ -14,11 +14,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.jhc.common.util.Jwt;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.mapper.mypage.MyPageMapper;
+import com.ezen.jhc.web.user.service.member.MemberService;
 
 
 /**@author 김주희
@@ -35,6 +37,10 @@ public class MypageController {
 	@Autowired
 	MyPageMapper mm_mapper;
 
+	@Autowired
+	MemberService memberService;
+	
+	
 	@Autowired
 	JavaMailSender mailSender;
 	
@@ -134,6 +140,21 @@ public class MypageController {
 		model.addAttribute("mem_email", mem_email);	
 		return "user/mypage/personal_information/passwordChangeForm";
 	}
+	
+	// 나의 정보 변경
+	@PostMapping("/myInfo/change")
+	public @ResponseBody String changeMyInfo(HttpSession session, @RequestParam("myInfo_birth")String myInfo_birth, @RequestParam("myInfo_phone")String myInfo_phone) {
+		
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		System.out.println("멤버버노: "+ member.getMem_num());
+
+		
+		memberService.changeMyInfo(member.getMem_num(), myInfo_birth, myInfo_phone);
+		
+		return "success";
+		
+	}
+	
 	
 
 	

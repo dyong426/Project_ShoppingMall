@@ -258,31 +258,21 @@ button[class$="_closeBtn"] {
 	height: 1px;
 }
 
-#kakao_login, #naver_login {
-	text-align: center;
-	font-size: 90%;
-	width: 100%;
-	height: 45px;
-	margin: 2px;
+#naver_login, #kakao_login{
+	background-color : unset;
 	border: none;
-	border-radius: 2px;
-	background-color: unset;
+	margin-bottom: 4px;
 }
 
-#naver_login {
-	text-align: center;
-	font-size: 90%;
+#naver_login img, #kakao_login img {
+	
 	width: 300px;
-	height: 45px;
-	margin: 2px 8px;
-	border: none;
-	border-radius: 5px;
-	background-color: #2DB400;
 }
+
+
 
 button img {
-	margin-right: 6px;
-	margin-bottom: 3px;
+
 }
 
 #myPage img {

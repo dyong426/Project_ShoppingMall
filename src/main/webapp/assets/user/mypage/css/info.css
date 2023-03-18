@@ -71,7 +71,7 @@
   }
 
   label{
-    width: 83.4px;
+    width: 125px;
     height: 18.4px;
   }
 
@@ -85,23 +85,28 @@
   }
 
  .buttons{
-    display: flex;
-    justify-content: space-between;
     margin: 30px 0px 0px;
+    justify-self: right;
+    display: flex;
  }
 
  .modify {
-    justify-self: left;
-    left:0;
-    width: 69.6px;
+	top: 112px;
+	left: -50px;
+	position:relative;
+
+
     height: 40px;
     color: white;
     font-size: medium;
     background-color: black;
  }
 
+.pn_ctr{
+	margin-top:20px;
+}
  .withdrawal{
-    justify-self: right;
+    justify-content: right;
     right:0;
     width: 101.08px;
     height: 40px;
