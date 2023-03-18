@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
-
+/**@author SUJEONG*/
 @Repository
 public interface MemberMapper {
 

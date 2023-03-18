@@ -40,7 +40,6 @@ public class MypageController {
 	@Autowired
 	MemberService memberService;
 	
-	
 	@Autowired
 	JavaMailSender mailSender;
 	
@@ -82,7 +81,7 @@ public class MypageController {
 	}
 
 
-
+	/*여기부터 끝까지 작성자 정수정*/
 	@GetMapping("/password/change")
 	public String showPasswordChangeForm() {
 
@@ -146,7 +145,7 @@ public class MypageController {
 	public @ResponseBody String changeMyInfo(HttpSession session, @RequestParam("myInfo_birth")String myInfo_birth, @RequestParam("myInfo_phone")String myInfo_phone) {
 		
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
-		System.out.println("멤버버노: "+ member.getMem_num());
+		
 
 		
 		memberService.changeMyInfo(member.getMem_num(), myInfo_birth, myInfo_phone);

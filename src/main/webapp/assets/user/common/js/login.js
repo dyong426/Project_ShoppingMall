@@ -1,3 +1,5 @@
+<!-- 정수정, 로그인 기능 -->
+
 Kakao.init('8676dae7b3d994926031dc1e85880115');
 
 show_error_message_login = (error, message) => {

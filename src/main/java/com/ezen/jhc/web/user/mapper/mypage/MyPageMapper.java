@@ -11,7 +11,6 @@ import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.dto.review.ReviewDTO;
 
 // 김주희 - 마이페이지 Mapper
-// 정수정
 public interface MyPageMapper {
 	
 	
@@ -27,9 +26,5 @@ public interface MyPageMapper {
 			+ "#{p_num},#{mem_num},#{review_content},#{review_image_path},#{review_star},sysdate)")
 	Integer add(ReviewDTO review);
 	
-	
-	// 주문 내역
-//	@Select ()
-//	OrderDTO getOrderHistory(int mem_num);
 
 }

@@ -1,6 +1,6 @@
 package com.ezen.jhc.web.user.service.mypage;
 
-import java.text.ParseException;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 import com.ezen.jhc.web.user.dto.order.OrderDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.mapper.order.OrderMapper;
-
+/**@author SUJEONG*/
 @Service
 public class HistoryServiceImpl implements HistoryService {
 	

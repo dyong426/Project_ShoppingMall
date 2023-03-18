@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
-
+/**@author SUJEONG*/
 @Service
 public interface MemberService {
  

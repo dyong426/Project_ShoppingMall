@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.mapper.member.MemberMapper;
-
+/**@author SUJEONG*/
 @Service
 public class MemberServiceImpl implements MemberService{
 	

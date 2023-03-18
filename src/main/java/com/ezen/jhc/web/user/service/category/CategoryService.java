@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.dto.prod.SubCtgrDTO;
-
+/**@author SUJEONG*/
 @Service
 public interface CategoryService {
 	

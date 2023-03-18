@@ -1,5 +1,8 @@
 package com.ezen.jhc.web.user.controller.product;
 
+/**@author SUJEONG
+ * 제품 상세 페이지
+ * */
 import java.util.List;
 
 import javax.sql.DataSource;

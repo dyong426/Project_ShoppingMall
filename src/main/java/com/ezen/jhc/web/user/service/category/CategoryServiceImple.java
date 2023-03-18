@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.dto.prod.SubCtgrDTO;
 import com.ezen.jhc.web.user.mapper.category.CategoryMapper;
-
+/**@author SUJEONG*/
 @Service
 public class CategoryServiceImple implements CategoryService {
 

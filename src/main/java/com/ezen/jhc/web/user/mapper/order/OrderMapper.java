@@ -9,6 +9,7 @@ import org.apache.ibatis.annotations.Update;
 import com.ezen.jhc.web.user.dto.order.OrderDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 
+/**@author SUJEONG*/
 public interface OrderMapper {
 
 	

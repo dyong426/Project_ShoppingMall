@@ -22,6 +22,8 @@ import com.ezen.jhc.web.user.dto.order.OrderDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.service.mypage.HistoryService;
 
+/**@author SUJEONG
+ * 주문 내역*/
 @Controller
 public class HistoryController {
 

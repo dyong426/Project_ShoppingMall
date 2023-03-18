@@ -1,3 +1,5 @@
+<!-- 정수정, 나의 정보 -->
+
 const resign = document.querySelector('.withdrawal');
 
 resign.addEventListener('click', function () {
