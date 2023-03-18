@@ -12,6 +12,6 @@ public class AttachImageList {
 	
 	@Override
 	public String toString() {
-		return "";
+		return " ";
 	}
 }
