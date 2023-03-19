@@ -18,7 +18,8 @@
             </div>
 	            <div class="pd_info">
 	                <div class="pd_image">
-	                    <img style="width: 100px; height: 100px;" src="<%=request.getContextPath() %>/${review_pd[0].origin_img_path} " alt="">
+	                <c:set var="pd_image" value="${review_pd[0].origin_img_path}"/>
+	                    <img style="width: 100px; height: 100px;" src="<%=request.getContextPath() %>/${pd_image} " alt="">
 	                </div>
 	                <div class="pd_check">
 	                    <div><span>${review_pd[0].p_name}</span></div>
@@ -28,7 +29,8 @@
 	            </div>
 	            <c:set var="member" value="${sessionScope.member }"/>
 	            
-	             <form action="/jhc/review/add?mem_num=${member.mem_num}&page=1" onsubmit="return doCheck();" id="rv_check_form"  method="POST">
+	             <form action="/jhc/review/add?mem_num=${member.mem_num}&page=1" 
+	             onsubmit="return doCheck();" id="rv_check_form"  method="POST">
 	             
 	              	         
 	            <input type="hidden" name="mem_num" id="mem_num" value="${member.mem_num}"/>
@@ -215,6 +217,6 @@ $("#file").on('change',function(){
  <footer>
    <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
 <script src="https://kit.fontawesome.com/3a90129dcf.js" crossorigin="anonymous"></script>
-<script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/mypage/js/review.js?ver=1"></script>
+
 
 

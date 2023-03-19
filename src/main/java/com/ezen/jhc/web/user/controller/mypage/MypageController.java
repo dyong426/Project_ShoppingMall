@@ -71,9 +71,9 @@ public class MypageController {
 	
 	@RequestMapping(value ="/review/check", method = RequestMethod.GET)
 	public String mpWriteReview(
-			@RequestParam("p_num")Integer p_num, @RequestParam("pc_num")Integer pc_num, @RequestParam("ps_num")Integer ps_num, Model model) {
+			@RequestParam("p_num")Integer p_num, @RequestParam("pc_num")Integer pc_num, @RequestParam("ps_num")Integer ps_num, @RequestParam("od_num")Integer od_num, Model model) {
 		
-		List<OrderDetailDTO> od_dto = mm_mapper.mpGetAllReview(p_num, pc_num, ps_num);
+		List<OrderDetailDTO> od_dto = mm_mapper.mpGetAllReview(p_num, pc_num, ps_num, od_num);
 		model.addAttribute("review_pd", od_dto);
 		
 		return "user/mypage/myreview/writing_review";
@@ -138,23 +138,23 @@ public class MypageController {
 	}
 	
 	
-
-	public void imageEnrollTest() {
-		
-		ReviewImageDTO ro = new ReviewImageDTO();
-		
-		ro.setReview_num(20);
-		ro.setReview_filename("test");
-		ro.setReview_origin_img_path("test");
-		ro.setReview_thumb_img_path("test");
-		ro.setReview_lg_img_path("test");
-		ro.setReview_uploadpath("test");
-		ro.setReview_uuid("test");
-		
-		
-		mm_mapper.addReviewImage(ro);
-		
-	}
+//	@RequestMapping(value ="/review/test", method = RequestMethod.POST)
+//	public void imageEnrollTest() {
+//		
+//		ReviewImageDTO ro = new ReviewImageDTO();
+//		
+//		ro.setReview_num(20);
+//		ro.setReview_filename("test");
+//		ro.setReview_origin_img_path("test");
+//		ro.setReview_thumb_img_path("test");
+//		ro.setReview_lg_img_path("test");
+//		ro.setReview_uploadpath("test");
+//		ro.setReview_uuid("test");
+//		
+//		
+//		mm_mapper.addReviewImage(ro);
+//		
+//	}
 	
 	
 	

@@ -32,6 +32,7 @@ public class ReviewImageDTO {
 	public void setReview_lg_img_path(String review_uploadpath, String review_uuid, String review_filename) {
 		this.review_lg_img_path = review_uploadpath + "lg_" + review_uuid + review_filename;
 	}
+
 	
 
 
