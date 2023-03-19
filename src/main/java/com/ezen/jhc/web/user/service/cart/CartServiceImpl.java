@@ -1,10 +1,6 @@
 package com.ezen.jhc.web.user.service.cart;
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -14,13 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.ezen.jhc.web.user.dto.cart.CartDTO;
 import com.ezen.jhc.web.user.dto.cart.IntoCartDTO;
@@ -65,18 +57,21 @@ public class CartServiceImpl implements CartService {
 	}
 	
 	@Override
-	public List<CartDTO> getCarts(int mem_num) {
+	public List<CartDTO> getCarts(int mem_num, HttpSession session, Model model) {
+		MemberAddressDTO memberAddress = ordererMapper.getAddressByNum(mem_num);
+		model.addAttribute("memberAddress", memberAddress);
+		
 		return cartMapper.getCarts(mem_num);
 	}
 	
 	@Override
 	public void getCartDto(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
-		MemberDTO member = (MemberDTO) session.getAttribute("member");		
-		MemberAddressDTO memberAddress = ordererMapper.getAddressByNum(member.getMem_num());		
-		session.setAttribute("memberAddress", memberAddress);		
-				
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");		
-		String newFolder = LocalDateTime.now().format(formatter).replace("-", File.separator);		
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		MemberAddressDTO memberAddress = ordererMapper.getAddressByNum(member.getMem_num());
+		req.setAttribute("memberAddress", memberAddress);
+		
+		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+		String newFolder = LocalDateTime.now().format(formatter).replace("-", File.separator);
 		String image = "C:\\upload\\cstm_img\\" + newFolder + File.separator + req.getParameter("mem_cstm_path");
 		
 		int pd_num = prodMapper.getProdDetailByIntoCartDto(
@@ -100,6 +95,23 @@ public class CartServiceImpl implements CartService {
 					1,
 					Integer.parseInt(req.getParameter("p_price"))));
 		req.setAttribute("carts", list);
+		req.setAttribute("totalPrice", list.get(0).getCart_amount());
+		req.setAttribute("totalQuantity", list.get(0).getCart_quantity());
+	}
+
+	@Override
+	public void deleteCart(int cart_num) {
+		cartMapper.deleteCart(cart_num);
+	}
+
+	@Override
+	public void increaseQty(int cart_num, int p_price) {
+		cartMapper.increaseQty(cart_num, p_price);
+	}
+
+	@Override
+	public void decreaseQty(int cart_num, int p_price) {
+		cartMapper.decreaseQty(cart_num, p_price);
 	}
 
 }

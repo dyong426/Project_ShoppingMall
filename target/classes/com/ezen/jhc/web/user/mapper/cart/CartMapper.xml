@@ -26,8 +26,12 @@
 
 	<!-- mem_num 넣어야할지 사용할 때 판단하고 추가 결정 -->
 	<delete id="deleteByCstmNum" parameterType="int">
-		DELETE FROM cart
+		DELETE FROM carts
 		WHERE mem_cstm_num = #{mem_cstm_num}
+	</delete>
+	
+	<delete id="deleteCart" parameterType="int">
+		DELETE FROM carts WHERE cart_num = #{cart_num}
 	</delete>
 
 	<delete id="deleteAll" parameterType="int">
@@ -36,7 +40,7 @@
 	</delete>
 
 	<select id="getCarts" resultType="com.ezen.jhc.web.user.dto.cart.CartDTO">
-		SELECT mem_cstm_path, c.mem_num, p_num, pd_num, p_name, pc_name, ps_name, p_price, cart_quantity, cart_amount
+		SELECT cart_num, mem_cstm_path, c.mem_num, p_num, pd_num, p_name, pc_name, ps_name, p_price, cart_quantity, cart_amount
 		FROM carts c
 		INNER JOIN prod_details pd USING (pd_num)
 		INNER JOIN prod_colors USING (pc_num)
@@ -44,6 +48,19 @@
 		INNER JOIN prods USING (p_num)
 		INNER JOIN member_cstms USING (mem_cstm_num)
 		WHERE c.mem_num = #{mem_num}
+		ORDER BY p_num
 	</select>
+	
+	<update id="increaseQty" parameterType="Map">
+		UPDATE carts
+		SET cart_quantity = cart_quantity + 1, cart_amount = (cart_quantity + 1) * #{p_price}
+		WHERE cart_num = #{cart_num}
+	</update>
+	
+	<update id="decreaseQty" parameterType="Map">
+		UPDATE carts
+		SET cart_quantity = cart_quantity - 1, cart_amount = (cart_quantity - 1) * #{p_price}
+		WHERE cart_num = #{cart_num}
+	</update>
 
 </mapper>

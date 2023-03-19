@@ -34,8 +34,8 @@ public class OrderController {
 	CartServiceImpl cartService;
 	
 	@PostMapping("/directPurchase")
-	public String order(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {		
-		// 임시 정보
+	public String directPurchase(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {		
+		// 임시 데이터
 		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
 		
 		cartService.getCartDto(session, req, resp);
@@ -44,9 +44,24 @@ public class OrderController {
 	}
 	
 	@PostMapping("/fromCart")
-	public String order2(HttpSession session, HttpServletRequest req, Model model) {
-		List<CartDTO> list = cartService.getCarts(((MemberDTO)session.getAttribute("member")).getMem_num());
-		model.addAttribute("carts", list);
+	public String fromCart(HttpSession session, Model model) {
+		// 임시 데이터
+		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
+				
+		int mem_num = ((MemberDTO)session.getAttribute("member")).getMem_num();
+		List<CartDTO> carts = cartService.getCarts(mem_num, session, model);
+		
+		int totalPrice = 0;
+		int totalQuantity = 0;
+		
+		for (CartDTO cart : carts) {
+			totalPrice += cart.getCart_amount();
+			totalQuantity += cart.getCart_quantity();
+		}
+		
+		model.addAttribute("carts", carts);
+		model.addAttribute("totalPrice", totalPrice);
+		model.addAttribute("totalQuantity", totalQuantity);
 		
 		return "user/order/order";
 	}

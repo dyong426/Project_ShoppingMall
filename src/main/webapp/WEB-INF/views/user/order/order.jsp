@@ -9,15 +9,7 @@
 
 <title>juhee custom - 주문서 작성</title>
 
-<%--
-	받아야 하는 정보
-	
-	 - 장바구니
-	 - 상품 정보 (이미지, 제품명, 가격, 색상명, 사이즈명)
---%>
-
 <c:set value="${sessionScope.member}" var="member" />
-<c:set value="${sessionScope.memberAddress}" var="memberAddress" />
 
 <div class="basket_top">
 	<span id="my_basket">내 장바구니</span>
@@ -107,11 +99,11 @@
 			<div id="summary" class="rowGrid">
 				<div class="columnGrid">
 					<div>총 수량</div>
-					<div class="rightAlign"><b id="total_quantity"></b></div>
+					<div class="rightAlign"><b id="total_quantity">${totalQuantity}개</b></div>
 				</div>
 				<div class="columnGrid">
 					<div>총 상품 금액</div>
-					<div class="rightAlign"><b id="total_amount"></b></div>
+					<div class="rightAlign"><b id="total_amount" data-totalPrice="${totalPrice}">${totalPrice}</b></div>
 				</div>
 				<div class="columnGrid">
 					<div>배송비</div>
@@ -144,21 +136,34 @@
 		<div class="box">
 			<div class="columnGrid">
 				<div class="subTitle">주문 정보</div>
-				<div class="rightAlign" id="total_price2">총 결제 금액</div>
+				<div class="rightAlign" id="total_price2"></div>
 			</div>
 			<hr />
-			<br />
-			<c:forEach items="${carts}" var="cart">
-				<div class="orderList">
-					<div class="rowSpan"><img class="cstmImg" src="${cart.mem_cstm_path}" alt="주문 상품 이미지"/></div>
-					<div class="orderProd">
-						<div><b>${cart.p_name}</b></div>
-						<div>색상&emsp;&emsp;:&emsp;<span>${cart.pc_name}</span></div>
-						<div>사이즈&emsp;:&emsp;<span>${cart.ps_name}</span></div>
-						<div>수량&emsp;&emsp;:&emsp;<span>${cart.cart_quantity}</span></div>
-						<div>가격&emsp;&emsp;:&emsp;<span>${cart.cart_quantity * cart.cart_amount}</span></div>
-					</div>
-				</div>
+			<c:set value="true" var="forBreak"></c:set>
+			<c:forEach items="${carts}" var="cart" varStatus="cartStatus">
+				<c:if test="${forBreak}">
+					<c:choose>
+						<c:when test="${cartStatus.index < 5}">
+							<div class="orderList">
+								<div class="rowSpan"><img class="cstmImg" src="${cart.mem_cstm_path}" alt="주문 상품 이미지"/></div>
+								<div class="orderProd">
+									<div><b>${cart.p_name}</b></div>
+									<div>색상&emsp;&emsp;:&emsp;<span>${cart.pc_name}</span></div>
+									<div>사이즈&emsp;:&emsp;<span>${cart.ps_name}</span></div>
+									<div>수량&emsp;&emsp;:&emsp;<span>${cart.cart_quantity}</span></div>
+									<div>가격&emsp;&emsp;:&emsp;<span>${cart.cart_quantity * cart.cart_amount}</span></div>
+								</div>
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div>끝 : ${carts[cartStatus.end]}</div>
+							<div>시작 : ${cartStatus.begin}</div>
+							<div>인덱스 : ${cartStatus.index}</div>
+							<div id="tooMuch">외 ${cartStatus.end - cartStatus.index}개</div>
+							<c:set value="false" var="forBreak"></c:set>
+						</c:otherwise>
+					</c:choose>
+				</c:if>
 			</c:forEach>
 		 </div>
 	</div>
@@ -171,6 +176,7 @@
 		mem_addr2: '${memberAddress.mem_addr2}',
 		addr_save: '${memberAddress.addr_save}',
 	};
+	console.log(memberAddress);
 </script>
 
 <%-- 다음 주소 API 참조 스크립트 --%>
@@ -179,7 +185,7 @@
 <%-- 네이버페이 API 참조 스크립트 --%>
 <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 
-<script src="${contextPath}/assets/user/order/js/order.js"></script>
+<script src="<%=request.getContextPath()%>/assets/user/order/js/order.js"></script>
 
 
 <%@ include file="../common/footer.jsp"%>

@@ -141,29 +141,18 @@ window.onload = () => {
 
 
 // 총 결제 금액 관련 설정
-const orderProd = document.getElementsByClassName('orderProd');
-let od_quantity = 0;
-let od_amount = 0;
-for (i = 0; i < orderProd.length; ++i) {
-	od_quantity += parseInt(orderProd[i].children[3].lastChild.innerText);
-	od_amount += parseInt(orderProd[i].children[4].lastChild.innerText);
-}
-
-const total_quantity = document.getElementById('total_quantity');
 const total_amount = document.getElementById('total_amount');
 const shipping_price = document.getElementById('shipping_price');
 const total_price = document.getElementById('total_price');
 const total_price2 = document.getElementById('total_price2');
 
-total_quantity.innerText = od_quantity + '개';
-total_amount.innerText = od_amount + '원';
-if (od_quantity >= 50000) {
+total_amount.innerText = parseInt(total_amount.innerText).toLocaleString('ko-KR') + '원';
+if (total_amount.dataset.totalprice >= 50000) {
 	shipping_price.innerText = 0 + '원';
 } else {
 	shipping_price.innerText = 3000 + '원';
 }
-total_price.innerText = total_amount + shipping_price;
-total_price2.innerText = total_amount + shipping_price;
+total_price.innerText = (parseInt(total_amount.dataset.totalprice)).toLocaleString('ko-KR') + '원';
+total_price2.innerText = total_price.innerText;
 
 const cstmImg = document.getElementsByClassName('cstmImg')[0];
-console.dir(cstmImg);

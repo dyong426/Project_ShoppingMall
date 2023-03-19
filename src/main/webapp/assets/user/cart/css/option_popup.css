@@ -34,18 +34,18 @@
     border-bottom: rgb(213, 219, 224) 1px solid;
 }
 
-.minus, .plus {
+[class^="minus"], [class^="plus"] {
     height: 24px;
     width: 40px;
     padding: 10px;
     cursor: pointer;
 }
 
-.minus {
+[class^="minus"]{
     background: url(https://s3.marpple.co/file/guest/2018/2/original/f_1655_1518152961135_on1UHreUT7bSKd8i9uO.svg) no-repeat center;
 }
 
-.plus {
+[class^="plus"] {
     background: url(https://s3.marpple.co/file/guest/2018/2/original/f_1656_1518152961135_TZW9pZVTRLJ0fqb3s8b.svg) no-repeat center;
 }
 
