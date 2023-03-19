@@ -2,6 +2,7 @@ package com.ezen.jhc.web.user.controller.category;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
@@ -13,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.dto.prod.SubCtgrDTO;
-import com.ezen.jhc.web.user.mapper.category.CategoryMapper;
-import com.ezen.jhc.web.user.mapper.category.SearchMapper;
+import com.ezen.jhc.web.user.service.category.CategoryService;
+import com.ezen.jhc.web.user.service.category.SearchService;
 
 @Controller
 public class CategoryController {
@@ -23,46 +24,20 @@ public class CategoryController {
 	DataSource ds;
 	
 	@Autowired
-	CategoryMapper mapper;
+	private CategoryService categoryService; 
 	
 	@Autowired
-	SearchMapper s_mapper;
+	private SearchService searchService;
 
 	
-	@GetMapping(value="/category_clothes")
-	
-	public String category_clothes(Model model, HttpSession session) {
+	@GetMapping(value="/main_category")
+	public String category_clothes(HttpServletRequest request, Model model, HttpSession session) {
 		
-		String mainCtgr = mapper.getMainCategory(1);
-		List<SubCtgrDTO> subCtgr = mapper.getSubCategories(1);
-		List<ProdDTO> products= mapper.getAll(1);
+		int m_ctgr_num = Integer.parseInt(request.getParameter("m_ctgr_num"));
 		
-		model.addAttribute("products", products);
-		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgrs", subCtgr);
-		
-		return "user/category/category";
-	}
-	
-	@GetMapping(value="/category_phone_case")
-	public String category_phone_case(Model model) {
-		String mainCtgr = mapper.getMainCategory(2);
-		List<SubCtgrDTO> subCtgr = mapper.getSubCategories(2);
-		List<ProdDTO> products= mapper.getAll(2);
-		
-		model.addAttribute("products", products);
-		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgrs", subCtgr);
-		
-		
-		return "user/category/category";
-	}
-	
-	@GetMapping(value="/category_home")
-	public String category_home(Model model) {
-		String mainCtgr = mapper.getMainCategory(3);
-		List<SubCtgrDTO> subCtgr = mapper.getSubCategories(3);
-		List<ProdDTO> products= mapper.getAll(3);
+		String mainCtgr = categoryService.getMainCategory(m_ctgr_num);
+		List<SubCtgrDTO> subCtgr = categoryService.getSubCategories(m_ctgr_num);
+		List<ProdDTO> products= categoryService.getProdsAll(m_ctgr_num);
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);
@@ -70,27 +45,14 @@ public class CategoryController {
 		
 		return "user/category/category";
 	}
-
-	@GetMapping(value="/category_frame")
-	public String category_frame(Model model) {
-		String mainCtgr = mapper.getMainCategory(4);
-		List<SubCtgrDTO> subCtgr = mapper.getSubCategories(4);
-		List<ProdDTO> products= mapper.getAll(4);
-		
-		model.addAttribute("products", products);
-		model.addAttribute("mainCtgr", mainCtgr);
-		model.addAttribute("subCtgrs", subCtgr);
-		
-		return "user/category/category";
-	}
-	
 	
 	@GetMapping(value="/category")
 	public String categorySubItems(@RequestParam("ctgr_num") int s_ctgr_num, Model model) {
 		
-		String mainCtgr = mapper.getMainCtgrNameBySubCtgr(s_ctgr_num);
-		List<SubCtgrDTO> subCtgr = mapper.getSubCategoriesBySubNum(s_ctgr_num);
-		List<ProdDTO> products_sub = mapper.getAllSubProds(s_ctgr_num);
+		String mainCtgr = categoryService.getMainCtgrNameBySubCtgr(s_ctgr_num);
+		List<SubCtgrDTO> subCtgr = categoryService.getSubCategoriesBySubNum(s_ctgr_num);
+		List<ProdDTO> products_sub = categoryService.getAllSubProds(s_ctgr_num);
+		
 		model.addAttribute("products", products_sub);
 		model.addAttribute("mainCtgr", mainCtgr);
 		model.addAttribute("subCtgrs", subCtgr);
@@ -102,8 +64,7 @@ public class CategoryController {
 	@GetMapping(value="/products/search")
 	public String search(@RequestParam("keyword") String keyword, Model model) {
 
-		List<ProdDTO> products = s_mapper.getProdsBySearch(keyword);
-		
+		List<ProdDTO> products = searchService.getProdsBySearch(keyword);
 		
 		model.addAttribute("keyword", keyword);
 		model.addAttribute("products", products);

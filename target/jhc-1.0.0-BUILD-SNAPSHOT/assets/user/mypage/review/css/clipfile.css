@@ -1,0 +1,147 @@
+@charset "utf-8";
+
+.clip_box {
+	width: auto;
+}
+
+.wrap{
+    position:relative;
+    margin:0 auto;width:auto;max-width:1200px;
+    padding:0 30px;}
+
+.makeFlex{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;}
+.flex_clmn{-webkit-box-orient:vertical;-webkit-box-direction:normal;-ms-flex-direction:column;flex-direction:column;}
+.flex_row{-webkit-box-orient:horizontal;-webkit-box-direction:normal;-ms-flex-direction:row;flex-direction:row;}
+.jc_STR{-webkit-box-pack:stretch;-ms-flex-pack:stretch;justify-content:stretch;}
+.jc_FS{-webkit-box-pack:start;-ms-flex-pack:start;justify-content:flex-start;}
+.jc_C{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;}
+.jc_FE{-webkit-box-pack:end;-ms-flex-pack:end;justify-content:flex-end;}
+.jc_SB{-webkit-box-pack:justify;-ms-flex-pack:justify;justify-content:space-between;}
+.ai_STR{-webkit-box-align:stretch;-ms-flex-align:stretch;align-items:stretch;}
+.ai_FS{-webkit-box-align:start;-ms-flex-align:start;align-items:flex-start;}
+.ai_C{-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
+.ai_FE{-webkit-box-align:end;-ms-flex-align:end;align-items:flex-end;}
+
+table{width:992px;table-layout:fixed;}
+table th,table td{border:1px solid #e0e0e0;}
+
+
+/* 첨부파일 */
+.ipt_file_area{
+    position:relative;
+    background-color:#fff;
+    }
+    
+.ipt_file_area > *{margin:.5em;}
+
+.clip_add {
+    position:absolute;
+    margin: 14px 0px 10px 720px;
+}
+
+.clip_add button {
+    color: black;
+    padding: 7px 10px;
+    background-color: rgb(223, 223, 223);
+    border: none;
+}
+
+.filebox{ 
+    position:relative;
+    width:100%;
+    }
+
+.changeFileName{
+    position:absolute; z-index:5;
+    top:-5px;left:0;
+    padding-left:1.5em;
+    font-size:12px;color:#999;
+    cursor:pointer;}
+    
+    
+.changeFileName.on{font-weight:bold;color:#222;}
+
+
+.changeFileName::before{ 
+    content:'';display:block;position:absolute;
+    left:0;top:3px;
+    width:1em;height:1em;
+    background:url('../ppms_img/ppms_icon/ic_pencil.svg') no-repeat left center;
+    background-size:2em auto;}
+
+.filebox .upload-name {
+    display: inline-block;
+    height: 40px;
+    padding: 0 10px;
+    vertical-align: middle;
+    border: 1px solid #dddddd;
+    width: 50%;
+    color: #999999;
+}
+
+.upload-name {
+	background-color: white;	
+}
+
+.upload-name:focus{
+    background-color:#f8fafc;
+    color:#003dad;
+    outline:1px solid #003dad;}
+
+.filebox label {
+    display: inline-block;
+    padding: 10px 20px;
+    color: #fff;
+    vertical-align: middle;
+    background-color: #999999;
+    cursor: pointer;
+    height: 40px;
+    margin-left: 10px;
+}
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+}
+
+.btn_del{
+    display:block;position:absolute;
+    margin: 15px 0px 10px 365px; padding: 7px 10px;
+    border:1px solid #e0e0e0;
+    background-color: white;}
+    
+#uploadResult {
+	display: flex;
+}
+
+#result_card img{
+		width: 150px;
+	    height: auto;
+	    display: block;
+	    padding: 5px;
+	    margin-top: 10px;
+	    margin: auto;	
+	}
+	#result_card {
+		position: relative;
+	}
+	.imgDeleteBtn{
+	    position: absolute;
+	    top: 6%;
+	    right: 5%;
+	    background-color: #949494;
+	    opacity: 60%;
+	    color: white;
+	    font-weight: 900;
+	    font-size : 12px;
+	    width: 20px;
+	    height: 20px;
+	    border-radius: 50%;
+	    line-height: 21px;
+	    text-align: center;
+	    border: none;
+	    cursor: pointer;	
+	}

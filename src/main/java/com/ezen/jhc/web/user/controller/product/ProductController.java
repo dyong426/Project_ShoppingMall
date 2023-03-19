@@ -1,5 +1,8 @@
 package com.ezen.jhc.web.user.controller.product;
 
+/**@author SUJEONG
+ * 제품 상세 페이지
+ * */
 import java.util.List;
 
 import javax.sql.DataSource;
@@ -27,7 +30,7 @@ public class ProductController {
 	ReviewMapper review_mapper;
 	
 	@GetMapping(value="/product_details")
-	public String product_details(Model model, @RequestParam("product_num")int p_num) {
+	public String product_details(Model model, @RequestParam("p_num")int p_num) {
 
 		ProdDTO p_dto = prod_mapper.getProdsAll(p_num);
 		List<ReviewDTO> r_dto = review_mapper.getReviewAll(p_num); 

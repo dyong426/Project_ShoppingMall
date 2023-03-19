@@ -1,0 +1,393 @@
+* {
+    box-sizing: border-box;
+}
+
+
+.container {
+    height: 100%;
+}
+
+#container-top {
+    width: 50%;
+    height: 700px;
+    margin-left: 14%;
+    background-color: rgb(235, 232, 232);
+    z-index: 10;
+}
+
+#fileInput {
+    display: none;
+}
+
+#menu {
+    display: none;
+    position: absolute;
+    width: 60px;
+    background-color: white;
+    box-shadow: 0 0 5px grey;
+    border-radius: 3px;
+}
+
+#menu button {
+    width: 100%;
+    background-color: white;
+    border: none;
+    margin: 0;
+    padding: 10px;
+}
+
+#menu button:hover {
+    background-color: lightgray;
+}
+
+#menuBar {
+    display: grid;
+    /* grid-template-rows: repeat(3, 1fr); */
+    position: absolute;
+    top: 32%;
+    left: 12%;
+    row-gap: 50px;
+    z-index: 30;
+    color: black;
+    user-select: none;
+}
+
+#menuBar > label > span {
+    font-size: 2.8rem;
+}
+
+#menuBar > label {
+    cursor: pointer;
+    text-align: center;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 48
+}
+
+
+div[id$="SettingPanel"] {
+    padding: 50px 30px;
+    position: absolute;
+    left: 67%;
+    top: 120px;
+    width: 20%;
+    height: 700px;
+}
+
+div[id$="SettingPanel"] > div {
+	margin-bottom: 50px;
+}
+
+
+#productColors {
+    margin: 10px 0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 20px;
+    row-gap: 10px;
+    text-align: center;
+    width: fit-content;
+}
+
+#productColors > div {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px gray solid;
+}
+
+#productColors > div:hover {
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+
+#productInformation {
+    font-size: xx-large;
+    font-weight: bold;
+    user-select: text;
+}
+
+#productSizes {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+    row-gap: 20px;
+    width: 80%;
+    margin: 10px 0;
+}
+
+#productSizes > div {
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    height: fit-content;
+    padding: 5px 0;
+    font-size: large;
+    border: 1px gray solid;
+}
+
+.sizeHover:hover {
+    border: 1px skyblue solid;
+    color: skyblue;
+    cursor: pointer;
+    transform: scale(1.1);
+    transition: 0.3s;
+}
+
+#outer {
+    width: 90%;
+    height: 100%;
+    margin-left: 5%;
+}
+
+
+#textSettingPanel {
+    display: none;
+}
+
+#textDecoration {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: repeat(4, 1fr);
+    font-size: large;
+    text-align: center;
+    border: 1px gray solid;
+    padding: 10px;
+}
+
+#textAlign {
+    display: grid;
+    width: fit-content;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: large;
+    text-align: center;
+    border: 1px gray solid;
+    padding: 10px;
+}
+
+#textAlign > span {
+    width: 50px;
+    border-right: 1px rgb(175, 174, 174) solid;
+}
+
+#textAlign > span:last-child {
+    border: none;
+}
+
+#textAlign > span:hover {
+    cursor: pointer;
+    color: skyblue;
+}
+
+
+#textDecoration > div {
+    width: 50px;
+    border-right: 1px rgb(175, 174, 174) solid;
+}
+
+#textDecoration > div:hover {
+    cursor: pointer;
+    color: skyblue;
+}
+
+#textDecoration > div:nth-child(3) {
+    text-decoration: underline;
+}
+
+#textDecoration > div:last-child {
+    border: none;
+    text-decoration: line-through;
+}
+
+.subTitle {
+	font-size: large;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+
+
+#fontFamilyComboBox {
+	width: 100%;
+	height: 50px;
+	padding: 12px;
+	background-color: transparent;
+}
+
+.round_border {
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+
+#fontFamilyComboBox > option {
+	background-color: #f8f8ff;
+	padding: 10px;
+}
+
+option:hover {
+	background-color: red;
+}
+
+#settingPanelOuter {
+	user-select: none;
+}
+
+#textSettingPanel > div:first-child {
+	width: fit-content;
+	margin: auto;
+	margin-bottom: 50px;
+	font-size: xx-large;
+	font-weight: bold;
+}
+
+#fontSize > span {
+	width: 50px;
+}
+
+#fontSize > span:first-child {
+	border-right: 1px rgb(175, 174, 174) solid;
+}
+
+#fontSize > span:hover {
+	cursor: pointer;
+    color: skyblue;
+}
+
+#fontSize {
+    font-size: large;
+    text-align: center;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	width: fit-content;
+	padding: 10px;
+	border: 1px gray solid;
+}
+
+#textAlignFontSize {
+	display: flex;
+	justify-content: space-between;
+}
+
+
+/* 아이콘 팝업 설정 */
+#sampleIconPopUpBackground {
+	z-index: 500;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 4, 0.7);
+	display: none;
+}
+
+
+#sampleIconPopUp {
+	width: 50%;
+	height: 70%;
+	padding: 30px;
+	text-align: center;
+	margin: auto;
+	margin-top: 8%;
+	border-radius: 10px;
+	background-color: white;
+	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+	user-select: none;
+	overflow: auto;
+}
+
+#sampleIcons {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	width: fit-content;
+	column-gap: 30px;
+	row-gap: 30px;
+	margin: auto;
+	margin-top: 20px;
+	text-align: center;
+}
+
+#sampleIcons > img {
+	width: 150px;
+	height: 150px;
+	padding: 10px;
+	border: 1px gray solid;
+	border-radius: 30px;
+}
+
+#sampleIcons > img:hover {
+	cursor: pointer;
+	transform: translateY(5px);
+}
+
+
+#sampleIconPopUpCloseBtn {
+	width: fit-content;
+	font-size: x-large;
+	color: gray;
+	margin-left: 20%;
+}
+
+#sampleIconPopUpHeader {
+	width: 100%;
+	display: grid;
+	grid-template-columns: 10fr 1fr;
+	padding-bottom: 20px;
+	border-bottom: 1px gray solid;
+}
+
+#sampleIconPopUpHeader > div {
+	margin-left: 10%;
+	font-size: x-large;
+	font-weight: bold;
+}
+
+#sampleIconPopUpCloseBtn:hover {
+	cursor: pointer;
+	color: black;
+}
+
+.scrollLock {
+	overflow: hidden;
+}
+
+
+/* 구매, 장바구니 버튼 설정 */
+#buttons {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	column-gap: 20px;
+	position: absolute;
+	top: 80%;
+	left: 68.5%;
+}
+
+.buttons {
+	width: 135px;
+	height: 50px;
+	border: none;
+	border-radius: 5px;
+}
+
+.buttons:hover {
+	transform: scale(1.1);
+	transition: 0.3s;
+}
+
+#directPurchase {
+	border: 1px #063970 solid;
+	background-color: white;
+	color: #063970;
+}
+
+#intoCart {
+	background-color: #063970;
+	color: white;
+}
+
