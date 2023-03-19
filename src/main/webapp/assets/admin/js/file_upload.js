@@ -1,11 +1,11 @@
 // 이미지 업로드
-$("#prod-upload-img").on('change', function(e) {
+function uploadProdImg(event) {
 
     // FormData.append(key, value)
     var formData = new FormData();
 
     var fileInput = $('input[name="p_info_img_path"]');
-
+    console.log(fileInput)
     var fileList = fileInput[0].files;
     console.log(fileInput[0]);
     console.log(fileList);
@@ -39,7 +39,7 @@ $("#prod-upload-img").on('change', function(e) {
         	alert('이미지 파일이 아닙니다.');
         } 
     });
-});
+};
 
 // 이미지 삭제 버튼 이벤트 추가
 $('.upload-img').on("click", ".upload-img-delete-btn", function(e) {

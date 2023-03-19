@@ -8,3 +8,8 @@ function orderViewDetail(e, ordNum) {
 
     window.open(url, name, option);
 };
+
+function closeWindow(e) {
+	
+	window.close();
+};

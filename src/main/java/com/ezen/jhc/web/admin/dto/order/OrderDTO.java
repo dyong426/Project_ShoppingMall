@@ -14,7 +14,9 @@ public class OrderDTO {
 	// 테이블 : orders
 	Integer	ord_num;
 	Integer mem_num;
+	String mem_name;
 	String mem_email;
+	String mem_phone;
 	
 	Date	ord_date;
 	
@@ -27,6 +29,7 @@ public class OrderDTO {
 	
 	String ord_request;
 	Integer payment_num;
+	String payment_name;
 	
 	
 	Integer ord_status;
@@ -34,6 +37,8 @@ public class OrderDTO {
 	Integer	total_amount;
 	
 	public String getOrd_date() {
+		
+		if (this.ord_date == null) return null;
 		
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		

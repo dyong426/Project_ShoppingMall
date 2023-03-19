@@ -91,7 +91,7 @@
 										<td>
 											<div id="prodColors[${indexStatus.index}]-uploadImg" class="pc-upload-result">
 												<div id="${prodColor.pc_img_filename}-div" class="upload-prod-img">
-   													<img src="/jhc/display/image?fileName=${prodColor.pc_thumb_img_path}">
+   													<img src="<%=request.getContextPath()%>/assets/common/upload/${prodColor.pc_thumb_img_path}">
     												<button type="button" id="${prodColor.pc_img_filename}-btn" class="upload-img-delete-btn btn btn-minus fa-solid fa-circle-minus btn-danger" data-file="${prodColor.pc_thumb_img_path}" onclick="deleteFile(event)"></button>
    													<input type="hidden" name="imageList[${indexStatus.index}].fileName" value="${prodColor.pc_img_filename}'">
 													<input type="hidden" name="imageList[${indexStatus.index}].uuid" value="${prodColor.pc_img_uuid}">

@@ -18,4 +18,6 @@ public interface AdminProdViewService {
 	public List<ProdColorDTO> getProdColorList(Integer p_num);
 	
 	public List<ProdSizeDTO> getProdSizeList(Integer p_num);
+	
+	Integer deleteProd(Integer p_num);
 }

@@ -107,8 +107,11 @@ public class AdminProdRegServiceImpl implements AdminProdRegService {
 			size.setP_num(prodDTO.getP_num());
 			log.info(prodRegMapper.regProdSizes(size));
 		});
+		
+		int resultProdDetails = prodRegMapper.regProdDetails(prodDTO.getP_num());
 
 		log.info(resultProd);
+		log.info("prodDetails result : " + resultProdDetails);
 
 		return resultProd;
 	}
@@ -116,17 +119,17 @@ public class AdminProdRegServiceImpl implements AdminProdRegService {
 	public String getTextPath(ProdDTO prodDTO, StringBuilder sb) {
 
 		// 저장 경로 설정
-		String uploadFolder = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\prod\\";
-
+		String uploadPath = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\";
+		String uploadFolder = uploadPath + "assets\\common\\upload\\";
 		// 파일 이름에 사용할 현재 날짜 가져오기
 		String datePath = util.getNowTime("yyyy-MM-dd", 0).replace("-", File.separator);
 
 		// 파일 생성
-		File uploadPath = new File(uploadFolder, datePath);
+		File uploadAbsolutePath = new File(uploadFolder, datePath);
 
 		// 파일 존재 유무 확인 후 생성
-		if (uploadPath.exists() == false) {
-			uploadPath.mkdirs();
+		if (uploadAbsolutePath.exists() == false) {
+			uploadAbsolutePath.mkdirs();
 		}
 
 		String fileName = prodDTO.getP_name() + ".txt";
@@ -135,7 +138,7 @@ public class AdminProdRegServiceImpl implements AdminProdRegService {
 		String uploadTextFileName = uuid + "_" + fileName;
 
 		// 파일 위치, 파일 이름으 합친 File 객체
-		File saveFile = new File(uploadPath, uploadTextFileName);
+		File saveFile = new File(uploadAbsolutePath, uploadTextFileName);
 		
 		
 		try (
@@ -146,7 +149,7 @@ public class AdminProdRegServiceImpl implements AdminProdRegService {
 			e.printStackTrace();
 		}
 		
-		return saveFile.getAbsolutePath();
+		return saveFile.getAbsolutePath().replace(uploadPath,"");
 	}
 
 }

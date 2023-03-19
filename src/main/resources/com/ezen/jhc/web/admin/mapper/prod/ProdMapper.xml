@@ -5,7 +5,7 @@
 <mapper namespace="com.ezen.jhc.web.admin.mapper.prod.ProdMapper">
 
 	<select id="getProds" resultType="com.ezen.jhc.web.admin.dto.prod.ProdDTO">
-		SELECT mc.m_ctgr_num AS m_ctgr_num, mc.m_ctgr_name AS m_ctgr_name, sc.s_ctgr_num AS s_ctgr_num, sc.s_ctgr_name AS s_ctgr_name, p_num, p_name, p_price FROM prods p INNER JOIN sub_ctgr sc ON p.s_ctgr_num = sc.s_ctgr_num INNER JOIN main_ctgr mc ON sc.m_ctgr_num = mc.m_ctgr_num
+		SELECT mc.m_ctgr_num AS m_ctgr_num, mc.m_ctgr_name AS m_ctgr_name, sc.s_ctgr_num AS s_ctgr_num, sc.s_ctgr_name AS s_ctgr_name, p_num, p_name, p_price FROM prods p INNER JOIN sub_ctgr sc ON p.s_ctgr_num = sc.s_ctgr_num INNER JOIN main_ctgr mc ON sc.m_ctgr_num = mc.m_ctgr_num ORDER BY p_num DESC
 	</select>
 	
 	<select id="getProd" resultType="com.ezen.jhc.web.admin.dto.prod.ProdDTO">
@@ -13,7 +13,15 @@
 	</select>
 	 
 	<insert id="regProd" >
-		INSERT INTO prods VALUES(p_seq.nextval, #{p_name}, #{p_price}, #{p_info_img_path}, #{s_ctgr_num})	
+		INSERT INTO prods VALUES(p_seq.nextval, #{p_name}, #{p_price}, #{s_ctgr_num})	
 	</insert>
+	
+	<delete id="deleteProd">
+		DELETE FROM prods WHERE p_num = #{p_num}
+	</delete>
+	
+	<delete id="deleteProdImage">
+		DELETE FROM prod_images WHERE p_num = #{p_num}
+	</delete>
 
 </mapper>

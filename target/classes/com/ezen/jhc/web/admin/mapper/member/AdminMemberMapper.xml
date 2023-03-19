@@ -26,5 +26,12 @@
 	mem_regdate
 	from members WHERE mem_num = #{mem_num}
 	</select>
+	
+	<delete id="deleteMember">
+		DELETE FROM
+			members
+		WHERE 
+			mem_num = #{mem_num}
+	</delete>
 
 </mapper>

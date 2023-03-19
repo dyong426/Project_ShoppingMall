@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.admin.mapper.home.AdminHomeMapper">
+	
+	<select id="getNewCsCount" resultType="com.ezen.jhc.web.admin.dto.home.CsCtgrDTO">
+		SELECT 
+			cs.cs_ctgr_num cs_ctgr_num,
+			cs_ctgr_name, 
+			count(cs_ctgr_name) count
+		FROM 
+			contact cs
+		INNER JOIN cs_ctgr csc ON csc.cs_ctgr_num = cs.cs_ctgr_num 
+		WHERE admin_reply IS NOT NULL
+		GROUP BY 
+			cs_ctgr_name,
+			cs.cs_ctgr_num
+		ORDER BY 
+			cs.cs_ctgr_num
+	</select>
+
+	<select id="getNewMemberCount" resultType="com.ezen.jhc.web.admin.dto.home.NewMemberCountDTO">
+		SELECT
+		(SELECT count(*) FROM members
+		WHERE mem_regdate >= TRUNC(SYSDATE, 'MM')) monthly,
+		(SELECT count(*) FROM members
+		WHERE mem_regdate >= sysdate - 1 ) yesterday
+		FROM dual
+	</select>
+</mapper>

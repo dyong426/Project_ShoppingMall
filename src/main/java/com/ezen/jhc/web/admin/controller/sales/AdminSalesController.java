@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.ezen.jhc.web.admin.dto.prod.MainCtgrDTO;
 import com.ezen.jhc.web.admin.dto.sales.DailySalesDTO;
+import com.ezen.jhc.web.admin.dto.sales.MonthlySalesDTO;
 import com.ezen.jhc.web.admin.dto.sales.PeriodSalesDTO;
 import com.ezen.jhc.web.admin.dto.sales.WeeklySalesDTO;
 import com.ezen.jhc.web.admin.service.sales.AdminSalesServiceImpl;
@@ -58,6 +59,13 @@ public class AdminSalesController {
 	
 	@GetMapping("admin/sales/monthly")
 	public String getMonthlySales(Model model) {
+		
+		List<MonthlySalesDTO> monthlySalesList = salesService.getMonthlySales();
+		
+		String monthlyJson = salesService.getMonthlySalesJson();
+		
+		model.addAttribute("monthlySalesList", monthlySalesList);
+		model.addAttribute("monthlyJson", monthlyJson);
 		
 		return "admin/sales/admin_sales_monthly";
 	}

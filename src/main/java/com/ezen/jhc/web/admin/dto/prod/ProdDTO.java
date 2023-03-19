@@ -14,7 +14,6 @@ public class ProdDTO {
 	private Integer p_num;
 	private String p_name;
 	private Integer p_price;
-	private String p_info_img_path;
 	private String p_explain_path;
 	private String p_info_path;
 }

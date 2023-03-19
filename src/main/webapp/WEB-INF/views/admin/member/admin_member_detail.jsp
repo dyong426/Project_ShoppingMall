@@ -127,6 +127,7 @@
 						</c:forEach>
 					</tbody>
 				</table>
+				<button class="btn btn-primary" onclick="closeWindow(this)">닫기</button>
 			</div>
 		</div>
 	</div>

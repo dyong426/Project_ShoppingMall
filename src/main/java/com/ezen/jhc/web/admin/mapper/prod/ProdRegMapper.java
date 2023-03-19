@@ -14,4 +14,6 @@ public interface ProdRegMapper {
 	public Integer regProdColors(ProdColorDTO prodColorDTO);
 	
 	public Integer regProdSizes(ProdSizeDTO prodSizeDTO);
+	
+	Integer regProdDetails(Integer p_num);
 }

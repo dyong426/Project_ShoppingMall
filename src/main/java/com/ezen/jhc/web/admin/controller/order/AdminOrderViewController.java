@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.ezen.jhc.web.admin.dto.order.OrderDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderDetailDTO;
-import com.ezen.jhc.web.admin.service.AdminOrderService;
+import com.ezen.jhc.web.admin.service.order.AdminOrderService;
 
 @Controller
 public class AdminOrderViewController {

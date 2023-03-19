@@ -21,10 +21,10 @@
 
 			<div class="card grid-main">
 
-				<div class="card-header">제품등록</div>
+				<div class="card-header">설정</div>
 		
 		<!-- Content wrapper -->
-				<div class="card-body d-flex flex-column">
+				<div class="card-body d-flex flex-column" style="border: solid black 1px;">
                     <div class="row">
 
                         <div class="col-12">
@@ -114,8 +114,7 @@
                     </div>
                         
                 </div>
-                
-          
+
         <!-- / Content -->
 
 

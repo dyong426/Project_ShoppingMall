@@ -18,10 +18,11 @@
             <div class="card grid-top">탑</div>
 
             <div class="card grid-main">
+            
+            	<div class="card-header">매출 통계</div>
                 <div class="card-body">
 
                     <div class="row">
-                        <h1>매출 조회</h1>
                         <div class="col-12">
                   			<button type="button" class="btn btn-sales btn-secondary"  onclick="location.href='<%=request.getContextPath()%>/admin/sales'">일일 매출</button>
 
@@ -38,39 +39,24 @@
 
                             <div class="sales-type-content" id="monthly-sales">
                                 <div class="card-dflex-column">
-                                    <canvas id="rateCompareLastMonthChart" width="400" height="200"></canvas>
-                                    <label><h3>전달 대비 : -25%</h3></label>
+                                    <canvas id="dash-monthly-amount-chart" style="width: 100%; height:30%;"></canvas>
                                 </div>
                                 <table class="table">
-
                                     <thead>
-                                        <tr>
+                                        <tr class="table-dark">
                                             <th>월</th>
                                             <th>주문 수</th>
-                                            <th>매출</th>
+                                            <th style="width: 20%;">매출(단위:십만)</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        <c:forEach items="${monthlySalesList}" var="monthlySales">
                                         <tr>
-                                            <td>1월</td>
-                                            <td>30</td>
-                                            <td>200,000</td>
+                                        	<td>${monthlySales.month}</td>
+                                        	<td>${monthlySales.sales}</td>
+                                        	<td>${monthlySales.total_amount}</td>
                                         </tr>
-                                        <tr>
-                                            <td>2월</td>
-                                            <td>30</td>
-                                            <td>200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3월</td>
-                                            <td>30</td>
-                                            <td>200,000</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4월</td>
-                                            <td>30</td>
-                                            <td>200,000</td>
-                                        </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
 
@@ -87,13 +73,58 @@
     </div>
 
 		<script>
-    function colorize() {
-    	var r = Math.floor(Math.random()*200);
-    	var g = Math.floor(Math.random()*200);
-    	var b = Math.floor(Math.random()*200);
-    	var color = 'rgba(' + r + ', ' + g + ', ' + b + ', 0.5)';
-    	return color;
+    
+    const dashMonthlyAmountChart = document.getElementById('dash-monthly-amount-chart');
+    
+    
+    var monthlyJsonString = ${monthlyJson};
+    var monthlyJsonObj = JSON.stringify(monthlyJsonString);
+    var monthlyJsonData = JSON.parse(monthlyJsonObj);
+  	console.log(monthlyJsonData);
+  	
+  	var monthList = new Array();
+    var monthlySalesList = new Array();
+    var monthlyAmountList = new Array();
+    for(var i = 0; i<monthlyJsonData.length; i++) {
+    	var d = monthlyJsonData[i];
+        
+    	monthList.push(d.month);
+       
+    	monthlySalesList.push(d.sales);
+       	monthlyAmountList.push(d.total_amount);
     }
+    
+    const lineCategory = {
+    	    labels:monthList,
+    	    datasets: [{
+    	        label: '판매량',
+    	    	type: 'line',
+    	    	fill : false,
+                lineTension : 0.2,
+    	        data: monthlySalesList,
+    	        backgroundColor:  'rgba(75, 192, 192, 0.7)',
+    	        borderColor:  'rgba(75, 192, 192, 0.7)',
+    	        hoverOffset: 10,
+    	    }, {
+    	        label: '매출 (단위: 십만)',
+    	        type: 'line',
+    	        fill : false,
+                lineTension : 0.2,
+    	        data: monthlyAmountList,
+    	        borderColor: 'rgba(255, 99, 132, 0.7)',
+    	        backgroundColor: 'rgba(255, 99, 132, 0.7)',
+    	        hoverOffset: 10,
+    	    }]
+    	};
+    
+    const chartLine = new Chart(dashMonthlyAmountChart, {
+        type: 'line',
+        data: lineCategory,
+        options: {
+            responsive: false,
+        }
+
+    });
 	
 		</script>
 		<!-- include footer -->

@@ -19,18 +19,8 @@
 
 			<div class="card grid-top">탑</div>
 
-			<div class="card grid-main">
-
-				<div class="card-header">제품등록</div>
-		
-		<!-- Content wrapper -->
-          <div class="content-wrapper">
-            <!-- Content -->
-
-            <div class="container-xxl flex-grow-1 container-p-y">
-                
                  <!-- Bootstrap Table with Header - Light -->
-                <div class="card">
+                <div class="card grid-main">
                     <h5 class="card-header">주문 조회</h5>
                     <div class="table-responsive text-nowrap">
                       <table class="table">
@@ -56,53 +46,58 @@
                         			<td>
                         			<c:choose>
                         				<c:when test="${order.ord_status eq 0}">
-                        					<span class="badge bg-warning me-1">${order.status_name}</span>
+                        					<span class="badge bg-warning fs-6 me-1">${order.status_name}</span>
                         				</c:when>
                         				<c:when test="${order.ord_status eq 1}">
-                        					<span class="badge bg-primary me-1">${order.status_name}</span>
+                        					<span class="badge bg-success fs-6 me-1">${order.status_name}</span>
                         				</c:when>
                         				<c:when test="${order.ord_status eq 2}">
-                        					<span class="badge bg-info me-1">${order.status_name}</span>
+                        					<span class="badge bg-info fs-6 me-1">${order.status_name}</span>
                         				</c:when>
                         				<c:when test="${order.ord_status eq 3}">
-                        					<span class="badge bg-info me-1">${order.status_name}</span>
+                        					<span class="badge bg-info fs-6 me-1">${order.status_name}</span>
                         				</c:when>
                         				<c:when test="${order.ord_status eq 4}">
-                        					<span class="badge bg-info me-1">${order.status_name}</span>
+                        					<span class="badge bg-primary fs-6 me-1">${order.status_name}</span>
                         				</c:when>
                         				<c:when test="${order.ord_status eq 5}">
-                        					<span class="badge bg-danger me-1">${order.status_name}</span>
+                        					<span class="badge bg-danger fs-6 me-1">${order.status_name}</span>
                         				</c:when>
                         				<c:when test="${order.ord_status eq 6}">
-                        					<span class="badge bg-danger me-1">${order.status_name}</span>
+                        					<span class="badge bg-danger fs-6 me-1">${order.status_name}</span>
                         				</c:when>
                         				<c:when test="${order.ord_status eq 7}">
-                        					<span class="badge bg-danger me-1">${order.status_name}</span>
+                        					<span class="badge bg-danger fs-6 me-1">${order.status_name}</span>
                         				</c:when>
                         			</c:choose>
                         			</td>
                         		
                         		<c:choose>
-                        			<c:when test="${order.ord_status eq 0 || order.ord_status eq 1}">
+                        			<c:when test="${order.ord_status eq 1}">
+                        				<form method="POST">
+                        				<input type="hidden" name="ord_num" value="${order.ord_num}">
+                        				<input type="hidden" name="ord_status" value="${order.ord_status}">
                         				<td>
-                               			<button type="button" class="btn btn-xs btn-outline-dark">접수</button>
+                               			<button type="submit" class="btn btn-outline-success fs-6 fw-bold" formaction="/jhc/admin/order/recieved">접수</button>
                                 		/
-                                		<button type="button" class="btn btn-xs btn-outline-dark">취소</button>
+                                		<button type="submit" class="btn btn-outline-danger fs-6 fw-bold" formaction="/jhc/admin/order/cancel">취소</button>
                                 		/
-                                		<button type="button" class="btn btn-xs btn-outline-dark">교환</button>
+                                		<button type="submit" class="btn btn-outline-warning fs-6 fw-bold" formaction="/jhc/admin/order/exchange">교환</button>
                                 		/
-                                		<button type="button" class="btn btn-xs btn-outline-dark">환불</button>
-                                		
+                                		<button type="submit" class="btn btn-outline-dark fs-6 fw-bold" formaction="/jhc/admin/order/refund">환불</button>                                		
                             			</td>
+                        				</form>
                         			</c:when>
-                        			<c:when test="${order.ord_status eq 2 || order.ord_status eq 3 || order.ord_status eq 4}">
-                        				<td>
-                        				<button type="button" class="btn btn-xs btn-outline-dark">취소</button>
-                                		/
-                                		<button type="button" class="btn btn-xs btn-outline-dark">교환</button>
-                                		/
-                                		<button type="button" class="btn btn-xs btn-outline-dark">환불</button>
-                                		</td>
+                        			<c:when test="${order.ord_status eq 0 || order.ord_status eq 2 || order.ord_status eq 4}">
+                        				<form method="POST">
+												<input type="hidden" name="ord_num" value="${order.ord_num}">
+												<input type="hidden" name="ord_status" value="${order.ord_status}">
+												<td>
+													<button type="submit" class="btn btn-outline-danger fs-6 fw-bold" formaction="/jhc/admin/order/cancel">취소</button>
+													/<button type="submit" class="btn btn-outline-warning fs-6 fw-bold" formaction="/jhc/admin/order/exchange">교환</button>
+													/<button type="submit" class="btn btn-outline-dark fs-6 fw-bold" formaction="/jhc/admin/order/refund">환불</button>
+												</td>
+											</form>
                         			</c:when>
                         			<c:otherwise>
                         				<td>

@@ -10,7 +10,7 @@
 			SELECT p_seq.nextval FROM DUAL
 		</selectKey>
 		
-		INSERT INTO prods VALUES(#{p_num}, #{p_name}, #{p_price}, #{s_ctgr_num}, #{p_info_img_path}, #{p_explain_path}, #{p_info_path})
+		INSERT INTO prods VALUES(#{p_num}, #{p_name}, #{p_price}, #{s_ctgr_num}, #{p_explain_path}, #{p_info_path})
 	</insert>
 	
 	<insert id="regProdImage">
@@ -31,6 +31,23 @@
 			SELECT ps_seq.nextval FROM DUAL
 		</selectKey>
 		INSERT INTO prod_sizes VALUES(#{ps_num}, #{ps_name}, #{p_num})
+	</insert>
+	
+	<insert id="regProdDetails">
+		INSERT INTO 
+			prod_details
+		SELECT 
+			pd_seq.nextval as pd_num,
+			p.p_num as p_num,
+			pc.pc_num as pc_num, 
+			ps.ps_num as ps_num,
+			10 as p_stock
+		FROM 
+			prods p
+		INNER JOIN prod_colors pc ON pc.p_num = p.p_num
+		INNER JOIN prod_sizes ps ON ps.p_num = p.p_num
+		WHERE 
+			p.p_num = #{p_num}
 	</insert>
 
 </mapper>

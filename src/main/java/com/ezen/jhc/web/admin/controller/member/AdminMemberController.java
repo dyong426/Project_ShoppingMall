@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ezen.jhc.web.admin.dto.member.MemberDTO;
@@ -54,6 +55,18 @@ public class AdminMemberController {
 		model.addAttribute("orderList", orderList);
 		
 		return "admin/member/admin_member_detail";
+	}
+	
+	@PostMapping("/member/delete")
+	public String deleteMember(Integer mem_num) {
+		
+		log.info(mem_num);
+		
+		int result = memberService.deleteMember(mem_num);
+		
+		log.info(result);
+		
+		return "redirect:/admin/member";
 	}
 
 }

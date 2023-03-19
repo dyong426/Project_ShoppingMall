@@ -66,4 +66,13 @@ public class AdminProdViewServiceImpl implements AdminProdViewService{
 		prodSizeList = prodSizeMapper.getProdSizes(p_num);
 		return prodSizeList;
 	}
+	
+	@Override
+	public Integer deleteProd(Integer p_num) {
+		int resultProd = prodMapper.deleteProd(p_num);
+		int resultImage = prodMapper.deleteProdImage(p_num);
+		
+		log.info("delete result : " + resultProd + ", result2 : " + resultImage);
+		return resultProd;
+	}
 }

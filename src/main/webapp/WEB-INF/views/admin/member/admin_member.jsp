@@ -40,6 +40,7 @@
 							<c:forEach items="${members}" var="member">
 
 								<tr>
+									<form method="POST">
 									<th scope="row">${member.mem_num}</th>
 									<td>${member.mem_name}</td>
 									<td>${member.mem_email}</td>
@@ -49,8 +50,10 @@
 											id="member-detail" onclick="viewDetail(${member.mem_num})">회원상세보기</button>
 									</td>
 									<td>
-										<button type="button" class="btn btn-danger">강제탈퇴</button>
+										<input type="hidden" name="mem_num" value="${member.mem_num}">
+										<button type="submit" class="btn btn-danger" formaction="/jhc/admin/member/delete">강제탈퇴</button>
 									</td>
+									</form>
 								</tr>
 							</c:forEach>
 						</tbody>

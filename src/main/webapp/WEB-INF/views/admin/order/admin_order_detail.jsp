@@ -16,23 +16,80 @@
 
 			<div class="card-body card-dflex-column">
 			
-			<div class="card-dflex-column">
-				<label for="ord_num" class="badge text-bg-dark">주문번호</label>
-				<label id="ord_num">${order.ord_num}</label>
-				<label for="ord_date" class="badge text-bg-dark">주문날짜</label>
-				<label id="ord_date">${order.ord_date}</label>
-				<label for="ord_zipcode" class="badge text-bg-dark">배송지 우편번호</label>
-				<label id="ord_zipcode">${order.ord_zipcode}</label>
-				<label for="ord_addr1" class="badge text-bg-dark">배송지 주소1</label>
-				<label id="ord_addr1">${order.ord_addr1}</label>
-				<label for="ord_addr2" class="badge text-bg-dark">배송지 주소2</label>
-				<label id="ord_addr2">${order.ord_addr2}</label>
-				<label for="receiver_name"  class="badge text-bg-dark">수령자 이름</label>
-				<label id="receiver_name">${order.receiver_name}</label>
-				<label for="receiver_phone" class="badge text-bg-dark">수령자 연락처</label>
-				<label id="receiver_phone">${order.receiver_phone}</label>
-				<label for="ord_request" class="badge text-bg-dark">요청 사항</label>
-				<label id="ord_request">${order.ord_request}</label>
+			<div class="d-flex flex-row justify-content-between">
+				<div>
+				<table class="table">
+					<thead>
+						<tr class="table-dark">
+							<td class="fw-semibold">주문자 정보</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th class="table-secondary"><label class="badge text-bg-dark">회원 이름</label></th>
+							<td><label id="mem_num">${order.mem_name}</label><td>
+						</tr>
+                        <tr>
+                            <th class="table-secondary"><label class="badge text-bg-dark">회원 이메일</label></th>
+                            <td><label id="mem_email">${order.mem_email}</label></td>        
+                        </tr>
+                        <tr>
+                            <th class="table-secondary"><label class="badge text-bg-dark">회원 연락처</label></th>
+                            <td><label id="mem_phone">${order.mem_phone}</label></td>        
+                        </tr>
+                        <tr>
+                            <th class="table-secondary"><label class="badge text-bg-dark">결제</label></th>
+                            <td><label id="payment_name">${order.payment_name}</label></td>        
+                        </tr>
+					</tbody>
+				</table>
+				</div>
+			
+				<div>
+				<table class="table">
+					<thead>
+						<tr class="table-dark">
+							<td class="fw-semibold">수령자 정보</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th class="table-secondary"><label for="ord_num" class="badge text-bg-dark">주문번호</label></th>
+							<td><label id="ord_num">${order.ord_num}</label><td>
+						</tr>
+						<tr>
+                            <th class="table-secondary"><label for="ord_date" class="badge text-bg-dark">주문날짜</label></th>
+                            <td><label id="ord_date">${order.ord_date}</label></td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary"><label for="receiver_name"  class="badge text-bg-dark">수령자 이름</label></th>
+                            <td><label id="receiver_name">${order.receiver_name}</label></td>        
+                        </tr>
+                        <tr>
+                            <th class="table-secondary"><label for="receiver_phone" class="badge text-bg-dark">수령자 연락처</label></th>
+                            <td><label id="receiver_phone">${order.receiver_phone}</label></td>        
+                        </tr>
+						<tr rowspan="3">
+							<th class="table-secondary"></th>
+                            <td><label id="ord_zipcode">${order.ord_zipcode}</label></td>
+                        </tr>
+                        <tr>
+                            <th class="table-secondary"><label class="badge text-bg-dark">주소</label></th>
+                            <td><label id="ord_addr1">${order.ord_addr1}</label></td>        
+                        </tr>        
+                        <tr>
+                        	<th class="table-secondary"></th>
+                            <td><label id="ord_addr2">${order.ord_addr2}</label></td>        
+						</tr>
+                        <tr>
+                            <th class="table-secondary"><label for="ord_request" class="badge text-bg-dark">요청 사항</label></th>
+                            <td><label id="ord_request">${order.ord_request}</label></td>        
+                        </tr>
+					</tbody>
+				</table>
+				</div>			
 			</div>
 				
 				<table class="basic-table" id="order_details">
@@ -61,8 +118,10 @@
 						</c:forEach>					
 					</tbody>
 				</table>
-				<label for="total_amount" class="badge text-bg-dark">총 가격</label>
-				<label id="total_amount" class="form-label">${order.total_amount}</label>
+				<label for="total_amount" class="badge fw-semibold fs-6 text-bg-dark">총 가격</label>
+				<label id="total_amount" class="fw-semibold">${order.total_amount}</label>
+				
+				<button class="btn btn-primary" onclick="closeWindow(this)">닫기</button>
 				
 				
 				

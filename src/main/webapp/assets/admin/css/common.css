@@ -93,7 +93,7 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    height: 80%;
+    height: 100%;
 }
 
 
@@ -141,7 +141,7 @@ label {
 
 .main-container {
     display: grid;
-    height: 100vh;
+    height: auto;
     background-color: rgb(245 245 247);
     grid-template-columns: 250px 1fr;
     grid-template-rows: 1fr 100px;
@@ -152,20 +152,20 @@ label {
 
 .content-container-home {
     display: grid;
-    height: 100vh;
+    height: auto;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 110px repeat(4, 1fr);
     grid-template-areas:
         "grid-top grid-top grid-top grid-top"
         "grid-main grid-main grid-main grid-news1"
         "grid-main grid-main grid-main grid-news2"
-        "grid-sub grid-sub grid-sub grid-news3"
+        "grid-sub grid-sub grid-sub grid-news4"
         "grid-sub grid-sub grid-sub grid-news4";
 }
 
 .content-container-setting {
     display: grid;
-    height: 100%;
+    height: auto;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 110px repeat(4, 1fr);
     grid-template-areas:
@@ -178,7 +178,7 @@ label {
 
 .content-container-prod {
     display: grid;
-    height: 100%;
+   	height: 100%;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: 110px repeat(4, 1fr);
     grid-template-areas:
@@ -192,12 +192,13 @@ label {
 .menubar-vertical {
     margin-top: 0px;
     background-color: rgb(110 110 115);
+    height: auto;
 
 }
 
 #menubar-list {
     list-style-type: none;
-    height: 100%;
+    height: auto;
     background-color:rgb(245 245 247);
 }
 

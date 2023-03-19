@@ -45,17 +45,15 @@ function selectMain(event) {
     xhttp.send(JSON.stringify(obj));
 }
 
-var colorNum = 1;
-var sizeNum = 1;
-
-var colorTable = document.getElementById('prod-color-table-body');
-var sizeTable = document.getElementById('prod-size-table-body');
-
 function addColor(evt) {
+    var colorTable = document.getElementById('prod_color_table');
 
-    const newColor = colorTable.insertRow();
+    var lastRow = colorTable.lastElementChild.lastElementChild;
+    var lastColorNum = Number(lastRow.id.replace("prodColors",""));
+    var colorNum = lastColorNum + 1;
 
-    newColor.id = `prodColors[${colorNum}]`;
+    var newColor = colorTable.insertRow();
+    newColor.id = `prodColors${colorNum}`;
 
     const newColorName = newColor.insertCell(0);
     const newColorCode = newColor.insertCell(1);
@@ -88,7 +86,7 @@ function addColorBtn(evt) {
 }
 
 function removeColorBtn(evt) {
-
+    var colorTable = document.getElementById('prod_color_table');
     var removeTarget = evt.target.parentElement.parentElement;
     console.log(removeTarget);
     var row = document.getElementById(removeTarget.id);
@@ -98,9 +96,15 @@ function removeColorBtn(evt) {
 
 //사이즈 추가/제거 버튼
 function addSize(evt) {
+    var sizeTable = document.getElementById('prod-size-table');
+    var lastRow = sizeTable.lastElementChild.lastElementChild;
+    var lastSizeNum = Number(lastRow.id.replace("prodSizes",""));
+    console.log(lastSizeNum);
+    var sizeNum = lastSizeNum + 1;
+
     const newSize = sizeTable.insertRow();
 
-    newSize.id = `size${sizeNum}`;
+    newSize.id = `prodSizes${sizeNum}`;
 
     const newSizeName = newSize.insertCell(0);
     const newSizeBtn = newSize.insertCell(1);
@@ -119,7 +123,7 @@ function addSizeBtn(evt) {
 }
 
 function removeSizeBtn(evt) {
-
+    var sizeTable = document.getElementById('prod-size-table');
     var removeTarget = evt.target.parentElement.parentElement;
     console.log(removeTarget);
     var row = document.getElementById(removeTarget.id);

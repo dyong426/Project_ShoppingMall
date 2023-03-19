@@ -16,4 +16,6 @@ public interface AdminMemberService {
 	public MemberDTO getMemberInfo(Integer mem_num);
 	
 	public List<OrderListDTO> getMemberRecentOrderList(Integer mem_num);
+	
+	Integer deleteMember(Integer mem_num);
 }

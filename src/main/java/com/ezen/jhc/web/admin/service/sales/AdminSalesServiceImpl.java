@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.ezen.jhc.web.admin.dto.prod.MainCtgrDTO;
 import com.ezen.jhc.web.admin.dto.prod.SubCtgrDTO;
 import com.ezen.jhc.web.admin.dto.sales.DailySalesDTO;
+import com.ezen.jhc.web.admin.dto.sales.MonthlySalesDTO;
 import com.ezen.jhc.web.admin.dto.sales.PeriodSalesDTO;
 import com.ezen.jhc.web.admin.dto.sales.WeeklySalesDTO;
 import com.ezen.jhc.web.admin.mapper.prod.CtgrMapper;
@@ -175,6 +176,39 @@ public class AdminSalesServiceImpl implements AdminSalesService{
 			
 			jobj.put("ord_date", ord_date);
 			jobj.put("count", count);
+			jobj.put("total_amount", total_amount);
+			
+			arr.add(jobj);
+		}
+		
+		String json = arr.toJSONString();
+		
+		return json;
+	}
+	
+	@Override
+	public List<MonthlySalesDTO> getMonthlySales() {
+		
+		return salesMapper.getMonthlySales();
+	}
+	
+	@Override
+	public String getMonthlySalesJson() {
+		
+		Iterator<MonthlySalesDTO> it = salesMapper.getMonthlySales().iterator();
+		
+		JSONArray arr = new JSONArray();
+		while (it.hasNext()) {
+			MonthlySalesDTO dto = it.next();
+			
+			
+			JSONObject jobj = new JSONObject();
+			String month = dto.getMonth();
+			Integer sales = dto.getSales();
+			Integer total_amount = dto.getTotal_amount();
+			
+			jobj.put("month", month);
+			jobj.put("sales", sales);
 			jobj.put("total_amount", total_amount);
 			
 			arr.add(jobj);

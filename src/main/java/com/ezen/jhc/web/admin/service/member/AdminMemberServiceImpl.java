@@ -10,7 +10,7 @@ import com.ezen.jhc.web.admin.dto.member.MemberDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderListDTO;
 import com.ezen.jhc.web.admin.mapper.member.AdminMemberMapper;
-import com.ezen.jhc.web.admin.mapper.order.OrderMapper;
+import com.ezen.jhc.web.admin.mapper.order.AdminOrderMapper;
 
 import lombok.extern.log4j.Log4j2;
 
@@ -32,7 +32,7 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 	AdminMemberMapper memberMapper;
 	
 	@Autowired
-	OrderMapper orderMapper;
+	AdminOrderMapper orderMapper;
 	
 	@Override
 	public List<MemberDTO> getMemberList() {
@@ -65,6 +65,12 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 		}
 		
 		return memberOrderList;
+	}
+	
+	@Override
+	public Integer deleteMember(Integer mem_num) {
+		
+		return memberMapper.deleteMember(mem_num);
 	}
 
 }

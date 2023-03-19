@@ -61,8 +61,7 @@
 					</div>
 					<div class="col-md-12">
 						<label for="p_info_img_path" class="form-label">제품 정보 이미지</label>
-						<input type="file" class="form-control file-upload"
-							id="prod-upload-img" name="p_info_img_path" multiple>
+						<input type="file" class="form-control file-upload" id="prod-upload-img" name="p_info_img_path" onchange="uploadProdImg(this)">
 						<div id="uploadResult" class="dflex-row">
 							
 						</div>
@@ -80,7 +79,7 @@
 								</tr>
 							</thead>
 							<tbody id="prod-color-table-body">
-								<tr id="prodColors[0]">
+								<tr id="prodColors0">
 									<td><input type="text" class="form-control"
 										id="color-name0" name="prodColors[0].pc_name" /></td>
 									<td><input type="color" class="form-control"
@@ -114,7 +113,7 @@
 								</tr>
 							</thead>
 							<tbody id="prod-size-table-body">
-								<tr id="size0">
+								<tr id="prodSizes0">
 									<td><input type="text" class="form-control"
 										id="size-name0" name="prodSizes[0].ps_name" /></td>
 									<td>
@@ -164,6 +163,5 @@
 
 			</div>
 		</div>
-
 		<!-- include footer -->
 		<%@ include file="../include/footer.jsp"%>

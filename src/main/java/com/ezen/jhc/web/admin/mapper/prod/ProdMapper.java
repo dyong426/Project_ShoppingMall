@@ -11,5 +11,9 @@ public interface ProdMapper {
 	public ProdDTO getProd(Integer p_num);
 	
 	public Integer regProd(ProdDTO prodDTO);
+	
+	Integer deleteProd(Integer p_num);
+	
+	Integer deleteProdImage(Integer p_num);
 
 }

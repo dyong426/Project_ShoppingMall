@@ -27,6 +27,7 @@ import lombok.extern.log4j.Log4j2;
 public class ImageViewController {
 	
 	static String uploadFolder = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\";
+	static String uploadPath = "\\assets\\common\\upload\\";
 	/**
 	 * 
 	 * @param fileName
@@ -34,7 +35,7 @@ public class ImageViewController {
 	 */
 	@GetMapping("/display/image")
 	public ResponseEntity<byte[]> getImage(String fileName) {
-		
+			
 		log.info("getImage()---" + fileName);
 		
 		File file = new File(uploadFolder + fileName);

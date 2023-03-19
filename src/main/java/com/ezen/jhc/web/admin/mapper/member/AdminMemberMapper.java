@@ -11,4 +11,6 @@ public interface AdminMemberMapper {
 	
 	public MemberDTO getMember(Integer mem_num);
 	
+	Integer deleteMember(Integer mem_num);
+	
 }
