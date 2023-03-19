@@ -89,7 +89,7 @@
 	<!--마이페이지 드롭다운-->
 	<div class="hidden myPage_container" id="myPage_drop-down">
       <button onclick="location.href='<%=request.getContextPath() %>/history'">주문 내역</button>
-      <button onclick="location.href='<%=request.getContextPath() %>/writeable_reviews'">나의 리뷰</button>
+      <button onclick="location.href='<%=request.getContextPath() %>/review/write?page=1'">나의 리뷰</button>
       <button onclick="location.href='<%=request.getContextPath() %>/info'">나의 정보</button>
       <button onclick="location.href='#'">문의 내역</button>
 

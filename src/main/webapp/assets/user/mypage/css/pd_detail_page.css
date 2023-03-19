@@ -36,7 +36,6 @@ h2 {
 .title_area {
     height: 120px;
     background-color: rgb(248, 249, 250);
-    margin-top: 20px;
     background-color: rgb(248, 249, 250);
 }
 
@@ -135,7 +134,6 @@ table {
     width: 900px;
     height: auto;
     display: grid;
-    grid-template-rows: 0.3fr 1fr;
     margin-bottom: 50px;
     background-color: white;
 }

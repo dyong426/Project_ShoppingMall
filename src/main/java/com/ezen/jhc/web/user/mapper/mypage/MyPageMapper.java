@@ -18,7 +18,7 @@ import com.ezen.jhc.web.user.dto.review.ReviewImageDTO;
 public interface MyPageMapper {
 	
 	// 배송 완료 상품 정보 쿼리문(리뷰 작성 가능 페이지)
-	@Select("SELECT  m.mem_num, m.mem_name, ord.ord_date, od.ord_num, p.p_name, pi.origin_img_path, p.p_num, pc.pc_name, od.od_num, pc.pc_num, ps.ps_num "
+	@Select("SELECT  m.mem_num, m.mem_name, ord.ord_date, od.ord_num, p.p_name, pi.origin_img_path, p.p_num, pc.pc_name, od.od_num, pc.pc_num, ps.ps_num, ord.ord_num "
 			+ "FROM members m "
 			+ "JOIN orders ord ON m.mem_num = ord.mem_num "
 			+ "JOIN order_details od ON ord.ord_num = od.ord_num "

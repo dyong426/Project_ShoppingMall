@@ -2,7 +2,6 @@
 
 a {
     color: black;
-    text-decoration-line: none;
 }
 
 a:hover {
@@ -17,8 +16,8 @@ a:hover {
     color: rgb(134, 142, 150);
 }
 
-.header_title > *{
-    font-family: 'Gowun Dodum', sans-serif;
+.header_title > span{
+   font-weight: 100;
     font-style: normal;
     box-sizing: content-box;
 }
@@ -74,7 +73,7 @@ a:hover {
     border-bottom: solid 1px rgb(213, 219, 224);
 }
 
-.header_my_review {1
+.header_my_review {
     width: 992px;
     margin: 0px 0px 24px;
     padding: 24px;
@@ -96,13 +95,10 @@ a:hover {
     border-bottom: solid 1px rgb(213, 219, 224);
 }
 
-.order_date > span {
-    font-weight: lighter;
-}
+
 
 .write_review {
 	 font-size: 15px;
-    font-weight: bold;
     width: 992px;
     padding: 15px;
     margin: 10px auto;
@@ -181,5 +177,14 @@ a:hover {
   	border: none;
   	background-color: rgb(248, 249, 250);
   	
-  	border-bottom: 1px gray solid;
+  }
+  
+  table > tbody > tr > td {
+  	font-weight: 100;
+  }
+  
+  button {
+  	color: white;
+  	background-color: black;
+  	padding: 5px 10px;
   }

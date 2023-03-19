@@ -1,6 +1,5 @@
-
-
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
 a {
     color: black;
 }
@@ -18,8 +17,8 @@ textarea:focus {
     outline: none;
 }
 
-.header_title2 > *{
-    font-family: 'Gowun Dodum', sans-serif;
+.header_title2 > span{
+ font-weight: 100;
     font-style: normal;
     box-sizing: content-box;
 }
@@ -185,9 +184,9 @@ textarea:focus {
 .warning_msg {
     display: none;
     position: absolute;
-    line-height: 57px;
+    line-height: 45px;
     font-size: 13px;
-    margin-left: 230px;
+    margin-left: 210px;
     width: auto;
     color: red;
     padding: 10px;

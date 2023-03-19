@@ -48,6 +48,18 @@ public class HistoryServiceImpl implements HistoryService {
 			orderMapper.cancleOrder(ord_num);
 		
 	}
+	
+	@Override
+	public List<OrderDTO> orderExchange(Integer ord_num) {
+		return orderMapper.exchangeOrder(ord_num);
+		
+	}
+
+	@Override
+	public List<OrderDTO> orderRefund(Integer ord_num) {
+		return orderMapper.refundOrder(ord_num);
+		
+	}
 
 	//상태만 선택 된 경우
 	@Override
@@ -69,6 +81,9 @@ public class HistoryServiceImpl implements HistoryService {
 		}
 		return orderMapper.selectOrderHistoryDateSelected(mem_num, start_date, end_date);
 	}
+
+	
+	
 
 	
 	

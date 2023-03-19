@@ -35,5 +35,11 @@ public interface HistoryService {
 	
 	// 주문 취소
 	void orderCancel(Integer ord_num);
+	
+	// 교환 - 주희
+	List<OrderDTO> orderExchange(Integer ord_num);
+	
+	// 반품 - 주희
+	List<OrderDTO> orderRefund(Integer ord_num);
 
 }

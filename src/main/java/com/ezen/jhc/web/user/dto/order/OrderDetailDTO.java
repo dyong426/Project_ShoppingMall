@@ -54,6 +54,7 @@ public class OrderDetailDTO {
 	
 	// 테이블 조인 : oders
 	Date ord_date;
+	Integer order_num;
 	
 	// 테이블 조인 : reviews
 	Integer review_num;

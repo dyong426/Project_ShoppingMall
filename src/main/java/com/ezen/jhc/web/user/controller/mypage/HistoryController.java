@@ -107,11 +107,47 @@ public class HistoryController {
 
 		historyService.orderCancel(ord_num);
 	}
+	
+	
+	// 교환
+	@GetMapping(value = "/order/er/exchange")
+	@ResponseBody
+	public String orderExchange(@RequestParam(value = "ord_num", required = false) Integer ord_num) {
+		
+		 historyService.orderExchange(ord_num);
+		
+		 return "user/mypage/purchase/history";
+	}
+	
+	// 반품
+	@GetMapping(value = "/order/er/refund")
+	@ResponseBody
+	public String orderRefund(@RequestParam(value = "ord_num", required = false) Integer ord_num) {
+		
+		historyService.orderRefund(ord_num);
+		
+		 return "user/mypage/purchase/history";
+		
+	}
+	
+	
+	// 교환 및 반품 페이지
+	@RequestMapping(value = "/order/er", method = RequestMethod.GET)
+	public String orderER(Model model, HttpSession session,
+			@RequestParam(value = "ord_num", required = false) Integer ord_num) {
+		
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		Integer mem_num = member.getMem_num();
+		OrderDTO order = historyService.getOrderAll(mem_num, ord_num);
 
-	@RequestMapping(value = "/er", method = RequestMethod.GET)
-	public String orderER() {
+		List<OrderDetailDTO> orderDetails = historyService.getOrderDetails(ord_num);
+
+		model.addAttribute("order", order);
+		model.addAttribute("orderDetails", orderDetails);
 
 		return "user/mypage/purchase/exchange_refund";
 	}
+	
+	
 
 }

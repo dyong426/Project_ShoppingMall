@@ -3,7 +3,7 @@
 a {
     color: black;
     z-index: 1;
-    text-decoration-line: none;
+    
 }
 
 a:hover {
@@ -18,8 +18,8 @@ a:hover {
     color: rgb(134, 142, 150);
 }
 
-.header_title2 > *{
-    font-family: 'Gowun Dodum', sans-serif;
+.header_title2 > span{
+    font-weight: 100;
     font-style: normal;
     box-sizing: content-box;
 }
@@ -77,7 +77,6 @@ a:hover {
 .wrote_review {
     width: 992px;
     font-size: 15px;
-    font-weight: bold;
     padding: 30px;
     background-color: white;
 }
@@ -206,8 +205,10 @@ a:hover {
   	margin-right: 5px;
   	border: none;
   	background-color: rgb(248, 249, 250);
-  	
-  	border-bottom: 1px gray solid;
+  }
+  
+    table > tbody > tr > td {
+  	font-weight: 100;
   }
   
   

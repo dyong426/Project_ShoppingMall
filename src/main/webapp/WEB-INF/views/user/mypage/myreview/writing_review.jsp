@@ -14,7 +14,7 @@
   <div class="rv_container2">
         <div class="rv_body2">
             <div class="header_title2">
-                <span class="wr_review">리뷰 작성하기</span>
+                <span class="wr_review"><h1>리뷰 작성하기</h1></span>
             </div>
 	            <div class="pd_info">
 	                <div class="pd_image">
@@ -29,10 +29,7 @@
 	            </div>
 	            <c:set var="member" value="${sessionScope.member }"/>
 	            
-	             <form action="/jhc/review/add?mem_num=${member.mem_num}&page=1" 
-	             onsubmit="return doCheck();" id="rv_check_form"  method="POST">
-	             
-	              	         
+	             <form action="/jhc/review/list?page=1"  id="rv_check_form"  method="POST">
 	            <input type="hidden" name="mem_num" id="mem_num" value="${member.mem_num}"/>
 	          <input type="hidden" name="p_num" value="${param.p_num}" />
   				<input type="hidden" name="od_num" value="${param.od_num}" />
@@ -64,15 +61,62 @@
 					    <label for="file">파일 찾기</label> 
 					    <input type="file" name=review_image_path id="file">
 						    <div class="button_box" style="float:right">
-		                    	<input type="submit" value="리뷰 등록" class="registration" id="save"/>
+		                    	<input type="submit" value="리뷰 등록" class="registration" id="save" />
 		                	</div>
 					</div>
 	                <div id="uploadResult">
 					</div>
 	            </div>
+	            <input type="hidden" name="token" value="<%= System.currentTimeMillis() %>">
 	       </form> 
         </div>
   </div>
+  
+  <!-- 별점, 내용 체크 -->
+ <script>
+ const myForm = document.getElementById('rv_check_form');
+ myForm.addEventListener('submit', function(event) {
+	// form의 submit 기능 막음
+	 event.preventDefault(); 
+   
+	 const checkedStars = myForm.querySelectorAll('input[type="radio"]:checked');
+
+	 if (checkedStars.length === 0) {
+		//안내메시지 표시
+         document.querySelector('.check_box .warning_msg').style.display = 'block';
+         //지정된 시간 후 안내 메시지 감춤
+         setTimeout(function(){
+             document.querySelector('.check_box .warning_msg').style.display = 'none';
+         },2000);            
+	        
+	        return false;
+	    }
+	 
+	 	const rv_content = document.getElementById("review_content");
+	 	
+	    if (rv_content.value.trim() == "") {
+	    	rv_content.focus();
+	        alert("내용을 입력해주세요");
+
+	        return false;
+		}
+	    
+	    if (rv_content.value.length < 5 && rv_content.value.length < 100) {
+            alert("5자 이상으로 작성해 주세요");
+            
+            return false;
+        }
+	    
+	    if (rv_content.value.length > 100) {
+            alert("100자 이하로 작성해 주세요");
+            
+            return false;
+        }
+	    
+   // form의 submit 기능 실행
+   myForm.submit();
+ });
+ </script>
   
 
   
@@ -216,7 +260,6 @@ $("#file").on('change',function(){
 
  <footer>
    <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
-<script src="https://kit.fontawesome.com/3a90129dcf.js" crossorigin="anonymous"></script>
 
 
 
