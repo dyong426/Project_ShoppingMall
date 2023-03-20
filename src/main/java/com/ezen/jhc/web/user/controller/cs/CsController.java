@@ -9,9 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.multipart.MultipartFile;
 
+import com.ezen.jhc.web.user.dto.contact.AttachImageDTO;
 import com.ezen.jhc.web.user.dto.faq.FaqDTO;
 import com.ezen.jhc.web.user.mapper.cs.ContactMapper;
 import com.ezen.jhc.web.user.mapper.cs.FaqMapper;
@@ -71,7 +70,7 @@ public class CsController {
 	public String cs_contatct_( 
 			@Param("mem_num") Integer mem_num,
 			@Param("contact_ctgr") Integer contact_ctgr, @Param("contact_title") String contact_title,
-			@Param("contact_content") String contact_content){
+			@Param("contact_content") String contact_content, AttachImageDTO image){
 				 
 		
 		
@@ -79,7 +78,7 @@ public class CsController {
 		System.out.println(contact_ctgr);
 		System.out.println(contact_title);
 		System.out.println(contact_content);
-		System.out.println();
+		System.out.println("customerServic/con POST....." + image);
 	
 	
 		//String insert = contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title,contact_content);

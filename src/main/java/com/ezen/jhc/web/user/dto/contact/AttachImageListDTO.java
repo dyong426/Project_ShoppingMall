@@ -1,20 +1,16 @@
 package com.ezen.jhc.web.user.dto.contact;
 
+import java.util.List;
+
 import lombok.Data;
 
 @Data
-public class AttachImageDTO {
-	/* 경로 */
-	private String uploadPath;
+public class AttachImageListDTO {
+
+	AttachImageDTO image;
 	
-	/* uuid */
-	private String uuid;
-	
-	/* 파일 이름 */
-	private String fileName;
-	
-	/* 상품 id */
-	private int contact_num;
+	/* 이미지 정보 */
+	private List<AttachImageDTO> imageList;
 	
 	@Override
 	public String toString() {
