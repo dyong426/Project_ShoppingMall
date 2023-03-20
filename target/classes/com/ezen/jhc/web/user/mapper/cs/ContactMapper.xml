@@ -12,7 +12,7 @@
       	</selectKey>
 		
 		INSERT INTO contact VALUES 
-		(contact_num_seq.nextval, #{mem_num}, 
+		(#{contact_num}, #{mem_num}, 
 		#{contact_ctgr}, #{contact_title},
 		#{contact_content}, null,
 		sysdate, null)

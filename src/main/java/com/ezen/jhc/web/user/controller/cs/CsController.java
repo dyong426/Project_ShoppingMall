@@ -3,13 +3,13 @@ package com.ezen.jhc.web.user.controller.cs;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.ezen.jhc.web.user.dto.contact.AttachImageDTO;
 import com.ezen.jhc.web.user.dto.contact.AttachImageListDTO;
 import com.ezen.jhc.web.user.dto.contact.ContactDTO;
 import com.ezen.jhc.web.user.dto.faq.FaqDTO;
@@ -19,7 +19,8 @@ import com.ezen.jhc.web.user.mapper.cs.FaqMapper;
 
 @Controller
 public class CsController {
-
+	   @Autowired(required = false)
+	   ContactDTO contact;
 	
 	@Autowired
 	FaqMapper faq_mapper;
@@ -69,26 +70,13 @@ public class CsController {
 
 	//1:1문의 POST
 	@PostMapping("/customerservice/con")
-	public String cs_contatct_( 
-			@Param("mem_num") Integer mem_num,
-			@Param("contact_ctgr") Integer contact_ctgr, @Param("contact_title") String contact_title,
-			@Param("contact_content") String contact_content, AttachImageListDTO image){
+	public String cs_contatct_(ContactDTO contact, AttachImageListDTO images, AttachImageDTO image){
 
-		ContactDTO contact = new ContactDTO();
 		
-		contact.setContact_title(contact_title);
-		contact.setContact_ctgr(contact_ctgr);
-		contact.setMem_num(mem_num);
-		contact.setContact_content(contact_content);
 		
-		System.out.println(mem_num);
-		System.out.println(contact_ctgr);
-		System.out.println(contact_title);
-		System.out.println(contact_content);
+		contact_mapper.insert_contact(contact);
+		image.setContact_num(contact.getContact_num());
 		
-		int num = contact_mapper.insert_contact(contact);
-		
-		System.out.println("contact_num: " + num); 
 		
 		System.out.println("customerService/con POST....." + image);
 		
