@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -19,14 +20,21 @@
 <title>관리자 로그인</title>
 </head>
 <body>
+	<c:if test="${login_error ne null}">
+		<script type="text/javascript">
+
+  			alert(`${login_error}`);
+
+		</script>
+	</c:if>
 
 	<div class="d-flex justify-content-center align-items-center"
 		style="border: solid 1px black; height: 100vh;">
-		<form action="" method="POST">
+		<form action="login/loginAction.do" method="POST">
 			<div class="row col-12">
 				<div class="col-12">
 					<img
-						src="http://localhost:8888/jhc/assets/common/cstm_img/logo.png"
+						src="http://localhost:9000/jhc/assets/common/cstm_img/logo.png"
 						style="width: 200px;">
 				</div>
 				<div class="col-12">

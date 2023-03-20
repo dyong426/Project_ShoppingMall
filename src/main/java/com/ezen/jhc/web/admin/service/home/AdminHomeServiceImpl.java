@@ -14,6 +14,9 @@ import com.ezen.jhc.web.admin.dto.home.NewMemberCountDTO;
 import com.ezen.jhc.web.admin.mapper.home.AdminHomeMapper;
 import com.ezen.jhc.web.admin.mapper.sales.SalesMapper;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Service
 public class AdminHomeServiceImpl implements AdminHomeService{
 	
@@ -70,5 +73,11 @@ public class AdminHomeServiceImpl implements AdminHomeService{
 	public NewMemberCountDTO getNewMemberCount() {
 		
 		return homeMapper.getNewMemberCount();
+	}
+	
+	@Override
+	public String loginPW(String admin_email) {
+		
+		return homeMapper.loginPW(admin_email);
 	}
 }

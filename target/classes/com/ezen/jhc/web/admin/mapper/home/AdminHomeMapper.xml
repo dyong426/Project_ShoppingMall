@@ -28,4 +28,8 @@
 		WHERE mem_regdate >= sysdate - 1 ) yesterday
 		FROM dual
 	</select>
+	
+	<select id="loginPW" resultType="String">
+		SELECT admin_pw FROM admins WHERE admin_email = #{admin_email}
+	</select>
 </mapper>

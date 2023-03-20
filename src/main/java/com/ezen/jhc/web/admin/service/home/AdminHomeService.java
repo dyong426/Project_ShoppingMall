@@ -20,4 +20,6 @@ public interface AdminHomeService {
 	List<CsCtgrDTO> getNewCsCount();
 	
 	NewMemberCountDTO getNewMemberCount();
+	
+	String loginPW(String admin_email);
 }

@@ -2,6 +2,9 @@ package com.ezen.jhc.web.admin.controller.home;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,7 +31,7 @@ public class AdminHomeController {
 	AdminHomeServiceImpl homeService;
 	
 	@Autowired
-	AdminSalesServiceImpl salesService;
+	AdminSalesServiceImpl salesService;	
 	
 	@Autowired(required = false)
 	List<MonthlySalesDTO> monthlySalesList;
@@ -42,11 +45,8 @@ public class AdminHomeController {
 	@Autowired(required = false)
 	NewMemberCountDTO newMemCntDTO;
 	
-	@Autowired(required = false)
-	AdminDTO amdin;
 	
-	
-	@RequestMapping(value ={"/admin", "/admin/home"}, method = RequestMethod.GET)
+	@GetMapping(value={"/admin", "/admin/home"})
 	public String main(Model model) {
 		
 		
@@ -107,11 +107,28 @@ public class AdminHomeController {
 		return "admin/home/admin_login";
 	}
 	
-	@PostMapping("admin/login")
-	public String loginCheck(AdminDTO admin) {
-		if (admin.getAdmin_email().equals("admin@naver.com") && admin.getAdmin_pw().equals("1234")) return "redirect:/admin";
+	@PostMapping("admin/login/loginAction.do")
+	public String loginCheck(AdminDTO admin, HttpServletRequest req, Model model) {
 		
-		return "redirect:/admin/login";
+		String dbPW = homeService.loginPW(admin.getAdmin_email());
+		log.info(dbPW + " / " + admin.getAdmin_pw());
+		if (dbPW.equals(admin.getAdmin_pw())) {
+			
+			HttpSession session =req.getSession();	
+			
+		    session.setAttribute("ADMIN_LOGIN", admin);
+		    
+		    log.info(session.getAttribute("ADMIN_LOGIN"));
+			
+			return "redirect:/admin";
+		} else {
+			log.info("실패");
+			
+			model.addAttribute("login_error", "아이디 또는 비밀번호가 일치하지 않습니다.");
+			
+			return "redirect:/admin/login";
+		}
+		
 	}
 
 }
