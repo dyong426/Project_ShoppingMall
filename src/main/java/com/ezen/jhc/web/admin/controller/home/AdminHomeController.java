@@ -94,5 +94,11 @@ public class AdminHomeController {
 		
 		return "admin/home/admin_home";
 	}
+	
+	@RequestMapping("admin/login")
+	public String login() {
+		
+		return "admin/home/admin_login";
+	}
 
 }

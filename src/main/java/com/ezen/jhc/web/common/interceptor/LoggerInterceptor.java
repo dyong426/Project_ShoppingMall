@@ -20,7 +20,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 		if(session.getAttribute("LOGIN")==null) {
 			log.info("LOGIN  세션값 널");		
 			
-			response.sendRedirect("/");			
+			response.sendRedirect("/jhc/admin/login");			
 			return false;
 		}
 		return true;
