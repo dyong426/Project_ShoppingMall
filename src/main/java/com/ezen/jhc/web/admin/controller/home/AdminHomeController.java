@@ -5,9 +5,12 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.ezen.jhc.web.admin.dto.home.AdminDTO;
 import com.ezen.jhc.web.admin.dto.home.CsCtgrDTO;
 import com.ezen.jhc.web.admin.dto.home.MainCtgrOrderDTO;
 import com.ezen.jhc.web.admin.dto.home.NewMemberCountDTO;
@@ -38,6 +41,9 @@ public class AdminHomeController {
 	
 	@Autowired(required = false)
 	NewMemberCountDTO newMemCntDTO;
+	
+	@Autowired(required = false)
+	AdminDTO amdin;
 	
 	
 	@RequestMapping(value ={"/admin", "/admin/home"}, method = RequestMethod.GET)
@@ -95,10 +101,17 @@ public class AdminHomeController {
 		return "admin/home/admin_home";
 	}
 	
-	@RequestMapping("admin/login")
+	@GetMapping("admin/login")
 	public String login() {
 		
 		return "admin/home/admin_login";
+	}
+	
+	@PostMapping("admin/login")
+	public String loginCheck(AdminDTO admin) {
+		if (admin.getAdmin_email().equals("admin@naver.com") && admin.getAdmin_pw().equals("1234")) return "redirect:/admin";
+		
+		return "redirect:/admin/login";
 	}
 
 }
