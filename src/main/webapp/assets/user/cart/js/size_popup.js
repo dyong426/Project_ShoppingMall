@@ -73,7 +73,7 @@ function updateSummary() {
     let ap = 0;
     for (i = 0; i < val.length; ++i) {
         qty += parseInt(val[i].innerText);
-        ap += (parseInt(prices[i].dataset.price) * parseInt(val[i].innerText));
+        ap += (parseInt(prices[i].dataset.p_price) * parseInt(val[i].innerText));
     }
     totalQuantity.innerText = qty + '개';
     allPrice.innerText = ap.toLocaleString('ko-KR') + '원';
@@ -85,4 +85,13 @@ function updateSummary() {
         totalPrice.innerText = (ap + 3000).toLocaleString('ko-KR') + '원';
     }
 }
-updateSummary();
+
+if (totalQuantity != null) {
+    updateSummary();
+}
+
+window.onload = () => {
+    for (i = 0; i < prices.length; ++i) {
+        prices[i].innerText = parseInt(prices[i].dataset.p_price).toLocaleString('ko-KR') + '원';
+    }
+}

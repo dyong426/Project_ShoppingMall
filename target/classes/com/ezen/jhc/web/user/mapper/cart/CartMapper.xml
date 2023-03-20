@@ -23,6 +23,21 @@
 		#{cart_amount}
 		)
 	</insert>
+	
+	<insert id="createCart" parameterType="com.ezen.jhc.web.user.dto.cart.OnlyCartDTO">
+		<selectKey keyProperty="cart_num" order="BEFORE"
+			resultType="int">
+			SELECT cart_num_seq.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO carts VALUES (
+		#{cart_num},
+		#{mem_num},
+		#{pd_num},
+		(SELECT mem_cstm_num FROM member_cstms WHERE mem_cstm_path = #{mem_cstm_path}),
+		1,
+		#{cart_amount}
+		)
+	</insert>
 
 	<!-- mem_num 넣어야할지 사용할 때 판단하고 추가 결정 -->
 	<delete id="deleteByCstmNum" parameterType="int">

@@ -9,7 +9,6 @@ const ordererPhone = document.getElementById('ordererPhone');
 sameBtn.onchange = (e) => {
 	if (e.srcElement.checked == true) {
 		if (ordererName.value != null && ordererPhone.value != null) {
-			console.log(ordererName.value);
 			recipient.value = ordererName.value;
 			recipientPhone.value = ordererPhone.value;
 		}
@@ -31,7 +30,6 @@ recipientPhone.addEventListener('keyup', (e) => {
 // 전화번호 입력칸 문자 입력하면 초기화하는 함수
 function isNumber(target) {
 	if (isNaN(target.value)) {
-		console.log(target.value);
 		target.value = "";
 	}
 }
@@ -50,7 +48,7 @@ function searchPostNumber() {
 		oncomplete: function (data) {
 			// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
 			// 예제를 참고하여 다양한 활용법을 확인해 보세요.
-			zipCode.value = data.zoneCode;
+			zipCode.value = data.zonecode;
 			addr1.value = data.address;
 		}
 	}).open({
@@ -100,6 +98,43 @@ window.onscroll = () => {
 }
 
 
+// 주소 관련 설정
+const saveDestination = document.getElementById('saveDestination');
+const addr2 = document.getElementById('addr2');
+
+// 총 결제 금액 관련 설정
+const total_amount = document.getElementById('total_amount');
+const shipping_price = document.getElementById('shipping_price');
+const total_price = document.getElementById('total_price');
+const total_price2 = document.getElementById('total_price2');
+let totalPriceOnlyNumber = null;
+
+window.onload = () => {	
+	// 주소 관련 설정
+	// 배송지 저장 되어 있으면 체크, 기존 배송지 채우기
+	if (memberAddress.addr_save == 1) {
+		saveDestination.checked = true;
+		zipCode.value = memberAddress.mem_zipcode;
+		addr1.value = memberAddress.mem_addr1;
+		addr2.value = memberAddress.mem_addr2;
+	}	
+	
+	// 총 결제 금액 관련 설정
+	total_amount.innerText = parseInt(total_amount.innerText).toLocaleString('ko-KR') + '원';
+	if (total_amount.dataset.totalprice >= 50000) {
+		shipping_price.innerText = 0 + '원';
+	} else {
+		shipping_price.innerText = 3000 + '원';
+	}
+	totalPriceOnlyNumber = parseInt(total_amount.dataset.totalprice) + parseInt(shipping_price.innerText.substring(0, shipping_price.innerText.length - 1));
+	total_price.innerText = (totalPriceOnlyNumber).toLocaleString('ko-KR') + '원';
+	total_price2.innerText = total_price.innerText;
+	
+	// const total_amount_input = document.getElementById('total_amount_input');
+	// total_amount_input.value = totalPriceOnlyNumber;
+
+
+};
 
 // 포인트 관련 설정
 const useAllPoint = document.getElementById('useAllPoint');
@@ -108,8 +143,16 @@ const pointSpan = document.getElementById('pointSpan');
 const userPoint = parseInt(pointSpan.innerText);
 
 useAllPoint.addEventListener('click', (e) => {
-	pointInput.value = userPoint;
-	pointSpan.innerText = 0;
+	if (totalPriceOnlyNumber - userPoint < 0) {
+		pointInput.value = totalPriceOnlyNumber;
+		pointSpan.innerText = userPoint - totalPriceOnlyNumber;
+		total_price.innerText = '0원';
+	} else {
+		pointInput.value = userPoint;
+		pointSpan.innerText = 0;
+		total_price.innerText = (totalPriceOnlyNumber - userPoint).toLocaleString('ko-KR') + '원';
+	}
+	total_price2.innerText = total_price.innerText;
 });
 
 pointInput.onchange = (e) => {
@@ -120,39 +163,34 @@ pointInput.onchange = (e) => {
 	} else {
 		pointSpan.innerText = remainPoint;
 	}
+	total_price.innerText = (totalPriceOnlyNumber - e.target.value).toLocaleString('ko-KR') + '원';
+	total_price2.innerText = total_price.innerText;
 };
 
 
+const orderCompleted = document.getElementById('orderCompleted');
+const payButtons = document.getElementsByClassName('payButtons');
+const inputs = document.getElementsByTagName('input');
+let tf = false;
 
-// 주소 관련 설정
-const saveDestination = document.getElementById('saveDestination');
-const addr2 = document.getElementById('addr2');
-
-// 배송지 저장 되어 있으면 체크, 기존 배송지 채우기
-window.onload = () => {
-	if (memberAddress.addr_save == 1) {
-		saveDestination.checked = true;
-		zipCode.value = memberAddress.mem_zipcode;
-		addr1.value = memberAddress.mem_addr1;
-		addr2.value = memberAddress.mem_addr2;
-	}
-};
-
-
-
-// 총 결제 금액 관련 설정
-const total_amount = document.getElementById('total_amount');
-const shipping_price = document.getElementById('shipping_price');
-const total_price = document.getElementById('total_price');
-const total_price2 = document.getElementById('total_price2');
-
-total_amount.innerText = parseInt(total_amount.innerText).toLocaleString('ko-KR') + '원';
-if (total_amount.dataset.totalprice >= 50000) {
-	shipping_price.innerText = 0 + '원';
-} else {
-	shipping_price.innerText = 3000 + '원';
+for (i = 0; i < payButtons.length; ++i) {
+	payButtons[i].addEventListener('click', (e) => {
+		e.preventDefault();
+		for (j = 0; j < inputs.length; ++j) {
+			if (inputs[j].type != 'submit' && inputs[j].type != 'hidden' && inputs[j].type != 'checkbox' && !(inputs[j].id.includes('join') || inputs[j].id.includes('login')) && inputs[j].type != 'number') {
+				if (inputs[j].value == '') {
+					inputs[j].focus();
+					tf = false;
+					break;
+				} else {
+					tf = true;
+				}
+			}
+		}
+		if (tf) {
+			orderCompleted.onsubmit();
+		}
+	});
 }
-total_price.innerText = (parseInt(total_amount.dataset.totalprice)).toLocaleString('ko-KR') + '원';
-total_price2.innerText = total_price.innerText;
 
 const cstmImg = document.getElementsByClassName('cstmImg')[0];

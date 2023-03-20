@@ -11,6 +11,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class OrderDTO {
 	
+	Integer mem_num;
+	
 	// 테이블 : orders
 	Integer	ord_num;
 	
@@ -18,8 +20,7 @@ public class OrderDTO {
 	Integer	mem_zipcode;
 	String	mem_addr1;
 	String	mem_addr2;
-	Character addr_save;
-	
+	Integer addr_save;
 	
 	Date	ord_date;
 	Integer	ord_zipcode;
@@ -30,7 +31,10 @@ public class OrderDTO {
 	Integer	total_amount;
 	String	ord_status;
 	String	ord_request;
+	
 	// 테이블 조인 : payments
 	Integer	payment_num;
 	String	payment_name;
+	
+	Integer mem_point;
 }

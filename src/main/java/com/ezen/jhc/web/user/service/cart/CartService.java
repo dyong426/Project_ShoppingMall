@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 
 import com.ezen.jhc.web.user.dto.cart.CartDTO;
 import com.ezen.jhc.web.user.dto.cart.IntoCartDTO;
+import com.ezen.jhc.web.user.dto.cart.OnlyCartDTO;
 import com.ezen.jhc.web.user.dto.cstm.MemberCstmDTO;
 
 public interface CartService {
@@ -22,6 +23,8 @@ public interface CartService {
 	public List<CartDTO> getCarts(int mem_num, HttpSession session, Model model);
 	
 	public void deleteCart(int cart_num);
+	
+	public void createCart(OnlyCartDTO cartDto);
 	
 	public void increaseQty(int cart_num, int p_price);
 	

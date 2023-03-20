@@ -9,8 +9,10 @@ import org.springframework.http.MediaType;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ezen.jhc.web.user.dto.cart.OnlyCartDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdSizeDTO;
 import com.ezen.jhc.web.user.service.cart.CartServiceImpl;
 import com.ezen.jhc.web.user.service.prod.ProductServiceImpl;
@@ -38,6 +40,12 @@ public class CartRestController {
 	@PostMapping("/deleteCart")
 	public void deleteCart(int cart_num) {
 		cartService.deleteCart(cart_num);
+	}
+	
+	@PostMapping(value="/createCart", produces=MediaType.APPLICATION_JSON_VALUE)
+	public void createCart(@RequestBody OnlyCartDTO cartDto) {
+		cartDto.setMem_cstm_path(cartDto.getMem_cstm_path().replace("file:///", "").replace("/", "\\"));
+		cartService.createCart(cartDto);
 	}
 	
 	@PostMapping("/update/increaseQty")

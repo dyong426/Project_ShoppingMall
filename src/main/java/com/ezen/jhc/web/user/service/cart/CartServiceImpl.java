@@ -45,7 +45,7 @@ public class CartServiceImpl implements CartService {
 	OrdererMapper ordererMapper;
 	
 	@Override
-	public int insertCart(MemberCstmDTO cstmDto, IntoCartDTO cartDto) {		
+	public int insertCart(MemberCstmDTO cstmDto, IntoCartDTO cartDto) {
 		ProductDetailDTO prodDetailDto = prodMapper.getProdDetailByIntoCartDto(cartDto);
 		prodDetailDto.setP_name(cartDto.getP_name());
 		
@@ -102,6 +102,11 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public void deleteCart(int cart_num) {
 		cartMapper.deleteCart(cart_num);
+	}
+	
+	@Override
+	public void createCart(OnlyCartDTO cartDto) {
+		cartMapper.createCart(cartDto);
 	}
 
 	@Override

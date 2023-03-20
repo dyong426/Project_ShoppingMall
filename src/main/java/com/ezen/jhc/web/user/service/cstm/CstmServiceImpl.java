@@ -37,7 +37,7 @@ public class CstmServiceImpl implements CstmService {
 		
 		File uploadPath = new File(uploadFolder, newFolder);
 		
-		if (uploadPath.exists() == false) {
+		if (!uploadPath.exists()) {
 			uploadPath.mkdirs();
 		}
 		
@@ -49,7 +49,7 @@ public class CstmServiceImpl implements CstmService {
 			ImageIO.write(image, "png", new File(uploadPath, file));
 		} catch (IOException e) {
 			e.printStackTrace();
-		}		
+		}
 	}
 
 	@Override
@@ -57,7 +57,7 @@ public class CstmServiceImpl implements CstmService {
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
-		String filePath = "C:\\upload\\cstm_img\\" + 
+		String filePath = "C:\\upload\\cstm_img\\" +
 							LocalDateTime.now()
 							.format(formatter)
 							.replace("-", File.separator) + "\\";

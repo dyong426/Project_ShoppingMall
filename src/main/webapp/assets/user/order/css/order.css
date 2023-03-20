@@ -22,7 +22,7 @@ body {
 	width: 20%;
 	height: fit-content;
 	position: fixed;
-	left: 55.7%;
+	left: 55.6%;
 }
 
 #mainTitle {
@@ -173,13 +173,13 @@ input {
 
 
 .basket_top {
-	width: 65%;
+	width: 53%;
 	font-size: 24px;
 	font-weight: bold;
 	margin-bottom: 40px;
 	position: relative;
 	margin: 80px;
-	margin-left: 16%;
+	margin-left: 21%;
 }
 
 .basket_top > span {
@@ -205,4 +205,20 @@ input {
 	font-size: x-large;
     font-weight: bold;
     width: fit-content;
+}
+
+#checkBoxGrid {
+	display: grid;
+	grid-template-columns: 1fr 3fr 1fr 3fr;
+	column-gap: 5px;
+	height: fit-content;
+	width: fit-content;
+}
+
+#checkBoxGrid > * {
+	width: fit-content;
+}
+
+#checkBoxGrid > label {
+	line-height: 30px;
 }

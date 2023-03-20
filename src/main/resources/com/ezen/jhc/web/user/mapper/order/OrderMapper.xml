@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.user.mapper.order.OrderMapper">
+
+	<update id="saveAddr" parameterType="com.ezen.jhc.web.user.dto.order.OrderDTO">
+		UPDATE member_addresses
+		SET mem_zipcode = #{ord_zipcode},
+			mem_addr1 = #{ord_addr1},
+			mem_addr2 = #{ord_addr2},
+			addr_save = 1
+		WHERE mem_num = #{mem_num}
+	</update>
+	
+	<update id="notSaveAddr" parameterType="int">
+		UPDATE member_addresses SET addr_save = 0 WHERE mem_num = #{mem_num}
+	</update>
+	
+	<insert id="insertAddr" parameterType="com.ezen.jhc.web.user.dto.order.OrderDTO">
+		INSERT INTO member_addresses VALUES (#{mem_num}, #{ord_zipcode}, #{ord_addr1}, #{ord_addr2}, #{addr_save})
+	</insert>
+	
+</mapper>

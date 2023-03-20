@@ -11,6 +11,8 @@ public interface CartMapper {
 
 	public int insertCart(OnlyCartDTO cartDto);
 	
+	public int createCart(OnlyCartDTO cartDto);
+	
 	public List<CartDTO> getCarts(int mem_num);
 	
 	public void deleteCart(int cart_num);

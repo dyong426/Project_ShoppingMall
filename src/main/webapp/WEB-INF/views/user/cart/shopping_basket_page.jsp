@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="assets/user/cart/css/basket.css">
 <link rel="stylesheet" href="assets/user/cart/css/option_popup.css">
 <link rel="stylesheet" href="assets/user/cart/css/color_popup.css">
-
+<c:set value="${sessionScope.member}" var="member"></c:set>
 
 <!-- main -->
 <div class="main_body">
@@ -40,7 +40,7 @@
 											<div class="product_info">
 												<div class="name">
 													<img class="img" src="${cart.mem_cstm_path}" alt="상품 이미지">
-													<div class="prodDetail" data-p_name="${cart.p_name}" data-pc_name="${cart.pc_name}"  data-cart_num="${cart.cart_num}">
+													<div class="prodDetail" data-pd_num="${cart.pd_num}" data-cart_num="${cart.cart_num}">
 														${cart.p_name}
 														<div class="prodColor">
 															색상 : <span>${cart.pc_name}</span>
@@ -59,7 +59,7 @@
 														</tr>
 													</table>
 												</div>
-												<div class="price" data-price="${cart.p_price}">${cart.cart_amount}원</div>
+												<div class="price" data-p_price="${cart.p_price}">${cart.cart_amount}원</div>
 												<div class="btn_box">
 													<button class="btn delete">삭제</button>
 												</div>
@@ -87,7 +87,7 @@
 												<div class="product_info">
 													<div class="name">
 														<img class="img" src="${cart.mem_cstm_path}" alt="상품 이미지">
-														<div class="prodDetail" data-p_name="${cart.p_name}" data-pc_name="${cart.pc_name}" data-cart_num="${cart.cart_num}">
+														<div class="prodDetail" data-pd_num="${cart.pd_num}" data-cart_num="${cart.cart_num}">
 															${cart.p_name}
 															<div class="prodColor">
 																색상 : <span>${cart.pc_name}</span>
@@ -106,7 +106,7 @@
 															</tr>
 														</table>
 													</div>
-													<div class="price" data-price="${cart.p_price}">${cart.cart_amount}원</div>
+													<div class="price" data-p_price="${cart.p_price}">${cart.cart_amount}원</div>
 													<div class="btn_box">
 														<button class="btn delete">삭제</button>
 													</div>
@@ -211,7 +211,9 @@
 --%>
  
 <!-- 사이즈 옵션 카운트 js -->
-<script></script>
+<script>
+	const mem_num = '${member.mem_num}';
+</script>
 
 
 <script type="text/javascript"
