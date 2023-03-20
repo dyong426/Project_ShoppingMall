@@ -13,7 +13,7 @@ public interface ContactMapper {
 			@Param("contact_ctgr") Integer contact_ctgr, @Param("contact_title") String contact_title,
 			@Param("contact_content") String contact_content);
 
-	List<ContactDTO> getContactList();
+	List<ContactDTO> getContactList(Integer mem_num);
 	
 	List<ContactDTO> getContactById(Integer contact_num);
 	

@@ -2,6 +2,9 @@ package com.ezen.jhc.web.user.controller.mypage;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +20,15 @@ public class ContactController_mp {
 	@Autowired
 	ContactMapper contact_mapper;
 	
+	// 세션 가져와서 처리
 	@GetMapping("/contact")
-	public String contact_mp_list(Model model) {
+	public String contact_mp_list(Model model, HttpServletRequest request) {
+		HttpSession session = request.getSession();
+		session.getAttribute("member");
 		
-		List<ContactDTO> list = contact_mapper.getContactList();
+		
+		System.out.println("세션가져오기" +session.getAttribute("member"));
+		List<ContactDTO> list = contact_mapper.getContactList(4);
 		
 		model.addAttribute("list", list);
 		System.out.println(list);

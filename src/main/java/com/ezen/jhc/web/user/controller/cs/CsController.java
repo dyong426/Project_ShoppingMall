@@ -72,13 +72,15 @@ public class CsController {
 	public String cs_contatct_( 
 			@Param("mem_num") Integer mem_num,
 			@Param("contact_ctgr") Integer contact_ctgr, @Param("contact_title") String contact_title,
-			@Param("contact_content") String contact_content, AttachImageListDTO image){
+			@Param("contact_content") String contact_content, AttachImageDTO img, AttachImageListDTO image){
 		
-		AttachImageDTO vo = new AttachImageDTO();
-		vo.setContact_image_path(contact_title);
-		vo.setContact_num(45);
 		
-		System.out.println("vo:" + vo);
+		img.setUuid("test");
+		img.setFileName("test");
+		img.setUploadPath("test");
+		img.setContact_num(44);
+		
+		System.out.println("img:" + img);
 		
 		System.out.println(mem_num);
 		System.out.println(contact_ctgr);
@@ -87,10 +89,10 @@ public class CsController {
 		
 		System.out.println("customerService/con POST....." + image);
 		
-		String result = "파일 인서트 성공" + contact_mapper.insert_contact_img(vo);
-			System.out.println(result);	
+		String result = "파일 인서트 성공" + contact_mapper.insert_contact_img(img);
+		System.out.println(result);	
 	
-		contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title,contact_content);
+		//contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title,contact_content);
 		
 		 return "redirect:/contact";
 	}
