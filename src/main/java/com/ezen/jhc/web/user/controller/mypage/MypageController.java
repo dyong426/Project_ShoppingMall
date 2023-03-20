@@ -123,13 +123,16 @@ public class MypageController {
 	public String mpWriting(
 			@RequestParam("p_num")Integer p_num, @RequestParam("review_content")String review_content, 
 			@RequestParam("review_image_path")String review_image_path, @RequestParam("review_star")Integer review_star, 
-			@RequestParam("od_num")Integer od_num, Model model, @RequestParam("page")Integer page, HttpSession session) {
+			@RequestParam("od_num")Integer od_num, Model model, @RequestParam("page")Integer page, HttpSession session, ReviewImageDTO ro) {
 		
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		Integer mem_num = member.getMem_num();
-		System.out.println(review_image_path);
-		Integer add_review = mm_mapper.addReview(p_num, mem_num, review_content, review_image_path, review_star, od_num);
-		model.addAttribute("add_review", add_review);
+		
+		
+		mm_mapper.addReview(p_num, mem_num, review_content, review_image_path, review_star, od_num);
+		
+		
+		//mm_mapper.addReviewImage(ro);
 		
 		
 		List<OrderDetailDTO> rv_history = mm_mapper.getOrderHistory(mem_num);

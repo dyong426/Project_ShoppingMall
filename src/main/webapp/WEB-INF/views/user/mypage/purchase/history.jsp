@@ -90,12 +90,21 @@
 									<td>${order.p_name }<strong>&nbsp;외</strong></td>
 									<td>￦<fmt:formatNumber value="${order.od_amount }"
 											pattern="#,###,##0" /></td>
+									<c:if test="${order.status_name eq '입금 전' || order.status_name eq '결제 완료' }">
+										<td>${order.status_name }</td>
+										<td><a href="">취소</a>
+									</c:if>
 									<c:if test="${order.status_name eq '주문 취소' || order.status_name eq '교환' || order.status_name eq '반품'}">
 										<td style="color: red">${order.status_name }</td>
 										<td class="unable_refund"><a href="">취소</a><br> <a
 											href="#">교환/반품</a></td>
 									</c:if>
-									<c:if test="${order.status_name ne '주문 취소' && order.status_name ne '교환' && order.status_name ne '반품'}">
+									<c:if test="${order.status_name eq  '배송 준비 중' || order.status_name eq '배송 중'}">
+										<td>${order.status_name }</td>
+										<td class="unable_refund"><a href="">취소</a><br> <a
+											href="#">교환/반품</a></td>
+									</c:if>
+									<c:if test="${order.status_name ne '주문 취소' && order.status_name ne '교환' && order.status_name ne '반품' && order.status_name ne '입금 전' && order.status_name ne '결제 완료' && order.status_name ne '배송 준비 중' && order.status_name ne '배송 중' && order.status_name eq  '배송 완료'}">
 										<td>${order.status_name }</td>
 										<td>
 											<a href="#">취소</a><br> 
