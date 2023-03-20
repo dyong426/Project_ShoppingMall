@@ -13,8 +13,8 @@
 		
 		INSERT INTO contact VALUES 
 		(contact_num_seq.nextval, #{mem_num}, 
-		#{contact_ctgr}, '#{contact_title}',
-		'#{contact_content}', null,
+		#{contact_ctgr}, #{contact_title},
+		#{contact_content}, null,
 		sysdate, null)
 	</insert> 
 	
@@ -33,7 +33,7 @@
 	</select>
 	
 	<insert id="insert_contact_img">
-		INSERT INTO contact_images  VALUES (#{contact_num}, '#{contact_img}')
+		INSERT INTO contact_images  VALUES (ci_num_seq.nextval, #{contact_num}, #{contact_img})
 	</insert>
 	
 </mapper> 
