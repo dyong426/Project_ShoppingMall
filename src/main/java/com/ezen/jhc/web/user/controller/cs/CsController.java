@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.ezen.jhc.web.user.dto.contact.AttachImageDTO;
+import com.ezen.jhc.web.user.dto.contact.AttachImageListDTO;
 import com.ezen.jhc.web.user.dto.faq.FaqDTO;
 import com.ezen.jhc.web.user.mapper.cs.ContactMapper;
 import com.ezen.jhc.web.user.mapper.cs.FaqMapper;
@@ -66,22 +67,30 @@ public class CsController {
 	}
 	
 
+	//1:1문의 POST
 	@PostMapping("/customerservice/con")
 	public String cs_contatct_( 
 			@Param("mem_num") Integer mem_num,
 			@Param("contact_ctgr") Integer contact_ctgr, @Param("contact_title") String contact_title,
-			@Param("contact_content") String contact_content, AttachImageDTO image){
-				 
+			@Param("contact_content") String contact_content, AttachImageListDTO image){
 		
+		AttachImageDTO vo = new AttachImageDTO();
+		vo.setContact_image_path(contact_title);
+		vo.setContact_num(45);
+		
+		System.out.println("vo:" + vo);
 		
 		System.out.println(mem_num);
 		System.out.println(contact_ctgr);
 		System.out.println(contact_title);
 		System.out.println(contact_content);
-		System.out.println("customerServic/con POST....." + image);
+		
+		System.out.println("customerService/con POST....." + image);
+		
+		String result = "파일 인서트 성공" + contact_mapper.insert_contact_img(vo);
+			System.out.println(result);	
 	
-	
-		//String insert = contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title,contact_content);
+		contact_mapper.insert_contact(mem_num, contact_ctgr, contact_title,contact_content);
 		
 		 return "redirect:/contact";
 	}

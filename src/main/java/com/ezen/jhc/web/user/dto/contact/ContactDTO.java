@@ -2,6 +2,7 @@ package com.ezen.jhc.web.user.dto.contact;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Data
 public class ContactDTO {
-
+	
 	Integer contact_num;
 	Integer mem_num;
 	Integer contact_ctgr;
@@ -33,5 +34,6 @@ public class ContactDTO {
 		String formatTime = dayTime.format(this.contact_regdate);
 		return formatTime;
 	}
+	
 	
 }

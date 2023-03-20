@@ -113,7 +113,7 @@ function showUploadImage(uploadResultArr){
 		
 		// 변경 후
 		let fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName;
-
+	for(let i = 0; i<uploadResult.length; ++i){
 		str += "<div id='result_card_con'>";
 		str += "<img class='img_con' src='/jhc/display?fileName=" + fileCallPath +"'>";
 		str += "<div class='imgDeleteBtn_con' data-file='" + fileCallPath + "'>x</div>";
@@ -121,9 +121,10 @@ function showUploadImage(uploadResultArr){
 		str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
 		str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";		
 		str += "</div>";		
-		
+		}
    		uploadResult.append(str);  
    		console.log(str);
+   		console.log(uploadResult.length);
 
 }
 

@@ -80,6 +80,7 @@
 							</c:forEach>
 							<!-- ${mem.mem_num} -->
 							<input type="hidden" name="mem_num" value="4">
+							
 						</div>
 						
 						<br>

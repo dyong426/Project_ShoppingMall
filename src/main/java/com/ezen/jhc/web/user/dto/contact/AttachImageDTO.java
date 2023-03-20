@@ -16,6 +16,12 @@ public class AttachImageDTO {
 	/* 상품 id */
 	private int contact_num;
 	
+	private String contact_image_path;
+	
+	
+	public String setContact_image_path(String uuid, String fileName, String uploadPath) {
+		return contact_image_path = uploadPath+uuid+fileName;
+	}
 	@Override
 	public String toString() {
 		return "ImageListDTO [uploadPath= " + uploadPath + ", "

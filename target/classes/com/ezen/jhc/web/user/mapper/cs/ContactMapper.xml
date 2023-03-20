@@ -5,13 +5,17 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.jhc.web.user.mapper.cs.ContactMapper">
 
-	<select id="insert_contact"  parameterType="map" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
+	<insert id="insert_contact" >
+		<selectKey resultType="int" keyProperty="contact_num" order="BEFORE">
+         SELECT contact_num_seq.nextval FROM DUAL
+      	</selectKey>
+		
 		INSERT INTO contact VALUES 
 		(contact_num_seq.nextval, ${mem_num}, 
 		${contact_ctgr}, '${contact_title}',
 		'${contact_content}', null,
-		sysdate , null)
-	</select> 
+		sysdate, null)
+	</insert> 
 	
 	<select id="getContactList" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
 		SELECT 
@@ -25,7 +29,8 @@
 		SELECT * FROM contact WHERE contact_num = ${contact_num}
 	</select>
 	
-	<select id="insert_contact_img" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
-		INSERT INTO contact_images  VALUE (${conatct_num}, ${contact_img}, ${contact_s_img})
-	</select>
+	<insert id="insert_contact_img">
+		INSERT INTO contact_images  VALUES (${vocontact_num}, '${contact_image_path}')
+	</insert>
+	
 </mapper> 
