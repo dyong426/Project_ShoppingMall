@@ -2,10 +2,6 @@ package com.ezen.jhc.web.user.dto.review;
 
 import java.util.Date;
 
-import com.ezen.jhc.web.user.dto.member.MemberDTO;
-import com.ezen.jhc.web.user.dto.prod.ProdDTO;
-
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

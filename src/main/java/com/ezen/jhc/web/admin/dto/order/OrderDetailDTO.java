@@ -42,6 +42,8 @@ public class OrderDetailDTO {
 		
 		public String getOrd_date() {
 			
+			if (this.ord_date == null) return null;
+			
 			SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 			
 			String formatTime = dayTime.format(this.ord_date);

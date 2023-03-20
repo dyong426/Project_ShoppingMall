@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ezen.jhc.web.admin.dto.contact.ContactDTO;
@@ -50,13 +51,26 @@ public class AdminContactController {
 		return "admin/contact/admin_contact_content";
 	}
 	
-	@GetMapping("/contact/content/reply/delete")
+	@PostMapping("/contact/content/reply/update")
+	public String regAdminReply(ContactDTO contact) {
+		
+		log.info(contact.getContact_num());
+		log.info(contact.getAdmin_reply());
+		
+		int result = csService.updateReply(contact.getContact_num(), contact.getAdmin_reply());
+		
+		log.info("답변작성" + result);
+		
+		return "redirect:/admin/contact/content?contact_num=" + contact.getContact_num();
+	}
+	
+	@PostMapping("/contact/content/reply/delete")
 	public String deleteContent(Integer contact_num) {
 		log.info(contact_num);
 		int result = csService.deleteReply(contact_num);
 		
 		log.info(result);
 		
-		return "redirect:/admin/contact/content?contact_num=" + contact_num;
+		return "redirect:/admin/contact";
 	}
 }

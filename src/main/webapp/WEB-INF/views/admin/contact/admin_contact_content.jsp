@@ -1,102 +1,154 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!-- include header -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <!-- include header -->
 
-<%@ include file="../include/header.jsp"%>
+    <%@ include file="../include/header.jsp" %>
 
-<!-- admin_prod_reg -->
 
-<body>
+        <!-- admin_home -->
 
-	<div class="main-container">
+        <body>
 
-		<!-- include left Nav Bar -->
+            <!-- include top search bar -->
 
-		<%@ include file="../include/left_nav_bar.jsp"%>
-		
-		
-		<div class="content-container-prod">
+            <%@ include file="../include/top_search_bar.jsp" %>
 
-			<div class="card grid-top">탑</div>
+                <div class="container-fluid">
+                    <div class="row">
 
-			<div class="card grid-main">
+                        <!-- include left Nav Bar -->
+                        <%@ include file="../include/left_nav_bar.jsp" %>
 
-				<div class="card-header">1:1 문의</div>
-		
-		<!-- Content wrapper -->
-		
-					<div class="card-body">
-					
-						<table class="table">
-						<form action="/jhc/admin/contact/content/reply/delete" method="GET" id="reply_delete_form">
-						<input type="hidden" value="${content.contact_num}" form="reply_delete_form">
-							<tbody>
-								<tr class="table-secondary">
-									<td style="width: 80%;">${content.contact_title}</td>
-									<td>${content.contact_regdate}</td>
-								</tr>
-								<tr class="table-light">
-									<td colspan=2>[${content.cs_ctgr_name}]</td>
-								</tr>
-								<tr class="table-light">
-									<td colspan=2>${content.mem_name} (${content.mem_email})</td>
-								</tr>
-								<tr style="height:70%;">
-									<td colspan=2>${content.contact_content}</td>
-								</tr>
-								<tr style="width: 100%;"class="d-flex align-items-start flex-row">
-									<td  colspan=2>
-										<img src="<%=request.getContextPath() %>/assets/common/cstm_img/의류.png" />
-									
-										<img src="<%=request.getContextPath() %>/assets/common/cstm_img/의류.png" />
-									
-										<img src="<%=request.getContextPath() %>/assets/common/cstm_img/의류.png" />
-									</td>
-								</tr>
-								
-								<c:choose>
-									<c:when test="${null eq content.admin_reply}">
-										<tr>
-											<th colspan=2 class="badge text-bg-primary">답변 작성</th>
-										</tr>
-										<tr>
-											<td id="admin_reply_form">
-												<textarea rows="5" cols="220" id="admin_reply_input"></textarea>
-											</td>
-											<td>
-												<input type="submit" value="등록" class="button text-bg-light" style="height: 120px;"/>
-											</td>
-										</tr>
-									</c:when>
-									<c:otherwise>
-										<tr>
-											<th colspan=2 class="badge text-bg-primary">답변</th>
-										</tr>
-										<tr class="table-light">
-											<td colspan=2>관리자</td>
-										</tr>
-										<tr>
-											<td id="admin_reply_reg_form">
-												<textarea class="form-control"  style="height: 120px;" id="admin_reply_reg" readonly>${content.admin_reply}</textarea>
-											</td>
-											<td class="d-flex flex-row" id="reply_button_form">
-												<button type="button" class="form-control" style="width: 50px;"><i class="fa-solid fa-pen" onclick="modifyBtn(${content.contact_num})"></i></button>
-												<button type="submit" class="form-control" form="reply_delete_form" style="width: 50px;"><i class="fa-solid fa-trash-can"></i></button>
-												
-											</td>
-										</tr>
-									
-									</c:otherwise>
-								</c:choose>								
-							</tbody>
-						</form>
-						</table>
-					
-					</div>
-			</div>
-          
-        <!-- / Content -->
-		</div>
 
-		<!-- include footer -->
-		<%@ include file="../include/footer.jsp"%>
+                            <!-- content-container -->
+                            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                                <div class="row mt-4">
+                                    <div class="col-lg-12">
+                                        <div
+                                            class="row g-0 border rounded flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                            <div class="col p-4 d-flex flex-column position-static">
+                                                <div class="d-flex flex-row justify-content-between">
+                                                    <h3 class="mb-0 fw-bold mb-4">1:1 문의 게시판</h3>                                                        
+                                                </div>
+
+                                                <div class="col-md-12">
+
+													<form method="POST">
+                                                    	<input type="hidden" name="contact_num" value="${content.contact_num}">
+                                                    <table class="table">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th style="width:10%;"></th>
+                                                                	<th style="width:80%;"></th>
+                                                                    <th style="width:10%;"></th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr class="table-secondary">
+                                                                	<td>제목</td>
+                                                                    <td>${content.contact_title}</td>
+                                                                    <td>
+                                                                    	${content.contact_regdate}
+                                                                    	<button type="submit" class="btn btn-dark btn-sm" style="height: 30px;"
+                                                        						formaction="/jhc/admin/contact/content/reply/delete">
+                                                        						<i class="fa-solid fa-trash-can"></i>
+                                                        				</button>
+                                                                    </td>
+                                                                </tr>
+                                                                <tr class="table-light">
+                                                                	<td>문의사항</td>
+                                                                    <td colspan="2">[${content.cs_ctgr_name}]</td>
+                                                                </tr>
+                                                                <tr class="table-light">
+                                                                	<td>작성자</td>
+                                                                    <td colspan="2">${content.mem_name}
+                                                                        (${content.mem_email})</td>
+                                                                </tr>
+                                                                <tr style="height:300px;">
+                                                                    <td colspan="3">${content.contact_content}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td colspan="3">
+                                                                        <img
+                                                                            src="<%=request.getContextPath() %>/assets/common/cstm_img/의류.png" />
+
+                                                                        <img
+                                                                            src="<%=request.getContextPath() %>/assets/common/cstm_img/의류.png" />
+
+                                                                        <img
+                                                                            src="<%=request.getContextPath() %>/assets/common/cstm_img/의류.png" />
+                                                                    </td>
+                                                                </tr>
+
+                                                                <c:choose>
+                                                                    <c:when test="${null eq content.admin_reply}">
+                                                                        <tr>
+                                                                            <th colspan="3" class="badge text-bg-danger mt-3">
+                                                                                답변 작성
+                                                                            </th>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="3" id="admin_reply_form">
+                                                                                <textarea rows="5" cols="170"
+                                                                                    name="admin_reply"></textarea>
+                                                                                <div class="d-flex justify-content-end">
+                                                                                    <button type="submit" class="btn btn-sm btn-dark" 
+                                                                                    formaction="/jhc/admin/contact/content/reply/update">등록</button>
+                                                                                </div>
+                                                                            </td>
+                                                                        </tr>
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        <tr>
+                                                                            <th colspan="3"
+                                                                                class="badge text-bg-primary mt-3">답변 완료</th>
+                                                                        </tr>
+                                                                        <tr class="table-light">
+                                                                            <td colspan="3">관리자 답변</td>
+                                                                        </tr>
+                                                                        <tr>
+                                                                            <td colspan="3" id="admin_reply_reg_form">
+                                                                                <textarea class="form-control mb-3"
+                                                                                    style="height: 120px;"
+                                                                                    id="admin_reply_reg"
+                                                                                    readonly>${content.admin_reply}</textarea>
+                                                                                <div class="d-flex justify-content-end" id="reply_button_form">
+                                                                                    <button type="button" class="btn btn-dark">
+                                                                                        <i class="fa-solid fa-pen"
+                                                                                            onclick="modifyBtn(${content.contact_num})"></i>
+                                                                                    </button>
+                                                                                </div>
+
+                                                                            </td>
+                                                                        </tr>
+
+                                                                    </c:otherwise>
+                                                                </c:choose>
+                                                            </tbody>
+                                                    	</table>
+													</form>
+                                                </div>
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </main>
+
+                    </div>
+                </div>
+
+                <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+                <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+                    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+                    integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+                    crossorigin="anonymous"></script>
+                <script src="dashboard.js"></script>
+        </body>
+
+        </html>

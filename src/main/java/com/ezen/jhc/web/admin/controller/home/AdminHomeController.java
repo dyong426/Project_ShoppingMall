@@ -25,6 +25,7 @@ import lombok.extern.log4j.Log4j2;
 
 @Log4j2
 @Controller
+@RequestMapping("/admin")
 public class AdminHomeController {
 	
 	@Autowired
@@ -46,7 +47,7 @@ public class AdminHomeController {
 	NewMemberCountDTO newMemCntDTO;
 	
 	
-	@GetMapping(value={"/admin", "/admin/home"})
+	@GetMapping(value={"", "/home"})
 	public String main(Model model) {
 		
 		
@@ -101,13 +102,13 @@ public class AdminHomeController {
 		return "admin/home/admin_home";
 	}
 	
-	@GetMapping("admin/login")
+	@GetMapping("/login")
 	public String login() {
 		
 		return "admin/home/admin_login";
 	}
 	
-	@PostMapping("admin/login/loginAction.do")
+	@PostMapping("/login/loginAction.do")
 	public String loginCheck(AdminDTO admin, HttpServletRequest req, Model model) {
 		
 		String dbPW = homeService.loginPW(admin.getAdmin_email());
@@ -129,6 +130,12 @@ public class AdminHomeController {
 			return "redirect:/admin/login";
 		}
 		
+	}
+	
+	@GetMapping("/login/logout.do")
+	public String logout(HttpSession session) throws Exception{				
+		session.invalidate();				
+		return "redirect:/admin";
 	}
 
 }

@@ -36,7 +36,7 @@ public class AdminSettingController {
 	@Autowired(required = false)
 	List<BannerDTO> banners;
 	
-	@GetMapping("/mctgr")
+	@GetMapping(value={"/mctgr", "/"})
 	public String setMctgr(Model model) {
 		
 		mCtgrs = settingService.getMainCtgrs();

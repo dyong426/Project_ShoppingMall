@@ -3,14 +3,14 @@ function modifyBtn(contactNum) {
 	var contact_num = contactNum;
     var replyBtnForm = $('#reply_button_form');
     var adminReply = $('#admin_reply_reg');
-    var completeBtn = `<button type="button" class="form-control" onclick="modifyReply(${contact_num});">완료</button>`;
+    var completeBtn = `<button type="submit" class="btn btn-dark btn-sm" formaction="/jhc/admin/contact/content/reply/update">완료</button>`;
 
+    adminReply.prop('readonly', false);
     console.log('modify');
     replyBtnForm.empty();
 
     replyBtnForm.append(completeBtn);
 
-    adminReply.prop('readonly', false);
 
 }
 
@@ -42,8 +42,7 @@ function modifyReply(contactNum) {
         }        
     });
 
-    var modifyBtn = '<button type="button" class="form-control" style="width: 50px;"><i class="fa-solid fa-pen" onclick="modifyBtn(contat_num)"></i></button>'
-					+'<button type="button" class="form-control" style="width: 50px;"><i class="fa-solid fa-trash-can" onclick="deleteReply()"></i></button>'
+    var modifyBtn = '<button type="button" class="btn btn-dark"><i class="fa-solid fa-pen" onclick="modifyBtn(${content.contact_num})"></i></button>';
     replyBtnForm.empty();
     replyBtnForm.append(modifyBtn);
 	

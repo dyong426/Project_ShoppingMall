@@ -1,29 +1,40 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!-- include header -->
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+    <!-- include header -->
 
-<%@ include file="../include/header.jsp"%>
+    <%@ include file="../include/header.jsp" %>
 
-<!-- admin_prod_reg -->
 
-<body>
+        <!-- admin_home -->
 
-	<div class="main-container">
+        <body>
 
-		<!-- include left Nav Bar -->
+            <!-- include top search bar -->
 
-		<%@ include file="../include/left_nav_bar.jsp"%>
-		
-		
-		<div class="content-container-prod">
+            <%@ include file="../include/top_search_bar.jsp" %>
 
-			<div class="card grid-top">탑</div>
+                <div class="container-fluid">
+                    <div class="row">
 
-			<div class="card grid-main">
+                        <!-- include left Nav Bar -->
+                        <%@ include file="../include/left_nav_bar.jsp" %>
 
-				<div class="card-header">설정</div>
-		
-		<!-- Content wrapper -->
+
+                            <!-- content-container -->
+                            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+
+                                <div class="row mt-4">
+                                    <div class="col-lg-12">
+                                        <div
+                                            class="row g-0 border rounded flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                                            <div class="col p-4 d-flex flex-column position-static">
+                                                <div class="d-flex flex-row justify-content-between">
+                                                    <h3 class="mb-0 fw-bold mb-4">카드 제목</h3>
+                                                    <button class="btn btn-primary btn-sm me-3" style="height: 30px;"
+                                                        onclick="location.href='./reg'">옵션 버튼</button>
+                                                </div>
+                                                
+                                                
+                                                <!-- Content wrapper -->
 				<div class="card-body d-flex flex-column" style="border: solid black 1px;">
                     <div class="row">
 
@@ -116,7 +127,28 @@
                 </div>
 
         <!-- / Content -->
+                                                
 
 
-		<!-- include footer -->
-		<%@ include file="../include/footer.jsp"%>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </main>
+
+                    </div>
+                </div>
+
+                <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+                <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
+                    integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
+                    crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
+                    integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
+                    crossorigin="anonymous"></script>
+                <script src="dashboard.js"></script>
+        </body>
+
+        </html>

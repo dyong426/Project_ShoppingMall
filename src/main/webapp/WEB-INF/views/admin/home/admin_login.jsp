@@ -32,9 +32,9 @@
 		style="border: solid 1px black; height: 100vh;">
 		<form action="login/loginAction.do" method="POST">
 			<div class="row col-12">
-				<div class="col-12">
+				<div class="col-12 d-flex justify-content-center mb-4 me-5">
 					<img
-						src="http://localhost:9000/jhc/assets/common/cstm_img/logo.png"
+						src="<%=request.getContextPath()%>/assets/common/cstm_img/logo.png"
 						style="width: 200px;">
 				</div>
 				<div class="col-12">
@@ -50,8 +50,8 @@
 							<input type="password" name="admin_pw" class="form-control" id="inputPassword3">
 						</div>
 					</div>
-					<div class="col-12">
-						<button type="submit" class="btn btn-primary">로그인</button>
+					<div class="col-11 d-flex justify-content-end ms-3">
+						<button type="submit" class="btn btn-dark">로그인</button>
 					</div>
 				</div>
 			</div>

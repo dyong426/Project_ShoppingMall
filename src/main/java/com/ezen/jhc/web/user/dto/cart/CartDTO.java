@@ -1,9 +1,5 @@
 package com.ezen.jhc.web.user.dto.cart;
 
-import com.ezen.jhc.web.user.dto.cstm.MemberCstmDTO;
-import com.ezen.jhc.web.user.dto.member.MemberDTO;
-import com.ezen.jhc.web.user.dto.prod.ProdDetailDTO;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
