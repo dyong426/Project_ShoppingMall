@@ -40,10 +40,10 @@ public interface OrderMapper {
 	
 	// 주문 상품 교환
 	@Update("update orders set ord_status = 6 where ord_num = #{ord_num}")
-	public List<OrderDTO> exchangeOrder(Integer ord_num);
+	public void exchangeOrder(Integer ord_num);
 	
 	// 주문 상품 환불
 	@Update("update orders set ord_status = 7 where ord_num = #{ord_num}")
-	public List<OrderDTO> refundOrder(Integer ord_num);
+	public void refundOrder(Integer ord_num);
 }
 

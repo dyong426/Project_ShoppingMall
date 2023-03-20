@@ -78,7 +78,7 @@
 			                               
 			                                        <tr class="link_record">
 														<td>
-															<input type="checkbox" id="myCheckbox" value="${od.od_amount }" onclick="selectCheck2(); calculate(this); total_calculate(this);" >
+															<input type="checkbox" id="myCheckbox2" value="${od.od_amount }" onclick="selectCheck2(); calculate(this); total_calculate(this);" >
 														</td>
 			                                            <td class="thumb">                                              
 			                                               <img id="pd_img" src="<%=request.getContextPath() %>/${od.origin_img_path }" alt="상품 사진">       
@@ -111,7 +111,7 @@
 			                               
 			                                        <tr class="link_record">
 														<td>
-															<input type="checkbox" id="myCheckbox" value="${od.od_amount }" onclick="selectCheck(); calculate(this); total_calculate(this);" >
+															<input type="checkbox" id="myCheckbox1" value="${od.od_amount }" onclick="selectCheck();" >
 														</td>
 			                                            <td class="thumb">                                              
 			                                               <img id="pd_img" src="<%=request.getContextPath() %>/${od.origin_img_path }" alt="상품 사진">       
@@ -185,9 +185,11 @@
 	         }
 	    	
 	    }
-
-} 
  
+
+ </script>
+ 
+ <script>
  function selectCheck2() {
 	  const mySelect2 = document.getElementById("mySelect2");
 		const selectedOption2 = mySelect2.options[mySelect2.selectedIndex].value;
@@ -201,28 +203,27 @@
 	    	alert("반품 사유를 선택해주세요");
 	    	 event.preventDefault();
 	    	 
-             sum2 += parseInt(0);
-         	document.getElementById("total_price").value = sum2;
+            sum2 += parseInt(0);
+        	document.getElementById("total_price").value = sum2;
 	    	return false;
 	    }
 	    
 }
- 
- 
  </script>
-  
+ 
+ <!--  
   <script>
   function pd_checked(box){
-	     if(box.unchecked) // 체크가 되면 checed==true라는 값을 전달받는다. 
+	     if(box.unchecked)
 	    	 alert("교환할 상품을 선택해주세요");
 	     	return false;
 	     else    
 	    	 return true;
 	 }
-  </script>
+  </script> -->
+  
   <!-- 교환, 환불 버튼으로 보여지는 div 변경 -->
   <script>
-	 
 	  function contentsView(id) {
 		    var sb1 = document.getElementById("sb1"); // 교환
 		    var sb2 = document.getElementById("sb2"); // 환불
@@ -234,28 +235,27 @@
 		    
 		    var sb6 = document.getElementById("sb6"); // 교환 버튼
 		    var sb7 = document.getElementById("sb7"); // 환불 버튼
+		    
 
-		    if( id == "exchange" ) { // 교환
+		    if( id === "exchange" ) { // 교환
 		    	sb1.style.display = "block";    
 		    	sb2.style.display = "none";
+		    	sb3.style.display = "none";
+		    	sb4.style.display = "block";    		    	
 		    	sb5.style.display = "none";
 		    	sb6.style.display = "block";
 		    	sb7.style.display = "none";
 		    } else { // 환불
 		    	sb1.style.display = "none";    
 		    	sb2.style.display = "block";
+		    	sb3.style.display = "block";
+		    	sb4.style.display = "none";    		    	
 		    	sb5.style.display = "block";  
 		    	sb6.style.display = "none";
 		    	sb7.style.display = "block";
 		    }
 		    
-		    if( id == "exchange" ) { // 교환
-		    	sb4.style.display = "block";    
-		    	sb3.style.display = "none";
-		    } else { // 환불
-		    	sb4.style.display = "none";    
-		    	sb3.style.display = "block";
-		    }
+		   
 		}
 	 
   </script>

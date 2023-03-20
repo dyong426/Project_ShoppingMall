@@ -105,28 +105,27 @@ public class HistoryController {
 	@ResponseBody
 	public void orderCancel(@RequestParam(value = "ord_num", required = false) Integer ord_num) {
 
-		historyService.orderCancel(ord_num);
+		 historyService.orderCancel(ord_num);
+		 
 	}
 	
 	
 	// 교환
 	@GetMapping(value = "/order/er/exchange")
-	@ResponseBody
 	public String orderExchange(@RequestParam(value = "ord_num", required = false) Integer ord_num) {
+		historyService.orderExchange(ord_num);
 		
-		 historyService.orderExchange(ord_num);
-		
-		 return "user/mypage/purchase/history";
+		return "redirect:/history";
 	}
 	
 	// 반품
 	@GetMapping(value = "/order/er/refund")
-	@ResponseBody
 	public String orderRefund(@RequestParam(value = "ord_num", required = false) Integer ord_num) {
 		
 		historyService.orderRefund(ord_num);
 		
-		 return "user/mypage/purchase/history";
+		return "redirect:/history";
+		
 		
 	}
 	

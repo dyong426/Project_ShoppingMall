@@ -29,7 +29,7 @@
 	            </div>
 	            <c:set var="member" value="${sessionScope.member }"/>
 	            
-	             <form action="/jhc/review/list?page=1"  id="rv_check_form"  method="POST">
+	             <form action="/jhc/review/add?page=1"  id="rv_check_form"  method="POST">
 	            <input type="hidden" name="mem_num" id="mem_num" value="${member.mem_num}"/>
 	          <input type="hidden" name="p_num" value="${param.p_num}" />
   				<input type="hidden" name="od_num" value="${param.od_num}" />
@@ -59,7 +59,7 @@
 	                <div class="filebox">
 					    <input class="upload-name" placeholder="Image Name" disabled="disabled">
 					    <label for="file">파일 찾기</label> 
-					    <input type="file" name=review_image_path id="file">
+					    <input type="file" name=review_image_name id="file">
 						    <div class="button_box" style="float:right">
 		                    	<input type="submit" value="리뷰 등록" class="registration" id="save" />
 		                	</div>
@@ -141,7 +141,7 @@ $("#file").on('change',function(){
 		}
 		
 		let formData = new FormData();
-		let fileInput = $('input[name="review_image_path"]');
+		let fileInput = $('input[name="review_image_name"]');
 		let fileList = fileInput[0].files;
 		let fileObj = fileList[0];
 
@@ -210,9 +210,12 @@ $("#file").on('change',function(){
 		str += "<div id='result_card'>";
 		str += "<img src='/jhc/display/image?fileName=" + fileCallPath +"'>";
 		str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
-		str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
-		str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
-		str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";
+		
+		//str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
+		//str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
+		//str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";
+		
+		str += "<input type='hidden' name='review_image_path' value='"+ fileCallPath +"'>";
 		str += "</div>";		
 		
    		uploadResult.append(str); 

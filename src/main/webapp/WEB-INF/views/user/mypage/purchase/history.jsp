@@ -92,7 +92,7 @@
 											pattern="#,###,##0" /></td>
 									<c:if test="${order.status_name eq '주문 취소' || order.status_name eq '교환' || order.status_name eq '반품'}">
 										<td style="color: red">${order.status_name }</td>
-										<td class="unable_refund"><a href="#">취소</a><br> <a
+										<td class="unable_refund"><a href="">취소</a><br> <a
 											href="#">교환/반품</a></td>
 									</c:if>
 									<c:if test="${order.status_name ne '주문 취소' && order.status_name ne '교환' && order.status_name ne '반품'}">

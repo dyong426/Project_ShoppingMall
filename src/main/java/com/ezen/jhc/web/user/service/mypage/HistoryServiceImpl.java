@@ -50,14 +50,14 @@ public class HistoryServiceImpl implements HistoryService {
 	}
 	
 	@Override
-	public List<OrderDTO> orderExchange(Integer ord_num) {
-		return orderMapper.exchangeOrder(ord_num);
+	public void orderExchange(Integer ord_num) {
+		orderMapper.exchangeOrder(ord_num);
 		
 	}
 
 	@Override
-	public List<OrderDTO> orderRefund(Integer ord_num) {
-		return orderMapper.refundOrder(ord_num);
+	public void orderRefund(Integer ord_num) {
+		orderMapper.refundOrder(ord_num);
 		
 	}
 

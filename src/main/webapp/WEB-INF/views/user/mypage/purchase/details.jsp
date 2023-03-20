@@ -50,7 +50,7 @@
 	                                     <script>
 	                                     const ord_num = parseInt("${order.ord_num}");
 										  </script>
-	                                      <button type="button" class="order_cancellation">주문취소</button>
+	                                      <button type="button" class="order_cancellation" onclick="location.href='<%=request.getContextPath() %>/order/cancel">주문취소</button>
 	                
                                         </c:if>
                                         <c:if test="${order.status_name ne '입금 전' }">

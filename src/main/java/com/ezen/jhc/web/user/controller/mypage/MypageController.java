@@ -127,7 +127,7 @@ public class MypageController {
 		
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		Integer mem_num = member.getMem_num();
-		
+		System.out.println(review_image_path);
 		Integer add_review = mm_mapper.addReview(p_num, mem_num, review_content, review_image_path, review_star, od_num);
 		model.addAttribute("add_review", add_review);
 		
@@ -180,6 +180,8 @@ public class MypageController {
 
 		return "user/mypage/myreview/wrote_review";
 	}
+
+
 	
 	
 //	@RequestMapping(value ="/review/test", method = RequestMethod.POST)

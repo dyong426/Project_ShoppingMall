@@ -49,7 +49,7 @@
 						<td class="wr_img">${rh.new_order_date}</td>
 						<td class="wr_check"><strong class="wr_name">
 								<div class="sentence">
-									<a href="<%=request.getContextPath()%>/review_poprup" class="ec_wr_name" onclick="return false;" style="text-decoration: none;">${rh.review_content}</a>
+									<a href="" class="ec_wr_name" onclick="return false;" style="text-decoration: none;">${rh.review_content}</a>
 								</div>
 						</strong></td>
 						<td class="wr_amount">
@@ -59,8 +59,10 @@
 								</div>
 							</div>
 						</td>
-						<td><img id="picture"
-							src="<%=request.getContextPath() %>/${rh.review_image_path}"
+						<td>
+						
+						<img id="picture"
+							src="<%=request.getContextPath() %>/display/image?fileName=${rh.review_image_path}"
 							alt=""></td>
 					</tr>
 					</c:forEach> 
@@ -75,52 +77,41 @@
 	</div>
 </div>
 
-<!-- 팝업 창 
-<c:set var="review_info" value="${rh.review_num}"  />
-<div class="rv_main">
-	<div class="rv_modal">
-		<div class="rv_modal-content">
-			<span class="rv_close-button">&times;</span>
-			<div class="rv_title_box">
-				<h2 class="rv_title">내가 쓴 리뷰</h2>
-			</div>
-			<div class="rv_info">
-				<div class="rv_image">
-					<img
-						src="<%=request.getContextPath()%>/assets/common/cstm_img/products/clothes/젤란 라이트 후드집업.png"
-						alt="" style="width: 70px; height: 70px;">
-				</div>
-				<c:set var="defaultValue" value="default value" />
-				<div class="rv_">
-					<div class="rv_name">${empty click_pname ? defaultValue : review_info} [Brown] [L size]</div>
-					<div class="rv_price">29,000원</div>
-				</div>
-			</div>
-			
-			<div class="rv_check_box">
-				<form class="mb-1" name="myform" id="myform" method="post">
-					<fieldset>
-						<input type="radio" name="reviewStar" value="5" id="rate1"><label
-							for="rate1">★</label> <input type="radio" name="reviewStar"
-							value="4" id="rate2"><label for="rate2">★</label> <input
-							type="radio" name="reviewStar" value="3" id="rate3"><label
-							for="rate3">★</label> <input type="radio" name="reviewStar"
-							value="2" id="rate4"><label for="rate4">★</label> <input
-							type="radio" name="reviewStar" value="1" id="rate5"><label
-							for="rate5">★</label>
-					</fieldset>
-				</form>
-			</div>
-				<div class="text_box">리뷰 내용</div>
-				<div class="input_file">
-				<div class="upload_space"></div>
-				<div class="plus_box" id="uploadResult">
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
--->
+<script>
+/* 이미지 출력 */
+function showUploadImage(uploadResultArr){
+	
+	
+
+	
+	/* 전달받은 데이터 검증 */
+	if(!uploadResultArr || uploadResultArr.length == 0){return}
+	
+	let uploadResult = $("#uploadResult");
+	
+	let obj = uploadResultArr[0];
+	
+	let str = "";
+	
+	let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
+	
+	str += "<div id='result_card'>";
+	str += "<img src='/jhc/display/image?fileName=" + fileCallPath +"'>";
+	str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
+	
+	//str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
+	//str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
+	//str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";
+	
+	str += "</div>";		
+	
+		uploadResult.append(str); 
+	
+	
+}
+
+</script>
+
 
 <!-- 페이징 -->
 <script>
