@@ -88,7 +88,7 @@ public class CsController {
 		
 		int num = contact_mapper.insert_contact(contact);
 		
-		System.out.println(num);
+		System.out.println("contact_num: " + num); 
 		
 		System.out.println("customerService/con POST....." + image);
 		
