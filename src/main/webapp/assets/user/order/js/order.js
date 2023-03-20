@@ -129,11 +129,19 @@ window.onload = () => {
 	totalPriceOnlyNumber = parseInt(total_amount.dataset.totalprice) + parseInt(shipping_price.innerText.substring(0, shipping_price.innerText.length - 1));
 	total_price.innerText = (totalPriceOnlyNumber).toLocaleString('ko-KR') + '원';
 	total_price2.innerText = total_price.innerText;
-	
-	// const total_amount_input = document.getElementById('total_amount_input');
-	// total_amount_input.value = totalPriceOnlyNumber;
 
+	const pc_name = document.getElementsByClassName('pc_name');
+	const p_price = document.getElementsByClassName('p_price');
 
+	for (i = 0; i < pc_name.length; ++i) {
+		if (pc_name[i].innerText.length > 8) {
+			pc_name[i].style.fontSize = 'small';
+		}
+		if (p_price[i].innerText.length > 6) {
+			p_price[i].style.fontSize = 'small';
+		}
+		p_price[i].innerText = parseInt(p_price[i].innerText).toLocaleString('ko-KR') + '원';
+	}
 };
 
 // 포인트 관련 설정
@@ -171,9 +179,12 @@ pointInput.onchange = (e) => {
 const orderCompleted = document.getElementById('orderCompleted');
 const payButtons = document.getElementsByClassName('payButtons');
 const inputs = document.getElementsByTagName('input');
+const payment_num = document.getElementById('payment_num');
+const total_amount_input = document.getElementById('total_amount_input');
 let tf = false;
 
 for (i = 0; i < payButtons.length; ++i) {
+	let payment = i;
 	payButtons[i].addEventListener('click', (e) => {
 		e.preventDefault();
 		for (j = 0; j < inputs.length; ++j) {
@@ -188,7 +199,9 @@ for (i = 0; i < payButtons.length; ++i) {
 			}
 		}
 		if (tf) {
-			orderCompleted.onsubmit();
+			payment_num.value = payment + 1;
+			total_amount_input.value = total_price.innerText.substring(0, total_price.innerText.length - 1).replaceAll(',', '');
+			orderCompleted.submit();
 		}
 	});
 }

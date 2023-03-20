@@ -42,4 +42,5 @@ public class CartDTO {
 	@NonNull
 	Integer cart_amount;
 	
+	Integer ord_num;
 }

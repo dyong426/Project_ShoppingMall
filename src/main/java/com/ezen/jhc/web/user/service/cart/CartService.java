@@ -20,9 +20,17 @@ public interface CartService {
 	
 	public void getCartDto(HttpSession session, HttpServletRequest req, HttpServletResponse resp);
 	
+	public void getCart(HttpSession session, HttpServletRequest req);
+	
+	public CartDTO getCartByCartNum(int cart_num);
+	
+	public List<CartDTO> getCartsByMemNum(int mem_num);
+	
 	public List<CartDTO> getCarts(int mem_num, HttpSession session, Model model);
 	
 	public void deleteCart(int cart_num);
+	
+	public void deleteCartsByMemNum(int mem_num);
 	
 	public void createCart(OnlyCartDTO cartDto);
 	

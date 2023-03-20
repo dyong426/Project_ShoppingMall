@@ -11,11 +11,15 @@ public interface CartMapper {
 
 	public int insertCart(OnlyCartDTO cartDto);
 	
+	public CartDTO getCart(int cart_num);
+	
 	public int createCart(OnlyCartDTO cartDto);
 	
 	public List<CartDTO> getCarts(int mem_num);
 	
 	public void deleteCart(int cart_num);
+	
+	public void deleteCartsByMemNum(int mem_num);
 	
 	public void increaseQty(@Param("cart_num") int cart_num, @Param("p_price") int p_price);
 	

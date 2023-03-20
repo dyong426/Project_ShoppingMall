@@ -73,7 +73,7 @@
 				<div id="mainSettingPanel" class="settingPanel">
 					<div id="productInformation">
 						<div id="productName">${prod.p_name}</div>
-						<div id="productPrice">${prod.p_price}원</div>
+						<div id="productPrice">${prod.p_price}</div>
 					</div>
 					<div id="colorInformation">
 						<!-- DB에서 가져온 색들 중 선택된 색의 이름을 색상명에 넣음 -->
@@ -105,13 +105,8 @@
 		
 		<div id="buttons">
 			<form action="<%=request.getContextPath()%>/order/directPurchase" method="POST" id="orderForm">
-				<input type="submit" class="buttons" id="directPurchase" value="바로 구매하기"></input>
-				<input type="hidden" id="ps_name" name="ps_name"/>
-				<input type="hidden" id="p_num" name="p_num" value="${prod.p_num}"/>
-				<input type="hidden" id="pc_name" name="pc_name"/>
-				<input type="hidden" id="mem_cstm_path" name="mem_cstm_path"/>
-				<input type="hidden" id="p_name" name="p_name" value="${prod.p_name}"/>
-				<input type="hidden" id="p_price" name="p_price" value="${prod.p_price}"/>
+				<input type="submit" class="buttons" id="directPurchase" value="바로 구매하기"/>
+				<input type="hidden" id="cart_num" name="cart_num"/>
 			</form>
 			<button class="buttons" id="intoCart">장바구니 담기</button>
 		</div>

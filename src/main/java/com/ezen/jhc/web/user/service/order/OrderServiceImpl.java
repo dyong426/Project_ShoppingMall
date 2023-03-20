@@ -1,11 +1,14 @@
 package com.ezen.jhc.web.user.service.order;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.jhc.web.user.dto.cart.CartDTO;
 import com.ezen.jhc.web.user.dto.member.MemberAddressDTO;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDTO;
@@ -51,29 +54,52 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public void updateAddr(HttpSession session, HttpServletRequest req) {
-		
+	public int insertOrder(HttpSession session, HttpServletRequest req) {
 		int mem_num = 1;//((MemberDTO)session.getAttribute("member")).getMem_num();
 		int addr_save = req.getParameter("addr_save").equals("on") ? 1 : 0;
 		
+		OrderDTO orderDto = new OrderDTO();
+		orderDto.setMem_num(mem_num);
+		orderDto.setOrd_zipcode(Integer.parseInt(req.getParameter("ord_zipCode")));
+		orderDto.setOrd_addr1(req.getParameter("ord_addr1"));
+		orderDto.setOrd_addr2(req.getParameter("ord_addr2"));
+		orderDto.setReceiver_name(req.getParameter("receiver_name"));
+		orderDto.setReceiver_phone(req.getParameter("receiver_phone"));
+		orderDto.setTotal_amount(Integer.parseInt(req.getParameter("total_amount")));
+		orderDto.setOrd_request(req.getParameter("ord_request"));
+		orderDto.setPayment_num(Integer.parseInt(req.getParameter("payment_num")));
+		
+		orderMapper.insertOrder(orderDto);
+		
+		req.setAttribute("order", orderDto);
+		
+		MemberAddressDTO memberAddressDto = new MemberAddressDTO(
+				mem_num,
+				Integer.parseInt(req.getParameter("ord_zipCode")),
+				req.getParameter("ord_addr1"),
+				req.getParameter("ord_addr2"),
+				addr_save);
+		
 		if (addr_save == 1) {
-			OrderDTO orderDto = new OrderDTO();
-			orderDto.setMem_num(mem_num);
-			orderDto.setOrd_addr1(req.getParameter("ord_addr1"));
-			orderDto.setOrd_addr2(req.getParameter("ord_addr2"));
-			orderDto.setMem_zipcode(Integer.parseInt(req.getParameter("ord_zipCode")));
-			orderDto.setAddr_save(addr_save);
-			
 			if (getAddressByNum(mem_num) == null) {
-				orderMapper.insertAddr(orderDto);
+				orderMapper.insertAddr(memberAddressDto);
 			} else {
-				orderMapper.saveAddr(orderDto);
+				orderMapper.saveAddr(memberAddressDto);
 			}
 		} else {
 			if (getAddressByNum(mem_num) != null) {
 				orderMapper.notSaveAddr(mem_num);
 			}
-		}		
+		}
+		return orderDto.getOrd_num();
+	}
+
+	@Override
+	public void insertOrderDetails(int ord_num, List<CartDTO> carts) {
+		for (CartDTO cart : carts) {
+			cart.setOrd_num(ord_num);
+			orderMapper.insertOrderDetails(cart);
+		}
 	}
 	
 }

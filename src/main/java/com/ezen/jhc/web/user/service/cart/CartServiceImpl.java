@@ -53,7 +53,9 @@ public class CartServiceImpl implements CartService {
 		
 		OnlyCartDTO onlyCartDto = new OnlyCartDTO(cstmDto.getMem_num(), pd_num, cstmDto.getMem_cstm_num(), cartDto.getP_price());
 		
-		return cartMapper.insertCart(onlyCartDto);
+		cartMapper.insertCart(onlyCartDto);
+		
+		return onlyCartDto.getCart_num();
 	}
 	
 	@Override
@@ -64,6 +66,23 @@ public class CartServiceImpl implements CartService {
 		return cartMapper.getCarts(mem_num);
 	}
 	
+	@Override
+	public void getCart(HttpSession session, HttpServletRequest req) {
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		MemberAddressDTO memberAddress = ordererMapper.getAddressByNum(member.getMem_num());
+		req.setAttribute("memberAddress", memberAddress);
+		
+		List<CartDTO> carts = new ArrayList<CartDTO>();
+		
+		carts.add(cartMapper.getCart(Integer.parseInt(req.getParameter("cart_num"))));
+		
+		req.setAttribute("carts", carts);
+		req.setAttribute("cart_num", carts.get(0).getCart_num());
+		req.setAttribute("totalPrice", carts.get(0).getCart_amount());
+		req.setAttribute("totalQuantity", carts.get(0).getCart_quantity());
+	}
+	
+	// 실패작
 	@Override
 	public void getCartDto(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
@@ -102,7 +121,7 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public void deleteCart(int cart_num) {
 		cartMapper.deleteCart(cart_num);
-	}
+	}	
 	
 	@Override
 	public void createCart(OnlyCartDTO cartDto) {
@@ -117,6 +136,21 @@ public class CartServiceImpl implements CartService {
 	@Override
 	public void decreaseQty(int cart_num, int p_price) {
 		cartMapper.decreaseQty(cart_num, p_price);
+	}
+
+	@Override
+	public void deleteCartsByMemNum(int mem_num) {
+		cartMapper.deleteCartsByMemNum(mem_num);
+	}
+
+	@Override
+	public CartDTO getCartByCartNum(int cart_num) {
+		return cartMapper.getCart(cart_num);
+	}
+
+	@Override
+	public List<CartDTO> getCartsByMemNum(int mem_num) {
+		return cartMapper.getCarts(mem_num);
 	}
 
 }

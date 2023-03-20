@@ -10,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 @Data
 public class IntoCartDTO {
 
+	Integer cart_num;
 	Integer mem_num;
 	Integer mem_cstm_num;
 	@NonNull

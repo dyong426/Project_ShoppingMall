@@ -25,15 +25,19 @@
 		<table id="orderInfo">
 			<tr>
 				<th>주문 번호</th>
-				<td>${now} - 000012</td>
+				<td>${now} - ${order.ord_num}</td>
 			</tr>
 			<tr>
 				<th>결제 금액</th>
-				<td>32,51,21,,0원</td>
+				<td id="total_amount">${order.total_amount}</td>
 			</tr>
 		</table>
-		<button id="goToMain">메인화면으로 이동</button>
+		<form action="<%=request.getContextPath()%>/main" method="GET">
+			<input type="submit" id="goToMain" value="메인화면으로 이동"/>
+		</form>
 	</div>
 </div>
+
+<script src="<%=request.getContextPath()%>/assets/user/order/js/orderCompleted.js"></script>
 
 <%@ include file="../common/footer.jsp"%>

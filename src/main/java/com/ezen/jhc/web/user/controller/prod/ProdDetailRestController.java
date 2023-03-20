@@ -43,12 +43,14 @@ public class ProdDetailRestController {
 		this.cstmDto = cstmService.insertCstm(cstmDto);
 	}
 	
-	@PostMapping(value = "/insertCart", produces = MediaType.APPLICATION_JSON_VALUE)
-	public void insertCart(@RequestBody IntoCartDTO cartDto) {
+	@PostMapping(value = "/insertCart", produces=MediaType.APPLICATION_JSON_VALUE)
+	public int insertCart(@RequestBody IntoCartDTO cartDto) {
 		cartDto.setMem_num(cstmDto.getMem_num());
 		cartDto.setMem_cstm_num(cstmDto.getMem_cstm_num());
 		
-		cartService.insertCart(cstmDto, cartDto);
+		int cart_num = cartService.insertCart(cstmDto, cartDto);
+		
+		return cart_num;
 	}
 
 }

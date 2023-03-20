@@ -142,7 +142,7 @@
 					</div>
 				</div>
 
-				<form action="<%=request.getContextPath()%>/order/fromCart" method="POST">
+				<form action="<%=request.getContextPath()%>/order/fromCart" method="POST" id="toOrderForm">
 					<input type="submit" id="checkout_btn" value="주문서 작성"/>
 				</form>
 			</c:when>

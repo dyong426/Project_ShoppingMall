@@ -57,12 +57,12 @@
 			<div id="shipping" class="rowGrid">
 				<div class="columnGrid">
 					<div>수취인</div>
-					<input type="text" name="reciever_name" id="recipient"
+					<input type="text" name="receiver_name" id="recipient"
 						placeholder="이름을 입력해주세요." form="orderCompleted"/>
 				</div>
 				<div class="columnGrid">
 					<div>연락처</div>
-					<input type="text" name="reciever_phone" id="recipientPhone"
+					<input type="text" name="receiver_phone" id="recipientPhone"
 						placeholder="- 없이 00000000000" form="orderCompleted"/>
 				</div>
 				<div id="destination" class="columnGrid">
@@ -176,7 +176,7 @@
 										<b>${cart.p_name}</b>
 									</div>
 									<div>
-										색상&emsp;&emsp;:&emsp;<span>${cart.pc_name}</span>
+										색상&emsp;&emsp;:&emsp;<span class="pc_name">${cart.pc_name}</span>
 									</div>
 									<div>
 										사이즈&emsp;:&emsp;<span>${cart.ps_name}</span>
@@ -185,7 +185,7 @@
 										수량&emsp;&emsp;:&emsp;<span>${cart.cart_quantity}</span>
 									</div>
 									<div>
-										가격&emsp;&emsp;:&emsp;<span>${cart.cart_quantity * cart.cart_amount}</span>
+										가격&emsp;&emsp;:&emsp;<span class="p_price">${cart.cart_quantity * cart.p_price}</span>
 									</div>
 								</div>
 							</div>
@@ -202,7 +202,10 @@
 </div>
 
 <form action="<%=request.getContextPath()%>/order/completed" method="POST" id="orderCompleted">
-	<input type="hidden" name="total_amount" id="total_amount_input" value="1234"/>
+	<input type="hidden" name="total_amount" id="total_amount_input"/>
+	<input type="hidden" name="payment_num" id="payment_num"/>
+	<input type="hidden" name="cart_num" id="cart_num" value="${cart_num}"/>
+	<input type="hidden" name="mem_num" id="mem_num" value="${member.mem_num}"/>
 </form>
 
 <script>

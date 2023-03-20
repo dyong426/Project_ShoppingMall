@@ -98,3 +98,20 @@ for (i = 0; i < minusBtns.length; ++i) {
     });
 }
 
+
+// 주문서 작성 버튼 눌렀을 때 상품이 없으면 알림 띄우기
+const checkout_btn = document.getElementById('checkout_btn');
+const toOrderForm = document.getElementById('toOrderForm');
+
+checkout_btn.addEventListener('click', (e) => {
+    let valQty = 0;
+    e.preventDefault();
+    for (i = 0; i < val.length; ++i) {
+        valQty += parseInt(val[i].innerText);
+    }
+    if (valQty == 0) {
+        alert('상품을 1개 이상 선택해주세요.');
+    } else {
+        toOrderForm.submit();
+    }
+});

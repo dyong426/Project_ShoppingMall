@@ -3,6 +3,7 @@ package com.ezen.jhc.web.user.controller.order;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -39,7 +40,7 @@ public class OrderController {
 		// 임시 데이터
 		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
 		
-		cartService.getCartDto(session, req, resp);
+		cartService.getCart(session, req);
 		
 		return "user/order/order";
 	}
@@ -69,11 +70,22 @@ public class OrderController {
 	
 	@PostMapping("/completed")
 	public String orderCompleted(HttpSession session, HttpServletRequest req) {
-		orderService.updateAddr(session, req);
+		int ord_num = orderService.insertOrder(session, req);
+		int mem_num = Integer.parseInt(req.getParameter("mem_num"));
+		
+		List<CartDTO> carts = new ArrayList<CartDTO>();
+		if (req.getParameter("cart_num") == null) {
+			carts = cartService.getCartsByMemNum(mem_num);
+			cartService.deleteCartsByMemNum(mem_num);
+		} else {
+			carts.add(cartService.getCartByCartNum(Integer.parseInt(req.getParameter("cart_num"))));
+			cartService.deleteCart(Integer.parseInt(req.getParameter("cart_num")));
+		}
+		orderService.insertOrderDetails(ord_num, carts);
 		
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 		String now = LocalDate.now().format(format);
-		req.setAttribute("now", now);
+		req.setAttribute("now", now);		
 		
 		return "user/order/orderCompleted";
 	}
