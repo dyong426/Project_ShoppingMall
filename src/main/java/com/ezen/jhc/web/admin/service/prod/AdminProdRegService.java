@@ -1,4 +1,4 @@
-package com.ezen.jhc.web.admin.service;
+package com.ezen.jhc.web.admin.service.prod;
 
 import java.util.List;
 

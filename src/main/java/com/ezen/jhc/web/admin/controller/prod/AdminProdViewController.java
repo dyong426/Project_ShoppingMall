@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.ezen.jhc.web.admin.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdSizeDTO;
-import com.ezen.jhc.web.admin.service.AdminProdViewServiceImpl;
+import com.ezen.jhc.web.admin.service.prod.AdminProdViewServiceImpl;
 
 import lombok.extern.log4j.Log4j2;
 

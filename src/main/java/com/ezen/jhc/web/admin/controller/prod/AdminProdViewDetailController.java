@@ -12,8 +12,8 @@ import com.ezen.jhc.web.admin.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdSizeDTO;
 import com.ezen.jhc.web.admin.dto.prod.SubCtgrDTO;
-import com.ezen.jhc.web.admin.service.AdminProdRegServiceImpl;
-import com.ezen.jhc.web.admin.service.AdminProdViewServiceImpl;
+import com.ezen.jhc.web.admin.service.prod.AdminProdRegServiceImpl;
+import com.ezen.jhc.web.admin.service.prod.AdminProdViewServiceImpl;
 
 @Controller
 public class AdminProdViewDetailController {
