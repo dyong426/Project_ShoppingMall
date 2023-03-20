@@ -28,6 +28,10 @@ public class CsController {
 	@Autowired
 	ContactMapper contact_mapper;
 	
+	/**@author JIEUN
+	 * 
+	 * **/
+	
 	// 카테고리별 페이지 cate_num을 받아서 적용 
 	@GetMapping("/customerservice/cate")
 	public String cs_cate1(Model model, Integer cs_ctgr_num) {
@@ -71,11 +75,20 @@ public class CsController {
 	//1:1문의 POST
 	@PostMapping("/customerservice/con")
 	public String cs_contatct_(ContactDTO contact, AttachImageListDTO images, AttachImageDTO image){
-
+		System.out.println(contact);
+		System.out.println(images);
+		System.out.println(image);
 		
 		
-		contact_mapper.insert_contact(contact);
-		image.setContact_num(contact.getContact_num());
+		AttachImageDTO img = images.getImageList().get(0);
+		
+		System.out.println(img);
+		
+		contact.setContact_image_path(img.getUploadPath(), img.getUuid(), img.getFileName());
+		
+		
+		System.out.println(contact);
+	   
 		
 		
 		System.out.println("customerService/con POST....." + image);

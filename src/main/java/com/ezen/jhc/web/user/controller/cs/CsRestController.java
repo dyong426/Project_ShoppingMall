@@ -29,7 +29,9 @@ import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
 public class CsRestController {
-	
+	/**@author JIEUN
+	 * 
+	 * **/
 	/* 첨부 파일 업로드 */
 	
 	@PostMapping(value="/uploadAjaxAction_contact", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)

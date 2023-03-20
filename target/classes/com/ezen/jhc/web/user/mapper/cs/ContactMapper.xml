@@ -14,7 +14,7 @@
 		INSERT INTO contact VALUES 
 		(#{contact_num}, #{mem_num}, 
 		#{contact_ctgr}, #{contact_title},
-		#{contact_content}, null,
+		#{contact_content}, #{content_image_path},
 		sysdate, null)
 	</insert> 
 	
@@ -29,7 +29,7 @@
 	</select>
 	
 	<select id="getContactById" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
-		SELECT * FROM contact WHERE contact_num = #contact_num}
+		SELECT * FROM contact WHERE contact_num = #{contact_num}
 	</select>
 	
 	<insert id="insert_contact_img">

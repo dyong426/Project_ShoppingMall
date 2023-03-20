@@ -16,11 +16,12 @@ public class ContactDTO {
 	Integer contact_ctgr;
 	String contact_title;
 	String contact_content;
-	//String contact_image_path;
+	String contact_image_path;
 	Date contact_regdate;
 	String admin_reply;
 	String cs_ctgr_name;
 	
+	// 날짜만 출력
 	String con_only_date;
 	
 	public String getContact_regdate() {
@@ -33,6 +34,10 @@ public class ContactDTO {
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		String formatTime = dayTime.format(this.contact_regdate);
 		return formatTime;
+	}
+	
+	public String setContact_image_path(String uploadPath, String uuid, String fileName) {
+		return contact_image_path = uploadPath+uuid+fileName;
 	}
 	
 	

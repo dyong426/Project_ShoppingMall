@@ -15,7 +15,9 @@ import com.ezen.jhc.web.user.mapper.home.HomeMapper;
 
 @Controller
 public class MainController {
-	
+	/**@author JIEUN
+	 * 
+	 * **/
 	@Autowired
 	HomeMapper home_mapper;
 

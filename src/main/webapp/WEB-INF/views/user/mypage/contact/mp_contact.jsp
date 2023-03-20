@@ -26,14 +26,14 @@
 						<label for="">문의사항 </label>
 						<div class="mp_container mp_contents">
 
-							<c:if test="${!empty c.contact_image_path}">
+							<!-- <c:if test="${!empty c.contact_image_path}"> -->
 								<div id="mp_contact_img_container">
 
 									<img
 										src="<%=request.getContextPath()%>/assets/user/mypage/contact/img/026.jpg"
 										style="width: 300px; heigth: 300px;">
 								</div>
-							</c:if>
+							<!-- </c:if> -->
 
 							${c.contact_content} 
 

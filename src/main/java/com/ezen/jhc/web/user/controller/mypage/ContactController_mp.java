@@ -15,7 +15,9 @@ import com.ezen.jhc.web.user.mapper.cs.ContactMapper;
 
 @Controller
 public class ContactController_mp {
-	
+	/**@author JIEUN
+	 * 
+	 * **/
 	
 	@Autowired
 	ContactMapper contact_mapper;
