@@ -3,14 +3,9 @@
 * {
     font-family: 'Noto Sans KR', sans-serif;
 }
-<<<<<<< HEAD
 
 .main{
     text-align: center;
-=======
-
-.main{
->>>>>>> refs/heads/juhee
     display: block;
     margin: 0 auto;
     font-size: 16px;
@@ -160,6 +155,7 @@ input[type="number" i] {
     background-color: white;
     width: 800px;
     height: 580px;
+    border-radius: 0px;
 }
 .close-button {
     left: 295px;
@@ -212,7 +208,7 @@ input[type="number" i] {
 }
 
 .modal_footer {
-    width: 350px;
+    width: 348px;
     height: 100px;
     position: absolute;
     top: 480px;
@@ -220,10 +216,7 @@ input[type="number" i] {
     left: 0;
     right: 0;
     padding: 16px 24px;
-<<<<<<< HEAD
     margin-bottom: -100px;
-=======
->>>>>>> refs/heads/juhee
     margin-left: -20px;
     background-color: #fff;
     z-index: 1;

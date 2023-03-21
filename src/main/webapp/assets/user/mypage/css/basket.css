@@ -1,6 +1,5 @@
 @import
-	url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
-	;
+	url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
 .main_body {
 	position: relative;
@@ -13,44 +12,34 @@
 }
 
 .cart_body {
-<<<<<<< HEAD
 	max-width: 992px;
 	margin: auto;
 	padding: 80px 0 120px;
 	font-weight: normal;
-=======
-max-width: 992px;
-margin: auto;
-padding: 80px 0 120px;
-font-weight: normal;
->>>>>>> refs/heads/juhee
+
 }
 
-<<<<<<< HEAD
 .basket_top {
 	font-size: 24px;
 	font-weight: bold;
 	margin-bottom: 40px;
 	position: relative;
 }
-=======
->>>>>>> refs/heads/juhee
 
-<<<<<<< HEAD
+
 .basket_top>span {
 	font-family: 'Gowun Dodum', sans-serif;
 	font-size: 35px;
 	font-style: normal;
-=======
+}
+
 .basket_top {
 font-size: 24px;
 font-weight: bold;
 margin-bottom: 40px;
 position: relative;
->>>>>>> refs/heads/juhee
 }
 
-<<<<<<< HEAD
 .basket_process {
 	font-size: 14px;
 	color: #868e96;
@@ -59,23 +48,7 @@ position: relative;
 	right: 0;
 	bottom: 0;
 }
-=======
-.basket_top > span {
-font-family: 'Gowun Dodum', sans-serif;
-font-size: 35px;
-font-style: normal;
-}
 
-.basket_process {
-font-size: 14px;
-color: #494d4f;
-font-weight: bold;
-position: absolute;
-right: 0;
-bottom: 0;
-}
-
->>>>>>> refs/heads/juhee
 
 .other {
 	color: rgb(169, 174, 180);
@@ -107,20 +80,14 @@ bottom: 0;
 	display: flex;
 }
 
-.basket_bottom {
-	width: 992px;
-	height: 233.6px;
-	margin: 0px 0px 8px;
-	padding: 24px 24px 0px;
-}
 
-<<<<<<< HEAD
+
+
 .basket_body {
 	display: grid;
 	grid-template-columns: 0.5fr 3fr;
 	margin: 0px 0px 16px;
 }
-=======
   .basket_bottom {
     width: 992px;
     height: 233.6px;
@@ -128,7 +95,6 @@ bottom: 0;
     padding: 24px 24px 0px;
     background-color: #fff;
   }
->>>>>>> refs/heads/juhee
 
 .print {
 	display: grid;
@@ -196,35 +162,20 @@ bottom: 0;
 	color: black;
 }
 
-<<<<<<< HEAD
-.quantity {
-	width: 45.6px;
-	height: 25.6px;
-	background-color: white;
-	border: #ececec solid 1px;
-}
-=======
+
   .blank {
     width: 80px;
   }
->>>>>>> refs/heads/juhee
 
-<<<<<<< HEAD
-.val {
-	justify-content: center;
-	display: flex;
-	color: black;
-}
-=======
+
+
   .size{
     width: 7.44px;
     height: 16.8px;
     margin-left: 20px;
     color: black;
   }
->>>>>>> refs/heads/juhee
 
-<<<<<<< HEAD
 .price {
 	color: black;
 	align-items: center;
@@ -232,7 +183,7 @@ bottom: 0;
 	display: flex;
 	margin-left: -10px;
 }
-=======
+
   .quantity {
     width: 45.6px;
     height: 25.6px;
@@ -240,23 +191,22 @@ bottom: 0;
     background-color: white;
     border: #ececec solid 1px;
   }
->>>>>>> refs/heads/juhee
 
-<<<<<<< HEAD
+
 .btn_box {
 	padding-top: 17px;
 }
-=======
+
   .val{
     justify-content: center;
     display: flex;
     font-size: medium;
     color: black;
   }
->>>>>>> refs/heads/juhee
 
 .btn_box>button {
 	justify-content: center;
+	line-height: 15px;
 	display: flex;
 	width: 88px;
 	height: 24px;

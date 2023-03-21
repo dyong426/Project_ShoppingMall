@@ -32,11 +32,8 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-<<<<<<< HEAD
     background-color: white;
-=======
-    background-color: white;
->>>>>>> refs/heads/juhee
+
     padding: 44px 40px 40px;
     width: 300px;
     height: 350px;
@@ -137,10 +134,7 @@
     color: #fff;
     outline: none;
     position: absolute;
-<<<<<<< HEAD
-    width: 240px;
-=======
+
     width: 220px;
->>>>>>> refs/heads/juhee
     bottom: 40px;
 }

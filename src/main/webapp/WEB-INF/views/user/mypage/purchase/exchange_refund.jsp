@@ -211,16 +211,7 @@
 }
  </script>
  
- <!--  
-  <script>
-  function pd_checked(box){
-	     if(box.unchecked)
-	    	 alert("교환할 상품을 선택해주세요");
-	     	return false;
-	     else    
-	    	 return true;
-	 }
-  </script> -->
+
   
   <!-- 교환, 환불 버튼으로 보여지는 div 변경 -->
   <script>
