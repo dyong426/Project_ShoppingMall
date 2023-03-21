@@ -21,7 +21,7 @@
 	<!-- contactList -->
 	<select id="getContactList" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
 		SELECT 
-		mem_num, contact_num, cs_ctgr_name, contact_regdate, contact_title, admin_reply 
+		mem_num, contact_num, cs_ctgr_name, contact_regdate, contact_title, admin_reply
 		FROM contact c, cs_ctgr ct 
 		WHERE c.cs_ctgr_num = ct.cs_ctgr_num 
 		AND mem_num = ${mem_num}
@@ -30,6 +30,10 @@
 	
 	<select id="getContactById" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
 		SELECT * FROM contact WHERE contact_num = #{contact_num}
+	</select>
+	
+	<select id="getContactImgByContactNum" resultType="com.ezen.jhc.web.user.dto.contact.AttachImageDTO">
+		SELECT contact_img FROM contact_images WHERE contact_num = #{contact_num}
 	</select>
 	
 	<insert id="insert_contact_img">

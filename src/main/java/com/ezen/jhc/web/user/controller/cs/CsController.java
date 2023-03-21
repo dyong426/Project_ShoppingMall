@@ -15,6 +15,7 @@ import com.ezen.jhc.web.user.dto.contact.ContactDTO;
 import com.ezen.jhc.web.user.dto.faq.FaqDTO;
 import com.ezen.jhc.web.user.mapper.cs.ContactMapper;
 import com.ezen.jhc.web.user.mapper.cs.FaqMapper;
+import com.ezen.jhc.web.user.service.csService.ContactService;
 
 
 @Controller
@@ -27,6 +28,9 @@ public class CsController {
 
 	@Autowired
 	ContactMapper contact_mapper;
+	
+	@Autowired
+	ContactService contact_service;
 	
 	/**@author JIEUN
 	 * 
@@ -75,37 +79,9 @@ public class CsController {
 	//1:1문의 POST
 	   @PostMapping("/customerservice/con")
 	   public String cs_contatct_(ContactDTO contact, AttachImageListDTO images){
-	      System.out.println();
-		   
-		  System.out.println("1. contactDTO :" + contact);
-
-	      System.out.println();
-	      
-	      System.out.println("2. images : "  + images);
-	      
-	      contact.setContact_image_path(images.getImageList().get(0).getContact_img());
-	      
-	      System.out.println();
-	      
-	      // contact 먼저 인서트 
-	      System.out.println("3. contact insert 전 contact_image_path 확인 :" + contact.getContact_image_path());
-	      contact_mapper.insert_contact(contact);
-	      
-	      
-	      for (AttachImageDTO img : images.getImageList()) {
-	    	  
-	         String contact_img = img.getFileName() + img.getUploadPath() + img.getUuid();
-	         
-	         img.setContact_img(contact_img);
-	         img.setContact_num(contact.getContact_num());
-	         
-	         //images 인서트; 
-	         int result = contact_mapper.insert_contact_img(img); 
-	         System.out.println("인서트 성공: " + result);
-	      }
-
 	     
-	        
+		   int result= contact_service.contactEnroll(contact, images);
+		  System.out.println("결과: " + result);
 	   
 	      
 	       return "redirect:/contact";

@@ -17,5 +17,5 @@ public interface ContactMapper {
 	
 	Integer insert_contact_img(AttachImageDTO img); 
 
-	
+	List<AttachImageDTO> getContactImgByContactNum(Integer contact_num);
 }

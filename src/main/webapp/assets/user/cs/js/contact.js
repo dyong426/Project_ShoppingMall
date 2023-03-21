@@ -124,7 +124,7 @@ function showUploadImage(uploadResultArr){
 		      str += "</div>";
    			
 		  }
-		   
+		   console.log(str);
    			uploadResult.append(str);  
 
 }

@@ -14,34 +14,54 @@ public class ContactServiceImpl implements ContactService{
 	
 	@Autowired
 	private ContactMapper contact_mapper;
-	
-	public Integer contactImgEnroll(ContactDTO contact, AttachImageListDTO images) {
-		System.out.println("service imgEroll.........");
-		
-		AttachImageDTO img = images.getImageList().get(0);
-		//contact.setContact_image_path(img.getUploadPath(), img.getUuid(), img.getFileName());
-		
-		// 글 insert
-		contact_mapper.insert_contact(contact);
-		
-		if(images.getImageList() == null || images.getImageList().size() <= 0) {
-			return 0;
-		}
-		
-		images.getImageList().forEach(attach ->{
-			attach.setContact_num(contact.getContact_num());
-			contact_mapper.insert_contact_img(attach);
-		});
-		
-		
-		
-		return 1;
-	}
-
 	@Override
-	public Integer contactImgEnroll(AttachImageListDTO imgs) {
-		// TODO Auto-generated method stub
-		return null;
+	public Integer contactEnroll(ContactDTO contact, AttachImageListDTO images) {
+		System.out.println("service");
+		
+		System.out.println();
+		   
+		  System.out.println("1. contactDTO :" + contact);
+
+	      System.out.println();
+	      
+	      System.out.println("2. images : "  + images);
+	
+	      String uploadPath = images.getImageList().get(0).getUploadPath().replace('\\', '/');
+	      
+	      System.out.println(uploadPath);
+	      
+	      String contact_image_path = uploadPath + "/" + images.getImageList().get(0).getUuid() + images.getImageList().get(0).getFileName();
+	      
+	      contact.setContact_image_path(contact_image_path);
+	      
+	      System.out.println();
+	      
+	      // contact 먼저 인서트 
+	      System.out.println("3. contact insert 전 contact_image_path 확인 :" + contact.getContact_image_path());
+	      System.out.println();
+	      System.out.println("4. insert 전 contact 확인: " + contact);
+	      System.out.println();
+	      contact_mapper.insert_contact(contact);
+	      System.out.println();
+	      
+	      for (AttachImageDTO img : images.getImageList()) {
+	    	  
+	         String contact_img = img.getUploadPath().replace('\\', '/') + "/" + img.getUuid() + img.getFileName();
+	         	
+	         
+	         
+	         img.setContact_img(contact_img);
+	         img.setContact_num(contact.getContact_num());
+	         
+	         //images 인서트; 
+	         System.out.println("인서트 전 img 확인: " + img);
+	         System.out.println();
+	         int result = contact_mapper.insert_contact_img(img); 
+	      }
+
+	     
+	        
+		return 1;
 	}
 
 }

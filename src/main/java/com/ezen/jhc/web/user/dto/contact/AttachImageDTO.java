@@ -19,8 +19,8 @@ public class AttachImageDTO {
 	private String contact_img;
 	
 	
-	public String getContact_img() {
-		return contact_img = uploadPath+uuid+fileName;
+	public String setContact_img(String contact_img) {
+		return this.contact_img = contact_img;
 	}
 	
 
