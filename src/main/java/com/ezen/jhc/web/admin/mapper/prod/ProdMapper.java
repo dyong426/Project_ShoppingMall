@@ -2,15 +2,21 @@ package com.ezen.jhc.web.admin.mapper.prod;
 
 import java.util.List;
 
+import org.apache.ibatis.annotations.Param;
+
 import com.ezen.jhc.web.admin.dto.prod.ProdDTO;
 
 public interface ProdMapper {
 	
-	public List<ProdDTO> getProds();
+	List<ProdDTO> getProds();
 	
-	public ProdDTO getProd(Integer p_num);
+	List<ProdDTO> getSearchProds(@Param("m_ctgr_num")Integer m_ctgr_num,@Param("p_name")String p_name);
 	
-	public Integer regProd(ProdDTO prodDTO);
+	List<ProdDTO> getSearchKeywordProds(@Param("p_name")String p_name);
+
+	ProdDTO getProd(Integer p_num);
+	
+	Integer regProd(ProdDTO prodDTO);
 	
 	Integer deleteProd(Integer p_num);
 	

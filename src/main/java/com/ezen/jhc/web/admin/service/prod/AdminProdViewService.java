@@ -20,4 +20,8 @@ public interface AdminProdViewService {
 	public List<ProdSizeDTO> getProdSizeList(Integer p_num);
 	
 	Integer deleteProd(Integer p_num);
+	
+	List<ProdDTO> getSearchProdsList(Integer m_ctgr_num, String p_name);
+	
+	List<ProdDTO> getSearchKeywordProds(String p_name);
 }

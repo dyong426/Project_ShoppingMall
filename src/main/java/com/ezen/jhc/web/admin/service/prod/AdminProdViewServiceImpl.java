@@ -1,5 +1,6 @@
 package com.ezen.jhc.web.admin.service.prod;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -74,5 +75,17 @@ public class AdminProdViewServiceImpl implements AdminProdViewService{
 		
 		log.info("delete result : " + resultProd + ", result2 : " + resultImage);
 		return resultProd;
+	}
+	
+	@Override
+	public List<ProdDTO> getSearchProdsList(Integer m_ctgr_num,String p_name) {
+		
+		return prodMapper.getSearchProds(m_ctgr_num,p_name);
+	}
+	
+	@Override
+	public List<ProdDTO> getSearchKeywordProds(String p_name) {
+		
+		return prodMapper.getSearchKeywordProds(p_name);
 	}
 }

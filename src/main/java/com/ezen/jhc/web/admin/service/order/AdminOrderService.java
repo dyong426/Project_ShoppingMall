@@ -6,15 +6,20 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.jhc.web.admin.dto.order.OrderDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderDetailDTO;
+import com.ezen.jhc.web.admin.dto.order.OrderStatusDTO;
 
 @Service
 public interface AdminOrderService {
 	
-	public List<OrderDTO> getOrderList();
+	List<OrderDTO> getOrderList();
 	
-	public OrderDTO getOrderOrd_num(Integer ord_num);
+	List<OrderDTO> getSearchOrderList(Integer ord_status, String mem_name);
 	
-	public List<OrderDetailDTO> getOrderDetailList(Integer ord_num);
+	List<OrderDTO> getSearchKeywordOrderList(String mem_name);
+	
+	OrderDTO getOrderOrd_num(Integer ord_num);
+	
+	List<OrderDetailDTO> getOrderDetailList(Integer ord_num);
 	
 	Integer recievedOrder(OrderDTO ordDTO);
 	
@@ -23,4 +28,5 @@ public interface AdminOrderService {
 	Integer exchangeOrder(OrderDTO ordDTO);
 	
 	Integer refundOrder(OrderDTO ordDTO);
+
 }

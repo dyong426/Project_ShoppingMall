@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ezen.jhc.common.util.Utils;
 import com.ezen.jhc.web.admin.dto.order.OrderDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.admin.mapper.order.AdminOrderMapper;
@@ -21,14 +20,30 @@ public class AdminOrderServiceImpl implements AdminOrderService{
 	
 	@Autowired(required = false)
 	OrderDTO ord;
+	
+	@Autowired(required = false)
+	List<OrderDTO> orders;
 
 	@Override
 	public List<OrderDTO> getOrderList() {
 		
-		List<OrderDTO> orders = orderMapper.getOrders();
+		orders = orderMapper.getOrders();
 		
 		return orderMapper.getOrders();
 	}
+	
+	@Override
+	public List<OrderDTO> getSearchOrderList(Integer ord_status, String mem_name) {
+		
+		return orderMapper.getSearchOrders(ord_status,mem_name);
+	}
+	
+	@Override
+	public List<OrderDTO> getSearchKeywordOrderList(String mem_name) {
+		
+		return orderMapper.getSearchKeywordOrders(mem_name);
+	}
+	
 	
 	@Override
 	public OrderDTO getOrderOrd_num(Integer ord_num) {

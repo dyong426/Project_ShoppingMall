@@ -29,8 +29,28 @@
                                             <div class="col p-4 d-flex flex-column position-static">
                                                 <div class="d-flex flex-row justify-content-between">
                                                     <h3 class="mb-0 fw-bold mb-4">주문 관리</h3>
-                                                    <button class="btn btn-primary btn-sm me-3" style="height: 30px;"
-                                                        onclick="location.href='./reg'">옵션 버튼</button>
+                                                    
+
+		
+													<!-- 카테고리 선택 -->
+									<div class="dropdown">
+										<a class="btn btn-dark dropdown-toggle" href="#" role="button"
+											data-bs-toggle="dropdown" aria-expanded="false"> 처리상태 </a>
+										<ul
+											class="dropdown-menu dropdown-menu-dark gap-1 p-2 rounded-3 mx-0 border-0 shadow w-220px">
+											<li><a class="dropdown-item rounded-2"
+												href="<%=request.getContextPath()%>/admin/order?currentPage=1&ord_status=">전체</a></li>
+											
+											<c:forEach items="${status}" var="ordStatus">
+												
+												<li><a class="dropdown-item rounded-2"
+												href="<%=request.getContextPath()%>/admin/order?currentPage=1&category=${ordStatus.ord_status}">${ordStatus.status_name}</a></li>
+											
+											</c:forEach>
+											
+										</ul>
+										
+									</div>
                                                 </div>
 
                                                 <div class="d-flex flex-row table-responsive text-nowrap">
@@ -38,7 +58,7 @@
                                                         <thead class="table-dark">
                                                             <tr>
                                                                 <th>주문 번호</th>
-                                                                <th>회원 아이디</th>
+                                                                <th>회원 이름</th>
                                                                 <th>주문 상세</th>
                                                                 <th>주문 날짜</th>
                                                                 <th>처리 상태</th>
@@ -51,7 +71,7 @@
 
                                                                 <tr>
                                                                     <td>${order.ord_num}</td>
-                                                                    <td>${order.mem_email}</td>
+                                                                    <td>${order.mem_name}</td>
                                                                     <td><button type="button"
                                                                             class="btn btn-sm btn-outline-dark"
                                                                             onclick="location.href=`./order/detail?ord_num=${order.ord_num}`">상세보기</button>
@@ -151,6 +171,44 @@
                                                         </tbody>
                                                     </table>
                                                 </div>
+                                                
+                                                
+                                                <!-- pagination -->
+                <div class="d-flex justify-content-center">
+
+                  <div>
+                    <nav>
+                      <ul class="pagination">
+                      
+                      <!-- pagination start -->
+                      <!-- previous -->
+                        <li class="page-item <c:if test='${paging.startPage < 6 }'>disabled</c:if>">
+                          <a class="page-link" href="<%=request.getContextPath()%>/admin/order?currentPage=${paging.startPage-1}&category=${param.ord_status}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+					
+						<!-- paging num -->
+						<c:forEach var="pgNo" begin="${paging.startPage }" end="${paging.endPage }" step="1">		
+							<li class="page-item <c:if test='${paging.currentPage eq pgNo}'>active</c:if>">
+								<a class="page-link" href="<%=request.getContextPath()%>/admin/order?currentPage=${pgNo}&category=${param.ord_status}">${pgNo}</a>
+							</li>
+						</c:forEach>
+						
+					   <!-- next -->
+                        <li class="page-item <c:if test='${paging.endPage >= paging.totalPages}'>disabled</c:if>">
+                          <a class="page-link" href="<%=request.getContextPath()%>/admin/order?currentPage=${paging.startPage+5}&category=${param.ord_status}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                        
+                      </ul>
+                    </nav>
+                  </div>
+
+                </div>
+                                                
+                                                
 
 
                                             </div>
@@ -162,9 +220,7 @@
 
                     </div>
                 </div>
-
-   <script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
 		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"

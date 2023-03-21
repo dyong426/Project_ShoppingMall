@@ -27,6 +27,60 @@
 			ord_date DESC
 	</select>
 	
+	
+	<select id="getSearchOrders" resultType="com.ezen.jhc.web.admin.dto.order.OrderDTO">
+		SELECT 
+			ord_num,
+			mem_email,
+			mem_name,
+			ord_date, 
+			ord.ord_status as ord_status,
+			os.status_name as status_name, 
+			total_amount 
+		FROM 
+			orders ord 
+		INNER JOIN 
+			members m 
+		ON 
+			m.mem_num = ord.mem_num
+		INNER JOIN
+			order_statuses os
+		ON
+			os.ord_status = ord.ord_status
+		WHERE
+			ord.ord_status = #{ord_status} AND mem_name LIKE '%' ||  #{mem_name} || '%'
+		ORDER BY 
+			ord_date DESC
+	</select>
+	
+	
+	<select id="getSearchKeywordOrders" resultType="com.ezen.jhc.web.admin.dto.order.OrderDTO">
+		SELECT 
+			ord_num,
+			mem_email,
+			mem_name,
+			ord_date, 
+			ord.ord_status as ord_status,
+			os.status_name as status_name, 
+			total_amount 
+		FROM 
+			orders ord 
+		INNER JOIN 
+			members m 
+		ON 
+			m.mem_num = ord.mem_num
+		INNER JOIN
+			order_statuses os
+		ON
+			os.ord_status = ord.ord_status
+		WHERE
+			mem_name LIKE '%' ||  #{mem_name} || '%'
+		ORDER BY 
+			ord_date DESC
+	</select>
+	
+	
+	
 	<select id="getOrder" resultType="com.ezen.jhc.web.admin.dto.order.OrderDTO">
 		SELECT 
 			* 
@@ -96,5 +150,9 @@
 		WHERE
 			ord_num = #{ord_num}
 	</update>
+	
+	<select id="orderStatuses" resultType="com.ezen.jhc.web.admin.dto.order.OrderStatusDTO">
+		SELECT * FROM order_statuses
+	</select>
 
 </mapper>

@@ -8,11 +8,18 @@
 
     <body>
 
-      <!-- include top search bar -->
 
-      <%@ include file="../include/top_search_bar.jsp" %>
 
-        <div class="container-fluid">
+
+  <%@ include file="../include/top_search_bar.jsp" %>
+
+
+
+
+
+
+
+	<div class="container-fluid">
           <div class="row">
 
             <!-- include left Nav Bar -->
@@ -29,11 +36,31 @@
 							<div class="col p-4 d-flex flex-column position-static">
 								<div class="d-flex flex-row justify-content-between">
 									<h3 class="mb-0 fw-bold mb-4">등록 상품</h3>
-									<button class="btn btn-primary btn-sm" style="height: 30px;" onclick="location.href='./reg'">제품등록</button>
+									
+									<!-- 카테고리 선택 -->
+									<div class="dropdown">
+										<a class="btn btn-dark dropdown-toggle" href="#" role="button"
+											data-bs-toggle="dropdown" aria-expanded="false"> 카테고리 종류 </a>
+										<ul
+											class="dropdown-menu dropdown-menu-dark gap-1 p-2 rounded-3 mx-0 border-0 shadow w-220px">
+											<li><a class="dropdown-item rounded-2"
+												href="<%=request.getContextPath()%>/admin/prod/view?currentPage=1">전체</a></li>
+											
+											<c:forEach items="${ctgrs}" var="ctgr">
+												
+												<li><a class="dropdown-item rounded-2"
+												href="<%=request.getContextPath()%>/admin/prod/view?currentPage=1&category=${ctgr.m_ctgr_num}">${ctgr.m_ctgr_name}</a></li>
+											
+											</c:forEach>
+											
+										</ul>
+									</div>
+									
+
 								</div>
-								<table class="table text-center">
+								<table class="table text-center fw-bold">
 									<thead>
-										<tr>
+										<tr class="table-dark">
 											<th scope="col">메인카테고리</th>
 											<th scope="col">서브카테고리</th>
 											<th scope="col">제품번호</th>
@@ -65,6 +92,53 @@
 									</tbody>
 								</table>
 							</div>
+							
+							
+				<!-- 제품 등록 버튼 -->
+				<div class="col-11 d-flex flex-row-reverse justify-content-start">
+
+                  <button class="btn btn-primary btn-sm" style="height: 30px;"
+                    onclick="location.href='./reg'">제품등록</button>
+
+                </div>
+
+
+				<!-- pagination -->
+                <div class="d-flex justify-content-center">
+
+                  <div>
+                    <nav>
+                      <ul class="pagination">
+                      
+                      <!-- pagination start -->
+                      <!-- previous -->
+                        <li class="page-item <c:if test='${paging.startPage < 6 }'>disabled</c:if>">
+                          <a class="page-link" href="<%=request.getContextPath()%>/admin/prod/view?currentPage=${paging.startPage-1}&category=${param.m_ctgr_num}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+					
+						<!-- paging num -->
+						<c:forEach var="pgNo" begin="${paging.startPage }" end="${paging.endPage }" step="1">		
+							<li class="page-item <c:if test='${param.currentPage eq pgNo}'>active</c:if>">
+								<a class="page-link" href="<%=request.getContextPath()%>/admin/prod/view?currentPage=${pgNo}&category=${param.m_ctgr_num}">${pgNo}</a>
+							</li>
+						</c:forEach>
+						
+					   <!-- next -->
+                        <li class="page-item <c:if test='${paging.endPage >= paging.totalPages}'>disabled</c:if>">
+                          <a class="page-link" href="<%=request.getContextPath()%>/admin/prod/view?currentPage=${paging.startPage+5}&category=${param.m_ctgr_num}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                        
+                      </ul>
+                    </nav>
+                  </div>
+
+                </div>
+							
+		
 						</div>
 					</div>
 
@@ -75,15 +149,13 @@
         </div>
 
   <script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.js"></script>
-	<script
+	<script type="text/javascript"
 		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
 		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
 		crossorigin="anonymous"></script>
-	<script
+	<script type="text/javascript"
 		src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"
 		integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha"
 		crossorigin="anonymous"></script>
-<script src="<%=request.getContextPath()%>/assets/admin/js/dashboard.js"></script>
     </body>
 </html>

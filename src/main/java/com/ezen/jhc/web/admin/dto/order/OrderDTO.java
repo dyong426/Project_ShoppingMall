@@ -2,8 +2,6 @@ package com.ezen.jhc.web.admin.dto.order;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import com.ezen.jhc.web.user.dto.member.MemberAddressesDTO;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
