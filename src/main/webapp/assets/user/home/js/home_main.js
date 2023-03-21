@@ -18,7 +18,6 @@ function next(){
     
     container.style.transform = 'translate(' + ( currCnt * (-100)) + 'vw)';
     container.style.transition = '0.5s';
-    console.log('함수 시작' + currCnt);
     
     //마지막 페이지(복사한 첫번째 파일)일 경우
     if(currCnt === img_count - 1) {
@@ -32,7 +31,6 @@ function next(){
         currCnt = 1;
     }
      currCnt++;
-    console.log('함수끝' + currCnt);
     
 };
 
