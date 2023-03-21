@@ -141,11 +141,11 @@
     margin: auto;	
 }
 
-#result_card_con{
+.result_card_con{
 	position: relative;
 }
 
-.imgDeleteBtn_con{
+.imgDelete_con{
     position: absolute;
     top: 3px;
     right: 3px;

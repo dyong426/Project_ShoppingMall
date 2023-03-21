@@ -32,8 +32,7 @@
 			<c:if test="${empty mem.mem_num}">
 				<div id="oneOn_box">
 
-					<form id="oneOnOne_form" action="" method="POST"
-						enctype="multipart/form-data" onsubmit="return doAction();">
+					<form id="oneOnOne_form" action="" method="POST" onsubmit="return doAction();">
 						<!-- 제목 -->
 						<div id="oneOnOne_title" class="oneOnOne inside_form">
 							<label for="">제목 </label> <input type="text" name="contact_title"
@@ -47,8 +46,7 @@
 						<div id="oneOnOne_file" class="oneOnOne inside_form">
 
 							<label for="">첨부파일 </label> <input type="file"
-								name="contact_image_path" accept="image/png, image/jpeg/"
-								multiple>
+								name="contact_image_path" accept="image/png, image/jpeg/">
 							<div id="uploadResult_con">
 
 								 <!-- 

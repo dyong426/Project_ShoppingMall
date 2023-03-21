@@ -25,20 +25,21 @@ public class ContactDTO {
 	String con_only_date;
 	
 	public String getContact_regdate() {
+		if (this.contact_regdate == null) return null;
+		
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 		String formatTime = dayTime.format(this.contact_regdate);
 		return formatTime;
 	}
 	
 	public String getCon_only_date() {
+		if (this.contact_regdate == null) return null;
+		
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		String formatTime = dayTime.format(this.contact_regdate);
 		return formatTime;
 	}
 	
-	public String setContact_image_path(String uploadPath, String uuid, String fileName) {
-		return contact_image_path = uploadPath+uuid+fileName;
-	}
-	
+
 	
 }

@@ -26,6 +26,7 @@ function doAction() {
 let regex = new RegExp("(.*?)\.(jpg|png)$"); //파일 종류
 let maxSize = 1048576; //1MB
 
+
 // 이미지 업로드
 $("input[type='file']").on("change", function(e){
 	
@@ -41,17 +42,13 @@ $("input[type='file']").on("change", function(e){
 	let fileList = fileInput[0].files;
 	let fileObj = fileList[0];
 	
-	//if(!fileCheck(fileObj.name, fileObj.size)){
-	//		return false;
-	//}
+	
 	 //파일 여러개 받아올 때 multiple
 	for (let i = 0; i < fileList.length; ++i){
 		formData.append("uploadFile", fileList[i]);
 	}
 	
-	//formData.append("uploadFile", fileObj);
-	//alert("통과");
-	
+
 	// processData,contentType 의 속성값을 false로 해야 첨부파일이 서버로 전송됨
 	
 	$.ajax({
@@ -101,7 +98,8 @@ function fileCheck(fileName, fileSize){
 
 /* 이미지 출력 */
 function showUploadImage(uploadResultArr){
-	
+	let num = lastNum();
+
 /* 전달받은 데이터 검증 */
 		if(!uploadResultArr || uploadResultArr.length == 0){return}
 		
@@ -113,34 +111,49 @@ function showUploadImage(uploadResultArr){
 		
 		// 변경 후
 		let fileCallPath = obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName;
-	for(let i = 0; i<uploadResult.length; ++i){
-		str += "<div id='result_card_con'>";
-		str += "<img class='img_con' src='/jhc/display?fileName=" + fileCallPath +"'>";
-		str += "<div class='imgDeleteBtn_con' data-file='" + fileCallPath + "'>x</div>";
-		str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
-		str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
-		str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";		
-		str += "</div>";		
-		}
-   		uploadResult.append(str);  
-   		console.log(str);
-   		console.log(uploadResult.length);
+		
+		console.log(uploadResult.length);
+		
+		for (let i = 0; i < uploadResult.length; ++i) {
+		      str += "<div class='result_card_con' id='" + num + "'>";
+		      str += "<img class='img_con' src='/jhc/display?fileName=" + fileCallPath + "'>";
+		      str += "<div class='imgDelete_con' data-file='" + fileCallPath + "'>x</div>";
+		      str += "<input type='hidden' name='imageList[" + num + "].fileName' value='" + obj.fileName + "'>";
+		      str += "<input type='hidden' name='imageList[" + num + "].uuid' value='" + obj.uuid + "'>";
+		      str += "<input type='hidden' name='imageList[" + num + "].uploadPath' value='" + obj.uploadPath + "'>";
+		      str += "</div>";
+   			
+		  }
+		   
+   			uploadResult.append(str);  
 
 }
 
 /* 이미지 삭제 버튼 동작 */
-	$("#uploadResult_con").on("click", ".imgDeleteBtn_con", function(e){
+	$("#uploadResult_con").on("click", ".imgDelete_con", function(e){
 		deleteFile();
 	});
+	
+// 크기 
+function lastNum() {
 
+   if ($(".result_card_con").length > 0) {
 
+      return parseInt($(".result_card_con").last().prop("id")) + 1;
+
+   } else {
+
+      return 0;
+
+   }
+}
 
 /* 파일 삭제 메서드 */
 function deleteFile(){
 	
-	let targetFile = $(".imgDeleteBtn_con").data("file");
+	let targetFile = $(".imgDelete_con").data("file");
 		
-	let targetDiv = $("#result_card_con");
+	let targetDiv = $(".result_card_con");
 	
 		$.ajax({
 			url: '/jhc/con/deleteFile',

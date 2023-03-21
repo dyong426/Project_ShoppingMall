@@ -19,7 +19,7 @@ public class ContactServiceImpl implements ContactService{
 		System.out.println("service imgEroll.........");
 		
 		AttachImageDTO img = images.getImageList().get(0);
-		contact.setContact_image_path(img.getUploadPath(), img.getUuid(), img.getFileName());
+		//contact.setContact_image_path(img.getUploadPath(), img.getUuid(), img.getFileName());
 		
 		// 글 insert
 		contact_mapper.insert_contact(contact);

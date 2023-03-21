@@ -23,12 +23,5 @@ public class AttachImageDTO {
 		return contact_img = uploadPath+uuid+fileName;
 	}
 	
-	
-	@Override
-	public String toString() {
-		return "ImageListDTO [uploadPath= " + uploadPath + ", "
-				+ "uuid= " + uuid + ", " + "fileName= " + fileName + ", "
-				+ "contact_num= " + contact_num + ", "
-				+ "contact_img=" + contact_img + "] ";
-	}
+
 }
