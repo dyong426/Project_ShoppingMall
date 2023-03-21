@@ -126,35 +126,42 @@
 	margin-right: 10px;
 }
 
+
 /* 첨부파일 미리보기 */
-#result_card_con img{
-		max-width: 100%;
-	    height: auto;
-	    display: block;
-	    padding: 5px;
-	    margin-top: 10px;
-	    margin: auto;	
-	}
-#result_card_con{
+#uploadResult_con{
+	display: flex;
+}
+
+.img_con{
+	width: 100px;
+    height: auto;
+    display: block;
+    padding: 5px;
+    margin-top: 10px;
+    margin: auto;	
+}
+
+.result_card_con{
 	position: relative;
 }
 
-.imgDeleteBtn_con{
+.imgDelete_con{
     position: absolute;
-    top: 0;
-    right: 5%;
-    background-color: #ef7d7d;
-    color: wheat;
+    top: 3px;
+    right: 3px;
+    color: white;
     font-weight: 900;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    line-height: 26px;
+    font-size: 1.2em;
+    width: 20px;
+    height: 20px;
+    line-height: 17px;
     text-align: center;
     border: none;
     display: block;
     cursor: pointer;	
+    text-shadow:2px 0 grey, 2px 0 grey, 2px 0 grey;
 }
+
 
 /*로그인 상태가 아닐 경우*/
 #non-members{

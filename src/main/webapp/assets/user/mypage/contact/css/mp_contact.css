@@ -2,6 +2,7 @@
 .mp_contact_main {
 	background-color: rgb(248, 249, 250);
 	min-height: 1300px;
+	padding: 20px;
 }
 /*0.1fr- 나의 문의 1fr- list_box*/
 .mp_contact_box {
@@ -158,3 +159,4 @@
 #mp_con_answer>div>div{
 	min-height: 80px;
 }
+

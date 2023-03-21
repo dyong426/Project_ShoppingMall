@@ -30,12 +30,17 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
 <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+<<<<<<< HEAD
 <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/mypage/js/details.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/mypage/js/my_info.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/home/js/home.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/common/js/join.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/assets/user/common/js/login.js"></script>
 
+=======
+
+<script src="<%=request.getContextPath()%>/assets/user/cs/js/contact.js"></script>
+>>>>>>> refs/heads/je
 </body>
 
 </html>

@@ -19,19 +19,26 @@
 <body>
    <!-- header -->
    <div class="header_container">
+<body>
 
-      <!--회원가입, 로그인, 고객센터-->
-      <div id="header_top">
-         <div>
-            <button class="sign_up" id="sign_up">회원가입</button>
-            <button class="sign_in" id="sign_in" value="login">로그인</button>
-            <button onclick="location.href='<%=request.getContextPath() %>/cs'">고객센터</button>
-         </div>
-      </div>
-      
-      <!--로고, 카테고리, 프로필-->
-      <div class="header_container_bottom">
-			<div class="header_container_bottom_contents">
+	<!-- header -->
+
+	<div class="header_container">
+
+		<!--회원가입, 로그인, 고객센터-->
+		<div id="header_top">
+			<div>
+				<button class="sign_up">회원가입</button>
+				<button class="sign_in">로그인</button>
+				<button onclick="location.href='<%=request.getContextPath() %>/customerservice/cate'">고객센터</button>
+			</div>
+		</div>
+
+		<!--로고, 카테고리, 프로필-->
+		<div class="header_container_bottom">
+
+			<div>
+
 				<a href="<%=request.getContextPath() %>/main">
 				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo.png" alt="로고" width="170px" />
 				</a>

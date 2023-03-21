@@ -3,6 +3,7 @@ package com.ezen.jhc.web.user.controller.cs;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -22,17 +23,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.ezen.jhc.web.user.dto.contact.AttachImageVO;
+import com.ezen.jhc.web.user.dto.contact.AttachImageDTO;
 
 import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
 public class CsRestController {
-	
+	/**@author JIEUN
+	 * 
+	 * **/
 	/* 첨부 파일 업로드 */
 	
 	@PostMapping(value="/uploadAjaxAction_contact", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
-	public ResponseEntity<List<AttachImageVO>> uploadAjaxActionPOST(MultipartFile[] uploadFile) {
+	public ResponseEntity<List<AttachImageDTO>> uploadAjaxActionPOST(MultipartFile[] uploadFile) {
 		
 		System.out.println("uploadAjaxActionPOST..........");
 		
@@ -52,7 +55,7 @@ public class CsRestController {
 			
 			if(!type.startsWith("image")) {
 				
-				List<AttachImageVO> list = null;
+				List<AttachImageDTO> list = null;
 				
 			}
 			
@@ -60,7 +63,7 @@ public class CsRestController {
 		
 		
 		
-		String uploadFolder = "C:\\upload\\contact";
+		String uploadFolder = "C:\\upload";
 		
 		
 		// 날짜 폴더 경로
@@ -80,12 +83,12 @@ public class CsRestController {
 		}
 		
 		//이미지 정보 담는 객체
-		List<AttachImageVO> list = new ArrayList();
+		List<AttachImageDTO> list = new ArrayList();
 		
 		// 향상된 for
 		for(MultipartFile multipartFile : uploadFile) {
 			// 이미지 정보 객체
-			AttachImageVO vo = new AttachImageVO();
+			AttachImageDTO vo = new AttachImageDTO();
 			
 			/* 파일 이름 */
 			String uploadFileName = multipartFile.getOriginalFilename();			
@@ -152,7 +155,7 @@ public class CsRestController {
 		
 		} //for
 		
-		ResponseEntity<List<AttachImageVO>> result = new ResponseEntity<List<AttachImageVO>>(list, HttpStatus.OK);
+		ResponseEntity<List<AttachImageDTO>> result = new ResponseEntity<List<AttachImageDTO>>(list, HttpStatus.OK);
 		
 		return result;
 	
@@ -162,7 +165,7 @@ public class CsRestController {
 	public ResponseEntity<byte[]> getImage(String fileName){
 		System.out.println("getImage()........." + fileName);
 		
-		File file = new File("c:\\upload\\contact\\" + fileName);
+		File file = new File("c:\\upload\\" + fileName);
 		
 		ResponseEntity<byte[]> result = null;
 		
@@ -181,7 +184,42 @@ public class CsRestController {
 		return result;
 	}
 	
-	
+	/* 이미지 파일 삭제 */
+	@PostMapping("/con/deleteFile")
+	public ResponseEntity<String> deleteFile(String fileName){
+		
+		System.out.println("deleteFile........" + fileName);
+		
+		File file = null;
+		
+		try {
+			/* 썸네일 파일 삭제 */
+			file = new File("c:\\upload\\contact\\" + URLDecoder.decode(fileName, "UTF-8"));
+			
+			file.delete();
+			
+			/* 원본 파일 삭제 */
+			String originFileName = file.getAbsolutePath().replace("s_", "");
+			
+			System.out.println("originFileName : " + originFileName);
+			
+			file = new File(originFileName);
+			
+			file.delete();
+			
+			
+		} catch(Exception e) {
+			
+			e.printStackTrace();
+			
+			return new ResponseEntity<String>("fail", HttpStatus.NOT_IMPLEMENTED);
+			
+		} //catch 
+		
+		return new ResponseEntity<String>("success", HttpStatus.OK);
+		
+		
+	}
 	
 	
 	

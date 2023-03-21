@@ -26,14 +26,16 @@
 						<label for="">문의사항 </label>
 						<div class="mp_container mp_contents">
 
-							<c:if test="${!empty c.contact_image_path}">
+							 <c:if test="${!empty c.contact_image_path}"> 
 								<div id="mp_contact_img_container">
-
-									<img
-										src="<%=request.getContextPath()%>/assets/user/mypage/contact/img/026.jpg"
-										style="width: 300px; heigth: 300px;">
+								
+									<c:forEach items="${img}" var="i">
+									<img class='img_mpcon'
+										src='/jhc/display?fileName=${i.contact_img}'
+										style="max-width: 200px; max-heigth: 200px;">
+									</c:forEach>
 								</div>
-							</c:if>
+							</c:if> 
 
 							${c.contact_content} 
 
@@ -51,7 +53,7 @@
 						</div>
 
 					</div>
-
+</c:forEach>
 					<div class="mp_cont">
 						<div id="mp_list_back">
 							<a href="<%=request.getContextPath()%>/contact"> 돌아가기 </a>
@@ -63,7 +65,7 @@
 
 			</div>
 
-		</c:forEach>
+		
 	</div>
 
 </div>

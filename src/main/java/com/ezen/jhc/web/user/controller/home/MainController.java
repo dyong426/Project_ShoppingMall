@@ -24,7 +24,9 @@ import com.ezen.jhc.web.user.mapper.home.HomeMapper;
  * */
 @Controller
 public class MainController {
-
+	/**@author JIEUN
+	 * 
+	 * **/
 	@Autowired
 	HomeMapper home_mapper;
 
@@ -80,6 +82,8 @@ public class MainController {
 	@RequestMapping(value ="/allreview", method = RequestMethod.GET)
 	public String all_reivew(Model model, Integer page) {
 		List<ReviewDTO> all_reviews = home_mapper.get_all_reviews();
+		
+		if(page==null) {page=1;}
 		
 		int list_end = Integer.parseInt(page +"") * 10 - 1;
 		int list_begin = list_end - 9;

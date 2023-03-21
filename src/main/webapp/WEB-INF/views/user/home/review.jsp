@@ -17,7 +17,7 @@
 		<div id="review_con">
 			<div id="review_img">
 				<c:if test="${not empty r.review_image_path}">	
-							<img
+							<img style="max-width: 300px; max-height: 300px;"
 					src="<%=request.getContextPath()%>/${r.review_image_path}" />
 						</c:if>
 						</div>
@@ -55,7 +55,7 @@
 			<a id="review_back" href="<%=request.getContextPath()%>/main">
 				돌아가기 
 			</a>
-			<a id="review_all" href="<%=request.getContextPath()%>/allreview?page=1">
+			<a id="review_all" href="<%=request.getContextPath()%>/allreview">
 				전체리뷰
 			</a>
 			

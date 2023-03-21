@@ -32,8 +32,7 @@
 			<c:if test="${empty mem.mem_num}">
 				<div id="oneOn_box">
 
-					<form id="oneOnOne_form" action="" method="POST"
-						enctype="multipart/form-data" onsubmit="return doAction();">
+					<form id="oneOnOne_form" action="" method="POST" onsubmit="return doAction();">
 						<!-- 제목 -->
 						<div id="oneOnOne_title" class="oneOnOne inside_form">
 							<label for="">제목 </label> <input type="text" name="contact_title"
@@ -47,16 +46,17 @@
 						<div id="oneOnOne_file" class="oneOnOne inside_form">
 
 							<label for="">첨부파일 </label> <input type="file"
-								name="contact_image_path" accept="image/png, image/jpeg/"
-								multiple>
+								name="contact_image_path" accept="image/png, image/jpeg/">
 							<div id="uploadResult_con">
 
-								<!-- 
+								 <!-- 
 								<div id="result_card_con">
 									<div class="imgDeleteBtn_con">x</div>
-									<img src="<%=request.getContextPath()%>/assets/user/cs/img/3.jpg">
+									<img class="img_con" src="<%=request.getContextPath()%>/assets/user/cs/img/기프티콘.png">
 								</div>
-								 -->
+								  -->
+							
+								
 							
 							</div>
 						</div>
@@ -78,6 +78,7 @@
 							</c:forEach>
 							<!-- ${mem.mem_num} -->
 							<input type="hidden" name="mem_num" value="4">
+							
 						</div>
 						
 						<br>
@@ -117,4 +118,3 @@
 
 </div>
 <jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
-<script src="<%=request.getContextPath()%>/assets/user/cs/js/contact.js"></script>
