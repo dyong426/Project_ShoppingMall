@@ -53,7 +53,7 @@
 						</div>
 
 					</div>
-
+</c:forEach>
 					<div class="mp_cont">
 						<div id="mp_list_back">
 							<a href="<%=request.getContextPath()%>/contact"> 돌아가기 </a>
@@ -65,7 +65,7 @@
 
 			</div>
 
-		</c:forEach>
+		
 	</div>
 
 </div>

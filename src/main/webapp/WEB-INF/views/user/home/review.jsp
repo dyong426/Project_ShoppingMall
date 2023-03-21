@@ -17,7 +17,7 @@
 		<div id="review_con">
 			<div id="review_img">
 				<c:if test="${not empty r.review_image_path}">	
-							<img
+							<img style="max-width: 300px; max-height: 300px;"
 					src="<%=request.getContextPath()%>/${r.review_image_path}" />
 						</c:if>
 						</div>

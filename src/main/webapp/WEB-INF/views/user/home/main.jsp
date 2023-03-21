@@ -58,7 +58,7 @@
 	<div id="home_cate_icon_container" class="h_container">
 		<div id="home_cate_icon_box">
 			<div class="home_cate_item">
-				<a href="/jhc/contact" class="cate_img_01">
+				<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=1" class="cate_img_01">
 					<div class="home_cate_img">
 						<img
 							src="<%=request.getContextPath()%>/assets/user/home/img/cate_icon/의류.png" />
@@ -68,7 +68,7 @@
 			</div>
 
 			<div class="home_cate_item">
-				<a href="/jhc/contact" class="cate_img_02">
+				<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=2" class="cate_img_02">
 					<div class="home_cate_img">
 						<img
 							src="<%=request.getContextPath()%>/assets/user/home/img/cate_icon/폰케이스.png" />
@@ -78,7 +78,7 @@
 			</div>
 
 			<div class="home_cate_item ">
-				<a href="/jhc/contact" class="cate_img_03">
+				<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=3" class="cate_img_03">
 					<div class="home_cate_img">
 						<img
 							src="<%=request.getContextPath()%>/assets/user/home/img/cate_icon/홈데코.png" />
@@ -88,7 +88,7 @@
 			</div>
 
 			<div class="home_cate_item">
-				<a href="/jhc/contact" class="cate_img_04">
+				<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=4" class="cate_img_04">
 					<div class="home_cate_img">
 						<img
 							src="<%=request.getContextPath()%>/assets/user/home/img/cate_icon/액자.png" />
@@ -109,7 +109,7 @@
 			<div id="home_recom_item_box">
 
 				<div class="recom_item">
-					<a href="/jhc/contact" class="recom_item_img">
+					<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=1" class="recom_item_img">
 						<div>
 							<img
 								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/01.png" />
@@ -118,7 +118,7 @@
 				</div>
 
 				<div class="recom_item">
-					<a href="/jhc/contact" class="recom_item_img">
+					<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=4" class="recom_item_img">
 						<div>
 							<img
 								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/02.png" />
@@ -127,7 +127,7 @@
 				</div>
 
 				<div class="recom_item" style="">
-					<a href="/jhc/contact" class="recom_item_img">
+					<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=4" class="recom_item_img">
 						<div>
 							<img
 								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/03.png" />
@@ -136,7 +136,7 @@
 				</div>
 
 				<div class="recom_item">
-					<a href="/jhc/contact" class="recom_item_img">
+					<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=4" class="recom_item_img">
 						<div>
 							<img
 								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/04.png" />
@@ -162,7 +162,7 @@
 
 			</div>
 
-			<div class="home_review_list_box">
+			<div class="home_review_list_box" style="margin: auto;">
 				<ul class="home_review_list"
 					style="background-image: url(); list-style: none;">
 
