@@ -1,7 +1,5 @@
 package com.ezen.jhc.web.user.mapper.member;
 
-import java.util.List;
-
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
@@ -22,8 +20,6 @@ public interface MemberMapper {
 	// 회원정보
 	@Select("select * from members where mem_email = #{mem_email}")
 	public MemberDTO getMember(String mem_email);
-
-	
 
 	
 	// 가입
@@ -47,11 +43,4 @@ public interface MemberMapper {
 	@Update("update members set mem_birth = #{mem_birth}, mem_phone = #{mem_phone} where mem_num = #{mem_num}")
 	public void updateMyInfo(@Param("mem_num")int mem_num, @Param("mem_birth")String mem_birth, @Param("mem_phone")String mem_phone);
 
-
-	public List<MemberDTO> getAll();
-	
-	public Integer join(MemberDTO memberDto);
-	
-	// param : 사용하는 포인트 (쿼리문 : SET mem_point = mem_point - #{mem_point})
-	public void updateMemPoint(MemberDTO memberDto);
 }

@@ -43,7 +43,7 @@
                                         <div class="cc_btn"><button type="button" value="주문 취소">주문 취소</button></div>
                                 </div>
                                 <div class="cc_pd_box">
-                                    <div class="cc_or_info" ">
+                                    <div class="cc_or_info">
                                         <div class="cc_pd_title"><span>취소 상품 선택</span></div>
                                         <div class="cc_pd_info">
                                             <input type="checkbox" name="" id="" checked style="margin-right: 10px;">

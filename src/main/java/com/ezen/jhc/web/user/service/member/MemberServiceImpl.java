@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.mapper.member.MemberMapper;
+import com.ezen.jhc.web.user.mapper.member.MemberMapper_dy;
 
 /**@author SUJEONG*/
 @Service
@@ -12,6 +13,9 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Autowired
 	private MemberMapper memberMapper;
+	
+	@Autowired
+	MemberMapper_dy memberMapperDy;
 
 	@Override
 	public Integer checkMemByEmail(String mem_email) {
@@ -63,7 +67,7 @@ public class MemberServiceImpl implements MemberService{
 	// dy
 	@Override
 	public void updateMemPoint(MemberDTO memberDto) {
-		memberMapper.updateMemPoint(memberDto);
+		memberMapperDy.updateMemPoint(memberDto);
 	}
 
 }

@@ -67,14 +67,14 @@
 						<div id="oneOnOne_cate" class="oneOnOne inside_form">
 							<c:forEach items="${ctgr0}" var="ct">
 								<label class="con_ctgr_radio"><input type="radio"
-									value="${ct.cs_ctgr_num }" name="contact_ctgr" checked>${ct.cs_ctgr_name}
-									</input></label>
+									value="${ct.cs_ctgr_num }" name="contact_ctgr" checked />${ct.cs_ctgr_name}
+									</label>
 							</c:forEach>
 
 							<c:forEach items="${ctgr}" var="ct" begin="1">
-								<label class="con_ctgr_radio"><input type="radio"
-									value="${ct.cs_ctgr_num }" name="contact_ctgr">${ct.cs_ctgr_name}
-									</input></label>
+								<label class="con_ctgr_radio">
+								<input type="radio" value="${ct.cs_ctgr_num }" name="contact_ctgr"/>${ct.cs_ctgr_name}
+									</label>
 							</c:forEach>
 							<!-- ${mem.mem_num} -->
 							<input type="hidden" name="mem_num" value="4">

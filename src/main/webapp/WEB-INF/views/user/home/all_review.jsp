@@ -26,7 +26,7 @@
 									<div class="re_star">${r.star }</div>
 									<div class="re_user_name">${r.user_name }</div>
 								</div>
-								<div class="all_review_content">${r.review_content }</div>
+								<div> class="all_review_content">${r.review_content }</div>
 							</div>
 
 							<div class="all_review_img">
