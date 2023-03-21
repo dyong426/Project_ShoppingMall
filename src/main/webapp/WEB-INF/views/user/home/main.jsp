@@ -16,27 +16,27 @@
 			<!-- 배너 마지막 이미지  -->
 				<div class="img_wrapper">
 					<img
-						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/banner4.jpg">
 				</div>
 				<!-- 배너 이미지 forEach -->
 				<div class="img_wrapper">
 					<img
-						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg">
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/banner1.jpg">
 				</div>
 				<div class="img_wrapper">
 					<img
-						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너2.jpg">
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/banner2.jpg">
 				</div>
 				<div class="img_wrapper">
 					<img
-						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너3.jpg">
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/banner3.jpg">
 				</div>
 				<!-- 배너 이미지 /forEach -->
 				
 				<!-- 배너 첫번쨰-->
 				<div class="img_wrapper">
 					<img
-						src="<%=request.getContextPath()%>/assets/user/home/img/banner/배너1.jpg">
+						src="<%=request.getContextPath()%>/assets/user/home/img/banner/banner1.jpg">
 				</div>
 			</div>
 			<div>

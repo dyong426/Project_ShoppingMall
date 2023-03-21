@@ -33,8 +33,9 @@
 		<!--회원가입, 로그인, 고객센터-->
 		<div id="header_top">
 			<div>
-				<button class="join">회원가입</button>
-				<button class="login">로그인</button>
+			<button class="join hidden_visibility" id="joinBtn">회원가입</button>
+            <button class="login hidden_visibility" id="loginBtn">로그인</button>
+            <button class="logout hidden_visibility" id="logoutBtn">로그아웃</button>
 				<button onclick="location.href='<%=request.getContextPath() %>/customerservice/cate'">고객센터</button>
 			</div>
 		</div>
