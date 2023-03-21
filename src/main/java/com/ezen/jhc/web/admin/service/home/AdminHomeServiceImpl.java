@@ -8,6 +8,7 @@ import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.ezen.jhc.web.admin.dto.home.AdminDTO;
 import com.ezen.jhc.web.admin.dto.home.CsCtgrDTO;
 import com.ezen.jhc.web.admin.dto.home.MainCtgrOrderDTO;
 import com.ezen.jhc.web.admin.dto.home.NewMemberCountDTO;
@@ -79,5 +80,11 @@ public class AdminHomeServiceImpl implements AdminHomeService{
 	public String loginPW(String admin_email) {
 		
 		return homeMapper.loginPW(admin_email);
+	}
+	
+	@Override
+	public Integer join(AdminDTO admin) {
+		
+		return homeMapper.join(admin);
 	}
 }

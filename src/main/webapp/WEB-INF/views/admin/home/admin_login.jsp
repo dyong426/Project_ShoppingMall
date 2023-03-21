@@ -30,7 +30,7 @@
 
 	<div class="d-flex justify-content-center align-items-center"
 		style="border: solid 1px black; height: 100vh;">
-		<form action="login/loginAction.do" method="POST">
+		<form action="<%=request.getContextPath()%>/admin/login/loginAction.do" method="POST">
 			<div class="row col-12">
 				<div class="col-12 d-flex justify-content-center mb-4 me-5">
 					<img

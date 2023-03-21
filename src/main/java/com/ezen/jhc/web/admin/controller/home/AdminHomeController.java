@@ -6,12 +6,12 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.ezen.jhc.web.admin.dto.home.AdminDTO;
 import com.ezen.jhc.web.admin.dto.home.CsCtgrDTO;
@@ -46,6 +46,8 @@ public class AdminHomeController {
 	@Autowired(required = false)
 	NewMemberCountDTO newMemCntDTO;
 	
+	@Autowired(required = false)
+	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	
 	@GetMapping(value={"", "/home"})
 	public String main(Model model) {
@@ -108,12 +110,30 @@ public class AdminHomeController {
 		return "admin/home/admin_login";
 	}
 	
+	@PostMapping("/join.do")
+	public String join(AdminDTO admin) {
+		
+		String pw = admin.getAdmin_pw();
+		
+		log.info(pw);
+		
+		String encodePw = bCryptPasswordEncoder.encode(pw);
+		
+		log.info("비밀번호 암호화 : " + encodePw);
+		
+		admin.setAdmin_pw(encodePw);
+		
+		log.info(homeService.join(admin));
+		
+		return "redirect:/admin";
+	}
+	
 	@PostMapping("/login/loginAction.do")
 	public String loginCheck(AdminDTO admin, HttpServletRequest req, Model model) {
 		
 		String dbPW = homeService.loginPW(admin.getAdmin_email());
 		
-		if (dbPW.equals(admin.getAdmin_pw())) {
+		if (bCryptPasswordEncoder.matches(admin.getAdmin_pw(), dbPW)) {
 			
 			HttpSession session =req.getSession();	
 			

@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.ezen.jhc.web.admin.dto.home.AdminDTO;
 import com.ezen.jhc.web.admin.dto.home.CsCtgrDTO;
 import com.ezen.jhc.web.admin.dto.home.MainCtgrOrderDTO;
 import com.ezen.jhc.web.admin.dto.home.NewMemberCountDTO;
@@ -22,4 +23,6 @@ public interface AdminHomeService {
 	NewMemberCountDTO getNewMemberCount();
 	
 	String loginPW(String admin_email);
+	
+	Integer join(AdminDTO admin);
 }

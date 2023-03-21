@@ -32,4 +32,8 @@
 	<select id="loginPW" resultType="String">
 		SELECT admin_pw FROM admins WHERE admin_email = #{admin_email}
 	</select>
+	
+	<insert id="join">
+		INSERT INTO admins VALUES(#{admin_email}, #{admin_pw})
+	</insert>
 </mapper>

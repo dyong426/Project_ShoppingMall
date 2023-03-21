@@ -62,6 +62,7 @@
 			<exclude-mapping path="*.css"/>
 			<exclude-mapping path="/admin/login"/>
 			<exclude-mapping path="/admin/login/loginAction.do"/>
+			<exclude-mapping path="/admin/join.do"/>
 	       <beans:bean id="LoggerInterCeptor" class="com.ezen.jhc.web.common.interceptor.LoggerInterceptor"/>
 	    </interceptor>
 	</interceptors>
