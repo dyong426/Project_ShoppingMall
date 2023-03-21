@@ -10,7 +10,7 @@
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, minimum-scale=1">
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/header.css?after">
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/header.css">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/footer.css">
 <link href="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo_mini.png" rel="shortcut icon" type="image/x-icon">
 <c:set value="<%=request.getContextPath()%>" var="contextPath"></c:set>
@@ -33,8 +33,8 @@
 		<!--회원가입, 로그인, 고객센터-->
 		<div id="header_top">
 			<div>
-				<button class="sign_up">회원가입</button>
-				<button class="sign_in">로그인</button>
+				<button class="join">회원가입</button>
+				<button class="login">로그인</button>
 				<button onclick="location.href='<%=request.getContextPath() %>/customerservice/cate'">고객센터</button>
 			</div>
 		</div>
