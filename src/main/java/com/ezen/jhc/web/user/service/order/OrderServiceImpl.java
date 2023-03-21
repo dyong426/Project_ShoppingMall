@@ -37,7 +37,7 @@ public class OrderServiceImpl implements OrderService {
 	
 	
 	@Override
-	public MemberDTO getMemberByNum(int mem_num) {		
+	public MemberDTO getMemberByNum(int mem_num) {
 		return ordererMapper.getMemberByNum(mem_num);
 	}
 	
@@ -75,7 +75,7 @@ public class OrderServiceImpl implements OrderService {
 		
 		MemberAddressDTO memberAddressDto = new MemberAddressDTO(
 				mem_num,
-				Integer.parseInt(req.getParameter("ord_zipCode")),
+				req.getParameter("ord_zipCode"),
 				req.getParameter("ord_addr1"),
 				req.getParameter("ord_addr2"),
 				addr_save);

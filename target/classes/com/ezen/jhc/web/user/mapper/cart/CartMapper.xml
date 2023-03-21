@@ -10,7 +10,7 @@
 	</select>
 	
 	<select id="getCart" resultType="com.ezen.jhc.web.user.dto.cart.CartDTO">
-		SELECT cart_num, mem_cstm_path, c.mem_num, p_num, pd_num, p_name, pc_name, ps_name, p_price, cart_quantity, cart_amount
+		SELECT cart_num, mem_cstm_path, mem_cstm_num, c.mem_num, p_num, pd_num, p_name, pc_name, ps_name, p_price, cart_quantity, cart_amount
 		FROM carts c
 		INNER JOIN prod_details pd USING (pd_num)
 		INNER JOIN prod_colors USING (pc_num)
@@ -64,7 +64,7 @@
 	</delete>
 
 	<select id="getCarts" resultType="com.ezen.jhc.web.user.dto.cart.CartDTO">
-		SELECT cart_num, mem_cstm_path, c.mem_num, p_num, pd_num, p_name, pc_name, ps_name, p_price, cart_quantity, cart_amount
+		SELECT cart_num, mem_cstm_path, mem_cstm_num, c.mem_num, p_num, pd_num, p_name, pc_name, ps_name, p_price, cart_quantity, cart_amount
 		FROM carts c
 		INNER JOIN prod_details pd USING (pd_num)
 		INNER JOIN prod_colors USING (pc_num)

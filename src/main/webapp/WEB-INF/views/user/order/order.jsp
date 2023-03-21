@@ -142,7 +142,7 @@
 		<div class="box">
 			<div class="subTitle">결제 방식</div>
 			<div class="rowGrid">
-				<div id="payment">
+				<div id="payment" data-orderid="${orderId}">
 					<%-- 결제 API 넣어야함 --%>
 					<input type="submit" id="" class="payButtons" value="무통장 입금" form="orderCompleted" />
 					<input type="submit" id="kakaoPay" class="payButtons" value="카카오 페이" form="orderCompleted" />
@@ -173,7 +173,7 @@
 								</div>
 								<div class="orderProd">
 									<div>
-										<b>${cart.p_name}</b>
+										<b class="p_name">${cart.p_name}</b>
 									</div>
 									<div>
 										색상&emsp;&emsp;:&emsp;<span class="pc_name">${cart.pc_name}</span>
@@ -205,10 +205,10 @@
 	<input type="hidden" name="total_amount" id="total_amount_input"/>
 	<input type="hidden" name="payment_num" id="payment_num"/>
 	<input type="hidden" name="cart_num" id="cart_num" value="${cart_num}"/>
-	<input type="hidden" name="mem_num" id="mem_num" value="${member.mem_num}"/>
 </form>
 
 <script>
+	const mem_name = '${member.mem_name}';
 	const memberAddress = {
 		mem_zipcode : '${memberAddress.mem_zipcode}',
 		mem_addr1 : '${memberAddress.mem_addr1}',
@@ -217,15 +217,17 @@
 	};
 </script>
 
+
+<%-- 토스 페이 API 참조 스크립트 --%>
+<script src="https://js.tosspayments.com/v1/payment"></script>
+
 <%-- 다음 주소 API 참조 스크립트 --%>
-<script
-	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 
 <%-- 네이버페이 API 참조 스크립트 --%>
 <script src="https://nsp.pay.naver.com/sdk/js/naverpay.min.js"></script>
 
-<script
-	src="<%=request.getContextPath()%>/assets/user/order/js/order.js"></script>
+<script	src="<%=request.getContextPath()%>/assets/user/order/js/order.js"></script>
 
 
 <%@ include file="../common/footer.jsp"%>

@@ -85,6 +85,13 @@ function searchPostNumber() {
 const rightOuter = document.getElementById('rightOuter');
 const leftOuter = document.getElementById('leftOuter');
 
+window.addEventListener('resize', () => {
+	console.dir(leftOuter);
+	console.log(leftOuter.clientWidth);
+	console.log(leftOuter.offsetLeft);
+	rightOuter.style.left = leftOuter.offsetLeft + leftOuter.clientWidth - 5 + 'px';
+});
+
 window.onscroll = () => {
 	let rightOuterBottom = window.scrollY + rightOuter.clientHeight;
 
@@ -110,6 +117,10 @@ const total_price2 = document.getElementById('total_price2');
 let totalPriceOnlyNumber = null;
 
 window.onload = () => {	
+	console.dir(leftOuter);
+	console.log(leftOuter.clientWidth);
+	console.log(leftOuter.offsetLeft);
+	rightOuter.style.left = leftOuter.offsetLeft + leftOuter.clientWidth - 5 + 'px';
 	// 주소 관련 설정
 	// 배송지 저장 되어 있으면 체크, 기존 배송지 채우기
 	if (memberAddress.addr_save == 1) {
@@ -117,7 +128,7 @@ window.onload = () => {
 		zipCode.value = memberAddress.mem_zipcode;
 		addr1.value = memberAddress.mem_addr1;
 		addr2.value = memberAddress.mem_addr2;
-	}	
+	}
 	
 	// 총 결제 금액 관련 설정
 	total_amount.innerText = parseInt(total_amount.innerText).toLocaleString('ko-KR') + '원';
@@ -181,7 +192,21 @@ const payButtons = document.getElementsByClassName('payButtons');
 const inputs = document.getElementsByTagName('input');
 const payment_num = document.getElementById('payment_num');
 const total_amount_input = document.getElementById('total_amount_input');
+const totalQuantity = document.getElementById('total_quantity');
+const cart_num = document.getElementById('payment').dataset.cart_num;
+const orderId = document.getElementById('payment').dataset.orderid;
+let p_name = null;
+
+if (totalQuantity.innerText != '1개') {
+	p_name = document.querySelector('.p_name').innerText + ' 외 ' + (parseInt(totalQuantity.innerText.substring(0, totalQuantity.innerText.length - 1)) - 1) + '개 상품';
+} else {
+	p_name = document.querySelector('.p_name').innerText;
+}
 let tf = false;
+
+var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq' // 테스트용 클라이언트 키
+  // 2. 초기화
+var tossPayments = TossPayments(clientKey);
 
 for (i = 0; i < payButtons.length; ++i) {
 	let payment = i;
@@ -201,9 +226,48 @@ for (i = 0; i < payButtons.length; ++i) {
 		if (tf) {
 			payment_num.value = payment + 1;
 			total_amount_input.value = total_price.innerText.substring(0, total_price.innerText.length - 1).replaceAll(',', '');
-			orderCompleted.submit();
+			let payment_name = payment == 0 ? '가상계좌' : '카드';
+			console.log(total_amount_input.value);
+			console.log(mem_name + orderId);
+			console.log(p_name + orderId);
+			console.log(mem_name);
+			tossPayments.requestPayment(payment_name, {
+				// 결제 정보 파라미터
+				'amount': total_amount_input.value,
+				'orderId': orderId + orderId,
+				'orderName': p_name,
+				'customerName': mem_name
+			}).then(function (result) {
+				//결제 요청 성공 처리
+				const data = JSON.stringify({
+					"paymentKey": result.paymentKey,
+					"orderId": result.orderId,
+					"amount": result.amount
+				  });
+				  
+				  const xhr = new XMLHttpRequest();
+				  xhr.withCredentials = true;
+				  
+				  xhr.addEventListener("readystatechange", function () {
+					if (this.readyState === this.DONE) {
+					    orderCompleted.submit();
+					}
+				  });
+				  
+				  xhr.open("POST", "https://api.tosspayments.com/v1/payments/confirm");
+				  xhr.setRequestHeader("Authorization", "Basic dGVzdF9za196WExrS0V5cE5BcldtbzUwblgzbG1lYXhZRzVSOg==");
+				  xhr.setRequestHeader("Content-Type", "application/json");
+				  
+				  xhr.send(data);
+			  })
+			  .catch(function (error) {
+				if (error.code === 'USER_CANCEL') {
+				  // 결제 고객이 결제창을 닫았을 때 에러 처리
+				} else if (error.code === 'INVALID_CARD_COMPANY') {
+				  // 유효하지 않은 카드 코드에 대한 에러 처리
+				  alert('유효하지 않은 카드입니다.');
+				}
+			})
 		}
 	});
 }
-
-const cstmImg = document.getElementsByClassName('cstmImg')[0];

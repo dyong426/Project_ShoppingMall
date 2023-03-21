@@ -13,7 +13,7 @@ public class MemberAddressDTO {
 	
 	// 테이블 : member_addresses
 	Integer mem_num;
-	Integer mem_zipcode;
+	String mem_zipcode;
 	String mem_addr1;
 	String mem_addr2;
 	Integer addr_save;

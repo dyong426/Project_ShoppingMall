@@ -813,10 +813,12 @@ for (i = 0; i < buttons.length; ++i) {
       cartPopUp.children[0].innerText = '사이즈를 선택해주세요.';
     }
 
-    cartPopUp.style.opacity = 1;
-    setTimeout(() => {
-      cartPopUp.style.opacity = 0;
-    }, 1500);
+    if (!(e.target.id == 'directPurchase' && cartPopUp.children[0].style.color == 'black')) {
+      cartPopUp.style.opacity = 1;
+      setTimeout(() => {
+        cartPopUp.style.opacity = 0;
+      }, 1500);
+    }
   });
 }
 

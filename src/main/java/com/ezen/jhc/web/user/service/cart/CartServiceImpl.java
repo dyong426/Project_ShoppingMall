@@ -24,6 +24,7 @@ import com.ezen.jhc.web.user.dto.prod.ProductDetailDTO;
 import com.ezen.jhc.web.user.mapper.cart.CartMapper;
 import com.ezen.jhc.web.user.mapper.cstm.CstmMapper;
 import com.ezen.jhc.web.user.mapper.member.OrdererMapper;
+import com.ezen.jhc.web.user.mapper.order.OrderMapper;
 import com.ezen.jhc.web.user.mapper.prod.ProductMapper;
 
 import lombok.extern.log4j.Log4j2;
@@ -44,6 +45,10 @@ public class CartServiceImpl implements CartService {
 	@Autowired
 	OrdererMapper ordererMapper;
 	
+	@Autowired
+	OrderMapper orderMapper;
+	
+	
 	@Override
 	public int insertCart(MemberCstmDTO cstmDto, IntoCartDTO cartDto) {
 		ProductDetailDTO prodDetailDto = prodMapper.getProdDetailByIntoCartDto(cartDto);
@@ -62,6 +67,7 @@ public class CartServiceImpl implements CartService {
 	public List<CartDTO> getCarts(int mem_num, HttpSession session, Model model) {
 		MemberAddressDTO memberAddress = ordererMapper.getAddressByNum(mem_num);
 		model.addAttribute("memberAddress", memberAddress);
+		model.addAttribute("orderId", orderMapper.getOrderId());
 		
 		return cartMapper.getCarts(mem_num);
 	}
@@ -71,6 +77,7 @@ public class CartServiceImpl implements CartService {
 		MemberDTO member = (MemberDTO) session.getAttribute("member");
 		MemberAddressDTO memberAddress = ordererMapper.getAddressByNum(member.getMem_num());
 		req.setAttribute("memberAddress", memberAddress);
+		req.setAttribute("orderId", orderMapper.getOrderId());
 		
 		List<CartDTO> carts = new ArrayList<CartDTO>();
 		

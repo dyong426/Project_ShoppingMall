@@ -17,4 +17,6 @@ public interface OrderMapper {
 	public void insertAddr(MemberAddressDTO memberAddressDto);
 	
 	public void insertOrderDetails(CartDTO cart);
+	
+	public int getOrderId();
 }

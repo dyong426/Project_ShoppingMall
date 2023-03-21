@@ -43,7 +43,7 @@
 	</insert>
 	
 	<insert id="insertOrderDetails" parameterType="com.ezen.jhc.web.user.dto.cart.CartDTO">
-		<selectKey keyProperty="ord_num" order="BEFORE" resultType="int">
+		<selectKey keyProperty="od_num" order="BEFORE" resultType="int">
 			SELECT od_num_seq.nextval FROM DUAL
 		</selectKey>
 		INSERT INTO order_details VALUES (
@@ -55,5 +55,9 @@
 			#{cart_amount}
 		)
 	</insert>
+	
+	<select id="getOrderId" resultType="int">
+		SELECT ord_num_seq.nextval FROM DUAL
+	</select>
 	
 </mapper>
