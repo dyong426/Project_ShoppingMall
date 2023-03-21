@@ -80,9 +80,7 @@ public class CsController {
 	   @PostMapping("/customerservice/con")
 	   public String cs_contatct_(ContactDTO contact, AttachImageListDTO images){
 	     
-		   int result= contact_service.contactEnroll(contact, images);
-		  System.out.println("결과: " + result);
-	   
+		  contact_service.contactEnroll(contact, images);
 	      
 	       return "redirect:/contact";
 	   }

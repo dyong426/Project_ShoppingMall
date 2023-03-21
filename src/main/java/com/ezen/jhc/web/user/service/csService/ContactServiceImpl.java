@@ -46,9 +46,7 @@ public class ContactServiceImpl implements ContactService{
 	      
 	      for (AttachImageDTO img : images.getImageList()) {
 	    	  
-	         String contact_img = img.getUploadPath().replace('\\', '/') + "/" + img.getUuid() + img.getFileName();
-	         	
-	         
+	         String contact_img = img.getUploadPath().replace('\\', '/') + "/" + img.getUuid() + "_" +img.getFileName();
 	         
 	         img.setContact_img(contact_img);
 	         img.setContact_num(contact.getContact_num());

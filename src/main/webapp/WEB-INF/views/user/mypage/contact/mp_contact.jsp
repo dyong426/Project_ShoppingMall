@@ -32,7 +32,7 @@
 									<c:forEach items="${img}" var="i">
 									<img class='img_mpcon'
 										src='/jhc/display?fileName=${i.contact_img}'
-										style="max-width: 300px; max-heigth: 300px;">
+										style="max-width: 200px; max-heigth: 200px;">
 									</c:forEach>
 								</div>
 							</c:if> 
