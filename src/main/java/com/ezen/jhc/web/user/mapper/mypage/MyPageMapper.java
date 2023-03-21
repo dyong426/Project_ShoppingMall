@@ -1,11 +1,6 @@
 package com.ezen.jhc.web.user.mapper.mypage;
 
 import java.util.List;
-<<<<<<< HEAD
-
-=======
-
->>>>>>> refs/heads/kimjuhee
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;

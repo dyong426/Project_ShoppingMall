@@ -30,7 +30,6 @@
 
 <body>
 
-<<<<<<< HEAD
       <!--회원가입, 로그인, 고객센터-->
       <div id="header_top">
          <div>
@@ -42,30 +41,9 @@
       
       <!--로고, 카테고리, 프로필-->
       <div class="header_container_bottom">
-=======
-
-		
-	<!-- header -->
-
-	<div class="header_container">
-		
-	
-		
-		<!--회원가입, 로그인, 고객센터-->
-		<div id="header_top">
-			<div>
-				<button class="join hidden_visibility" id="joinBtn">회원가입</button>
-				<button class="login hidden_visibility" id="loginBtn">로그인</button>
-				<button class="logout hidden_visibility" id="logoutBtn">로그아웃</button>
-				<button onclick="location.href='<%=request.getContextPath() %>/cs'">고객센터</button>
-			</div>
-		</div>
-
-		<!--로고, 카테고리, 프로필-->
-		<div class="header_container_bottom">
 
 
->>>>>>> refs/heads/kimjuhee
+
 			<div class="header_container_bottom_contents">
 				<a href="<%=request.getContextPath() %>/main">
 				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo.png" alt="로고" width="170px" />
