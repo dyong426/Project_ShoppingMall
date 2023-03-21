@@ -1,3 +1,5 @@
+<!-- 정수정, 가입기능 -->
+
 show_error_message_join = (error, error_message) => {
 
     document.getElementById('error_message_join').classList.remove('hidden_visibility');

@@ -8,7 +8,7 @@ import org.apache.ibatis.annotations.Update;
 import org.springframework.stereotype.Repository;
 
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
-
+/**@author SUJEONG*/
 @Repository
 public interface MemberMapper {
 
@@ -35,5 +35,9 @@ public interface MemberMapper {
 	//회원 탈퇴
 	@Delete("Delete from members where mem_num = #{mem_num}")
 	public void deleteAccount(int mem_num);
-	
+
+	// 회원정보 입력 & 변경
+	@Update("update members set mem_birth = #{mem_birth}, mem_phone = #{mem_phone} where mem_num = #{mem_num}")
+	public void updateMyInfo(@Param("mem_num")int mem_num, @Param("mem_birth")String mem_birth, @Param("mem_phone")String mem_phone);
+
 }

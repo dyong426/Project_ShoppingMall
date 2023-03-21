@@ -10,7 +10,6 @@ import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.dto.review.ReviewDTO;
 
 // 김주희 - 마이페이지 Mapper
-// 정수정
 public interface MyPageMapper {
 	
 	// 주문 상품 정보 쿼리문(리뷰 작성 가능 페이지)
@@ -30,9 +29,5 @@ public interface MyPageMapper {
 	@Insert("INSERT INTO reivews VALUES(review_num_seq.NEXTVAL, "
 			+ "#{p_num},#{mem_num},#{review_content},#{review_image_path},#{review_star},sysdate)")
 	Integer add(ReviewDTO review);
-	
-	// 주문 내역
-//	@Select ()
-//	OrderDTO getOrderHistory(int mem_num);
 
 }

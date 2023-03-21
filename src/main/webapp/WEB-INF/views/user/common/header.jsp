@@ -1,4 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!-- 정수정, header -->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ko">
 
@@ -98,16 +101,12 @@
                <div></div>
             </div>
 
-
-            <button id="kakao_login" onclick="kakaoLogin(); requestUserInfo();">
-               <img src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_login.png" alt="">
-            </button>
-            <button id="naver_login" onclick="naverIdLogin_loginButton();">
-               <img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 로그인
-            </button>
-
-
-
+				<button id="kakao_login" onclick="kakaoLogin();">
+					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/kakao_login.png" alt="">
+				</button>
+				<button id="naver_login" onclick="naverIdLogin_loginButton();">
+					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/naver_login.png" alt="">
+				</button>
          </div>
       </div>
 
@@ -143,23 +142,12 @@
 						<div>또는</div>
 						<div></div>
 					</div>
-
-
-               <div class="login_error_wrap" id="err_empty_pw" style="display: block;">
-                        <div class="error_message">
-                            <strong>비밀번호</strong>를 입력해 주세요.
-                        </div>
-                    </div>
-                                
-               <div class="or_container">
-                  <div></div>
-                  <div>또는</div>
-                  <div></div>
-               </div>
-               <button id="kakao_login" onclick="kakaoLogin(); requestUserInfo();">
-                  <img src="<%=request.getContextPath() %>/assets/common/cstm_img/kakao_join.png" alt="카카오로 시작하기">
-               </button>
-
+					<button id="kakao_login" onclick="kakaoJoin();">
+						<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/kakao_join.png" alt="카카오로 시작하기">
+					</button>
+					<button id="naver_login" onclick="naverIdLogin_loginButton;">
+						<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/naver_join.png" alt="네이버 간편가입">
+					</button>
                <button id="naver_login" onclick="naverIdLogin_loginButton;">
                   <img width=20px; src="<%=request.getContextPath() %>/assets/common/cstm_img/naver_logo.png" alt="">네이버 계정으로 가입
                </button>

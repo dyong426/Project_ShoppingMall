@@ -1,5 +1,6 @@
+<!-- 정수정, 로그인 기능 -->
+
 Kakao.init('8676dae7b3d994926031dc1e85880115');
-console.log(Kakao.isInitialized());
 
 show_error_message_login = (error, message) => {
 
@@ -33,26 +34,26 @@ checkEmailPw = () => {
 
 }
 
-function encoder(password){
-var encoded = "";
+function encoder(password) {
+  var encoded = "";
 
-$.ajax({
-  url : "/jhc/encrypt.do",
-  type: 'POST',
-  async: false,
-  data: {password: password },
-  success: function(data){
-    encoded = data;
-  },
-  error: function(xhr, ajaxOptions, thrownError){
-    alert(xhr.status);
-    alert(thrownError);
-  }
+  $.ajax({
+    url: "/jhc/encrypt.do",
+    type: 'POST',
+    async: false,
+    data: { password: password },
+    success: function (data) {
+      encoded = data;
+    },
+    error: function (xhr, ajaxOptions, thrownError) {
+      alert(xhr.status);
+      alert(thrownError);
+    }
 
-});
+  });
 
-console.log(encoded);
-return encoded;
+  console.log(encoded);
+  return encoded;
 
 
 }
@@ -98,22 +99,30 @@ mySubmit_login = () => {
 
 
 
-function login() {
-
-
-  document.getElementById('login').innerText = '로그아웃';
-}
-
-function kakaoLogin() {
+function kakaoJoin() {
   Kakao.Auth.login({
     success: function (response) {
       Kakao.API.request({
         url: '/v2/user/me',
         success: function (response) {
-          login();
-          close_login();
-          close_join();
 
+          $.ajax({
+            url: '/jhc/kakao/join',
+            type: 'POST',
+            dataType: 'text',
+            data: { kakao_id: response.id, kakao_name: response.kakao_account.profile.nickname },
+            success: function (result) {
+              console.log(result);
+              if (result === 'true') {
+              } else {
+                console.log(result);
+                alert('이미 가입된 계정입니다. 로그인 해주세요.');
+                location.replace('/jhc/main');
+              }
+            },
+            error: function (error) {
+            }
+          })
         },
         fail: function (error) {
           console.log(error)
@@ -125,6 +134,31 @@ function kakaoLogin() {
     },
   })
 }
+
+function kakaoLogin() {
+  Kakao.Auth.login({
+    success: function (response) {
+      Kakao.API.request({
+        url: '/v2/user/me',
+        success: function (response) {
+          $.ajax({
+            url: '/jhc/login.do',
+            type: 'POST',
+            data: { mem_email: response.id },
+            success: function () {
+              console.log('로그인성공');
+              location.reload('/jhc/main');
+            }
+          })
+        },
+        fail: function (error) {
+          console.log(error)
+        },
+      })
+    },
+  })
+}
+
 
 function kakaoLogout() {
   if (Kakao.Auth.getAccessToken()) {
@@ -164,13 +198,13 @@ isLoggedIn(function (loggedIn) {
 });
 
 
-logoutBtn.addEventListener('click', function(){
+logoutBtn.addEventListener('click', function () {
   var xhr = new XMLHttpRequest();
   xhr.open('POST', '/jhc/logout.do', true);
   xhr.onreadystatechange = function () {
-      if (xhr.readyState === 4 && xhr.status === 200) {
-         window.location.href = '/jhc/main';
-      }
+    if (xhr.readyState === 4 && xhr.status === 200) {
+      window.location.href = '/jhc/main';
+    }
   };
   xhr.send();
 

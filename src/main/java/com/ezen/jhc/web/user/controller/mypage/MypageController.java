@@ -16,13 +16,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.ezen.jhc.common.util.Jwt;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.user.dto.review.ReviewDTO;
 import com.ezen.jhc.web.user.mapper.mypage.MyPageMapper;
+import com.ezen.jhc.web.user.service.member.MemberService;
 import com.ezen.jhc.web.user.service.mypage.WriteReviewService;
+
 
 
 /**@author 김주희
@@ -37,6 +40,9 @@ public class MypageController {
 	
 	@Autowired
 	MyPageMapper mm_mapper;
+	
+	@Autowired
+	MemberService memberService;
 	
 	@Autowired
 	JavaMailSender mailSender;
@@ -82,12 +88,19 @@ public class MypageController {
 		return "user/mypage/myreview/wrote_review";
 	}
 
-	@RequestMapping(value ="/cancel", method = RequestMethod.GET)
-	public String orderCancel() {
-		
-		return "user/mypage/purchase/cancel";
+	@RequestMapping(value = "/writing_review", method = RequestMethod.GET)
+	public String mpWriteReview(HttpSession session, Model model) {
+
+		if (session.getAttribute("member") == null) {
+			return "user/common/loginPlease";
+		}
+		List<OrderDetailDTO> od_dto = mm_mapper.getAll(7, 42, 41);
+		model.addAttribute("review_pd", od_dto);
+
+		return "user/mypage/myreview/writing_review";
 	}
 
+	/*여기부터 끝까지 작성자 정수정*/
 	@GetMapping("/password/change")
 	public String showPasswordChangeForm() {
 
@@ -146,5 +159,17 @@ public class MypageController {
 		return "user/mypage/personal_information/passwordChangeForm";
 	}
 	
+	// 나의 정보 변경
+	@PostMapping("/myInfo/change")
+	public @ResponseBody String changeMyInfo(HttpSession session, @RequestParam("myInfo_birth")String myInfo_birth, @RequestParam("myInfo_phone")String myInfo_phone) {
+		
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		
 
+		
+		memberService.changeMyInfo(member.getMem_num(), myInfo_birth, myInfo_phone);
+		
+		return "success";
+		
+	}
 }

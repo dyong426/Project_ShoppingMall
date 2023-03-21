@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
 import com.ezen.jhc.web.user.mapper.category.SearchMapper;
-
+/**@author SUJEONG*/
 @Service
 public class SearchServiceImpl implements SearchService{
 

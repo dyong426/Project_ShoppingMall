@@ -1,3 +1,5 @@
+<!-- 정수정, 주문 상세내역 -->
+
 const cancleOrder = document.querySelector('.order_cancellation');
 
 cancleOrder.addEventListener('click', function () {
@@ -25,6 +27,8 @@ cancleOrder.addEventListener('click', function () {
 
 
         })
+    } else{
+        location.reload();
     }
 
 

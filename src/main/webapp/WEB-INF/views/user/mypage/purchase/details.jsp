@@ -44,16 +44,16 @@
 	                                     
                                     <th scope="row">주문처리상태</th>
                                     <td>
-                                        <c:if test="${order.ord_statusKor  eq '입금 전' }" >
-	                                     ${order.ord_statusKor }
+                                        <c:if test="${order.status_name  eq '입금 전' }" >
+	                                     ${order.status_name }
 	                                     <script>
 	                                     const ord_num = parseInt("${order.ord_num}");
 										  </script>
-	                                      <button type="submit" class="order_cancellation">주문취소</button>
+	                                      <button type="button" class="order_cancellation">주문취소</button>
 	                
                                         </c:if>
-                                        <c:if test="${order.ord_statusKor ne '입금 전' }">
-                                        ${order.ord_statusKor }
+                                        <c:if test="${order.status_name ne '입금 전' }">
+                                        ${order.status_name }
                                         </c:if>
                                     </td>
                                 </tr>
@@ -77,7 +77,7 @@
                                         <th scope="row">총 주문 금액</th>
                                         <td>
                                             <span>
-                                                <strong><fmt:formatNumber value="${order.total_amount }" pattern="#,###,##0" /></strong>원
+                                                <fmt:formatNumber value="${order.total_amount }" pattern="#,###,##0" />원
                                                 <!-- <span class="dispaynone"></span> -->
                                             </span>
                                         </td>
@@ -98,17 +98,15 @@
                                         <th scope="row">총 결제 금액</th>
                                         <td>
                                             <span class="txtEm">
-                                                <strong class="txt18"><fmt:formatNumber value="${order.total_amount }" pattern="#,###,##0" /></strong>원
+                                                <fmt:formatNumber value="${order.total_amount }" pattern="#,###,##0" />원
                                                 
                                             </span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">결제수단</th>
-                                        <td>
-                                            <strong>
-                                                <span>${order.payment_name }</span>
-                                            </strong>
+                                        <td>                                  
+                                                <span>${order.payment_name }</span>                                        
                                         </td>
                                     </tr>
                                 </tbody>
@@ -179,14 +177,14 @@
                                                 </div>
                                               
                                             </td>
-                                            <c:if test="${order.ord_statusKor eq '주문 취소'}">
+                                            <c:if test="${order.status_name eq '주문 취소'}">
 	                                            <td class="order_status" style="color:red">
-	                                              ${order.ord_statusKor }
+	                                              ${order.status_name }
 	                                            </td>
                                             </c:if>
-                                            <c:if test="${order.ord_statusKor ne '주문 취소'}">
+                                            <c:if test="${order.status_name ne '주문 취소'}">
                                              <td class="order_status">
-	                                              ${order.ord_statusKor }
+	                                              ${order.status_name }
 	                                            </td>
                                             </c:if>
                                      
