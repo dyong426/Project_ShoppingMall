@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- 아래 configuration이 어떤 것을 참고하고 있냐 하는 설정 -->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "https://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+
+	
+	<settings>
+	    <setting name="cacheEnabled" value="false" />
+		<setting name="jdbcTypeForNull" value="NULL" />
+
+	</settings>
+	
+</configuration>
+

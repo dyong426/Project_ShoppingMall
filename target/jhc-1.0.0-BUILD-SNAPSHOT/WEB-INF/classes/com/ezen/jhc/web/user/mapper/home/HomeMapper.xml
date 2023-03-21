@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.user.mapper.home.HomeMapper">
+
+	<select id="get_review_list"
+		resultType="com.ezen.jhc.web.user.dto.review.ReviewDTO">
+		SELECT review_num, review_image_path, review_content,
+		review_star, review_regdate, mem_name
+		FROM reviews r, members m WHERE r.mem_num = m.mem_num AND
+		review_image_path IS NOT NULL ORDER BY review_num DESC
+	</select>
+	<select id="get_review"
+		resultType="com.ezen.jhc.web.user.dto.review.ReviewDTO">
+		SELECT
+		review_num,
+		review_image_path,
+		review_content,
+		review_star,
+		review_regdate,
+		mem_name,
+		p.p_num AS p_num,
+		p.p_name AS p_name,
+		sm_img_path
+		FROM
+		reviews r, members m, prod_images pi, prods p
+		WHERE
+		r.mem_num =
+		m.mem_num
+		AND pi.p_num = p.p_num
+		AND r.p_num = p.p_num
+		AND review_num =
+		${review_num}
+	</select>
+
+	<select id="get_all_reviews"
+		resultType="com.ezen.jhc.web.user.dto.review.ReviewDTO">
+		SELECT review_num, review_image_path, review_content,
+		review_star, review_regdate, mem_name
+		FROM reviews r, members m WHERE r.mem_num = m.mem_num
+	</select>
+	
+	
+</mapper>

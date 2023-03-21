@@ -30,8 +30,9 @@ public class HistoryServiceImpl implements HistoryService {
 		return orderMapper.selectOrderHistorySelected(mem_num, ord_status, start_date, end_date);
 	}
 
+	
 	@Override
-	public OrderDTO getAll(Integer mem_num, Integer ord_num) {
+	public OrderDTO getOrderAll(Integer mem_num, Integer ord_num) {
 		// TODO Auto-generated method stub
 		return orderMapper.selectAll(mem_num, ord_num);
 	}
@@ -45,6 +46,18 @@ public class HistoryServiceImpl implements HistoryService {
 	@Override
 	public void orderCancel(Integer ord_num) {
 			orderMapper.cancleOrder(ord_num);
+		
+	}
+	
+	@Override
+	public void orderExchange(Integer ord_num) {
+		orderMapper.exchangeOrder(ord_num);
+		
+	}
+
+	@Override
+	public void orderRefund(Integer ord_num) {
+		orderMapper.refundOrder(ord_num);
 		
 	}
 
@@ -68,6 +81,9 @@ public class HistoryServiceImpl implements HistoryService {
 		}
 		return orderMapper.selectOrderHistoryDateSelected(mem_num, start_date, end_date);
 	}
+
+	
+	
 
 	
 	

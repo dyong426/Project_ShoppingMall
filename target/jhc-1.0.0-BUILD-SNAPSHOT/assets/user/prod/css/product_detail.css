@@ -1,0 +1,201 @@
+/* 정수정, 상품 상세 페이지 */
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+  * {
+    font-family: 'Pretendard-Regular';
+    box-sizing: border-box;
+  }
+
+
+
+div[id$="_container"]{
+    display: flex;
+ flex-direction: column;
+}
+
+
+#main_canvas_container{
+
+    /* border: solid black 1px; */
+    background-color: ghostwhite;
+    width: 100%;
+    height: 700px;
+    align-items: center;
+    justify-content: center;  
+    margin-bottom: 20px;
+}
+
+
+#main_review_container{
+    justify-content: left;
+    flex-direction: row;    
+    margin: auto;
+    width:1150px;
+   	
+
+}
+
+#customer_score_container{
+    text-align: center;
+    justify-content: center;
+
+    
+}
+
+
+#customer_score_container>div:nth-child(2){
+    font-size: 35px;
+}
+
+#customer_score_container>div:nth-child(3){
+    font-size: 30px;
+    color: #063970;
+}
+
+#main_review_container img{
+    
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    margin: 2px;
+    border-radius: 5px;
+    
+
+}
+
+#review_bar {
+    margin: 20px 70px;
+    background-color:gainsboro;
+    opacity: 70%;
+    height: 100px;
+    width: 1px;
+
+}
+
+#customer_review_stars{
+color:#063970;
+}
+
+
+#customer_review_stars_container{
+    flex-direction: row;
+    
+}
+
+
+#customer_review_stars_container span{
+    font-weight: bold;
+    margin-right: 15px;
+    margin-bottom: 15px;
+    
+}
+
+#customer_review_container{
+    margin: 3% 20%;
+    
+}
+
+#customer_each_review_container{
+    font-weight: lighter;
+    flex-direction: row;
+}
+#customer_review_container img{
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 3px;
+    margin: 20px 3px;
+}
+
+#customer_review_user_id{
+    /* border: 1px solid black; */
+    width: 200px;
+    margin-right: 5%;
+    font-size: 17px;
+    font-weight: bolder;
+}
+
+#customer_review_date{
+    color: darkolivegreen;
+    font-size: 90%;
+}
+
+#customer_review_bar{
+    height: 1px;
+    width: 100%;
+    background-color: beige;
+}
+
+hr {
+    margin: 3% 0%;
+}
+
+#separator {
+    background-color:gainsboro;
+    opacity: 70%;
+    height: 1px;
+    width: 80%;
+    margin:auto;
+    margin-top: 3%;
+}
+
+.subject{
+    /* border: 1px solid black; */
+    width: fit-content;
+    font-size: 200%;
+    margin-left: 15%;
+    margin-bottom: 2%;
+
+}
+
+#customer_review_contents{
+    font-weight: lighter;   
+    font-size:17px;
+}
+
+#size_table{
+    
+    width: 70%;
+    margin: auto;
+    margin-bottom: 5%;
+    text-align: center;
+    line-height: 250%; 
+}
+
+tbody>tr:first-child{
+    background-color: ghostwhite;
+}
+
+th{
+    width: 5%;
+    
+}
+
+
+#production_guide_container{
+    margin: auto;
+    width: 70%;
+    margin-bottom: 5%;
+
+}
+
+h2{
+  font-weight: bolder;  
+    font-size: 100%;
+}
+
+h3{
+    font-size: 95%;
+}
+li{
+    font-size: 90%;
+}
+
+.txt2{
+    color: gray;
+}

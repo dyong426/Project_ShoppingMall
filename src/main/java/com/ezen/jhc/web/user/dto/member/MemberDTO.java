@@ -12,6 +12,9 @@ import lombok.NoArgsConstructor;
 @Data
 public class MemberDTO implements Serializable {
 	
+	// 직렬화 - 클래스 정보가 변경되어도 SerialVersionUID가 달라지지 않게 명시한 설정
+	private static final long serialVersionUID = 2429846791672541980L;
+	
 	// 테이블 : members
 	Integer mem_num;
 	String mem_email;

@@ -130,6 +130,12 @@ select {
 	
 }
 
+.product_name {
+	display: flex;
+	justify-self: left;
+	padding: 0px 0px 5px 10px;
+}
+
 .pd_info{
 	margin-bottom: 55px;
 }

@@ -89,7 +89,7 @@ public class HistoryController {
 		Integer mem_num = member.getMem_num();
 		String mem_name = member.getMem_name();
 
-		OrderDTO order = historyService.getAll(mem_num, ord_num);
+		OrderDTO order = historyService.getOrderAll(mem_num, ord_num);
 
 		List<OrderDetailDTO> orderDetails = historyService.getOrderDetails(ord_num);
 
@@ -105,13 +105,48 @@ public class HistoryController {
 	@ResponseBody
 	public void orderCancel(@RequestParam(value = "ord_num", required = false) Integer ord_num) {
 
-		historyService.orderCancel(ord_num);
+		 historyService.orderCancel(ord_num);
+		 
 	}
+	
+	
+	// 교환
+	@GetMapping(value = "/order/er/exchange")
+	public String orderExchange(@RequestParam(value = "ord_num", required = false) Integer ord_num) {
+		historyService.orderExchange(ord_num);
+		
+		return "redirect:/history";
+	}
+	
+	// 반품
+	@GetMapping(value = "/order/er/refund")
+	public String orderRefund(@RequestParam(value = "ord_num", required = false) Integer ord_num) {
+		
+		historyService.orderRefund(ord_num);
+		
+		return "redirect:/history";
+		
+		
+	}
+	
+	
+	// 교환 및 반품 페이지
+	@RequestMapping(value = "/order/er", method = RequestMethod.GET)
+	public String orderER(Model model, HttpSession session,
+			@RequestParam(value = "ord_num", required = false) Integer ord_num) {
+		
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		Integer mem_num = member.getMem_num();
+		OrderDTO order = historyService.getOrderAll(mem_num, ord_num);
 
-	@RequestMapping(value = "/er", method = RequestMethod.GET)
-	public String orderER() {
+		List<OrderDetailDTO> orderDetails = historyService.getOrderDetails(ord_num);
+
+		model.addAttribute("order", order);
+		model.addAttribute("orderDetails", orderDetails);
 
 		return "user/mypage/purchase/exchange_refund";
 	}
+	
+	
 
 }

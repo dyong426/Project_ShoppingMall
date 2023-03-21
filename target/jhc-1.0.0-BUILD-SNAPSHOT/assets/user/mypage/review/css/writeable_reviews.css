@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+a {
+    color: black;
+    text-decoration-line: none;
+}
+
+a:hover {
+    color: black;
+}
+
+.writed_review {
+    color: rgb(134, 142, 150);
+}
+
+.writed_review:hover {
+    color: rgb(134, 142, 150);
+}
+
+.header_title > *{
+    font-family: 'Gowun Dodum', sans-serif;
+    font-style: normal;
+    box-sizing: content-box;
+}
+
+.header_title {
+    margin: 40px 0px;
+}
+
+.my_review{
+    font-size: 30px;
+    width: 992px;
+    margin: 86px 0px 40px;
+    font-weight: 900;
+    
+  }
+
+.rv_container {
+    display: inline-block;
+    width: 100%;
+     margin: 10px auto;
+    background-color: rgb(248, 249, 250);
+}
+
+.rv_body {
+    display: flex;
+    justify-self: center;
+    display: grid;
+    /* grid-template-rows: 0.5fr 0.1fr 0.1fr; */
+    width: 992px;
+    margin: 0 auto;
+    padding: 40px 0px 120px;
+    
+}
+
+.header_tab {
+    display: flex;
+    width: 100%;
+}
+
+.header_tab > .tab_left, .tab_right{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    width: 496px;
+    padding: 0px 0px 16px;
+}
+
+.header_tab > .tab_left {
+    border-bottom: solid 1px black;
+}
+
+.header_tab > .tab_right {
+    border-bottom: solid 1px rgb(213, 219, 224);
+}
+
+.header_my_review {1
+    width: 992px;
+    margin: 0px 0px 24px;
+    padding: 24px;
+    background-color: rgb(241, 240, 240);
+}
+
+.header_my_review > div {
+    font-size: small;
+    color: rgb(134, 142, 150);
+}
+
+.header_my_review > div > span{
+    color: #ea290f;
+}
+
+.order_date {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: solid 1px rgb(213, 219, 224);
+}
+
+.order_date > span {
+    font-weight: lighter;
+}
+
+.write_review {
+	 font-size: 15px;
+    font-weight: bold;
+    width: 992px;
+    padding: 15px;
+    margin: 10px auto;
+    background-color: white;
+}
+
+
+  .wr_info {
+    width: 960px;
+    border-collapse: collapse;
+  }
+  .wr_list > .wr > td {
+  border-bottom: 1px solid #D3D3D3;
+    background-color: white;
+  }
+
+  .wr_list {
+    border:  solid 1px #e0e0eb;
+  }
+
+  .wr_info > thead > tr > th{
+    border: solid 1px rgb(241, 240, 240);
+  }
+
+  .wr_info > thead > tr > th, td{
+    font-size: 15px;
+    text-align: center;
+    padding: 15px 0px 15px;
+    background-color: rgb(241, 240, 240);
+  }
+
+  .od_number {
+    justify-self: center;
+  }
+
+  .option {
+    display: grid;
+    grid-template-columns: 0.3fr 0.5fr;
+    display: flex;
+    justify-self: left;
+    padding: 0px 0px 5px 10px;
+    color: rgb(139, 139, 139);
+  }
+
+  .wr_name {
+    text-align: center;
+    padding: 0px 10px 5px 10px;
+  }
+
+  p {
+    margin: 0px;
+  }
+  
+  #page_num_container {
+  	margin-top: 40px;
+  }
+  
+  #page_num_box {
+  	display: flex;
+  	margin: auto; 
+  	justify-content: center;
+  }
+  
+  #all_review_page {
+  	margin: auto;
+  }
+  
+  .page_num_div {
+  	
+  	margin-left: 10px;
+  	
+  }
+  
+  .page_num {
+  	margin-right: 5px;
+  	border: none;
+  	background-color: rgb(248, 249, 250);
+  	
+  	border-bottom: 1px gray solid;
+  }

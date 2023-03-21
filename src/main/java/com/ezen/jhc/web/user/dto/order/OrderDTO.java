@@ -76,6 +76,7 @@ public class OrderDTO {
 		SimpleDateFormat dayTime= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
 		return dayTime.format(this.ord_date);
-		
+
 	}
+
 }

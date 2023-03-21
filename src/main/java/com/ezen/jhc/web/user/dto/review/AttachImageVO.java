@@ -13,7 +13,5 @@ public class AttachImageVO {
 	
 	/* 파일 이름 */
 	private String fileName;
-	
 
-	
 }

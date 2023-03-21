@@ -4,7 +4,7 @@
     "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ezen.jhc.web.admin.mapper.prod.CtgrMapper">
 
-	<select id="getMainCtgr" resultType="com.ezen.jhc.web.admin.dto.prod.MainCtgrDTO">
+	<select id="getCtgr" resultType="com.ezen.jhc.web.admin.dto.prod.MainCtgrDTO">
 		SELECT * FROM main_ctgr ORDER BY m_ctgr_num
 	</select>
 	
