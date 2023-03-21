@@ -243,9 +243,10 @@
 						<span id="customer_review_stars"> <c:forEach begin="1"
 								end="${r.review_star }">★</c:forEach> <c:forEach begin="1"
 								end="${5-r.review_star}">☆</c:forEach>
-						</span> <span id="customer_review_stars_text">${r.review_star }</span> <span
-							id="customer_review_date"> <fmt:formatDate pattern="MM.dd"
-								value="${r.review_regdate }" />
+						</span> 
+						<span id="customer_review_stars_text">${r.review_star }</span> 
+						<span id="customer_review_date"> 
+							<fmt:formatDate pattern="MM.dd" value="${r.review_regdate }" />
 						</span>
 					</div>
 					<div id="customer_review_contents">${r.review_content }</div>

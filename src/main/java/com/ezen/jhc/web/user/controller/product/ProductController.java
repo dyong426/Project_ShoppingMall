@@ -18,6 +18,9 @@ import com.ezen.jhc.web.user.dto.review.ReviewDTO;
 import com.ezen.jhc.web.user.mapper.products.ProductsMapper;
 import com.ezen.jhc.web.user.mapper.review.ReviewMapper;
 
+import lombok.extern.log4j.Log4j2;
+
+@Log4j2
 @Controller
 public class ProductController {
 	@Autowired
@@ -33,7 +36,9 @@ public class ProductController {
 	public String product_details(Model model, @RequestParam("p_num")int p_num) {
 
 		ProdDTO p_dto = prod_mapper.getProdsAll(p_num);
-		List<ReviewDTO> r_dto = review_mapper.getReviewAll(p_num); 
+		List<ReviewDTO> r_dto = review_mapper.getReviewAll(p_num);
+		
+		log.info("review : " + r_dto);
 		Double starAvg = review_mapper.getStarAvg(p_num);
 		
 		model.addAttribute("prod", p_dto);

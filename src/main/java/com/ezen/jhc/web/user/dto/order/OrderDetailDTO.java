@@ -69,8 +69,6 @@ public class OrderDetailDTO {
 	
 	public String getNew_order_date() {
 		
-		if (this.review_regdate == null) return null;
-		
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		
 		String formatTime = dayTime.format(this.review_regdate);
