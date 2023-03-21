@@ -56,8 +56,6 @@ public class AdminHomeController {
 		// 매출 통계
 		monthlySalesList = salesService.getMonthlySales();
 		
-		log.info(monthlySalesList);
-		
 		model.addAttribute("monthlySalesList", monthlySalesList);
 		
 		String monthlySalesJson = salesService.getMonthlySalesJson();
@@ -68,8 +66,6 @@ public class AdminHomeController {
 		
 		// 주문 통계
 		mCtgrOrders = homeService.getMonthlyMainCtgrOrders();
-		
-		log.info(mCtgrOrders);
 		
 		model.addAttribute("monthlyMCtgrOrders", mCtgrOrders);
 		
@@ -82,16 +78,12 @@ public class AdminHomeController {
 		// 신규 주문
 		mCtgrOrders = homeService.getMainCtgrNewOrders();
 		
-		log.info(mCtgrOrders);
-		
 		model.addAttribute("dailyMCtgrOrders", mCtgrOrders);
 		
 		// 1:1 문의
 		
 		csCtgrs = homeService.getNewCsCount();
-		
-		log.info(csCtgrs);
-		
+
 		model.addAttribute("csCtgrs", csCtgrs);
 		
 		newMemCntDTO = homeService.getNewMemberCount();
@@ -114,17 +106,11 @@ public class AdminHomeController {
 	public String join(AdminDTO admin) {
 		
 		String pw = admin.getAdmin_pw();
-		
-		log.info(pw);
-		
+
 		String encodePw = bCryptPasswordEncoder.encode(pw);
-		
-		log.info("비밀번호 암호화 : " + encodePw);
-		
+
 		admin.setAdmin_pw(encodePw);
-		
-		log.info(homeService.join(admin));
-		
+
 		return "redirect:/admin";
 	}
 	
@@ -143,7 +129,7 @@ public class AdminHomeController {
 			
 			return "redirect:/admin";
 		} else {
-			log.info("실패");
+			log.info("관리자 로그인 실패");
 			
 			model.addAttribute("login_error", "아이디 또는 비밀번호가 일치하지 않습니다.");
 			
