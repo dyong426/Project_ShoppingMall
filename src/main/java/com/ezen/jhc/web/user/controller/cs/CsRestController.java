@@ -34,7 +34,7 @@ public class CsRestController {
 	 * **/
 	/* 첨부 파일 업로드 */
 	
-	@PostMapping(value="/uploadAjaxAction_contact", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@PostMapping(value="/uploadAjaxAction_contact", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<AttachImageDTO>> uploadAjaxActionPOST(MultipartFile[] uploadFile) {
 		
 		System.out.println("uploadAjaxActionPOST..........");
@@ -83,7 +83,7 @@ public class CsRestController {
 		}
 		
 		//이미지 정보 담는 객체
-		List<AttachImageDTO> list = new ArrayList();
+		List<AttachImageDTO> list = new ArrayList<>();
 		
 		// 향상된 for
 		for(MultipartFile multipartFile : uploadFile) {

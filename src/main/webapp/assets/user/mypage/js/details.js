@@ -1,4 +1,4 @@
-<!-- 정수정, 주문 상세내역 -->
+/* 정수정, 주문 상세내역 */
 
 const cancleOrder = document.querySelector('.order_cancellation');
 

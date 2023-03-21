@@ -1,4 +1,4 @@
-<!-- 정수정, 나의 정보 -->
+/* 정수정, 나의 정보 */
 
 const resign = document.querySelector('.withdrawal');
 

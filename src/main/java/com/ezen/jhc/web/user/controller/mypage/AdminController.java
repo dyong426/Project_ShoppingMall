@@ -78,7 +78,7 @@ public class AdminController {
 		}
 		
 		/* 이미저 정보 담는 객체 */
-		List<AttachImageVO> list = new ArrayList();
+		List<AttachImageVO> list = new ArrayList<>();
 		
 		// 향상된 for
 				for(MultipartFile multipartFile : uploadFile) {

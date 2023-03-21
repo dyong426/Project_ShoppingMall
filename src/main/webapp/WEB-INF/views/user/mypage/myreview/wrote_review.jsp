@@ -52,7 +52,7 @@
 						<td class="wr_amount">
 							<div class="star-ratings">
 								<div class="star-ratings-fill space-x-2 text-lg"
-									:style="{ width: ratingToPercent + '%' }">
+									style="{ width: ratingToPercent + '%' }">
 									<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
 								</div>
 								<div class="star-ratings-base space-x-2 text-lg">
