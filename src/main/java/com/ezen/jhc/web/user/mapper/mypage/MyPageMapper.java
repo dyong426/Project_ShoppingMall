@@ -1,7 +1,7 @@
+
 package com.ezen.jhc.web.user.mapper.mypage;
 
 import java.util.List;
-
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -60,5 +60,4 @@ public interface MyPageMapper {
 			+ "and od.od_num = r.od_num and pd.pd_num = od.pd_num and pd.p_num = p.p_num and pi.p_num = p.p_num and pd.pd_num = od.pd_num and pc.pc_num = pd.pc_num "
 			+ " order by review_regdate desc")
 	List <OrderDetailDTO> getOrderHistory(@Param("mem_num")Integer mem_num);
-
 }

@@ -51,6 +51,7 @@ public class ReviewDTO {
 		return user_name;
 	}
 
+
 	public String getReview_regdate() {
 		
 		if (this.review_regdate == null) return null;
@@ -68,4 +69,5 @@ public class ReviewDTO {
 		String formatTime = dayTime.format(this.review_regdate);
 		return formatTime;
 	}
+
 }

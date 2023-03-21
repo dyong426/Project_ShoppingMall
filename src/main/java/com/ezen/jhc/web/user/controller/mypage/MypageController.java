@@ -27,7 +27,6 @@ import com.ezen.jhc.web.user.service.member.MemberService;
 import com.ezen.jhc.web.user.service.mypage.HistoryService;
 import com.ezen.jhc.web.user.service.mypage.WriteReviewService;
 
-
 /**@author 김주희
  * @author SUJEONG
  * 
@@ -93,8 +92,6 @@ public class MypageController {
 		}
 		return "user/mypage/personal_information/my_info";
 	}
-	
-	
 	
 	// 리뷰 작성 페이지 정보 값
 	@RequestMapping(value ="/review/check", method = RequestMethod.GET)
@@ -194,6 +191,7 @@ public class MypageController {
 //		mm_mapper.addReviewImage(ro);
 //		
 //	}
+
 	/*여기부터 끝까지 작성자 정수정*/
 
 	@GetMapping("/password/change")

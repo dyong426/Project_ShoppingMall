@@ -6,7 +6,7 @@
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/user/mypage/css/orderList.css">
-	
+
 <!-- main -->
 <div class="background">
 	<div class="ctr">
@@ -51,7 +51,6 @@
 					<h2>조회된 주문이 없습니다.</h2>
 				</c:if>
 				<c:if test="${not empty orders }">
-
 					<table class="pd_info">
 						<colgroup>
 							<col style="width: 200px;">

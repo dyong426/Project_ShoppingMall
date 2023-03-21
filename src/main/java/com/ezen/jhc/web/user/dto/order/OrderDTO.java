@@ -38,7 +38,9 @@ public class OrderDTO {
 	
 	// 테이블 조인 : payments
 	Integer	payment_num;
+
 	String	payment_name;
+
 
 	//prods
 	Integer p_num;
@@ -78,9 +80,7 @@ public class OrderDTO {
 	public String getOd_ord_date() {
 		SimpleDateFormat dayTime= new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		
-		return dayTime.format(this.ord_date);
-		
+		return dayTime.format(this.ord_date);	
 	}
-	
 
 }

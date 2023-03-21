@@ -2,6 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -25,8 +26,6 @@
 </head>
 
 <body>
-
-
 	<!-- header -->
 
 	<div class="header_container">
@@ -43,7 +42,6 @@
 
 		<!--로고, 카테고리, 프로필-->
 		<div class="header_container_bottom">
-
 			<div>
 				<a href="<%=request.getContextPath() %>/main">
 				<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo.png" alt="로고" width="170px" />
@@ -81,12 +79,10 @@
 
 	<!--마이페이지 드롭다운-->
 	<div class="hidden myPage_container" id="myPage_drop-down">
-
       <button onclick="location.href='<%=request.getContextPath() %>/history'">주문 내역</button>
       <button onclick="location.href='<%=request.getContextPath() %>/review/write?page=1'">나의 리뷰</button>
       <button onclick="location.href='<%=request.getContextPath() %>/info'">나의 정보</button>
       <button onclick="location.href='#'">문의 내역</button>
-
 	</div>
 
 	<!--로그인-->
@@ -119,7 +115,7 @@
 					<div>또는</div>
 					<div></div>
 				</div>
-
+				
 				<button id="kakao_login" onclick="kakaoLogin();">
 					<img src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/kakao_login.png" alt="">
 				</button>
@@ -128,8 +124,6 @@
 				</button>
          </div>
       </div>
-
-
 	</div>
 		<!-- 회원가입 팝업 -->
 		<div class="join_popup hidden">
