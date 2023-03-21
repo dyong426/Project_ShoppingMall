@@ -112,7 +112,7 @@ public class AdminHomeController {
 	public String loginCheck(AdminDTO admin, HttpServletRequest req, Model model) {
 		
 		String dbPW = homeService.loginPW(admin.getAdmin_email());
-		log.info(dbPW + " / " + admin.getAdmin_pw());
+		
 		if (dbPW.equals(admin.getAdmin_pw())) {
 			
 			HttpSession session =req.getSession();	

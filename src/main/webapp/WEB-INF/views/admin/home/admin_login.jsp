@@ -57,6 +57,9 @@
 			</div>
 		</form>
 	</div>
+	
+	<script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.js"></script>
 
 </body>
 </html>

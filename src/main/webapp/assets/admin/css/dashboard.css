@@ -54,12 +54,22 @@ body {
 
 .sidebar .nav-link:hover .feather,
 .sidebar .nav-link.active .feather {
-  color: white;
-  background-color: black;
+  color: WHITE;
+  background-color: BLACK;
 }
 
 .sidebar-heading {
   font-size: .75rem;
+}
+
+.nav-link:hover {
+	color: WHITE;
+  background-color: BLACK;
+}
+
+.nav-link.active {
+	color: WHITE;
+  background-color: BLACK;
 }
 
 /*
