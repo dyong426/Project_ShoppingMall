@@ -5,7 +5,6 @@ import java.util.List;
 import com.ezen.jhc.web.user.dto.cart.IntoCartDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
-import com.ezen.jhc.web.user.dto.prod.ProdDetailDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdSizeDTO;
 import com.ezen.jhc.web.user.dto.prod.ProductDetailDTO;
 

@@ -21,7 +21,6 @@ import com.ezen.jhc.web.admin.dto.prod.ProdSizeDTO;
 import com.ezen.jhc.web.admin.dto.prod.ProdSizeListDTO;
 import com.ezen.jhc.web.admin.mapper.prod.MainCtgrMapper;
 import com.ezen.jhc.web.admin.mapper.prod.SubCtgrMapper;
-import com.ezen.jhc.web.admin.service.AdminProdRegService;
 import com.ezen.jhc.web.admin.service.AdminProdRegServiceImpl;
 
 import lombok.extern.log4j.Log4j2;

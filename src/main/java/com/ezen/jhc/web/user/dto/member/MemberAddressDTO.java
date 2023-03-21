@@ -1,7 +1,5 @@
 package com.ezen.jhc.web.user.dto.member;
 
-import java.util.Date;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

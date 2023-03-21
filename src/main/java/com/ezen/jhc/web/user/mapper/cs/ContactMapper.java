@@ -2,8 +2,6 @@ package com.ezen.jhc.web.user.mapper.cs;
 
 import java.util.List;
 
-import org.apache.ibatis.annotations.Param;
-
 import com.ezen.jhc.web.user.dto.contact.AttachImageDTO;
 import com.ezen.jhc.web.user.dto.contact.ContactDTO;
 

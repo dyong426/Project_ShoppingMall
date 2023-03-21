@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.ezen.jhc.web.user.dto.contact.AttachImageDTO;
 import com.ezen.jhc.web.user.dto.contact.AttachImageListDTO;
 import com.ezen.jhc.web.user.dto.contact.ContactDTO;
 import com.ezen.jhc.web.user.dto.faq.FaqDTO;

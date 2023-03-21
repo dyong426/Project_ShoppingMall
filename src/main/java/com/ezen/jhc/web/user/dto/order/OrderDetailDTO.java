@@ -1,10 +1,5 @@
 package com.ezen.jhc.web.user.dto.order;
 
-import java.util.Date;
-
-import com.ezen.jhc.web.user.dto.cstm.MemberCstmDTO;
-import com.ezen.jhc.web.user.dto.prod.ProdDetailDTO;
-
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

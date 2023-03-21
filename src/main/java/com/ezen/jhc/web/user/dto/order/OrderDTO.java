@@ -3,9 +3,7 @@ package com.ezen.jhc.web.user.dto.order;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-
 import org.springframework.stereotype.Component;
-
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

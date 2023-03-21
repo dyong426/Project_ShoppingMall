@@ -1,7 +1,5 @@
 package com.ezen.jhc.web.admin.dto.order;
 
-import java.util.Date;
-
 import lombok.Data;
 
 @Data
