@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.user.mapper.member.MemberMapper_dy">
+
+	<select id="getAll" resultType="com.ezen.jhc.web.user.dto.member.MemberDTO">
+		SELECT * FROM members
+	</select>
+
+	<select id="get" resultType="com.ezen.jhc.web.user.dto.member.MemberDTO">
+		SELECT * FROM members WHERE mem_email=#{mem_email}
+	</select>
+	
+	<insert id="join" parameterType="com.ezen.jhc.web.user.dto.member.MemberDTO">
+		<selectKey keyProperty="mem_num" order="BEFORE" resultType="int">
+			SELECT mem_num_seq.nextval FROM dual
+		</selectKey>
+		INSERT INTO members VALUES(
+			#{mem_num},
+			#{mem_email},
+			#{mem_pw},
+			#{mem_birth},
+			#{mem_name},
+			#{mem_phone},
+			#{mem_note},
+			#{mem_regdate}
+		)
+	</insert>
+	
+	<update id="updateMemPoint" parameterType="com.ezen.jhc.web.user.dto.member.MemberDTO">
+		UPDATE members SET mem_point = mem_point - #{mem_point} WHERE mem_num = #{mem_num}
+	</update>
+	
+</mapper>
