@@ -63,7 +63,7 @@ public class CsRestController {
 		
 		
 		
-		String uploadFolder = "C:\\upload\\contact";
+		String uploadFolder = "C:\\upload";
 		
 		
 		// 날짜 폴더 경로
@@ -165,7 +165,7 @@ public class CsRestController {
 	public ResponseEntity<byte[]> getImage(String fileName){
 		System.out.println("getImage()........." + fileName);
 		
-		File file = new File("c:\\upload\\contact\\" + fileName);
+		File file = new File("c:\\upload\\" + fileName);
 		
 		ResponseEntity<byte[]> result = null;
 		

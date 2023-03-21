@@ -40,6 +40,10 @@ public class CsController {
 	@GetMapping("/customerservice/cate")
 	public String cs_cate1(Model model, Integer cs_ctgr_num) {
 		
+		if(cs_ctgr_num == null) {
+			cs_ctgr_num = 0;
+		}
+		
 		// 모든 카테고리 -> 카테고리탭 , faq_num을 통해 가져온 질문목록
 		List<FaqDTO> ctgr = faq_mapper.get_ctgr_num();
 		List<FaqDTO> faq = faq_mapper.get(cs_ctgr_num);

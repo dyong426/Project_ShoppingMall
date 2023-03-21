@@ -25,17 +25,34 @@ public class ContactController_mp {
 	
 	// 세션 가져와서 처리
 	@GetMapping("/contact")
-	public String contact_mp_list(Model model, HttpServletRequest request) {
+	public String contact_mp_list(Integer page, Model model, HttpServletRequest request) {
+		
+		// 세션 가져오기
 		HttpSession session = request.getSession();
 		session.getAttribute("member");
 		
-		
 		System.out.println("세션가져오기" +session.getAttribute("member"));
-		List<ContactDTO> list = contact_mapper.getContactList(1);
 		
+		// 세션값 넣어야함
+		List<ContactDTO> list = contact_mapper.getContactList(4);
 		
+		if(page == null) {
+			page=1;
+		}
+		int list_end = Integer.parseInt(page +"") * 10 - 1;
+		int list_begin = list_end - 9;
+		
+		if(list_end >= list.size()) {
+			list_end = list.size() - 1;
+		}
+		
+		model.addAttribute("begin",list_begin);
+		model.addAttribute("end",list_end);
+
 		model.addAttribute("list", list);
-		System.out.println(list);
+		model.addAttribute("list_size",list.size());
+		
+		
 		return "user/mypage/contact/mp_contact_list";
 	}
 	
@@ -49,7 +66,6 @@ public class ContactController_mp {
 		model.addAttribute("contact", contact);
 		model.addAttribute("img", img);
 		
-		System.out.println("img 확인" + img);
 		
 		return "user/mypage/contact/mp_contact";
 	}
