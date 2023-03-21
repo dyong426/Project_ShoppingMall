@@ -11,11 +11,13 @@ import com.ezen.jhc.web.admin.dto.order.OrderListDTO;
 @Service
 public interface AdminMemberService {
 	
-	public List<MemberDTO> getMemberList();
+	List<MemberDTO> getMemberList();
 	
-	public MemberDTO getMemberInfo(Integer mem_num);
+	List<MemberDTO> getMemberByName(String mem_name);
 	
-	public List<OrderListDTO> getMemberRecentOrderList(Integer mem_num);
+	MemberDTO getMemberInfo(Integer mem_num);
+	
+	List<OrderListDTO> getMemberRecentOrderList(Integer mem_num);
 	
 	Integer deleteMember(Integer mem_num);
 }

@@ -41,6 +41,12 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 	}
 	
 	@Override
+	public List<MemberDTO> getMemberByName(String mem_name) {
+		
+		return memberMapper.memberName(mem_name);
+	}
+	
+	@Override
 	public MemberDTO getMemberInfo(Integer mem_num) {
 		
 		return memberMapper.getMember(mem_num);

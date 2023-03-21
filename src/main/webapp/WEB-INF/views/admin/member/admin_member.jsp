@@ -29,9 +29,6 @@
 							<div class="col p-4 d-flex flex-column position-static">
 								<div class="d-flex flex-row justify-content-between">
 									<h3 class="mb-0 fw-bold mb-4">회원 관리</h3>
-									<button class="btn btn-primary btn-sm me-3"
-										style="height: 30px;" onclick="location.href='./reg'">옵션
-										버튼</button>
 								</div>
 
 								<table class="table text-center">
@@ -57,7 +54,7 @@
 													<td class="table-secondary">
 														<button type="button" class="btn btn-sm btn-outline-dark"
 															id="member-detail"
-															onclick="location.href=`./member/detail?mem_num=${member.mem_num}`">회원상세보기</button>
+															onclick="location.href=`<%=request.getContextPath()%>/admin/member/detail?mem_num=${member.mem_num}`">회원상세보기</button>
 													</td>
 													<td class="table-danger"><input type="hidden" name="mem_num"
 														value="${member.mem_num}">
@@ -70,10 +67,47 @@
 									</tbody>
 								</table>
 
-
-
-
 							</div>
+							
+							
+							
+							
+							<!-- pagination -->
+                <div class="d-flex justify-content-center">
+
+                  <div>
+                    <nav>
+                      <ul class="pagination">
+                      
+                      <!-- pagination start -->
+                      <!-- previous -->
+                        <li class="page-item <c:if test='${paging.startPage < 6 }'>disabled</c:if>">
+                          <a class="page-link" href="<%=request.getContextPath()%>/admin/member?currentPage=${paging.startPage-1}&keyword=${param.keyword}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+					
+						<!-- paging num -->
+						<c:forEach var="pgNo" begin="${paging.startPage }" end="${paging.endPage }" step="1">		
+							<li class="page-item <c:if test='${paging.currentPage eq pgNo}'>active</c:if>">
+								<a class="page-link" href="<%=request.getContextPath()%>/admin/member?currentPage=${pgNo}&keyword=${param.keyword}">${pgNo}</a>
+							</li>
+						</c:forEach>
+						
+					   <!-- next -->
+                        <li class="page-item <c:if test='${paging.endPage >= paging.totalPages}'>disabled</c:if>">
+                          <a class="page-link" href="<%=request.getContextPath()%>/admin/member?currentPage=${paging.startPage+5}&keyword=${param.keyword}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                        
+                      </ul>
+                    </nav>
+                  </div>
+
+                </div>
+							
+							
 						</div>
 					</div>
 				</div>
@@ -86,7 +120,6 @@
 	</div>
 
 	<script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.js"></script>
 	<script
 		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
 		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"

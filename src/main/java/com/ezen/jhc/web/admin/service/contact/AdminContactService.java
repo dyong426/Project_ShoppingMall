@@ -5,15 +5,24 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.ezen.jhc.web.admin.dto.contact.ContactDTO;
+import com.ezen.jhc.web.admin.dto.contact.ContactImageDTO;
 
 @Service
 public interface AdminContactService {
 	
-	public List<ContactDTO> getContactContentList();
+	List<ContactDTO> getContactContentList();
 	
-	public ContactDTO getContactContent(Integer contact_num);
+	ContactDTO getContactContent(Integer contact_num);
 	
-	public Integer updateReply(Integer contact_num, String admin_reply);
+	Integer updateReply(Integer contact_num, String admin_reply);
 	
-	public Integer deleteReply(Integer contact_num);
+	Integer deleteReply(Integer contact_num);
+	
+	List<ContactDTO> csSearchName(String mem_name);
+	
+	List<ContactDTO> csSearchNull(String mem_name);
+	
+	List<ContactDTO> csSearchNotNull(String mem_name);
+	
+	List<ContactImageDTO> contentImages(Integer contact_num);
 }

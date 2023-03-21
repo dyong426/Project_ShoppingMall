@@ -29,8 +29,7 @@
                                             <div class="col p-4 d-flex flex-column position-static">
                                                 <div class="d-flex flex-row justify-content-between">
                                                     <h3 class="mb-0 fw-bold mb-4">카드 제목</h3>
-                                                    <button class="btn btn-primary btn-sm me-3" style="height: 30px;"
-                                                        onclick="location.href='./reg'">옵션 버튼</button>
+
                                                 </div>
 
 
@@ -50,13 +49,10 @@
                                                             <button type="button" class="btn btn-sales btn-secondary"
                                                                 onclick="location.href='<%=request.getContextPath()%>/admin/setting/bn'">배너</button>
 
-                                                            <button type="button" class="btn btn-sales btn-secondary"
-                                                                onclick="location.href='<%=request.getContextPath()%>/admin/sales/monthly'">자주하는
-                                                                질문</button>
                                                         </div>
                                                     </div>
 
-                                                    <div class="btn-group col-md-2">
+                                                    <div class="btn-group col-md-2 mt-3">
                                                         <button type="button" class="btn btn-dark dropdown-toggle"
                                                             data-bs-toggle="dropdown" aria-expanded="false">
                                                             메인카테고리 선택
@@ -176,7 +172,7 @@
                 </div>
 
                 <script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
-	<script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.js"></script>
+
 	<script
 		src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
 		integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"

@@ -28,8 +28,35 @@
                                         <div class="col p-4 d-flex flex-column position-static">
                                           <div class="d-flex flex-row justify-content-between">
                                             <h3 class="mb-0 fw-bold mb-4">1:1문의 게시판</h3>
-                                            <button class="btn btn-primary btn-sm me-3" style="height: 30px;" onclick="location.href='./reg'">옵션
-                                              버튼</button>
+                                            
+                                            
+                                            
+                                            				<!-- 카테고리 선택 -->
+									<div class="dropdown">
+										<a class="btn btn-dark dropdown-toggle" href="#" role="button"
+											data-bs-toggle="dropdown" aria-expanded="false"> 처리상태 </a>
+										<ul
+											class="dropdown-menu dropdown-menu-dark gap-1 p-2 rounded-3 mx-0 border-0 shadow w-220px">
+											<li><a class="dropdown-item rounded-2"
+												href="<%=request.getContextPath()%>/admin/contact?currentPage=1&category=0">전체</a></li>
+											
+												<li><a class="dropdown-item rounded-2"
+												href="<%=request.getContextPath()%>/admin/contact?currentPage=1&category=1">대기중</a></li>
+												<li><a class="dropdown-item rounded-2"
+												href="<%=request.getContextPath()%>/admin/contact?currentPage=1&category=2">완료</a></li>
+
+										</ul>
+										
+									</div>
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                            
+                                              
                                           </div>
                           
                           
@@ -72,10 +99,42 @@
                                             </tbody>
                           
                                           </table>
-                          
-                          
-                          
                                         </div>
+                                        
+                                        
+                                        <div class="d-flex justify-content-center">
+
+                  <div>
+                    <nav>
+                      <ul class="pagination">
+                      
+                      <!-- pagination start -->
+                      <!-- previous -->
+                        <li class="page-item <c:if test='${paging.startPage < 6 }'>disabled</c:if>">
+                          <a class="page-link" href="<%=request.getContextPath()%>/admin/contact?currentPage=${paging.startPage-1}&category=${param.m_ctgr_num}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+					
+						<!-- paging num -->
+						<c:forEach var="pgNo" begin="${paging.startPage }" end="${paging.endPage }" step="1">		
+							<li class="page-item <c:if test='${paging.currentPage eq pgNo}'>active</c:if>">
+								<a class="page-link" href="<%=request.getContextPath()%>/admin/contact?currentPage=${pgNo}&category=${param.m_ctgr_num}">${pgNo}</a>
+							</li>
+						</c:forEach>
+						
+					   <!-- next -->
+                        <li class="page-item <c:if test='${paging.endPage >= paging.totalPages}'>disabled</c:if>">
+                          <a class="page-link" href="<%=request.getContextPath()%>/admin/contact?currentPage=${paging.startPage+5}&category=${param.m_ctgr_num}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                        
+                      </ul>
+                    </nav>
+                  </div>
+
+                </div>
                                       </div>
                                     </div>
                                   </div>
@@ -86,7 +145,7 @@
                 </div>
 
               <script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.min.js"></script>
-				<script src="<%=request.getContextPath()%>/assets/admin/bootstrap/js/bootstrap.bundle.js"></script>
+
                 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js"
                     integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE"
                     crossorigin="anonymous"></script>

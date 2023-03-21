@@ -23,6 +23,72 @@
 		
 	</select>
 	
+	
+	<select id="csSearchName" resultType="com.ezen.jhc.web.admin.dto.contact.ContactDTO">
+
+	SELECT
+		contact_num,
+		cs_ctgr_name,
+		contact_title,
+		contact_content,
+		contact_regdate,
+		admin_reply,
+		cs.mem_num,
+		mem_email,
+		mem_name
+	FROM contact cs
+		INNER JOIN cs_ctgr csc ON csc.cs_ctgr_num = cs.cs_ctgr_num
+		INNER JOIN members m ON m.mem_num = cs.mem_num
+	WHERE
+		mem_name LIKE '%' ||  #{mem_name} || '%'
+	ORDER BY contact_regdate DESC
+		
+	</select>
+	
+	
+	<select id="csSearchNull" resultType="com.ezen.jhc.web.admin.dto.contact.ContactDTO">
+
+	SELECT
+		contact_num,
+		cs_ctgr_name,
+		contact_title,
+		contact_content,
+		contact_regdate,
+		admin_reply,
+		cs.mem_num,
+		mem_email,
+		mem_name
+	FROM contact cs
+		INNER JOIN cs_ctgr csc ON csc.cs_ctgr_num = cs.cs_ctgr_num
+		INNER JOIN members m ON m.mem_num = cs.mem_num
+	WHERE
+		mem_name LIKE '%' ||  #{mem_name} || '%' AND admin_reply IS NULL
+	ORDER BY contact_regdate DESC
+		
+	</select>
+	
+	<select id="csSearchNotNull" resultType="com.ezen.jhc.web.admin.dto.contact.ContactDTO">
+
+	SELECT
+		contact_num,
+		cs_ctgr_name,
+		contact_title,
+		contact_content,
+		contact_regdate,
+		admin_reply,
+		cs.mem_num,
+		mem_email,
+		mem_name
+	FROM contact cs
+		INNER JOIN cs_ctgr csc ON csc.cs_ctgr_num = cs.cs_ctgr_num
+		INNER JOIN members m ON m.mem_num = cs.mem_num
+	WHERE
+		mem_name LIKE '%' ||  #{mem_name} || '%' AND admin_reply IS NOT NULL
+	ORDER BY contact_regdate DESC
+		
+	</select>
+	
+	
 	<select id="getContactContent" resultType="com.ezen.jhc.web.admin.dto.contact.ContactDTO">
 		SELECT
 			contact_num,
@@ -39,6 +105,18 @@
 			INNER JOIN members m ON m.mem_num = cs.mem_num
 		WHERE contact_num = #{contact_num}
 	</select>
+	
+	<select id="contentImages" resultType="com.ezen.jhc.web.admin.dto.contact.ContactImageDTO">
+		SELECT
+			contact_image_num,
+			contact_num,
+			contact_img
+		FROM
+			contact_images
+		WHERE 
+			contact_num = #{contact_num}
+	</select>
+	
 	
 	<update id="updateReply">
 		UPDATE contact SET admin_reply = #{admin_reply} WHERE contact_num = ${contact_num}
