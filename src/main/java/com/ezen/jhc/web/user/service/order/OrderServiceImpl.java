@@ -15,7 +15,7 @@ import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDTO;
 import com.ezen.jhc.web.user.mapper.cart.CartMapper;
 import com.ezen.jhc.web.user.mapper.member.OrdererMapper;
-import com.ezen.jhc.web.user.mapper.order.OrderMapper;
+import com.ezen.jhc.web.user.mapper.order.OrderMapper_dy;
 import com.ezen.jhc.web.user.mapper.prod.ProductMapper;
 
 import lombok.extern.log4j.Log4j2;
@@ -34,7 +34,7 @@ public class OrderServiceImpl implements OrderService {
 	CartMapper cartMapper;
 	
 	@Autowired
-	OrderMapper orderMapper;
+	OrderMapper_dy orderMapper;
 	
 	
 	@Override

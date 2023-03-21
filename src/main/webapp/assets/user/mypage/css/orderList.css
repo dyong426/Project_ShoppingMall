@@ -129,6 +129,16 @@ select {
 	background-color:rgb(241,240,240);
 	
 }
+<<<<<<< HEAD
+=======
+
+
+.product_name {
+	display: flex;
+	justify-self: left;
+	padding: 0px 0px 5px 10px;
+}
+>>>>>>> refs/heads/jh
 
 .pd_info{
 	margin-bottom: 55px;
@@ -158,4 +168,9 @@ table td:last-child {
 	text-decoration:line-through;
 	cursor: default;
 	pointer-events:none;
+<<<<<<< HEAD
 }
+=======
+}
+
+>>>>>>> refs/heads/jh

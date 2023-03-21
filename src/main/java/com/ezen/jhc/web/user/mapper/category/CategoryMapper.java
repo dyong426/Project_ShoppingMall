@@ -21,7 +21,7 @@ public interface CategoryMapper {
 	
 	// 상품 정보
 	@Select("select * from prods p, prod_images pi, main_ctgr m, sub_ctgr s where p.p_num = pi.p_num and m.m_ctgr_num = s.m_ctgr_num and p.s_ctgr_num = s.s_ctgr_num and m.m_ctgr_num = #{m_ctgr_num}")
-	public List<ProdDTO> getAll(Integer m_ctgr_num);
+	public List<ProdDTO> getProdsAll(Integer m_ctgr_num);
 	
 	// 서브
 	@Select("select * from prod_images pi, prods p, main_ctgr m, sub_ctgr s where m.m_ctgr_num = s.m_ctgr_num and s.s_ctgr_num = p.s_ctgr_num and pi.p_num = p.p_num and s.s_ctgr_num = #{s_ctgr_num}")

@@ -27,11 +27,18 @@ public interface HistoryService {
 	// 날짜만 선택 된 경우
 	List<OrderDTO> getOrderHistoryDateSelected(Integer mem_num, String start_date, String end_date);
 	
-	OrderDTO getAll(Integer mem_num, Integer ord_num);
+	OrderDTO getOrderAll(Integer mem_num, Integer ord_num);
 	
 	// 상세 주문 내역
 	List<OrderDetailDTO> getOrderDetails(Integer ord_num);
 	
 	// 주문 취소
 	void orderCancel(Integer ord_num);
+	
+	// 교환 - 주희
+	void orderExchange(Integer ord_num);
+	
+	// 반품 - 주희
+	void orderRefund(Integer ord_num);
+
 }

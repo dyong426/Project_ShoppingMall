@@ -67,6 +67,7 @@
 			</div>
 	</div>
 </div>
+
 <script>
 	var mem_num = "${member.mem_num}";
 </script>

@@ -37,7 +37,7 @@ public class CategoryController {
 		
 		String mainCtgr = categoryService.getMainCategory(m_ctgr_num);
 		List<SubCtgrDTO> subCtgr = categoryService.getSubCategories(m_ctgr_num);
-		List<ProdDTO> products= categoryService.getAll(m_ctgr_num);
+		List<ProdDTO> products= categoryService.getProdsAll(m_ctgr_num);
 		
 		model.addAttribute("products", products);
 		model.addAttribute("mainCtgr", mainCtgr);

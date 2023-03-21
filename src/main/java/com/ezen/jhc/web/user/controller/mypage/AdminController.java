@@ -59,6 +59,8 @@ public class AdminController {
 			
 		}
 		
+		
+		
 		String uploadFolder = "C:\\upload";
 		
 		/* 날짜 폴더 경로 */

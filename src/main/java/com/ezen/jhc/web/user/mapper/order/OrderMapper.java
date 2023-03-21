@@ -6,8 +6,6 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.ezen.jhc.web.user.dto.cart.CartDTO;
-import com.ezen.jhc.web.user.dto.member.MemberAddressDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDTO;
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
 
@@ -38,16 +36,13 @@ public interface OrderMapper {
 	
 	@Update("update orders set ord_status = 5 where ord_num = #{ord_num}")
 	public void cancleOrder(Integer ord_num);
-	
-	public int insertOrder(OrderDTO orderDto);
 
-	public void saveAddr(MemberAddressDTO memberAddressDto);
+	// 주문 상품 교환
+	@Update("update orders set ord_status = 6 where ord_num = #{ord_num}")
+	public void exchangeOrder(Integer ord_num);
 	
-	public void notSaveAddr(int mem_num);
-	
-	public void insertAddr(MemberAddressDTO memberAddressDto);
-	
-	public void insertOrderDetails(CartDTO cart);
-	
-	public int getOrderId();
+	// 주문 상품 환불
+	@Update("update orders set ord_status = 7 where ord_num = #{ord_num}")
+	public void refundOrder(Integer ord_num);
+
 }

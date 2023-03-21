@@ -23,6 +23,7 @@ public class ReviewDTO {
 	String star;
 	String user_name;
 	
+
 	public String getStar () {
 		if (review_star == 0) {
 			return "☆☆☆☆☆";
@@ -51,12 +52,18 @@ public class ReviewDTO {
 	}
 
 	public String getReview_regdate() {
+		
+		if (this.review_regdate == null) return null;
+		
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 		String formatTime = dayTime.format(this.review_regdate);
 		return formatTime;
 	}
 	
 	public String getRev_only_date() {
+		
+		if (this.review_regdate == null) return null;
+		
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		String formatTime = dayTime.format(this.review_regdate);
 		return formatTime;

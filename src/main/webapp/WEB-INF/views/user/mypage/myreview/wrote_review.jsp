@@ -1,143 +1,148 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/mypage/css/my_review2.css?after">
+	href="<%=request.getContextPath()%>/assets/user/mypage/review/css/wrote_review.css?after">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/assets/user/mypage/css/review_popup.css">
+	href="<%=request.getContextPath()%>/assets/user/mypage/review/css/review_popup.css">
 
 <!-- main -->
 <div class="rv_container2">
 	<div class="rv_body2">
 		<div class="header_title2">
-			<span class="my_review2">나의 리뷰</span>
+			<span class="my_review2"><h1>나의 리뷰</h1></span>
 		</div>
+		<c:set var="member" value="${sessionScope.member }"/>
 		<div class="header_tab">
 			<div class="tab_left" type="order_list">
 				<a class="ok_review"
-					href="<%=request.getContextPath()%>/writeable_reviews?mem_num=${mem_num}&ord_status=${ord_status}">작성 가능한
-					리뷰</a>
+					href="<%=request.getContextPath()%>/review/write?page=1" style="text-decoration: none;">작성 가능한 리뷰</a>
 			</div>
 			<div class="tab_right" type="review_list">내가 쓴 리뷰</div>
 		</div>
 		<div class="wrote_review" total_count="0">
 			<table class="wr_info">
 				<thead>
-					<tr>
+					<tr >
 						<th style="width: 180px;">주문일자[주문번호]</th>
-						<th style="width: 120px;">작성일자</th>
-						<th style="width: 260px;">내용</th>
+						<th style="width: 100px;">작성일자</th>
+						<th style="width: 280px;">내용</th>
 						<th style="width: 100px;">별점</th>
 						<th style="width: 100px;">내 사진</th>
-						<th style="width: 140px;">포인트</th>
 					</tr>
 				</thead>
 
 				<tbody class="wr_list">
-					<tr class="wr">
-						<td class="od_number">2022-09-29
+				<c:forEach items="${rv_history}" var="rh" begin="${start }" end="${end }">
+				
+				
+					<tr class="wr" id="${rh.review_num}">
+					<c:set var="ord_num" value="${rh.ord_num}"/>
+						<td class="od_number">
 							<p>
-								<a href="<%=request.getContextPath()%>/details"
-									class="order_number">[20220929-0001079]</a>
+							${rh.rv_write_date} <br>
+								<a href="/jhc/details?ord_num=${ord_num}"
+									class="order_number">[${rh.new_order_num}]</a>
 							</p>
 						</td>
-						<td class="wr_img">2022-10-02</td>
+						<td class="wr_img">${rh.new_order_date}</td>
 						<td class="wr_check"><strong class="wr_name">
 								<div class="sentence">
-									<a href="" class="ec_wr_name" onclick="return false;">실물 깡패
-										완전 존예입니다. 받자마자 너무 예뻐서 네이비로 재주문 함</a>
+									<a href="" class="ec_wr_name" onclick="return false;" style="text-decoration: none;">${rh.review_content}</a>
 								</div>
 						</strong></td>
 						<td class="wr_amount">
 							<div class="star-ratings">
-								<div class="star-ratings-fill space-x-2 text-lg"
-									style="{ width: ratingToPercent + '%' }">
-									<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-								</div>
-								<div class="star-ratings-base space-x-2 text-lg">
-									<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
+								<div class="star-ratings-fill">
+									${rh.star}
 								</div>
 							</div>
 						</td>
-						<td><img id="picture"
-							src="<%=request.getContextPath() %>/${review_pd.origin_img_path}"
-							alt=""></td>
 						<td>
-							<div class="point_clear">포인트 지급 완료</div>
-						</td>
+						
+						<img id="picture"
+							src="<%=request.getContextPath() %>/display/image?fileName=${rh.review_image_path}"
+							alt=""></td>
 					</tr>
+					</c:forEach> 
 				</tbody>
 			</table>
 		</div>
-	</div>
-</div>
-
-<!-- 팝업 창 -->
-<div class="rv_main">
-	<div class="rv_modal">
-		<div class="rv_modal-content">
-			<span class="rv_close-button">&times;</span>
-			<div class="rv_title_box">
-				<h2 class="rv_title">내가 쓴 리뷰</h2>
-			</div>
-			<div class="rv_info">
-				<div class="rv_image">
-					<img
-						src="<%=request.getContextPath()%>/assets/common/cstm_img/products/clothes/젤란 라이트 후드집업.png"
-						alt="" style="width: 70px; height: 70px;">
-				</div>
-				<div class="rv_">
-					<div class="rv_name">넘나 힙한 츄리닝 [Brown]</div>
-					<div class="rv_price">29,000원</div>
-				</div>
-				<div class="point_clear2">포인트 지급 완료</div>
-			</div>
-			<div class="rv_check_box">
-				<form class="mb-1" name="myform" id="myform" method="post">
-					<fieldset>
-						<input type="radio" name="reviewStar" value="5" id="rate1"><label
-							for="rate1">★</label> <input type="radio" name="reviewStar"
-							value="4" id="rate2"><label for="rate2">★</label> <input
-							type="radio" name="reviewStar" value="3" id="rate3"><label
-							for="rate3">★</label> <input type="radio" name="reviewStar"
-							value="2" id="rate4"><label for="rate4">★</label> <input
-							type="radio" name="reviewStar" value="1" id="rate5"><label
-							for="rate5">★</label>
-					</fieldset>
-				</form>
-			</div>
-			<form action="#post.php" method="POST">
-				<textarea name="message" required="required" spellcheck="false"></textarea>
-				<input type="submit" id="submit" value="수정하기">
-			</form>
-		</div>
+		<div id="page_num_container">
+		            		<div id="page_num_box">
+		            		
+		            		</div>
+            		</div>
 	</div>
 </div>
 
 <script>
-	var rv_modal = document.querySelector(".rv_modal");
-	var ec_wr_name = document.querySelector(".ec_wr_name");
-	var rv_closeButton = document.querySelector(".rv_close-button");
+/* 이미지 출력 */
+function showUploadImage(uploadResultArr){
+	
+	
 
-	function toggleModal() {
-		rv_modal.classList.toggle("show-rv_modal");
-	}
+	
+	/* 전달받은 데이터 검증 */
+	if(!uploadResultArr || uploadResultArr.length == 0){return}
+	
+	let uploadResult = $("#uploadResult");
+	
+	let obj = uploadResultArr[0];
+	
+	let str = "";
+	
+	let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
+	
+	str += "<div id='result_card'>";
+	str += "<img src='/jhc/display/image?fileName=" + fileCallPath +"'>";
+	str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
+	
+	//str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
+	//str += "<input type='hidden' name='imageList[0].uuid' value='"+ obj.uuid +"'>";
+	//str += "<input type='hidden' name='imageList[0].uploadPath' value='"+ obj.uploadPath +"'>";
+	
+	str += "</div>";		
+	
+		uploadResult.append(str); 
+	
+	
+}
 
-	function windowOnClick(event) {
-		if (event.target === rv_modal) {
-			toggleModal();
-		}
-	}
-
-	ec_wr_name.addEventListener("click", toggleModal);
-	rv_closeButton.addEventListener("click", toggleModal);
-	window.addEventListener("click", windowOnClick);
 </script>
+
+
+<!-- 페이징 -->
+<script>
+	let total = ${rh_count};
+	
+	let page_box = document.getElementById('page_num_box');
+	
+	function createPageBtn(cnt) {
+	    page_box.innerHTML += '<div class="page_num_div"><button class="page_num" type="button" name="page" value="' + cnt + '" onclick="goToPage(' + cnt + ');">' + cnt + '</button></div>';
+	}
+	
+	let total_page = Math.ceil(total/10);
+	
+	
+	let cnt = 1;
+	
+	for(let i = 0; i < total_page; ++i) {
+	    createPageBtn(cnt++);
+	}
+	
+	function goToPage(page) {
+	    location.href = "/jhc/review/list?mem_num=${member.mem_num}&page=" + page;
+	}
+</script>
+
+
+
+
 
 
 <footer>
 	<jsp:include page="/WEB-INF/views/user/common/footer.jsp" />
-	?v=<%=System.currentTimeMillis()%>
 	<script type="text/javascript"
 		src="<%=request.getContextPath()%>/assets/user/mypage/js/review_popup.js?ver=1"></script>

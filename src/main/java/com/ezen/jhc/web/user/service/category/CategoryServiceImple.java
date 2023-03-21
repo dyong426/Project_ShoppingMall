@@ -22,9 +22,9 @@ public class CategoryServiceImple implements CategoryService {
 	}
 
 	@Override
-	public List<ProdDTO> getAll(Integer m_ctgr_num) {
+	public List<ProdDTO> getProdsAll(Integer m_ctgr_num) {
 		// TODO Auto-generated method stub
-		return categoryMapper.getAll(m_ctgr_num);
+		return categoryMapper.getProdsAll(m_ctgr_num);
 	}
 
 	@Override
