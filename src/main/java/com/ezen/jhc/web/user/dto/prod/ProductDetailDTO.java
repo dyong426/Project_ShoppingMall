@@ -2,9 +2,11 @@ package com.ezen.jhc.web.user.dto.prod;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
+@NoArgsConstructor
 @AllArgsConstructor
 @RequiredArgsConstructor
 @Data
@@ -24,7 +26,6 @@ public class ProductDetailDTO {
 	Integer pc_num;
 	@NonNull
 	String pc_name;
-	@NonNull
 	String pc_code;
 	// 테이블 조인 : prod_sizes
 	@NonNull

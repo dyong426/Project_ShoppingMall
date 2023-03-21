@@ -9,7 +9,6 @@ const ordererPhone = document.getElementById('ordererPhone');
 sameBtn.onchange = (e) => {
 	if (e.srcElement.checked == true) {
 		if (ordererName.value != null && ordererPhone.value != null) {
-			console.log(ordererName.value);
 			recipient.value = ordererName.value;
 			recipientPhone.value = ordererPhone.value;
 		}
@@ -31,7 +30,6 @@ recipientPhone.addEventListener('keyup', (e) => {
 // 전화번호 입력칸 문자 입력하면 초기화하는 함수
 function isNumber(target) {
 	if (isNaN(target.value)) {
-		console.log(target.value);
 		target.value = "";
 	}
 }
@@ -50,7 +48,7 @@ function searchPostNumber() {
 		oncomplete: function (data) {
 			// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분입니다.
 			// 예제를 참고하여 다양한 활용법을 확인해 보세요.
-			zipCode.value = data.zoneCode;
+			zipCode.value = data.zonecode;
 			addr1.value = data.address;
 		}
 	}).open({
@@ -87,6 +85,13 @@ function searchPostNumber() {
 const rightOuter = document.getElementById('rightOuter');
 const leftOuter = document.getElementById('leftOuter');
 
+window.addEventListener('resize', () => {
+	console.dir(leftOuter);
+	console.log(leftOuter.clientWidth);
+	console.log(leftOuter.offsetLeft);
+	rightOuter.style.left = leftOuter.offsetLeft + leftOuter.clientWidth - 5 + 'px';
+});
+
 window.onscroll = () => {
 	let rightOuterBottom = window.scrollY + rightOuter.clientHeight;
 
@@ -100,6 +105,55 @@ window.onscroll = () => {
 }
 
 
+// 주소 관련 설정
+const saveDestination = document.getElementById('saveDestination');
+const addr2 = document.getElementById('addr2');
+
+// 총 결제 금액 관련 설정
+const total_amount = document.getElementById('total_amount');
+const shipping_price = document.getElementById('shipping_price');
+const total_price = document.getElementById('total_price');
+const total_price2 = document.getElementById('total_price2');
+let totalPriceOnlyNumber = null;
+
+window.onload = () => {	
+	console.dir(leftOuter);
+	console.log(leftOuter.clientWidth);
+	console.log(leftOuter.offsetLeft);
+	rightOuter.style.left = leftOuter.offsetLeft + leftOuter.clientWidth - 5 + 'px';
+	// 주소 관련 설정
+	// 배송지 저장 되어 있으면 체크, 기존 배송지 채우기
+	if (memberAddress.addr_save == 1) {
+		saveDestination.checked = true;
+		zipCode.value = memberAddress.mem_zipcode;
+		addr1.value = memberAddress.mem_addr1;
+		addr2.value = memberAddress.mem_addr2;
+	}
+	
+	// 총 결제 금액 관련 설정
+	total_amount.innerText = parseInt(total_amount.innerText).toLocaleString('ko-KR') + '원';
+	if (total_amount.dataset.totalprice >= 50000) {
+		shipping_price.innerText = 0 + '원';
+	} else {
+		shipping_price.innerText = 3000 + '원';
+	}
+	totalPriceOnlyNumber = parseInt(total_amount.dataset.totalprice) + parseInt(shipping_price.innerText.substring(0, shipping_price.innerText.length - 1));
+	total_price.innerText = (totalPriceOnlyNumber).toLocaleString('ko-KR') + '원';
+	total_price2.innerText = total_price.innerText;
+
+	const pc_name = document.getElementsByClassName('pc_name');
+	const p_price = document.getElementsByClassName('p_price');
+
+	for (i = 0; i < pc_name.length; ++i) {
+		if (pc_name[i].innerText.length > 8) {
+			pc_name[i].style.fontSize = 'small';
+		}
+		if (p_price[i].innerText.length > 6) {
+			p_price[i].style.fontSize = 'small';
+		}
+		p_price[i].innerText = parseInt(p_price[i].innerText).toLocaleString('ko-KR') + '원';
+	}
+};
 
 // 포인트 관련 설정
 const useAllPoint = document.getElementById('useAllPoint');
@@ -108,8 +162,16 @@ const pointSpan = document.getElementById('pointSpan');
 const userPoint = parseInt(pointSpan.innerText);
 
 useAllPoint.addEventListener('click', (e) => {
-	pointInput.value = userPoint;
-	pointSpan.innerText = 0;
+	if (totalPriceOnlyNumber - userPoint < 0) {
+		pointInput.value = totalPriceOnlyNumber;
+		pointSpan.innerText = userPoint - totalPriceOnlyNumber;
+		total_price.innerText = '0원';
+	} else {
+		pointInput.value = userPoint;
+		pointSpan.innerText = 0;
+		total_price.innerText = (totalPriceOnlyNumber - userPoint).toLocaleString('ko-KR') + '원';
+	}
+	total_price2.innerText = total_price.innerText;
 });
 
 pointInput.onchange = (e) => {
@@ -120,47 +182,92 @@ pointInput.onchange = (e) => {
 	} else {
 		pointSpan.innerText = remainPoint;
 	}
+	total_price.innerText = (totalPriceOnlyNumber - e.target.value).toLocaleString('ko-KR') + '원';
+	total_price2.innerText = total_price.innerText;
 };
 
 
+const orderCompleted = document.getElementById('orderCompleted');
+const payButtons = document.getElementsByClassName('payButtons');
+const inputs = document.getElementsByTagName('input');
+const payment_num = document.getElementById('payment_num');
+const total_amount_input = document.getElementById('total_amount_input');
+const totalQuantity = document.getElementById('total_quantity');
+const cart_num = document.getElementById('payment').dataset.cart_num;
+const orderId = document.getElementById('payment').dataset.orderid;
+let p_name = null;
 
-// 주소 관련 설정
-const saveDestination = document.getElementById('saveDestination');
-const addr2 = document.getElementById('addr2');
-
-// 배송지 저장 되어 있으면 체크, 기존 배송지 채우기
-window.onload = () => {
-	if (memberAddress.addr_save == 1) {
-		saveDestination.checked = true;
-		zipCode.value = memberAddress.mem_zipcode;
-		addr1.value = memberAddress.mem_addr1;
-		addr2.value = memberAddress.mem_addr2;
-	}
-};
-
-
-
-// 총 결제 금액 관련 설정
-const orderProd = document.getElementsByClassName('orderProd');
-let od_quantity = 0;
-let od_amount = 0;
-for (i = 0; i < orderProd.length; ++i) {
-	od_quantity += parseInt(orderProd[i].children[3].lastChild.innerText);
-	od_amount += parseInt(orderProd[i].children[4].lastChild.innerText);
-}
-
-const total_quantity = document.getElementById('total_quantity');
-const total_amount = document.getElementById('total_amount');
-const shipping_price = document.getElementById('shipping_price');
-const total_price = document.getElementById('total_price');
-const total_price2 = document.getElementById('total_price2');
-
-total_quantity.innerText = od_quantity + '개';
-total_amount.innerText = od_amount + '원';
-if (od_quantity >= 50000) {
-	shipping_price.innerText = 0 + '원';
+if (totalQuantity.innerText != '1개') {
+	p_name = document.querySelector('.p_name').innerText + ' 외 ' + (parseInt(totalQuantity.innerText.substring(0, totalQuantity.innerText.length - 1)) - 1) + '개 상품';
 } else {
-	shipping_price.innerText = 3000 + '원';
+	p_name = document.querySelector('.p_name').innerText;
 }
-total_price.innerText = total_amount + shipping_price;
-total_price2.innerText = total_amount + shipping_price;
+let tf = false;
+
+var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq' // 테스트용 클라이언트 키
+  // 2. 초기화
+var tossPayments = TossPayments(clientKey);
+
+for (i = 0; i < payButtons.length; ++i) {
+	let payment = i;
+	payButtons[i].addEventListener('click', (e) => {
+		e.preventDefault();
+		for (j = 0; j < inputs.length; ++j) {
+			if (inputs[j].type != 'submit' && inputs[j].type != 'hidden' && inputs[j].type != 'checkbox' && !(inputs[j].id.includes('join') || inputs[j].id.includes('login')) && inputs[j].type != 'number') {
+				if (inputs[j].value == '') {
+					inputs[j].focus();
+					tf = false;
+					break;
+				} else {
+					tf = true;
+				}
+			}
+		}
+		if (tf) {
+			payment_num.value = payment + 1;
+			total_amount_input.value = total_price.innerText.substring(0, total_price.innerText.length - 1).replaceAll(',', '');
+			let payment_name = payment == 0 ? '가상계좌' : '카드';
+			console.log(total_amount_input.value);
+			console.log(mem_name + orderId);
+			console.log(p_name + orderId);
+			console.log(mem_name);
+			tossPayments.requestPayment(payment_name, {
+				// 결제 정보 파라미터
+				'amount': total_amount_input.value,
+				'orderId': orderId + orderId,
+				'orderName': p_name,
+				'customerName': mem_name
+			}).then(function (result) {
+				//결제 요청 성공 처리
+				const data = JSON.stringify({
+					"paymentKey": result.paymentKey,
+					"orderId": result.orderId,
+					"amount": result.amount
+				  });
+				  
+				  const xhr = new XMLHttpRequest();
+				  xhr.withCredentials = true;
+				  
+				  xhr.addEventListener("readystatechange", function () {
+					if (this.readyState === this.DONE) {
+					    orderCompleted.submit();
+					}
+				  });
+				  
+				  xhr.open("POST", "https://api.tosspayments.com/v1/payments/confirm");
+				  xhr.setRequestHeader("Authorization", "Basic dGVzdF9za196WExrS0V5cE5BcldtbzUwblgzbG1lYXhZRzVSOg==");
+				  xhr.setRequestHeader("Content-Type", "application/json");
+				  
+				  xhr.send(data);
+			  })
+			  .catch(function (error) {
+				if (error.code === 'USER_CANCEL') {
+				  // 결제 고객이 결제창을 닫았을 때 에러 처리
+				} else if (error.code === 'INVALID_CARD_COMPANY') {
+				  // 유효하지 않은 카드 코드에 대한 에러 처리
+				  alert('유효하지 않은 카드입니다.');
+				}
+			})
+		}
+	});
+}

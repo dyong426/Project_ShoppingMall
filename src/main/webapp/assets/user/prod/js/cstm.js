@@ -250,8 +250,6 @@ window.onload = function () {
     }
   }
 
-
-
   // 상품 이름이 너무 길면 폰트 사이즈 줄이는 설정
   const productName = document.getElementById('productName');
   const length = productName.innerText.length;
@@ -261,6 +259,11 @@ window.onload = function () {
   } else if (length > 12) {
     productName.style.fontSize = 'x-large';
   }
+
+
+  // 가격 천 단위로 끊기
+  const productPrice = document.getElementById('productPrice');
+  productPrice.innerText = (parseInt(productPrice.innerText)).toLocaleString('ko-KR') + '원';
 }
 
 
@@ -758,6 +761,9 @@ const buttons = document.getElementsByClassName('buttons');
 const loginBtn = document.querySelector('.sign_in');
 const orderForm = document.getElementById('orderForm');
 const cartPopUp = document.getElementById('cartPopUp');
+const cart_num = document.getElementById('cart_num');
+
+let fileName = null;
 
 for (i = 0; i < buttons.length; ++i) {
   buttons[i].addEventListener('click', (e) => {
@@ -768,7 +774,7 @@ for (i = 0; i < buttons.length; ++i) {
     } else if (ps_name != null) {
       // 로그인 되어 있고 사이즈를 선택했으면 버튼 상관없이 이미지 저장
       var cstm_img = stage.toDataURL().split(',')[1];
-      var fileName = 'cstm_img_' + mem_num + '_' + new Date().getMilliseconds() + '.png';
+      fileName = 'cstm_img_' + mem_num + '_' + new Date().getMilliseconds() + '.png';
 
       const xhttp = new XMLHttpRequest();
 
@@ -782,52 +788,23 @@ for (i = 0; i < buttons.length; ++i) {
       cartPopUp.children[0].style.color = 'black';
       cartPopUp.children[0].innerText = '상품을 장바구니에 담았습니다.';
 
-      if (e.target.id == 'intoCart') {
-        // 로그인 상태에서 장바구니 버튼 클릭 이벤트
-        // cstm, cart insert
-        const xhttp = new XMLHttpRequest();
+      
+      // if (e.target.id == 'directPurchase') {
+        // 로그인 상태에서 사이즈 선택후 바로구매 버튼 클릭 이벤트
+        // const pcInput = document.getElementById('pc_name');
+        // const psInput = document.getElementById('ps_name');
+        // const cstmInput = document.getElementById('mem_cstm_path');
 
-        xhttp.open('POST', '/jhc/insertCstm');
-        xhttp.setRequestHeader('Content-Type', 'application/json');
+        // pcInput.value = colorName.innerText;
+        // psInput.value = ps_name;
+        // cstmInput.value = fileName;
 
-        const jsonObj = {
-          mem_num : mem_num,
-          mem_cstm_path : `${fileName}`
-        };
+        // const xhttp = new XMLHttpRequest();
 
-        xhttp.send(JSON.stringify(jsonObj));
+        // xhttp.open();
 
-        xhttp.addEventListener('readystatechange', () => {
-          console.log('readyStateChange');
-          if (xhttp.status == 200 && xhttp.readyState == 4) {
-            const xhttp2 = new XMLHttpRequest();
-    
-            xhttp2.open('POST', '/jhc/insertCart');
-            xhttp2.setRequestHeader('Content-Type', 'application/json');
-    
-            const jsonObj2 = {
-              p_num : p_num,
-              p_price : p_price,
-              pc_name : colorName.innerText,
-              ps_name : ps_name,
-              p_name : p_name
-            };
-
-            xhttp2.send(JSON.stringify(jsonObj2));
-          }
-        });
-      } else {
-        // 로그인 상태에서 사이즈 선택후 바로구매 버튼 클릭 이벤트        
-        const pcInput = document.getElementById('pc_name');
-        const psInput = document.getElementById('ps_name');
-        const cstmInput = document.getElementById('mem_cstm_path');
-
-        pcInput.value = colorName.innerText;
-        psInput.value = ps_name;
-        cstmInput.value = fileName;
-
-        orderForm.onsubmit();
-      }
+      //   orderForm.onsubmit();
+      // }
     } else {
       // 로그인 되어 있지만 사이즈를 선택하지 않으면
       e.preventDefault();
@@ -836,9 +813,89 @@ for (i = 0; i < buttons.length; ++i) {
       cartPopUp.children[0].innerText = '사이즈를 선택해주세요.';
     }
 
-    cartPopUp.style.opacity = 1;
-    setTimeout(() => {
-      cartPopUp.style.opacity = 0;
-    }, 1500);
+    if (!(e.target.id == 'directPurchase' && cartPopUp.children[0].style.color == 'black')) {
+      cartPopUp.style.opacity = 1;
+      setTimeout(() => {
+        cartPopUp.style.opacity = 0;
+      }, 1500);
+    }
   });
 }
+
+buttons[0].addEventListener('click', (e) => {
+  e.preventDefault();
+  // cstm, cart insert
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open('POST', '/jhc/insertCstm');
+  xhttp.setRequestHeader('Content-Type', 'application/json');
+
+  const jsonObj = {
+    mem_num : mem_num,
+    mem_cstm_path : `${fileName}`
+  };
+
+  xhttp.send(JSON.stringify(jsonObj));
+
+  xhttp.addEventListener('readystatechange', () => {
+    if (xhttp.status == 200 && xhttp.readyState == 4) {
+      const xhttp2 = new XMLHttpRequest();
+
+      xhttp2.open('POST', '/jhc/insertCart');
+      xhttp2.setRequestHeader('Content-Type', 'application/json');
+
+      const jsonObj2 = {
+        p_num : p_num,
+        p_price : p_price,
+        pc_name : colorName.innerText,
+        ps_name : ps_name,
+        p_name : p_name
+      };
+
+      xhttp2.send(JSON.stringify(jsonObj2));
+
+      xhttp2.addEventListener('readystatechange', () => {
+        if (xhttp2.status == 200 && xhttp2.readyState == 4) {
+          cart_num.value = xhttp2.responseText;
+          console.log(cart_num.value);
+          orderForm.submit();
+        }
+      });
+    }
+  });
+});
+
+
+buttons[1].addEventListener('click', () => {
+  // cstm, cart insert
+  const xhttp = new XMLHttpRequest();
+
+  xhttp.open('POST', '/jhc/insertCstm');
+  xhttp.setRequestHeader('Content-Type', 'application/json');
+
+  const jsonObj = {
+    mem_num : mem_num,
+    mem_cstm_path : `${fileName}`
+  };
+
+  xhttp.send(JSON.stringify(jsonObj));
+
+  xhttp.addEventListener('readystatechange', () => {
+    if (xhttp.status == 200 && xhttp.readyState == 4) {
+      const xhttp2 = new XMLHttpRequest();
+
+      xhttp2.open('POST', '/jhc/insertCart');
+      xhttp2.setRequestHeader('Content-Type', 'application/json');
+
+      const jsonObj2 = {
+        p_num : p_num,
+        p_price : p_price,
+        pc_name : colorName.innerText,
+        ps_name : ps_name,
+        p_name : p_name
+      };
+
+      xhttp2.send(JSON.stringify(jsonObj2));
+    }
+  });
+});

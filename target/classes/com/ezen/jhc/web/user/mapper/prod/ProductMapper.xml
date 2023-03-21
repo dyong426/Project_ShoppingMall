@@ -22,7 +22,7 @@
 	</select>
 	
 	<select id="getInitialColorByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdColorDTO">
-		SELECT * FROM prod_colors WHERE p_num = #{p_num} AND pc_name = 'WHITE'
+		SELECT * FROM prod_colors WHERE p_num = #{p_num} AND rownum = 1
 	</select>
 	
 	<select id="getProdDetailByIntoCartDto" resultType="com.ezen.jhc.web.user.dto.prod.ProductDetailDTO">

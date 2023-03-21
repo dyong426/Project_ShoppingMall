@@ -1,6 +1,5 @@
 package com.ezen.jhc.web.user.service.prod;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -34,19 +33,15 @@ public class ProductServiceImpl implements ProductService {
 	}
 	
 	@Override
-	public ProdColorDTO getColor(int pc_num) {
-		
+	public ProdColorDTO getColor(int pc_num) {		
 		return prodMapper.getProdColorByNum(pc_num);
 	}
 
 	@Override
-	public List<String> getSizes(int p_num) {
+	public List<ProdSizeDTO> getSizes(int p_num) {
 		
-		List<String> sizes = new ArrayList<String>();
+		List<ProdSizeDTO> sizes = prodMapper.getProdSizesByNum(p_num);
 		
-		for (ProdSizeDTO psd : prodMapper.getProdSizesByNum(p_num)) {
-			sizes.add(psd.getPs_name());
-		}
 		return sizes;
 	}
 	

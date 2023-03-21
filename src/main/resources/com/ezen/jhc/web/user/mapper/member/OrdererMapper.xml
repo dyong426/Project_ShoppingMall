@@ -10,7 +10,9 @@
 	</select>
 	
 	<select id="getAddressByNum" resultType="com.ezen.jhc.web.user.dto.member.MemberAddressDTO">
-		SELECT * FROM member_addresses WHERE mem_num = #{mem_num}
+		SELECT mem_num, LPAD(mem_zipcode, 5, 0) AS mem_zipcode, mem_addr1, mem_addr2, addr_save
+		FROM member_addresses
+		WHERE mem_num = #{mem_num}
 	</select>
 	
 </mapper>

@@ -36,10 +36,13 @@ public class CartDTO {
 	// 테이블 조인 : member_cstm
 	@NonNull
 	String	mem_cstm_path;
+	Integer mem_cstm_num;
 	
 	@NonNull
 	Integer cart_quantity;
 	@NonNull
 	Integer cart_amount;
 	
+	Integer od_num;
+	Integer ord_num;
 }

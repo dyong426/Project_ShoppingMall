@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdColorDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
+import com.ezen.jhc.web.user.dto.prod.ProdSizeDTO;
 import com.ezen.jhc.web.user.service.prod.ProductServiceImpl;
 
 import lombok.extern.log4j.Log4j2;
@@ -32,7 +33,7 @@ public class ProdDetailController {
 		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
 		
 		Map<String, ProdColorDTO> colors = prodService.getColors(p_num);
-		List<String> sizes = prodService.getSizes(p_num);
+		List<ProdSizeDTO> sizes = prodService.getSizes(p_num);
 		ProdColorDTO color = prodService.getInitialColor(p_num);
 		ProdDTO prod = prodService.getProd(p_num);
 		

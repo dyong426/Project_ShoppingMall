@@ -6,5 +6,5 @@ public interface CstmService {
 
 	public void saveImage(String img, String fileName);
 	
-	public int insertCstm(MemberCstmDTO cstmDto);
+	public MemberCstmDTO insertCstm(MemberCstmDTO cstmDto);
 }

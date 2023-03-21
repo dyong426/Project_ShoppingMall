@@ -12,13 +12,20 @@
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/header.css?after">
 <link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/common/css/footer.css">
 <link href="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo_mini.png" rel="shortcut icon" type="image/x-icon">
+<c:set value="<%=request.getContextPath()%>" var="contextPath"></c:set>
+
+
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+	crossorigin="anonymous">
+
 <link rel="stylesheet"
-   href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+
 </head>
 
-<body>
-   <!-- header -->
-   <div class="header_container">
 <body>
 
 	<!-- header -->

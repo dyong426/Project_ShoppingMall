@@ -13,6 +13,8 @@ import lombok.NoArgsConstructor;
 @Data
 public class OrderDTO {
 	
+	Integer mem_num;
+	
 	// 테이블 : orders
 	Integer	ord_num;
 	
@@ -20,7 +22,10 @@ public class OrderDTO {
 	Integer	mem_zipcode;
 	String	mem_addr1;
 	String	mem_addr2;
-	Character addr_save;
+	Integer mem_point;
+
+	Integer addr_save;
+	
 	Date	ord_date;
 	Integer	ord_zipcode;
 	String	ord_addr1;
@@ -76,4 +81,6 @@ public class OrderDTO {
 		return dayTime.format(this.ord_date);
 		
 	}
+	
+
 }
