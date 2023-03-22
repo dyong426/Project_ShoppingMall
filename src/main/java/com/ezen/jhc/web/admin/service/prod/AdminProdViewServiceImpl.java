@@ -1,6 +1,5 @@
 package com.ezen.jhc.web.admin.service.prod;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;

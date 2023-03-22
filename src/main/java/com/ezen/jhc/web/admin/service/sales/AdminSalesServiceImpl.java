@@ -1,7 +1,6 @@
 package com.ezen.jhc.web.admin.service.sales;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
 
@@ -83,7 +82,7 @@ public class AdminSalesServiceImpl implements AdminSalesService{
 	@Override
 	public List<WeeklySalesDTO> getWeeklySalesMainCtgrList() {
 		
-		List<WeeklySalesDTO> weeklySalesList = new ArrayList();
+		List<WeeklySalesDTO> weeklySalesList = new ArrayList<>();
 		
 		for (MainCtgrDTO mCtgrDTO : ctgrMapper.getMainCtgr()) {
 			weeklySalesList.add(salesMapper.getWeeklySalesMainCtgr(mCtgrDTO.getM_ctgr_num()));
@@ -107,7 +106,7 @@ public class AdminSalesServiceImpl implements AdminSalesService{
 	@Override
 	public String getWeeklySalesJson() {
 		
-		List<WeeklySalesDTO> weeklySalesList = new ArrayList();
+		List<WeeklySalesDTO> weeklySalesList = new ArrayList<>();
 		
 		for (MainCtgrDTO mCtgrDTO : ctgrMapper.getMainCtgr()) {
 			weeklySalesList.add(salesMapper.getWeeklySalesMainCtgr(mCtgrDTO.getM_ctgr_num()));

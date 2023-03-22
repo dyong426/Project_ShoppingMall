@@ -24,7 +24,7 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public Map<String, ProdColorDTO> getColors(int p_num) {
 		
-		Map<String, ProdColorDTO> colors = new HashMap();
+		Map<String, ProdColorDTO> colors = new HashMap<>();
 		
 		for (ProdColorDTO pcd : prodMapper.getProdColorsByNum(p_num)) {
 			colors.put(pcd.getPc_code(), pcd);

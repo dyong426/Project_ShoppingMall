@@ -2,12 +2,12 @@
 package com.ezen.jhc.web.user.mapper.mypage;
 
 import java.util.List;
+
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import com.ezen.jhc.web.user.dto.order.OrderDetailDTO;
-import com.ezen.jhc.web.user.dto.review.ReviewDTO;
 import com.ezen.jhc.web.user.dto.review.ReviewImageDTO;
 
 // 김주11희 - 마이페이지 Mapper

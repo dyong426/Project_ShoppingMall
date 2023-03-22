@@ -58,7 +58,7 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 		int[] recentOrderNums = new int[5]; 
 		recentOrderNums = orderMapper.getMemberRecentOrders(mem_num);
 		
-		List<OrderListDTO> memberOrderList = new ArrayList();
+		List<OrderListDTO> memberOrderList = new ArrayList<>();
 		for (Integer ord_num : recentOrderNums) {
 			
 			
