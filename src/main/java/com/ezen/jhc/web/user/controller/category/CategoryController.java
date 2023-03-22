@@ -12,8 +12,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.ezen.jhc.web.admin.dto.prod.SubCtgrDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
+import com.ezen.jhc.web.user.dto.prod.SubCtgrDTO;
 import com.ezen.jhc.web.user.service.category.CategoryService;
 import com.ezen.jhc.web.user.service.category.SearchService;
 
