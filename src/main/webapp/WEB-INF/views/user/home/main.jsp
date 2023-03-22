@@ -123,14 +123,7 @@
 					</a>
 				</div>
 
-				<div class="recom_item">
-					<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=4" class="recom_item_img">
-						<div>
-							<img
-								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/02.png" />
-						</div>
-					</a>
-				</div>
+
 
 				<div class="recom_item" style="">
 					<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=4" class="recom_item_img">

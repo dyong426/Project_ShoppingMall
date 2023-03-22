@@ -19,14 +19,13 @@ import com.ezen.jhc.web.user.dto.review.ReviewDTO;
 import com.ezen.jhc.web.user.mapper.home.HomeMapper;
 
 
-/**@author SUJEONG
+/**@author JIEUN
+ * 
+ * @author SUJEONG
  * 로그인 확인, 메인 페이지 연결
  * */
 @Controller
 public class MainController {
-	/**@author JIEUN
-	 * 
-	 * **/
 	@Autowired
 	HomeMapper home_mapper;
 
@@ -49,55 +48,63 @@ public class MainController {
 		return isLoggedIn;
 	}
 
-	@RequestMapping(value = "/main")
-	public String main(Model model, HttpServletRequest request, HttpSession session) {
+	// 메인 화면 (전체 리뷰 리스트)
+	@RequestMapping(value ="/main", method = RequestMethod.GET)
+	   public String main(Model model) {
+	      
+	      List<ReviewDTO> review_list = home_mapper.get_review_list();
+	      List<ReviewDTO> count = home_mapper.get_all_reviews();
+	      
+	      model.addAttribute("review_list", review_list);
+	      model.addAttribute("review_size", count.size());
+	   
+	      
+	      return "user/home/main";
+	   }
 
-		return "user/home/main";
+	 @RequestMapping(value ="/productDetail", method = RequestMethod.GET)
+	   public String productDetail() {
+	      return "user/prod/productDetailed";
+	   }
+	   
+	   //리뷰 조회 페이지
+	   @RequestMapping(value ="/review", method = RequestMethod.GET)
+	   public String reivew(Model model, Integer review_num) {
+	      List<ReviewDTO> review = home_mapper.get_review(review_num);
+	   
+	      
+	      model.addAttribute("review", review);
+	      System.out.println(review);
+	      
+	      return "user/home/review";
+	   }
 
-	}
-	
-	@RequestMapping(value ="/productDetail", method = RequestMethod.GET)
-	public String productDetail() {
-		return "user/prod/productDetailed";
-	}
-	
-	//리뷰 조회 페이지
-	@RequestMapping(value ="/review", method = RequestMethod.GET)
-	public String reivew(Model model, Integer review_num) {
-		List<ReviewDTO> review = home_mapper.get_review(review_num);
-	
-		
-		model.addAttribute("review", review);
-		System.out.println(review);
-		
-		return "user/home/review";
-	}
+	   
+	   // 전체 리뷰 조회 페이지
+	   /**
+	    * list_end / list_begin -> 선택한 페이지에 맞춰서 꺼내올 list num
+	    * 
+	    * */
+	   @RequestMapping(value ="/allreview", method = RequestMethod.GET)
+	   public String all_reivew(Model model, Integer page) {
+	      List<ReviewDTO> all_reviews = home_mapper.get_all_reviews();
+	      
+	      if(page==null) {page=1;}
+	      
+	      int list_end = Integer.parseInt(page +"") * 10 - 1;
+	      int list_begin = list_end - 9;
+	      
+	      if(list_end >= all_reviews.size()) {
+	         list_end = all_reviews.size() - 1;
+	      }
+	      
+	      model.addAttribute("all_reviews",all_reviews);
+	      model.addAttribute("review_size", all_reviews.size());
+	      
+	      model.addAttribute("begin",list_begin);
+	      model.addAttribute("end",list_end);
+	      
+	      return "user/home/all_review";
+	   }
 
-	
-	// 전체 리뷰 조회 페이지
-	/**
-	 * list_end / list_begin -> 선택한 페이지에 맞춰서 꺼내올 list num
-	 * 
-	 * */
-	@RequestMapping(value ="/allreview", method = RequestMethod.GET)
-	public String all_reivew(Model model, Integer page) {
-		List<ReviewDTO> all_reviews = home_mapper.get_all_reviews();
-		
-		if(page==null) {page=1;}
-		
-		int list_end = Integer.parseInt(page +"") * 10 - 1;
-		int list_begin = list_end - 9;
-		
-		if(list_end >= all_reviews.size()) {
-			list_end = all_reviews.size() - 1;
-		}
-		
-		model.addAttribute("all_reviews",all_reviews);
-		model.addAttribute("review_size", all_reviews.size());
-		
-		model.addAttribute("begin",list_begin);
-		model.addAttribute("end",list_end);
-		
-		return "user/home/all_review";
-	}
 }
