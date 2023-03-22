@@ -61,8 +61,8 @@
 								<table class="table text-center fw-bold">
 									<thead>
 										<tr class="table-dark">
-											<th scope="col">메인카테고리</th>
-											<th scope="col">서브카테고리</th>
+											<th scope="col">카테고리</th>
+											<th scope="col">분류</th>
 											<th scope="col">제품번호</th>
 											<th scope="col">제품명</th>
 											<th scope="col">가격</th>

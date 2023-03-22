@@ -109,7 +109,7 @@
                                                           <div id="prodColors[${indexStatus.index}]-uploadImg" class="pc-upload-result">
                                                             <div id="${prodColor.pc_img_filename}-div" class="upload-prod-img">
                                                               <img
-                                                                src="<%=request.getContextPath()%>/assets/common/upload/${prodColor.pc_thumb_img_path}">
+                                                                src="<%=request.getContextPath()%>/display/images?fileNmae=${prodColor.pc_thumb_img_path}">
                                                               <button type="button" id="${prodColor.pc_img_filename}-btn"
                                                                 class="upload-img-delete-btn btn btn-minus fa-solid fa-circle-minus btn-danger"
                                                                 data-file="${prodColor.pc_thumb_img_path}" onclick="deleteFile(event)"></button>

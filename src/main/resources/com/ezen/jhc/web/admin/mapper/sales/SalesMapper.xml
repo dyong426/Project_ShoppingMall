@@ -22,7 +22,7 @@
     		prods p ON p.p_num = pd.p_num
     	INNER JOIN 
     		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
-    	WHERE ord_date = to_date(20230307)
+    	WHERE to_char(ord_date,'yyyy-mm-dd') = to_char(sysdate,'yyyy-mm-dd')
     	GROUP BY sc.s_ctgr_num, s_ctgr_name, m_ctgr_num
     	ORDER BY m_ctgr_num
     	
@@ -319,10 +319,18 @@
 	</select>
 	
 	<select id="getPeriodSales" resultType="com.ezen.jhc.web.admin.dto.sales.PeriodSalesDTO">
-		SELECT ord_date, count(*) count, sum(total_amount) total_amount FROM orders 
-		WHERE ord_date <![CDATA[>]]>= to_date(#{startDate}) AND ord_date <![CDATA[<]]>= to_date(#{endDate})
-		GROUP BY ord_date
-		ORDER BY ord_date
+		SELECT 
+    TRUNC(ord.ord_date) ord_date, 
+    COUNT(*) count, 
+    SUM(total_amount) total_amount 
+FROM 
+    orders ord 
+WHERE 
+    ord.ord_date BETWEEN #{startDate} AND #{endDate}
+GROUP BY 
+    TRUNC(ord.ord_date)
+ORDER BY 
+    TRUNC(ord.ord_date)
 	</select>
 	
 	<select id="getMainCtgrNewOrders" resultType="com.ezen.jhc.web.admin.dto.home.MainCtgrOrderDTO"> 

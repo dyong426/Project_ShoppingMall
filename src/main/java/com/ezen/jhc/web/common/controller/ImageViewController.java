@@ -26,8 +26,8 @@ import lombok.extern.log4j.Log4j2;
 @Controller
 public class ImageViewController {
 	
-	static String uploadFolder = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\";
-	static String uploadPath = "\\assets\\common\\upload\\";
+	static String uploadFolder = "C:\\upload\\";
+	
 	/**
 	 * 
 	 * @param fileName
