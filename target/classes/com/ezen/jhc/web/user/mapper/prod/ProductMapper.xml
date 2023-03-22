@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.user.mapper.prod.ProductMapper">
+
+	<select id="getProdColorsByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdColorDTO">
+		SELECT * FROM prod_colors WHERE p_num = #{p_num}
+	</select>
+	
+	<select id="getProdColorByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdColorDTO">
+		SELECT * FROM prod_colors WHERE pc_num = #{pc_num}
+	</select>
+	
+	<select id="getProdSizesByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdSizeDTO">
+		SELECT * FROM prod_sizes WHERE p_num = #{p_num}
+	</select>
+	
+	<select id="getProdByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdDTO">
+		SELECT * FROM prods WHERE p_num = #{p_num}
+	</select>
+	
+	<select id="getInitialColorByNum" resultType="com.ezen.jhc.web.user.dto.prod.ProdColorDTO">
+		SELECT * FROM prod_colors WHERE p_num = #{p_num} AND rownum = 1
+	</select>
+	
+	<select id="getProdDetailByIntoCartDto" resultType="com.ezen.jhc.web.user.dto.prod.ProductDetailDTO">
+		SELECT pd_num, pd.p_num, pc_num, pc_name, pc_code, ps_num, ps_name, pd_stock FROM prod_details pd
+		INNER JOIN prod_colors USING (pc_num)
+		INNER JOIN prod_sizes USING (ps_num)
+		WHERE pd.p_num = #{p_num} AND pc_name = #{pc_name} AND ps_name = #{ps_name}
+	</select>
+
+</mapper>

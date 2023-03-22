@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.user.mapper.cart.CartMapper">
+
+	<select id="getCartByMemNum" resultType="com.ezen.jhc.web.user.dto.cart.CartDTO">
+		SELECT * FROM carts WHERE mem_num = #{mem_num}
+	</select>
+	
+	<select id="getCart" resultType="com.ezen.jhc.web.user.dto.cart.CartDTO">
+		SELECT cart_num, mem_cstm_path, mem_cstm_num, c.mem_num, p_num, pd_num, p_name, pc_name, ps_name, p_price, cart_quantity, cart_amount
+		FROM carts c
+		INNER JOIN prod_details pd USING (pd_num)
+		INNER JOIN prod_colors USING (pc_num)
+		INNER JOIN prod_sizes USING (ps_num)
+		INNER JOIN prods USING (p_num)
+		INNER JOIN member_cstms USING (mem_cstm_num)
+		WHERE c.cart_num = #{cart_num}
+	</select>
+
+	<insert id="insertCart" parameterType="com.ezen.jhc.web.user.dto.cart.CartDTO">
+		<selectKey keyProperty="cart_num" order="BEFORE" resultType="int">
+			SELECT cart_num_seq.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO carts VALUES (
+			#{cart_num},
+			#{mem_num},
+			#{pd_num},
+			#{mem_cstm_num},
+			1,
+			#{cart_amount}
+		)
+	</insert>
+	
+	<insert id="createCart" parameterType="com.ezen.jhc.web.user.dto.cart.OnlyCartDTO">
+		<selectKey keyProperty="cart_num" order="BEFORE"
+			resultType="int">
+			SELECT cart_num_seq.nextval FROM DUAL
+		</selectKey>
+		INSERT INTO carts VALUES (
+			#{cart_num},
+			#{mem_num},
+			#{pd_num},
+			(SELECT mem_cstm_num FROM member_cstms WHERE mem_cstm_path = #{mem_cstm_path}),
+			1,
+			#{cart_amount}
+		)
+	</insert>
+
+	<!-- mem_num 넣어야할지 사용할 때 판단하고 추가 결정 -->
+	<delete id="deleteByCstmNum" parameterType="int">
+		DELETE FROM carts
+		WHERE mem_cstm_num = #{mem_cstm_num}
+	</delete>
+	
+	<delete id="deleteCart" parameterType="int">
+		DELETE FROM carts WHERE cart_num = #{cart_num}
+	</delete>
+
+	<delete id="deleteCartsByMemNum" parameterType="int">
+		DELETE FROM carts WHERE mem_num = #{mem_num}
+	</delete>
+
+	<select id="getCarts" resultType="com.ezen.jhc.web.user.dto.cart.CartDTO">
+		SELECT cart_num, mem_cstm_path, mem_cstm_num, c.mem_num, p_num, pd_num, p_name, pc_name, ps_name, p_price, cart_quantity, cart_amount
+		FROM carts c
+		INNER JOIN prod_details pd USING (pd_num)
+		INNER JOIN prod_colors USING (pc_num)
+		INNER JOIN prod_sizes USING (ps_num)
+		INNER JOIN prods USING (p_num)
+		INNER JOIN member_cstms USING (mem_cstm_num)
+		WHERE c.mem_num = #{mem_num}
+		ORDER BY p_num
+	</select>
+	
+	<update id="increaseQty" parameterType="Map">
+		UPDATE carts
+		SET cart_quantity = cart_quantity + 1, cart_amount = (cart_quantity + 1) * #{p_price}
+		WHERE cart_num = #{cart_num}
+	</update>
+	
+	<update id="decreaseQty" parameterType="Map">
+		UPDATE carts
+		SET cart_quantity = cart_quantity - 1, cart_amount = (cart_quantity - 1) * #{p_price}
+		WHERE cart_num = #{cart_num}
+	</update>
+
+</mapper>
