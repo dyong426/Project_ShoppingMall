@@ -18,7 +18,7 @@
 			<div id="review_img">
 				<c:if test="${not empty r.review_image_path}">	
 							<img style="max-width: 300px; max-height: 300px;"
-					src="<%=request.getContextPath()%>/${r.review_image_path}" />
+					src="<%=request.getContextPath()%>/display?fileName=${r.review_image_path}" />
 						</c:if>
 						</div>
 
@@ -42,7 +42,7 @@
 
 		<div id="review_pro_box">
 
-			<a href="<%=request.getContextPath()%>/product_details?product_num=${r.p_num}">
+			<a href="<%=request.getContextPath()%>/prodDetail?p_num=${r.p_num}">
 				<div id="review_pro">
 					<div>
 						<img src="<%=request.getContextPath()%>/${r.sm_img_path}">
@@ -53,7 +53,7 @@
 				</div>
 			</a>
 			<a id="review_back" href="<%=request.getContextPath()%>/main">
-				돌아가기 
+				HOME 
 			</a>
 			<a id="review_all" href="<%=request.getContextPath()%>/allreview">
 				전체리뷰
