@@ -43,11 +43,11 @@
 		<div id="review_pro_box">
 
 			<a href="<%=request.getContextPath()%>/prodDetail?p_num=${r.p_num}">
-				<div id="review_pro">
-					<div>
-						<img src="<%=request.getContextPath()%>/${r.sm_img_path}">
+				<div id="review_pro" style="padding:0px;">
+					<div id="review_info_img" style="padding:5px;">
+						<img src="<%=request.getContextPath() %>/${r.origin_img_path }" style="width: 70px; padding-top:0px;"/>
 					</div>
-					<div>
+					<div style="padding:20px;">
 						<p>${r.p_name}</p>
 					</div>
 				</div>

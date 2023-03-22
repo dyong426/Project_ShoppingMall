@@ -19,6 +19,7 @@ public class ContactDTO {
 	Date contact_regdate;
 	String admin_reply;
 	String cs_ctgr_name;
+	String origin_img_path;
 	
 	// 날짜만 출력
 	String con_only_date;

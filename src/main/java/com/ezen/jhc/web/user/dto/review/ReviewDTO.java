@@ -18,7 +18,8 @@ public class ReviewDTO {
 	Integer p_num;
 	String p_name;
 	String sm_img_path;
-
+	String origin_img_path;
+	
 	String rev_only_date;
 	String star;
 	String user_name;

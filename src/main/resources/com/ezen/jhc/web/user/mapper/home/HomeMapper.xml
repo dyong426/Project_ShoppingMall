@@ -24,7 +24,8 @@
 		mem_name,
 		p.p_num AS p_num,
 		p.p_name AS p_name,
-		sm_img_path
+		sm_img_path,
+		origin_img_path
 		FROM
 		reviews r, members m, prod_images pi, prods p
 		WHERE

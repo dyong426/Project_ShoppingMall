@@ -20,12 +20,10 @@
 
 			<c:if test="${empty mem.mem_num}">
 				<div id="non-members">
-					<br> JUHEECOSTOMER 회원 전용 서비스입니다.<br> 로그인 및 회원가입은 페이지 상단에
+					<br> JUHEECUSTOMER 회원 전용 서비스입니다.<br> 로그인 및 회원가입은 페이지 상단에
 					위치해있으니 이용 부탁드립니다.<br> 그 외 문의는 &nbsp;<a
 						href="mailto:help@ezen.com">help@ezen.com</a>를 이용해주세요<br>
-					<!-- 
-				 ${mem.mem_name}
-				 -->
+
 				</div>
 			</c:if>
 
