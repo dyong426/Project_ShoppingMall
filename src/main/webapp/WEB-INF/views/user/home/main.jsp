@@ -18,6 +18,7 @@
 					<img
 						src="<%=request.getContextPath()%>/assets/user/home/img/banner/banner4.jpg">
 				</div>
+				
 				<!-- 배너 이미지 forEach -->
 				<div class="img_wrapper">
 					<img
@@ -52,6 +53,8 @@
 		</div>
 
 	</div>
+	
+	
 	<!-- category icon -->
 	<div id="home_cate_icon_container" class="h_container">
 		<div id="home_cate_icon_box">

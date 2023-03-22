@@ -5,7 +5,10 @@
 
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/user/home/css/review.css">
+<style>
+a {text-decoration:none;}
 
+</style>
 <div id="all_review_background">
 
 	<div id="all_review_main_container">
@@ -26,7 +29,7 @@
 									<div class="re_star">${r.star }</div>
 									<div class="re_user_name">${r.user_name }</div>
 								</div>
-								<div> class="all_review_content">${r.review_content }</div>
+								<div class="all_review_content">${r.review_content }</div>
 							</div>
 
 							<div class="all_review_img">
