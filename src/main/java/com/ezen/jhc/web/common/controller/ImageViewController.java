@@ -38,11 +38,8 @@ public class ImageViewController {
 			
 		log.info("getImage()---" + fileName);
 		
-<<<<<<< HEAD
-		File file = new File(uploadFolder + fileName);
-=======
 		File file = new File("C:\\upload\\" + fileName);
->>>>>>> refs/heads/main
+
 		
 		ResponseEntity<byte[]> result = null;
 		
@@ -72,11 +69,9 @@ public class ImageViewController {
 		try {
 			
 			// 썸네일 파일 삭제
-<<<<<<< HEAD
-			file = new File(uploadFolder + URLDecoder.decode(fileName, "UTF-8"));
-=======
+
 			file = new File("C:\\upload\\" + URLDecoder.decode(fileName, "UTF-8"));
->>>>>>> refs/heads/main
+
 			
 			file.delete();
 			

@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 
+import com.ezen.jhc.web.admin.dto.prod.SubCtgrDTO;
 import com.ezen.jhc.web.user.dto.prod.ProdDTO;
-import com.ezen.jhc.web.user.dto.prod.SubCtgrDTO;
 /**@author SUJEONG
  * */
 public interface CategoryMapper {
