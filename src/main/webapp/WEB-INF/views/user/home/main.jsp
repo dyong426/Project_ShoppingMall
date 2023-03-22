@@ -5,6 +5,8 @@
 
 <link rel="stylesheet"
 	href="<%=request.getContextPath()%>/assets/user/home/css/home_main.css?after">
+
+
 <!-- main -->
 <div id="home_main">
 	<!-- banner 수정필요-->
@@ -173,16 +175,19 @@
 
 								<div class="home_review_img">
 									<img
-										src="<%=request.getContextPath()%>/${list.review_image_path}" />
+										src="<%=request.getContextPath()%>//display/image?fileName=${list.review_image_path}" />
 								</div>
 
 								<div class="review_score">
 									<div class="star">${list.star}</div>
 								</div>
+								
+		                        <div class="review_contents" style="width:270px;">
+		                           <div class="comment" style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">
+		                           ${list.review_content}
+		                           </div>
+		                        </div>
 
-								<div class="review_contents">
-									<div class="comment">${list.review_content}</div>
-								</div>
 
 								<div class="info">
 									<div class="created_at">${list.rev_only_date}</div>

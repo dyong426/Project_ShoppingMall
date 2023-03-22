@@ -22,6 +22,9 @@
 
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+<style>
+	a{text-decoration:none;}
+</style>
 
 </head>
 
@@ -83,7 +86,7 @@
       <button onclick="location.href='<%=request.getContextPath() %>/history'">주문 내역</button>
       <button onclick="location.href='<%=request.getContextPath() %>/review/write?page=1'">나의 리뷰</button>
       <button onclick="location.href='<%=request.getContextPath() %>/info'">나의 정보</button>
-      <button onclick="location.href='#'">문의 내역</button>
+      <button onclick="location.href='<%=request.getContextPath() %>/contact'">문의 내역</button>
 	</div>
 
 	<!--로그인-->

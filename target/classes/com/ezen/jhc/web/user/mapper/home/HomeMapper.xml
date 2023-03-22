@@ -41,6 +41,7 @@
 		SELECT review_num, review_image_path, review_content,
 		review_star, review_regdate, mem_name
 		FROM reviews r, members m WHERE r.mem_num = m.mem_num
+		ORDER BY review_num DESC
 	</select>
 	
 	

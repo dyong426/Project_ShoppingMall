@@ -61,18 +61,13 @@ public class MainController {
 	      
 	      return "user/home/main";
 	   }
-
-	 @RequestMapping(value ="/productDetail", method = RequestMethod.GET)
-	   public String productDetail() {
-	      return "user/prod/productDetailed";
-	   }
 	   
+	
 	   //리뷰 조회 페이지
 	   @RequestMapping(value ="/review", method = RequestMethod.GET)
 	   public String reivew(Model model, Integer review_num) {
 	      List<ReviewDTO> review = home_mapper.get_review(review_num);
 	   
-	      
 	      model.addAttribute("review", review);
 	      System.out.println(review);
 	      
@@ -88,8 +83,8 @@ public class MainController {
 	   @RequestMapping(value ="/allreview", method = RequestMethod.GET)
 	   public String all_reivew(Model model, Integer page) {
 	      List<ReviewDTO> all_reviews = home_mapper.get_all_reviews();
-	      
-	      if(page==null) {page=1;}
+
+	      if(page==null){page=1;}
 	      
 	      int list_end = Integer.parseInt(page +"") * 10 - 1;
 	      int list_begin = list_end - 9;
@@ -100,10 +95,9 @@ public class MainController {
 	      
 	      model.addAttribute("all_reviews",all_reviews);
 	      model.addAttribute("review_size", all_reviews.size());
-	      
 	      model.addAttribute("begin",list_begin);
 	      model.addAttribute("end",list_end);
-	      
+
 	      return "user/home/all_review";
 	   }
 

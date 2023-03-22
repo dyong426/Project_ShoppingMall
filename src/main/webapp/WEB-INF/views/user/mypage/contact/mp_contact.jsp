@@ -25,19 +25,21 @@
 					<div class="mp_cont">
 						<label for="">문의사항 </label>
 						<div class="mp_container mp_contents">
-
+							<pre><p>${c.contact_content}</p></pre> 
 							 <c:if test="${!empty c.contact_image_path}"> 
-								<div id="mp_contact_img_container">
-								
+								<div id="mp_contact_img_container" style="margin-top: 30px; padding-top: 30px;">
+									
 									<c:forEach items="${img}" var="i">
+									<div style="padding-right: 10px; ">
 									<img class='img_mpcon'
 										src='/jhc/display?fileName=${i.contact_img}'
-										style="max-width: 200px; max-heigth: 200px;">
+										 style="max-width: 200px; max-heigth: 200px; ">
+									</div>
 									</c:forEach>
 								</div>
 							</c:if> 
 
-							${c.contact_content} 
+						
 
 						</div>
 					</div>

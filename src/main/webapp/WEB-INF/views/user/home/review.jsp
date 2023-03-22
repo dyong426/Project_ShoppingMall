@@ -18,7 +18,7 @@
 			<div id="review_img">
 				<c:if test="${not empty r.review_image_path}">	
 							<img style="max-width: 300px; max-height: 300px;"
-					src="<%=request.getContextPath()%>/display?fileName=${r.review_image_path}" />
+					src="<%=request.getContextPath()%>/display/image?fileName=${r.review_image_path}" />
 						</c:if>
 						</div>
 
@@ -33,7 +33,7 @@
 				</div>
 
 				<div id="review_contents">
-					<div id="re_comment">${r.review_content}</div>
+					<div id="re_comment"><pre><p>${r.review_content}<p></pre></div>
 				</div>
 
 

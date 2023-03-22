@@ -18,7 +18,7 @@
 			</div>
 			<c:set value="${sessionScope.member}" var="mem" />
 
-			<c:if test="${!empty mem.mem_num}">
+			<c:if test="${empty mem.mem_num}">
 				<div id="non-members">
 					<br> JUHEECOSTOMER 회원 전용 서비스입니다.<br> 로그인 및 회원가입은 페이지 상단에
 					위치해있으니 이용 부탁드립니다.<br> 그 외 문의는 &nbsp;<a
@@ -29,7 +29,7 @@
 				</div>
 			</c:if>
 
-			<c:if test="${empty mem.mem_num}">
+			<c:if test="${!empty mem.mem_num}">
 				<div id="oneOn_box">
 
 					<form id="oneOnOne_form" action="" method="POST" onsubmit="return doAction();">
@@ -46,7 +46,7 @@
 						<div id="oneOnOne_file" class="oneOnOne inside_form">
 
 							<label for="">첨부파일 </label> <input type="file"
-								name="contact_image_path" accept="image/png, image/jpeg/">
+								name="contact_image_path">
 							<div id="uploadResult_con">
 
 								 <!-- 
@@ -77,7 +77,7 @@
 									</label>
 							</c:forEach>
 							<!-- ${mem.mem_num} -->
-							<input type="hidden" name="mem_num" value="4">
+							<input type="hidden" name="mem_num" value="${mem.mem_num}">
 							
 						</div>
 						

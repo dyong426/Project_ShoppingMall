@@ -34,7 +34,7 @@ a {text-decoration:none;}
 
 							<div class="all_review_img">
 								<c:if test="${not empty r.review_image_path}">
-									<img src="<%=request.getContextPath()%>/${r.review_image_path}" />
+									<img src="<%=request.getContextPath()%>/display/image?fileName=${r.review_image_path}" />
 								</c:if>
 							</div>
 

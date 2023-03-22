@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.ezen.jhc.web.user.dto.contact.AttachImageDTO;
 import com.ezen.jhc.web.user.dto.contact.ContactDTO;
+import com.ezen.jhc.web.user.dto.member.MemberDTO;
 import com.ezen.jhc.web.user.mapper.cs.ContactMapper;
 
 @Controller
@@ -29,13 +30,14 @@ public class ContactController_mp {
 		
 		// 세션 가져오기
 		HttpSession session = request.getSession();
-		session.getAttribute("member");
 		
-		System.out.println("세션가져오기" +session.getAttribute("member"));
+		// mem_num
+		MemberDTO member = (MemberDTO) session.getAttribute("member");
+		Integer mem_num = member.getMem_num();
+
+		List<ContactDTO> list = contact_mapper.getContactList(mem_num);
 		
-		// 세션값 넣어야함
-		List<ContactDTO> list = contact_mapper.getContactList(4);
-		
+		//page_num
 		if(page == null) {
 			page=1;
 		}
