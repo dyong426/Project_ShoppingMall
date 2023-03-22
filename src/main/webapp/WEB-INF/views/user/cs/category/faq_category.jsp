@@ -22,7 +22,9 @@
 					</label>
 					<div>
 
-						<p>${faq_.faq_content}</p>
+						<p style="width: 1000px; text-align: left;">
+						${faq_.faq_content}
+						</p>
 					
 						
 					</div>
