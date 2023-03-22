@@ -34,7 +34,7 @@
 			<div class="row col-12">
 				<div class="col-12 d-flex justify-content-center mb-4 me-5">
 					<img
-						src="<%=request.getContextPath()%>/assets/common/cstm_img/logo.png"
+						src="<%=request.getContextPath()%>/assets/common/cstm_img/logo/logo.png"
 						style="width: 200px;">
 				</div>
 				<div class="col-12">
