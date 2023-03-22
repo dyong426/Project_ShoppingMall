@@ -54,16 +54,16 @@
   background-color:transparent;
   font-size: 2em;
 }
+
 /*카테고리 아이콘*/
 #home_cate_icon_container {
 	margin-top: 50px;
 }
 
 #home_cate_icon_box {
-margin:auto;
-	display: grid;
-	grid-auto-flow: column;
-	width: 900px;
+	margin:auto;
+	display: flex;
+	width: 700px;
 }
 
 .home_cate_item {
@@ -152,6 +152,7 @@ width: 1252px;
 	color: black;
 }
 
+
 .home_review_title>h2 {
 	padding-top: 20px;
 }
@@ -162,7 +163,7 @@ width: 1252px;
 
 .home_review_box {
     float: left;
-    padding: 10px;
+    margin: 10px;
     border-radius: 20px;
     display: inline-block;
     

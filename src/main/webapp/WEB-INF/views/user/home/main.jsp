@@ -59,7 +59,7 @@
 	
 	<!-- category icon -->
 	<div id="home_cate_icon_container" class="h_container">
-		<div id="home_cate_icon_box">
+		<div id="home_cate_icon_box" style="width:700px;">
 			<div class="home_cate_item">
 				<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=1" class="cate_img_01">
 					<div class="home_cate_img">
@@ -153,7 +153,8 @@
 	<!-- review -->
 	<div id="home_review_container" class="h_container">
 		<div id="home_customer_review_box">
-			<div class="home_review_title">
+			<div class="home_review_title"
+				style="width: 1500px;margin: auto;margin-bottom: 30px;">
 				<div>
 					<h2>
 						리뷰 <span>(${review_size})</span>
@@ -167,7 +168,7 @@
 
 			<div class="home_review_list_box" style="margin: auto;">
 				<ul class="home_review_list"
-					style="background-image: url(); list-style: none;">
+					style="background-image: url(); list-style: none; padding:0;">
 
 					<c:forEach items="${review_list}" var="list" begin="0" end="4">
 						<li class="home_review_box"><a
