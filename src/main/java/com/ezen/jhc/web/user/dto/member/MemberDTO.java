@@ -25,4 +25,12 @@ public class MemberDTO implements Serializable {
 	String mem_note;
 	Date mem_regdate;
 	Integer mem_point;
+	
+	Integer additionalPoint;
+	
+	String phoneWithOnlyNum;
+	
+	public String getPhoneWithOnlyNum() {
+		return mem_phone == null ? null : mem_phone.replaceAll("-", "");
+	}
 }

@@ -1,8 +1,5 @@
 package com.ezen.jhc.web.user.service.cart;
 
-import java.io.File;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -56,7 +53,8 @@ public class CartServiceImpl implements CartService {
 		
 		int pd_num = prodDetailDto.getPd_num();
 		
-		OnlyCartDTO onlyCartDto = new OnlyCartDTO(cstmDto.getMem_num(), pd_num, cstmDto.getMem_cstm_num(), cartDto.getP_price());
+		OnlyCartDTO onlyCartDto = new OnlyCartDTO(
+				cstmDto.getMem_num(), pd_num, cstmDto.getMem_cstm_num(), cartDto.getCart_quantity(), cartDto.getP_price());
 		
 		cartMapper.insertCart(onlyCartDto);
 		
@@ -92,37 +90,37 @@ public class CartServiceImpl implements CartService {
 	// 실패작
 	@Override
 	public void getCartDto(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
-		MemberDTO member = (MemberDTO) session.getAttribute("member");
-		MemberAddressDTO memberAddress = ordererMapper.getAddressByNum(member.getMem_num());
-		req.setAttribute("memberAddress", memberAddress);
-		
-		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-		String newFolder = LocalDateTime.now().format(formatter).replace("-", File.separator);
-		String image = "C:\\upload\\cstm_img\\" + newFolder + File.separator + req.getParameter("mem_cstm_path");
-		
-		int pd_num = prodMapper.getProdDetailByIntoCartDto(
-				new IntoCartDTO(
-						Integer.parseInt(req.getParameter("p_num")),
-						Integer.parseInt(req.getParameter("p_price")),
-						req.getParameter("pc_name"),
-						req.getParameter("ps_name"),
-						req.getParameter("p_name"))).getPd_num();
-		
-		List<CartDTO> list = new ArrayList<CartDTO>();
-		list.add(new CartDTO(
-					member.getMem_num(),
-					pd_num,
-					Integer.parseInt(req.getParameter("p_num")),
-					req.getParameter("p_name"),
-					Integer.parseInt(req.getParameter("p_price")),
-					req.getParameter("pc_name"),
-					req.getParameter("ps_name"),
-					image,
-					1,
-					Integer.parseInt(req.getParameter("p_price"))));
-		req.setAttribute("carts", list);
-		req.setAttribute("totalPrice", list.get(0).getCart_amount());
-		req.setAttribute("totalQuantity", list.get(0).getCart_quantity());
+//		MemberDTO member = (MemberDTO) session.getAttribute("member");
+//		MemberAddressDTO memberAddress = ordererMapper.getAddressByNum(member.getMem_num());
+//		req.setAttribute("memberAddress", memberAddress);
+//		
+//		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+//		String newFolder = LocalDateTime.now().format(formatter).replace("-", File.separator);
+//		String image = "C:\\upload\\" + newFolder + File.separator + req.getParameter("mem_cstm_path");
+//		
+//		int pd_num = prodMapper.getProdDetailByIntoCartDto(
+//				new IntoCartDTO(
+//						Integer.parseInt(req.getParameter("p_num")),
+//						Integer.parseInt(req.getParameter("p_price")),
+//						req.getParameter("pc_name"),
+//						req.getParameter("ps_name"),
+//						req.getParameter("p_name"))).getPd_num();
+//		
+//		List<CartDTO> list = new ArrayList<CartDTO>();
+//		list.add(new CartDTO(
+//					member.getMem_num(),
+//					pd_num,
+//					Integer.parseInt(req.getParameter("p_num")),
+//					req.getParameter("p_name"),
+//					Integer.parseInt(req.getParameter("p_price")),
+//					req.getParameter("pc_name"),
+//					req.getParameter("ps_name"),
+//					image,
+//					1,
+//					Integer.parseInt(req.getParameter("p_price"))));
+//		req.setAttribute("carts", list);
+//		req.setAttribute("totalPrice", list.get(0).getCart_amount());
+//		req.setAttribute("totalQuantity", list.get(0).getCart_quantity());
 	}
 
 	@Override

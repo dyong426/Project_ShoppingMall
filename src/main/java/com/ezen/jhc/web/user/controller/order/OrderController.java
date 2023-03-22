@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.ezen.jhc.web.user.dto.cart.CartDTO;
 import com.ezen.jhc.web.user.dto.member.MemberDTO;
+import com.ezen.jhc.web.user.dto.order.OrderDTO;
 import com.ezen.jhc.web.user.service.cart.CartServiceImpl;
 import com.ezen.jhc.web.user.service.member.MemberServiceImpl;
 import com.ezen.jhc.web.user.service.order.OrderServiceImpl;
@@ -40,10 +41,7 @@ public class OrderController {
 	
 	
 	@PostMapping("/directPurchase")
-	public String directPurchase(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {		
-		// 임시 데이터
-		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 7832));
-		
+	public String directPurchase(HttpSession session, HttpServletRequest req, HttpServletResponse resp) {
 		cartService.getCart(session, req);
 		
 		return "user/order/order";
@@ -51,9 +49,6 @@ public class OrderController {
 	
 	@PostMapping("/fromCart")
 	public String fromCart(HttpSession session, Model model) {
-		// 임시 데이터
-		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 50000));
-		
 		int mem_num = ((MemberDTO)session.getAttribute("member")).getMem_num();
 		List<CartDTO> carts = cartService.getCarts(mem_num, session, model);
 		
@@ -74,29 +69,36 @@ public class OrderController {
 	
 	@PostMapping("/completed")
 	public String orderCompleted(HttpSession session, HttpServletRequest req) {
-		// 임시 데이터
-		session.setAttribute("member", new MemberDTO(1, "dslkjf@naver.com", "2132", "1985/02/21", "두리두하", "01050505050", null, new Date(810501231065145L), 50000));
-		
-		int ord_num = orderService.insertOrder(session, req);
-		int mem_num = ((MemberDTO)session.getAttribute("member")).getMem_num();
+		OrderDTO orderDto = orderService.insertOrder(session, req);
+		int ord_num = orderDto.getOrd_num();
+		int totalAmount = orderDto.getTotal_amount();
+		MemberDTO member = (MemberDTO)session.getAttribute("member");
 		
 		List<CartDTO> carts = new ArrayList<CartDTO>();
 		if (req.getParameter("cart_num").isEmpty()) {
-			carts = cartService.getCartsByMemNum(mem_num);
-			cartService.deleteCartsByMemNum(mem_num);
+			carts = cartService.getCartsByMemNum(member.getMem_num());
+			cartService.deleteCartsByMemNum(member.getMem_num());
 		} else {
 			carts.add(cartService.getCartByCartNum(Integer.parseInt(req.getParameter("cart_num"))));
 			cartService.deleteCart(Integer.parseInt(req.getParameter("cart_num")));
 		}
 		
-		orderService.insertOrderDetails(ord_num, carts);
-		
 		// 포인트 사용 후 mem_point 업데이트
-		// merge 후 session에 member 들어있으면 실행
-//		MemberDTO memberDto = new MemberDTO();
-//		memberDto.setMem_num(mem_num);
-//		memberDto.setMem_point(Integer.parseInt(req.getParameter("mem_point")));
-//		memberService.updateMemPoint(memberDto);
+		MemberDTO memberDto = new MemberDTO();
+		memberDto.setMem_num(member.getMem_num());
+		if (!req.getParameter("mem_point").isEmpty()) {
+			// 여기서 mem_point는 보유 포인트가 아닌 결제 시 사용한 포인트로 설정
+			memberDto.setMem_point(Integer.parseInt(req.getParameter("mem_point")));
+		} else {
+			memberDto.setMem_point(0);
+		}
+		memberDto.setAdditionalPoint((int)Math.round(totalAmount * 0.05));
+		memberService.updateMemPoint(memberDto);
+		
+		
+		// 포인트 사용 or 개인정보 수정시 session에 있는 member 업데이트 해야함
+		session.setAttribute("member", memberService.getMemByEmail(member.getMem_email()));
+		orderService.insertOrderDetails(ord_num, carts);
 		
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 		String now = LocalDate.now().format(format);

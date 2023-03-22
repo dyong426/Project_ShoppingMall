@@ -47,7 +47,7 @@ public class ProdDetailRestController {
 	public int insertCart(@RequestBody IntoCartDTO cartDto) {
 		cartDto.setMem_num(cstmDto.getMem_num());
 		cartDto.setMem_cstm_num(cstmDto.getMem_cstm_num());
-		
+		log.info(cartDto);
 		int cart_num = cartService.insertCart(cstmDto, cartDto);
 		
 		return cart_num;

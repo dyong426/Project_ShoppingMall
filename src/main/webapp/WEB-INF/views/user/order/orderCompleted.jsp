@@ -10,7 +10,7 @@
 
 <div id="mainBody">
 	<div class="basket_top">
-		<span id="my_basket">내 장바구니</span>
+		<span id="my_basket">주문 완료</span>
 		<div class="basket_process">
 			<span class="other">장바구니</span>
 			<span class="other">&gt;</span>

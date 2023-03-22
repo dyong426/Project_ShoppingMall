@@ -163,11 +163,12 @@ stage.on('mousedown', function (e) {
 
 const colorName = document.getElementById('colorName');
 
+var background = null;
 // 배경 이미지 생성 및 추가/변경
 function setBackground() {
   var backgroundImg = new Image();
   backgroundImg.onload = function () {
-    var background = new Konva.Image({
+    background = new Konva.Image({
       x: 100,
       y: 0,
       image: backgroundImg,
@@ -180,7 +181,6 @@ function setBackground() {
     layer.add(background);
   };
 
-  // 기본 설정이 검은색 맨투맨 -> 사용자가 선택한 상품 사진으로 수정해야함
   if (!url) {
     backgroundImg.src = colorName.dataset.imagepath;
   } else {
@@ -206,6 +206,7 @@ window.onload = function () {
 
       url = e.target.dataset.imagepath;
 
+      background.remove();
       setBackground();
 
       // 색상 누르면 밝기 구분해서 어두우면 rect 흰색으로 밝으면 검은색으로 변경
@@ -758,7 +759,6 @@ for (i = 0; i < sampleIconList.length; ++i) {
 
 // 구매, 장바구니 버튼 누르면 이미지 저장 후 이동
 const buttons = document.getElementsByClassName('buttons');
-const loginBtn = document.querySelector('.sign_in');
 const orderForm = document.getElementById('orderForm');
 const cartPopUp = document.getElementById('cartPopUp');
 const cart_num = document.getElementById('cart_num');
@@ -822,7 +822,26 @@ for (i = 0; i < buttons.length; ++i) {
   });
 }
 
+
+const quantity = document.getElementById('quantity');
+
+// 수량 변경 관리
+document.querySelector('.plus').addEventListener('click', (e) => {
+  if (parseInt(quantity.innerText) < 99) {
+    quantity.innerText =  parseInt(quantity.innerText) + 1;
+  }
+});
+
+document.querySelector('.minus').addEventListener('click', (e) => {
+  if (parseInt(quantity.innerText) > 1) {
+    quantity.innerText =  parseInt(quantity.innerText) - 1;
+  }
+});
+
+
+// 바로구매 버튼
 buttons[0].addEventListener('click', (e) => {
+  let quantityNum = parseInt(quantity.innerText);
   e.preventDefault();
   // cstm, cart insert
   const xhttp = new XMLHttpRequest();
@@ -849,7 +868,8 @@ buttons[0].addEventListener('click', (e) => {
         p_price : p_price,
         pc_name : colorName.innerText,
         ps_name : ps_name,
-        p_name : p_name
+        p_name : p_name,
+        cart_quantity : quantityNum
       };
 
       xhttp2.send(JSON.stringify(jsonObj2));
@@ -857,7 +877,6 @@ buttons[0].addEventListener('click', (e) => {
       xhttp2.addEventListener('readystatechange', () => {
         if (xhttp2.status == 200 && xhttp2.readyState == 4) {
           cart_num.value = xhttp2.responseText;
-          console.log(cart_num.value);
           orderForm.submit();
         }
       });
@@ -866,7 +885,9 @@ buttons[0].addEventListener('click', (e) => {
 });
 
 
+// 장바구니 담기 버튼
 buttons[1].addEventListener('click', () => {
+  let quantityNum = parseInt(quantity.innerText);
   // cstm, cart insert
   const xhttp = new XMLHttpRequest();
 
@@ -892,10 +913,23 @@ buttons[1].addEventListener('click', () => {
         p_price : p_price,
         pc_name : colorName.innerText,
         ps_name : ps_name,
-        p_name : p_name
+        p_name : p_name,
+        cart_quantity : quantityNum
       };
 
       xhttp2.send(JSON.stringify(jsonObj2));
     }
   });
 });
+
+
+// 커스텀 하거나 장바구니, 바로구매 버튼 눌렀을 때 비로그인 상태면 로그인 팝업 띄우기
+const loginCheck = document.getElementsByClassName('loginCheck');
+
+for (i = 0; i < loginCheck.length; ++i) {
+  loginCheck[i].addEventListener('click', (e) => {
+    if (!mem_num) {
+      loginBtn.click();
+    }
+  });
+}

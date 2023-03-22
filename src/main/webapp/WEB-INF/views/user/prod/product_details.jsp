@@ -6,104 +6,124 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <%@ include file="../common/header.jsp"%>
+<c:set value="<%=request.getContextPath()%>" var="contextPath"></c:set>
 
 <title>juhee custom - ${prod.p_name }</title>
-<link rel="stylesheet" href="assets/user/prod/css/product_detail.css" />
+<link rel="stylesheet" href="${contextPath}/assets/user/prod/css/cstm.css" />
+<link rel="stylesheet" href="${contextPath}/assets/user/prod/css/product_detail.css" />
+<script src="https://unpkg.com/konva@8.4.2/konva.min.js"></script>
 
 <!-- main -->
 <div id="main_container">
 	<!--canvas-->
-	<div id="main_canvas_container">
-		<span>canvas by 이동용, 상품 번호 = ${prod.p_num }</span>
-	</div>
-	<br> <br> <br> <br> <br>
-	<!-- 상품 정보 -->
-		<div id="outer">
-			<div id="container-top"></div>
-
-			<div id="settingPanelOuter">
-				<div id="textSettingPanel" class="settingPanel">
-					<div>글씨 스타일</div>
-					<div>
-						<div id="fontFamily">
-							<div class="subTitle">글꼴</div>
-							<select class="round_border" id="fontFamilyComboBox"
-								onchange="changeFontFamily()">
-							</select>
-						</div>
-						<div id="textAlignFontSize">
-							<div id="textAlign" class="round_border">
-								<span class="material-symbols-outlined">format_align_left</span>
-								<span class="material-symbols-outlined">format_align_center</span>
-								<span class="material-symbols-outlined">format_align_right</span>
-							</div>
-							<div id="fontSize" class="round_border">
-								<span id="fontUpBtn" class="material-symbols-outlined">text_increase</span>
-								<span id="fontDownBtn" class="material-symbols-outlined">text_decrease</span>
-							</div>
-						</div>
-						<div id="textDecoration" class="round_border">
-							<div class="textDecoration">
-								<b>B</b>
-							</div>
-							<div class="textDecoration">
-								<i>I</i>
-							</div>
-							<div class="textDecoration">U</div>
-							<div class="textDecoration">S</div>
-						</div>
-					</div>
-					<div id="textColorInformation">
-						<div class="subTitle">글자색</div>
-						<input type="color" id="color" />
-					</div>
-				</div>
-
-				<div id="mainSettingPanel" class="settingPanel">
-					<div id="productInformation">
-						<div id="productName">${prod.p_name}</div>
-						<div id="productPrice">${prod.p_price}</div>
-					</div>
-					<div id="colorInformation">
-						<!-- DB에서 가져온 색들 중 선택된 색의 이름을 색상명에 넣음 -->
+		<div id="main_canvas_container">
+			<div id="menuBar">
+				<label id="imageIcon" for="fileInput"> <span
+					class="material-symbols-outlined loginCheck">imagesmode</span> <br /> 이미지 업로드
+					<input type="file" multiple="multiple" id="fileInput"
+					accept="image/*">
+				</label> <label id="textIcon"> <span
+					class="material-symbols-outlined loginCheck">format_shapes</span> <br /> 텍스트
+				</label> <label id="sampleIcon"> <span
+					class="material-symbols-outlined loginCheck">category</span> <br /> 샘플 아이콘
+				</label>
+			</div>
+			<div id="outer">
+				<div id="container-top"></div>
+		
+				<div id="settingPanelOuter">
+					<div id="textSettingPanel" class="settingPanel">
+						<div>글씨 스타일</div>
 						<div>
-							<b class="subTitle"> 색상 - <span id="colorName"
-								data-imagePath="${color.pc_img_path}">${color.pc_name}</span>
-							</b>
+							<div id="fontFamily">
+								<div class="subTitle">글꼴</div>
+								<select class="round_border" id="fontFamilyComboBox"
+									onchange="changeFontFamily()">
+								</select>
+							</div>
+							<div id="textAlignFontSize">
+								<div id="textAlign" class="round_border">
+									<span class="material-symbols-outlined">format_align_left</span>
+									<span class="material-symbols-outlined">format_align_center</span>
+									<span class="material-symbols-outlined">format_align_right</span>
+								</div>
+								<div id="fontSize" class="round_border">
+									<span id="fontUpBtn" class="material-symbols-outlined">text_increase</span>
+									<span id="fontDownBtn" class="material-symbols-outlined">text_decrease</span>
+								</div>
+							</div>
+							<div id="textDecoration" class="round_border">
+								<div class="textDecoration">
+									<b>B</b>
+								</div>
+								<div class="textDecoration">
+									<i>I</i>
+								</div>
+								<div class="textDecoration">U</div>
+								<div class="textDecoration">S</div>
+							</div>
 						</div>
-						<div id="productColors">
-							<!-- DB에서 가져온 해당 상품에 존재하는 색들의 값을 backgroundColor로 설정한 div 추가 -->
-							<c:forEach items="${colors}" var="color">
-								<div id="${color.value.pc_code}"
-									data-name="${color.value.pc_name}"
-									data-imagePath="${color.value.pc_img_path}"></div>
+						<div id="textColorInformation">
+							<div class="subTitle">글자색</div>
+							<input type="color" id="color" />
+						</div>
+					</div>
+		
+					<div id="mainSettingPanel" class="settingPanel">
+						<div id="productInformation">
+							<div id="productName">${prod.p_name}</div>
+							<div id="productPrice">${prod.p_price}</div>
+						</div>
+						<div id="colorInformation">
+							<!-- DB에서 가져온 색들 중 선택된 색의 이름을 색상명에 넣음 -->
+							<div>
+								<b class="subTitle"> 색상 - <span id="colorName"
+									data-imagePath="${color.pc_img_path}">${color.pc_name}</span>
+								</b>
+							</div>
+							<div id="productColors">
+								<!-- DB에서 가져온 해당 상품에 존재하는 색들의 값을 backgroundColor로 설정한 div 추가 -->
+								<c:forEach items="${colors}" var="color">
+									<div id="${color.value.pc_code}"
+										data-name="${color.value.pc_name}"
+										data-imagePath="${color.value.pc_img_path}"></div>
+								</c:forEach>
+							</div>
+						</div>
+						<!-- DB 조회해서 재고가 없으면 품절 표시 -->
+						<!-- DB 조회해서 존재하는 사이즈 추가 -->
+						<b class="subTitle">사이즈</b>
+						<div id="productSizes">
+							<c:forEach items="${sizes}" var="size">
+								<div class="sizeHover">${size.ps_name}</div>
 							</c:forEach>
 						</div>
-					</div>
-					<!-- DB 조회해서 재고가 없으면 품절 표시 -->
-					<!-- DB 조회해서 존재하는 사이즈 추가 -->
-					<b class="subTitle">사이즈</b>
-					<div id="productSizes">
-						<c:forEach items="${sizes}" var="size">
-							<div class="sizeHover">${size.ps_name}</div>
-						</c:forEach>
+						<b class="subTitle">수량</b>
+						<div id="productQuantity">
+							<table class="quantityTable">
+								<tr>
+									<td class="minus" data-action="decrement"></td>
+									<td id="quantity">1</td>
+									<td class="plus" data-action="increment"></td>
+								</tr>
+							</table>
+						</div>
 					</div>
 				</div>
-			<div></div>
+				
+				<div id="buttons">
+					<form action="<%=request.getContextPath()%>/order/directPurchase" method="POST" id="orderForm">
+						<input type="submit" class="buttons loginCheck" id="directPurchase" value="바로 구매하기"/>
+						<input type="hidden" id="cart_num" name="cart_num"/>
+					</form>
+					<button class="buttons loginCheck" id="intoCart">장바구니 담기</button>
+				</div>
+				
+				<div id="menu">
+					<button id="delete-button">Delete</button>
+				</div>
+			</div>
 		</div>
-		
-		<div id="buttons">
-			<form action="<%=request.getContextPath()%>/order/directPurchase" method="POST" id="orderForm">
-				<input type="submit" class="buttons" id="directPurchase" value="바로 구매하기"/>
-				<input type="hidden" id="cart_num" name="cart_num"/>
-			</form>
-			<button class="buttons" id="intoCart">장바구니 담기</button>
-		</div>
-		
-		<div id="menu">
-			<button id="delete-button">Delete</button>
-		</div>
-	</div>
 	
 	<div id="sampleIconPopUpBackground">
 		<div id="sampleIconPopUp">
@@ -264,7 +284,6 @@
 		<hr>
 	</c:forEach>
 </div>
-</div>
 <!-- 리뷰 -->
 <div class="subject">고객 리뷰</div>
 <div id="main_review_container">
@@ -397,6 +416,6 @@
 	const p_price = '${prod.p_price}';
 </script>
 
-<script src="assets/user/prod/js/cstm.js"></script>
+<script src="${contextPath}/assets/user/prod/js/cstm.js"></script>
 
 <%@ include file="../common/footer.jsp"%>

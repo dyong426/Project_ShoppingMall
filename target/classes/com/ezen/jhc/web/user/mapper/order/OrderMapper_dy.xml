@@ -19,7 +19,7 @@
 			#{receiver_name},
 			#{receiver_phone},
 			#{total_amount},
-			0,
+			#{ord_status},
 			#{ord_request},
 			#{payment_num}
 		)

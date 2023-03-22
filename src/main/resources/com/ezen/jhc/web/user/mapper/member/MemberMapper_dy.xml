@@ -30,7 +30,7 @@
 	</insert>
 	
 	<update id="updateMemPoint" parameterType="com.ezen.jhc.web.user.dto.member.MemberDTO">
-		UPDATE members SET mem_point = mem_point - #{mem_point} WHERE mem_num = #{mem_num}
+		UPDATE members SET mem_point = mem_point - #{mem_point} + #{additionalPoint} WHERE mem_num = #{mem_num}
 	</update>
 	
 </mapper>

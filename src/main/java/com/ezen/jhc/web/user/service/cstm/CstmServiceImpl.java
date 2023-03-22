@@ -32,7 +32,7 @@ public class CstmServiceImpl implements CstmService {
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
-		String uploadFolder = "C:\\upload\\cstm_img";
+		String uploadFolder = "C:\\upload\\";
 		String newFolder = LocalDateTime.now().format(formatter).replace("-", File.separator);
 		
 		File uploadPath = new File(uploadFolder, newFolder);
@@ -57,8 +57,7 @@ public class CstmServiceImpl implements CstmService {
 		
 		DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 		
-		String filePath = "C:\\upload\\cstm_img\\" +
-							LocalDateTime.now()
+		String filePath = LocalDateTime.now()
 							.format(formatter)
 							.replace("-", File.separator) + "\\";
 		

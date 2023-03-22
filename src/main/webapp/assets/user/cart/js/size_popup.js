@@ -92,6 +92,6 @@ if (totalQuantity != null) {
 
 window.onload = () => {
     for (i = 0; i < prices.length; ++i) {
-        prices[i].innerText = parseInt(prices[i].dataset.p_price).toLocaleString('ko-KR') + '원';
+        prices[i].innerText = (parseInt(prices[i].dataset.p_price) * parseInt(val[i].innerText)).toLocaleString('ko-KR') + '원';
     }
 }

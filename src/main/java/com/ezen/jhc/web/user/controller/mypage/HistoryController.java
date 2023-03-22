@@ -92,9 +92,20 @@ public class HistoryController {
 
 		List<OrderDetailDTO> orderDetails = historyService.getOrderDetails(ord_num);
 
+		int totalPrice = 0;
+		for (OrderDetailDTO od : orderDetails) {
+			totalPrice += od.getOd_amount();
+		}
+		int shipping = totalPrice >= 50000 ? 0 : 3000;
+		int discount = totalPrice >= 50000 ?
+				(totalPrice - order.getTotal_amount()) : (order.getTotal_amount() - 3000 - totalPrice);
+		
 		model.addAttribute("mem_name", mem_name);
 		model.addAttribute("order", order);
 		model.addAttribute("orderDetails", orderDetails);
+		model.addAttribute("discount", discount);
+		model.addAttribute("totalPrice", totalPrice);
+		model.addAttribute("shipping", shipping);
 
 		return "user/mypage/purchase/details";
 	}

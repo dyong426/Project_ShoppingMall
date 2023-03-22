@@ -86,9 +86,6 @@ const rightOuter = document.getElementById('rightOuter');
 const leftOuter = document.getElementById('leftOuter');
 
 window.addEventListener('resize', () => {
-	console.dir(leftOuter);
-	console.log(leftOuter.clientWidth);
-	console.log(leftOuter.offsetLeft);
 	rightOuter.style.left = leftOuter.offsetLeft + leftOuter.clientWidth - 5 + 'px';
 });
 
@@ -116,10 +113,7 @@ const total_price = document.getElementById('total_price');
 const total_price2 = document.getElementById('total_price2');
 let totalPriceOnlyNumber = null;
 
-window.onload = () => {	
-	console.dir(leftOuter);
-	console.log(leftOuter.clientWidth);
-	console.log(leftOuter.offsetLeft);
+window.onload = () => {
 	rightOuter.style.left = leftOuter.offsetLeft + leftOuter.clientWidth - 5 + 'px';
 	// 주소 관련 설정
 	// 배송지 저장 되어 있으면 체크, 기존 배송지 채우기
@@ -160,6 +154,7 @@ const useAllPoint = document.getElementById('useAllPoint');
 const pointInput = document.getElementById('pointInput');
 const pointSpan = document.getElementById('pointSpan');
 const userPoint = parseInt(pointSpan.innerText);
+const discount = document.getElementById('discount');
 
 useAllPoint.addEventListener('click', (e) => {
 	if (totalPriceOnlyNumber - userPoint < 0) {
@@ -172,6 +167,7 @@ useAllPoint.addEventListener('click', (e) => {
 		total_price.innerText = (totalPriceOnlyNumber - userPoint).toLocaleString('ko-KR') + '원';
 	}
 	total_price2.innerText = total_price.innerText;
+	discount.innerText = (parseInt(pointInput.value)).toLocaleString('ko-KR') + '원';
 });
 
 pointInput.onchange = (e) => {
@@ -179,8 +175,13 @@ pointInput.onchange = (e) => {
 	if (remainPoint < 0) {
 		pointInput.value = null;
 		pointSpan.innerText = userPoint;
-	} else {
+		discount.innerText = '0원';
+	} else if (e.target.value < 0) {
+		pointInput.value = 0;
+		discount.innerText = '0원';
+ 	} else {
 		pointSpan.innerText = remainPoint;
+		discount.innerText = (parseInt(pointInput.value)).toLocaleString('ko-KR') + '원';
 	}
 	total_price.innerText = (totalPriceOnlyNumber - e.target.value).toLocaleString('ko-KR') + '원';
 	total_price2.innerText = total_price.innerText;
@@ -208,13 +209,15 @@ var clientKey = 'test_ck_D5GePWvyJnrK0W0k6q8gLzN97Eoq' // 테스트용 클라이
   // 2. 초기화
 var tossPayments = TossPayments(clientKey);
 
+const phoneRegex = /01[012679]\d{7,8}/;
+
 for (i = 0; i < payButtons.length; ++i) {
 	let payment = i;
 	payButtons[i].addEventListener('click', (e) => {
 		e.preventDefault();
 		for (j = 0; j < inputs.length; ++j) {
-			if (inputs[j].type != 'submit' && inputs[j].type != 'hidden' && inputs[j].type != 'checkbox' && !(inputs[j].id.includes('join') || inputs[j].id.includes('login')) && inputs[j].type != 'number') {
-				if (inputs[j].value == '') {
+			if (inputs[j].className == 'emptyCheck') {
+				if (inputs[j].value == '' || (inputs[j].id == 'recipientPhone' && !phoneRegex.test(inputs[j].value))) {
 					inputs[j].focus();
 					tf = false;
 					break;
@@ -227,16 +230,30 @@ for (i = 0; i < payButtons.length; ++i) {
 			payment_num.value = payment + 1;
 			total_amount_input.value = total_price.innerText.substring(0, total_price.innerText.length - 1).replaceAll(',', '');
 			let payment_name = payment == 0 ? '가상계좌' : '카드';
-			console.log(total_amount_input.value);
-			console.log(mem_name + orderId);
-			console.log(p_name + orderId);
-			console.log(mem_name);
+			let easyPay = null;
+			let flowMode = 'DIRECT';
+			switch (payment) {
+				case 1 :
+					easyPay = 'SAMSUNGPAY'
+					break;
+				case 2 :
+					easyPay = 'NAVERPAY'
+					break;
+				case 3 :
+					easyPay = 'TOSSPAY'
+					break;
+				default :
+					flowMode = 'DEFAULT'
+					break;
+			}
 			tossPayments.requestPayment(payment_name, {
 				// 결제 정보 파라미터
 				'amount': total_amount_input.value,
 				'orderId': orderId + orderId,
 				'orderName': p_name,
-				'customerName': mem_name
+				'customerName': mem_name,
+				'flowMode': flowMode,
+				'easyPay': easyPay
 			}).then(function (result) {
 				//결제 요청 성공 처리
 				const data = JSON.stringify({

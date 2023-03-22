@@ -40,7 +40,7 @@ for (i = 0; i < minusBtns.length; ++i) {
     minusBtns[i].addEventListener('click', (e) => {
         let quantity = parseInt(e.target.nextElementSibling.innerText);
         const xhttp = new XMLHttpRequest();
-        if (quantity > 0) {
+        if (quantity > 1) {
             qtyVal.innerText = quantity - 1;
             price.innerText = (parseInt(qtyVal.innerText) * parseInt(price.dataset.p_price)).toLocaleString('ko-KR') + '원';
 
@@ -60,7 +60,7 @@ for (i = 0; i < minusBtns.length; ++i) {
     plusBtns[i].addEventListener('click', (e) => {
         let quantity = parseInt(e.target.previousElementSibling.innerText);
         const xhttp = new XMLHttpRequest();
-        if (quantity < 100) {
+        if (quantity < 99) {
             qtyVal.innerText = quantity + 1;
             price.innerText = (parseInt(qtyVal.innerText) * parseInt(price.dataset.p_price)).toLocaleString('ko-KR') + '원';
 
@@ -94,6 +94,10 @@ for (i = 0; i < minusBtns.length; ++i) {
             xhttp.send(`cart_num=${cartNum}`);
 
             basket_bottom.remove();
+
+        }
+        if (document.getElementsByClassName('minus').length == 0) {
+            window.location.reload();
         }
     });
 }
@@ -103,15 +107,17 @@ for (i = 0; i < minusBtns.length; ++i) {
 const checkout_btn = document.getElementById('checkout_btn');
 const toOrderForm = document.getElementById('toOrderForm');
 
-checkout_btn.addEventListener('click', (e) => {
-    let valQty = 0;
-    e.preventDefault();
-    for (i = 0; i < val.length; ++i) {
-        valQty += parseInt(val[i].innerText);
-    }
-    if (valQty == 0) {
-        alert('상품을 1개 이상 선택해주세요.');
-    } else {
-        toOrderForm.submit();
-    }
-});
+if (checkout_btn != null) {
+    checkout_btn.addEventListener('click', (e) => {
+        let valQty = 0;
+        e.preventDefault();
+        for (i = 0; i < val.length; ++i) {
+            valQty += parseInt(val[i].innerText);
+        }
+        if (valQty == 0) {
+            alert('상품을 1개 이상 선택해주세요.');
+        } else {
+            toOrderForm.submit();
+        }
+    });
+}

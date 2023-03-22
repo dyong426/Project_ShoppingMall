@@ -13,7 +13,7 @@
 <c:set value="${sessionScope.member}" var="member" />
 
 <div class="basket_top">
-	<span id="my_basket">내 장바구니</span>
+	<span id="my_basket">주문서 작성</span>
 	<div class="basket_process">
 		<span class="other">장바구니</span> <span class="other">&gt;</span> <span>주문서작성</span>
 		<span class="other">&gt;</span> <span class="other">주문완료</span>
@@ -27,18 +27,18 @@
 			<div id="ordererInformation" class="rowGrid">
 				<div class="columnGrid">
 					<div>이름</div>
-					<input type="text" id="ordererName" value="${member.mem_name}"
+					<input type="text" class="emptyCheck" id="ordererName" value="${member.mem_name}"
 						name="ordererName" placeholder="이름을 입력해주세요."/>
 				</div>
 				<div class="columnGrid">
 					<div>연락처</div>
-					<input type="tel" id="ordererPhone" value="${member.mem_phone}"
+					<input type="tel" class="emptyCheck" id="ordererPhone" value="${member.mem_phone}"
 						name="ordererPhone" placeholder="- 없이 00000000000"
 						pattern="0[0-9]{10}" />
 				</div>
 				<div class="columnGrid">
 					<div>이메일</div>
-					<input type="text" id="ordererEmail" value="${member.mem_email}"
+					<input type="text" class="emptyCheck" id="ordererEmail" value="${member.mem_email}"
 						name="ordererEmail" placeholder="이메일을 입력해주세요." />
 				</div>
 			</div>
@@ -57,23 +57,23 @@
 			<div id="shipping" class="rowGrid">
 				<div class="columnGrid">
 					<div>수취인</div>
-					<input type="text" name="receiver_name" id="recipient"
+					<input type="text" class="emptyCheck" name="receiver_name" id="recipient"
 						placeholder="이름을 입력해주세요." form="orderCompleted"/>
 				</div>
 				<div class="columnGrid">
 					<div>연락처</div>
-					<input type="text" name="receiver_phone" id="recipientPhone"
+					<input type="text" class="emptyCheck" pattern="01[012679][0-9]{7,8}" name="receiver_phone" id="recipientPhone"
 						placeholder="- 없이 00000000000" form="orderCompleted"/>
 				</div>
 				<div id="destination" class="columnGrid">
 					<div>배송지</div>
 					<div>
-						<input type="text" name="ord_zipCode" id="zipCode"
+						<input type="text" class="emptyCheck" name="ord_zipCode" id="zipCode"
 							placeholder="우편번호" readonly form="orderCompleted"/>
 						<button onclick="searchPostNumber()" class="buttons">우편번호 검색</button>
 					</div>
 					<div>
-						<input type="text" name="ord_addr1" id="addr1" placeholder="주소"
+						<input type="text" class="emptyCheck" name="ord_addr1" id="addr1" placeholder="주소"
 							readonly form="orderCompleted"/>
 						<input type="text" name="ord_addr2" id="addr2"
 							placeholder="상세 주소를 입력해주세요." form="orderCompleted"/>
@@ -128,6 +128,12 @@
 						<b id="shipping_price">3000원</b>
 					</div>
 				</div>
+				<div class="columnGrid">
+					<div>포인트 할인</div>
+					<div class="rightAlign">
+						<b id="discount">0원</b>
+					</div>
+				</div>
 				<div id="total" class="columnGrid">
 					<div class="subTitle">총 결제 금액</div>
 					<div class="rightAlign">
@@ -145,7 +151,7 @@
 				<div id="payment" data-orderid="${orderId}">
 					<%-- 결제 API 넣어야함 --%>
 					<input type="submit" id="" class="payButtons" value="무통장 입금" form="orderCompleted" />
-					<input type="submit" id="kakaoPay" class="payButtons" value="카카오 페이" form="orderCompleted" />
+					<input type="submit" id="samsungPay" class="payButtons" value="삼성 페이" form="orderCompleted" />
 					<input type="submit" id="naverPay" class="payButtons" value="네이버 페이" form="orderCompleted" />
 					<input type="submit" id="tossPay" class="payButtons" value="토스 페이" form="orderCompleted" />
 				</div>
@@ -168,7 +174,7 @@
 						<c:when test="${cartStatus.index < 5}">
 							<div class="orderList">
 								<div class="rowSpan">
-									<img class="cstmImg" src="${cart.mem_cstm_path}"
+									<img class="cstmImg" src="<%=request.getContextPath() %>/display/image?fileName=${cart.mem_cstm_path}"
 										alt="주문 상품 이미지" />
 								</div>
 								<div class="orderProd">

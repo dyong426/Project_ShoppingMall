@@ -15,6 +15,31 @@
     z-index: 10;
 }
 
+.minus, .plus {
+    height: 24px;
+    width: 40px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.minus {
+    background: url(https://s3.marpple.co/file/guest/2018/2/original/f_1655_1518152961135_on1UHreUT7bSKd8i9uO.svg) no-repeat center;
+}
+
+.plus {
+    background: url(https://s3.marpple.co/file/guest/2018/2/original/f_1656_1518152961135_TZW9pZVTRLJ0fqb3s8b.svg) no-repeat center;
+}
+
+td {
+	width: 30px;
+	border: #ececec solid 1px;
+	text-align: center;
+}
+
+.quantityTable {
+	width: 100px;
+}
+
 #fileInput {
     display: none;
 }
@@ -121,6 +146,7 @@ div[id$="SettingPanel"] > div {
     row-gap: 20px;
     width: 80%;
     margin: 10px 0;
+    margin-bottom: 50px;
 }
 
 #productSizes > div {

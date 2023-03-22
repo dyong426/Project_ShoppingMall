@@ -2,10 +2,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <jsp:include page="/WEB-INF/views/user/common/header.jsp" />
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/basket.css">
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/option_popup.css">
-<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/mypage/css/color_popup.css">
-<title>juhee custom -</title>
+<link rel="stylesheet" href="<%=request.getContextPath() %>/assets/user/cart/css/basket.css">
+<title>juhee custom - 장바구니</title>
 
 <c:set value="${sessionScope.member}" var="member"></c:set>
 
@@ -38,7 +36,7 @@
 										<div class="basket_body">
 											<div class="product_info">
 												<div class="name">
-													<img class="img" src="${cart.mem_cstm_path}" alt="상품 이미지">
+													<img class="img" src="<%=request.getContextPath() %>/display/image?fileName=${cart.mem_cstm_path}" alt="상품 이미지">
 													<div class="prodDetail" data-pd_num="${cart.pd_num}" data-cart_num="${cart.cart_num}">
 														${cart.p_name}
 														<div class="prodColor">
@@ -85,7 +83,7 @@
 											<div class="basket_body">
 												<div class="product_info">
 													<div class="name">
-														<img class="img" src="${cart.mem_cstm_path}" alt="상품 이미지">
+														<img class="img" src="<%=request.getContextPath() %>/display/image?fileName=${cart.mem_cstm_path}" alt="상품 이미지">
 														<div class="prodDetail" data-pd_num="${cart.pd_num}" data-cart_num="${cart.cart_num}">
 															${cart.p_name}
 															<div class="prodColor">

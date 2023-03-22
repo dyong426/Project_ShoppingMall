@@ -18,6 +18,7 @@ public class OnlyCartDTO {
 	@NonNull
 	Integer mem_cstm_num;
 	String mem_cstm_path;
+	@NonNull
 	Integer cart_quantity;
 	@NonNull
 	Integer cart_amount;

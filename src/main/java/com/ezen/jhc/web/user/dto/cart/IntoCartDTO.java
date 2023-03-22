@@ -23,4 +23,6 @@ public class IntoCartDTO {
 	String ps_name;
 	@NonNull
 	String p_name;
+	@NonNull
+	Integer cart_quantity;
 }

@@ -55,8 +55,8 @@ public class OrderServiceImpl implements OrderService {
 	}
 
 	@Override
-	public int insertOrder(HttpSession session, HttpServletRequest req) {
-		int mem_num = 1;//((MemberDTO)session.getAttribute("member")).getMem_num();
+	public OrderDTO insertOrder(HttpSession session, HttpServletRequest req) {
+		int mem_num = ((MemberDTO)session.getAttribute("member")).getMem_num();
 		int addr_save = req.getParameter("addr_save").equals("on") ? 1 : 0;
 		
 		OrderDTO orderDto = new OrderDTO();
@@ -69,6 +69,7 @@ public class OrderServiceImpl implements OrderService {
 		orderDto.setTotal_amount(Integer.parseInt(req.getParameter("total_amount")));
 		orderDto.setOrd_request(req.getParameter("ord_request"));
 		orderDto.setPayment_num(Integer.parseInt(req.getParameter("payment_num")));
+		orderDto.setOrd_status(req.getParameter("payment_num").equals("1") ? "0" : "1");
 		
 		orderMapper.insertOrder(orderDto);
 		
@@ -92,13 +93,13 @@ public class OrderServiceImpl implements OrderService {
 				orderMapper.notSaveAddr(mem_num);
 			}
 		}
-		return orderDto.getOrd_num();
+		return orderDto;
 	}
 
 	@Override
 	public void insertOrderDetails(int ord_num, List<CartDTO> carts) {
 		for (CartDTO cart : carts) {
-			cart.setOrd_num(ord_num);
+			cart.setOrd_num(ord_num);			
 			orderMapper.insertOrderDetails(cart);
 		}
 	}

@@ -78,8 +78,12 @@
 										href="/jhc/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a></td>
 									<td><img width=70px; src="<%=request.getContextPath() %>/${order.origin_img_path }"
 										alt="" /></td>
-									<td>${order.p_name }<strong>&nbsp;외</strong></td>
-									<td>￦<fmt:formatNumber value="${order.od_amount }"
+									<td>${order.p_name }
+										<c:if test="${order.od_quantity ne 1}">
+											<strong>&nbsp;외 ${order.od_quantity - 1}개</strong>
+										</c:if>
+									</td>
+									<td>￦<fmt:formatNumber value="${order.total_amount }"
 											pattern="#,###,##0" /></td>
 									<c:if test="${order.status_name eq '입금 전' || order.status_name eq '결제 완료' }">
 										<td>${order.status_name }</td>
