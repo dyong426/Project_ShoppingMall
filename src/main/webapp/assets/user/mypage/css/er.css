@@ -1,0 +1,241 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: black;
+}
+
+.er_background {
+    display: inline-block;
+    width: 100%;
+    height: auto;
+    background-color: rgb(248, 249, 250);
+}
+
+.er_body > * {
+   font-weight: 100;
+    font-style: normal;
+    box-sizing: content-box;
+}
+
+.er_body{
+    justify-self: center;
+    display: flex;
+    display: grid;
+    grid-template-rows: 0.3fr 1fr;
+    margin: 0 auto;
+    width: 1080px;
+    margin-bottom: 150px;
+}
+
+.er_contents {
+    justify-self: center;
+    display: grid;
+    grid-template-rows: 0.5fr, 0.5fr, 1fr;
+    margin-top: 50px;
+    width: 1080px;
+    height: auto;
+    background-color: rgb(236, 237, 238);
+    border-top: solid black 1px;
+    position:relative;
+}
+
+h2{
+    width: 992px;
+    height: 40px;
+    margin: 86px 0px 20px;
+    font-weight: 900;
+    
+  }
+
+  .er_info {
+    width: 990px;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+    border: rgb(210, 210, 210) solid 1px;
+    background-color: rgb(248, 249, 250);
+    margin-left: 45px;
+    margin-top: 40px;
+  }
+
+  .er_info > div {
+    font-size: 18px;
+  }
+
+  .er_guide_box {
+    display: inline-block;
+    width: 990px;
+    padding: 15px;
+    margin-left: 45px;
+    border: solid 1px rgb(226, 228, 230);
+    background-color: white;
+  }
+  
+  .er_guide, .er_pd_title {
+    font-weight: bold;
+    font-size: medium;
+  }
+
+  .er_explanation {
+    font-size: small;
+  }
+
+  .er_form {
+    top: 210px;
+    left: 45px;
+    display: flex;
+    
+  }
+
+  .radio_box, .select_box, .detailed_reason, .bank, .bank_number, .bank_user{
+    margin-bottom: 15px;
+  }
+
+  .bank_info > div > input {
+    width: 450px;
+    padding: 10px;
+  }
+
+  .category_box {
+    width: 490px;
+    height: auto;
+    padding: 20px;
+    background-color: white;
+    margin-left: 45px;
+    margin-bottom: 45px;
+    border: solid 2px rgb(226, 228, 230);
+  }
+
+  select {
+    width: 200px;
+    padding: 5px 20px 5px 5px;
+    font-size: 13px;
+    background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTDNPt1q7t31y1eAUxRybwseCqVJ5WqGad8CHVQ0MDUaLTgpGP6PUNl56tKwBY100H8yfU&usqp=CAU) no-repeat 95% 50%/ 20px auto;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+  }
+
+  textarea {
+    padding: 10px;
+    resize: none;
+  }
+
+  .er_pd_box {
+    margin-left: 40px;
+  }
+
+  .or_info, .or_price {
+    width: 460px;
+    height: auto;
+    background-color: white;
+    padding: 15px;
+    border: solid 2px rgb(226, 228, 230);
+  }
+
+  .or_pd_info {
+    display: flex;
+    margin-left: 5px;
+  }
+
+  .or_name {
+    margin-left: 15px;
+  }
+
+  .or_pd_info > img, .or_price, .or_name, .double_ck {
+    margin-top: 40px;
+    margin-bottom: 45px;
+  }
+
+  .double_ck {
+    font-size: 14px;
+  }
+
+.pd_price {
+   color: rgb(140, 140, 140);
+    display: flex;
+    justify-content: space-between;
+}
+
+.pd_price > div > input[type=text] {
+	color: rgb(140, 140, 140);
+    display: flex;
+    text-align: right;
+    justify-content: space-between;
+    border: none; 
+    background: transparent;
+}
+
+.er_total_price > div > input[type=text] {
+	color: rgb(140, 140, 140);
+    display: flex;
+    text-align: right;
+    justify-content: space-between;
+    border: none; 
+    background: transparent;
+}
+
+.er_total_price {
+	color: rgb(140, 140, 140);
+}
+
+.er_total_price {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: solid 1px rgb(226, 228, 230);
+}
+
+
+#er_reason {
+	margin-top: 10px;
+}
+
+.select_box {
+	margin-top: 10px;
+}
+
+.sb2 {
+	margin-top: 15px;
+}
+
+#pd_img {
+	width: 60px; 
+	height: 60px;
+}
+
+table {
+	margin-top: 10px;
+}
+
+table > tbody > tr > td {
+	padding: 10px;
+	color: gray;
+	font-size: 13px;
+}
+
+#cancle_price {
+	margin-right: -125px
+}
+
+#total_price {
+	margin-right: -70px
+}
+
+
+
+.Ok_btn button {
+	float: right;
+	margin: 15px 0px;
+	color: white;
+	background-color: black;
+	padding: 5px 15px;
+}

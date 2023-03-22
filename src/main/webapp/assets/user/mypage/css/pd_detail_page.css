@@ -1,0 +1,165 @@
+/* 김주희, 정수정 - 주문상세내역 */
+
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+
+a {
+    color: black;
+}
+
+a:hover {
+    color: black;
+}
+
+.title_area > *{
+	font-weight: 100;
+    font-style: normal;
+    box-sizing: content-box;
+}
+
+#pd_img {
+    width: 60px;
+    
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 60px 0px 10px;
+}
+.title h3{
+	font-size:25px;
+}
+.order_area {
+    padding-right: 20px;
+}
+
+.title_area {
+    height: 120px;
+    background-color: rgb(248, 249, 250);
+}
+
+.title {
+    margin-bottom: 10px;
+    border-bottom: lightgrey solid 1px;
+}
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 2px;
+    border-radius: 20px;
+  }
+  
+  .sum {
+  border-spacing: 0 10px;
+  }
+
+  .info_box {
+    background-color: rgb(243, 243, 243);
+  }
+
+  .individual_delivery {
+    background-color: rgb(243, 243, 243);
+  }
+
+  .order_cancellation {
+    margin-left: 10px;
+    font-size: small;
+    color: white;
+    background-color: black;
+  }
+
+  .info_box > tr > th {
+    padding: 5px;
+  }
+
+  .individual_delivery > tr > td {
+    padding: 15px;
+  }
+
+.base_table_total {
+	margin-top:-2px;
+	
+}
+  .base_table_type {
+    justify-self: center;
+    margin: 0 auto;
+  }
+
+  .base_table_type > table{
+    width: 100%;
+  }
+
+  .base_table_type > table > colgroup {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  
+
+  .base_table_type > table > .info_box > tr > th {
+    text-align: center;
+  }
+
+
+
+  .base_table_type > table > .individual_delivery >tr > td{
+    text-align: right;
+  }
+
+  .base_table_type > table > .individual_delivery >tr > td > .shipping_method {
+    padding-right: 190px;
+  }
+
+
+
+  .base_table_type > table > .product_link > tr > td{
+    text-align: center;
+  }
+
+  
+
+.pd_container {
+    display: inline-block;
+    display: flex;
+    justify-self: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(248, 249, 250);
+}
+
+.pd_detail_main {
+    justify-self: center;
+    margin: 0 auto;
+    width: 900px;
+    height: auto;
+    display: grid;
+    margin-bottom: 50px;
+    background-color: white;
+}
+
+.detail_main {
+    margin: 43px 20px 0px 40px;
+}
+
+
+.list_button{
+    justify-self: right;
+    right:0;
+    width: 125px;
+    height: 40px;
+    padding: 10px;
+    line-height: 5px;
+    color: white;
+    font-size: medium;
+    background-color: black;
+}
+
+.order_status{
+	
+}
+
+.order_list_btn {
+    display: flex;
+    padding: 20px 0px 0px 0px;
+    background-color: rgb(248, 249, 250);
+}

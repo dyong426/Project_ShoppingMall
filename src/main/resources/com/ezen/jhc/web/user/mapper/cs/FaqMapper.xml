@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.user.mapper.cs.FaqMapper">
+
+	<!-- 카테고리별 담고있는 질문 -->
+	<select id="get" resultType="com.ezen.jhc.web.user.dto.faq.FaqDTO">
+		SELECT 
+		faq_num,
+	 	faq_title,
+		faq_content,
+		f.cs_ctgr_num AS cs_ctgr_num,
+		cs_ctgr_name
+		FROM faqs f, cs_ctgr c 
+		WHERE 
+		f.cs_ctgr_num = c.cs_ctgr_num 
+		AND f.cs_ctgr_num = #{cs_ctgr_num} 
+		ORDER BY faq_num
+	</select> 
+	
+	<!-- 모든 카테고리 받아옴 -->
+	<select id="get_ctgr_num" resultType="com.ezen.jhc.web.user.dto.faq.FaqDTO">
+		SELECT * FROM cs_ctgr
+	</select> 
+	
+	
+</mapper>

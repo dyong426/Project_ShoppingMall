@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ezen.jhc.web.user.mapper.cs.ContactMapper">
+
+<!-- contact 게시글 등록 -->
+	<insert id="insert_contact" >
+		<selectKey resultType="int" keyProperty="contact_num" order="BEFORE">
+         SELECT contact_num_seq.nextval FROM DUAL
+      	</selectKey>
+		
+		INSERT INTO contact VALUES 
+		(#{contact_num}, #{mem_num}, 
+		#{contact_ctgr}, #{contact_title},
+		#{contact_content}, #{contact_image_path},
+		sysdate, null)
+	</insert> 
+	
+	<!-- contactList -->
+	<select id="getContactList" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
+		SELECT 
+		mem_num, contact_num, cs_ctgr_name, contact_regdate, contact_title, admin_reply
+		FROM contact c, cs_ctgr ct 
+		WHERE c.cs_ctgr_num = ct.cs_ctgr_num 
+		AND mem_num = ${mem_num}
+		ORDER BY contact_num DESC
+	</select>
+	
+	<select id="getContactById" resultType="com.ezen.jhc.web.user.dto.contact.ContactDTO">
+		SELECT * FROM contact WHERE contact_num = #{contact_num}
+	</select>
+	
+	<select id="getContactImgByContactNum" resultType="com.ezen.jhc.web.user.dto.contact.AttachImageDTO">
+		SELECT contact_img FROM contact_images WHERE contact_num = #{contact_num}
+	</select>
+	
+	<insert id="insert_contact_img">
+		INSERT INTO contact_images  VALUES (ci_num_seq.nextval, #{contact_num}, #{contact_img})
+	</insert>
+	
+</mapper> 

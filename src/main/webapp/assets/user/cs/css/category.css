@@ -1,0 +1,58 @@
+.faq_box {
+	background-color: white;
+	text-align: center;
+}
+
+.faq_box>h3 {
+	font-size: 25px;
+	width: 400px;
+	margin: auto;
+	padding: 50px;
+}
+
+/*아코디언 형식 (input 태그 중 id에 faq_answer이 들어가는 모든 것들)*/
+input[id*="faq_answer"] {
+	display: none;
+}
+
+input[id*="faq_answer"]+label {
+	display: block;
+	padding: 20px;
+	border-bottom: 1px solid black;
+	color: black;
+	font-weigth: 900;
+	background-color: rgb(241, 240, 240);
+	cursor: pointer;
+	position: relative;
+	text-align: left;
+}
+
+input[id*="faq_answer"]+label+div {
+	max-height: 0;
+	transition: all .35s;
+    overflow: hidden;
+	font-size : 15px;
+	text-align: left;
+	font-size: 15px;
+	width: 1000px;
+}
+
+input[id*="faq_answer"]+label+div p {
+	display: inline-block;
+	padding: 20px;
+	font-size: 15px;
+	font-weight: 100;
+	width: 1000px;
+	overflow: visible;
+}
+
+input[id*="faq_answer"]:checked+label+div {
+	max-height: 1000px;
+	
+	over-flow: hidden;
+}
+
+
+
+
+

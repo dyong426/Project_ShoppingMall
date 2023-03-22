@@ -1,0 +1,169 @@
+/* 김주희, 정수정 - 주문 내역*/
+
+@import
+	url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap')
+	;
+
+a {
+	color: black;
+}
+
+.background {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	background-color: rgb(248, 249, 250);
+}
+
+.ctr>* {
+	font-style: normal;
+	font-weight: 100;
+	box-sizing: content-box;
+}
+
+.ctr {
+	justify-self: center;
+	display: flex;
+	display: grid;
+	margin: 0 auto;
+	width: 1080px;
+	margin-bottom:100px;	
+}
+
+.contents {
+	justify-self: center;
+	display: flex;
+	margin: 0 auto;
+	width: 1080px;
+	height: auto;
+	background-color: white;
+	border-top: solid black 1px;
+	position: relative;
+}
+
+h1 {
+	width: 992px;
+	height: 43.2px;
+	margin: 86px 0px 40px;
+	font-weight: 900;
+}
+
+.search {
+	width: 990px;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 10px;
+	border: rgb(210, 210, 210) solid 1px;
+	background-color: rgb(248, 249, 250);
+	margin: 25px;
+	margin-left: 45px;
+	margin-top: 40px;
+	position: absolute;
+	padding-left: 20px;
+}
+
+.search_form {
+	width: 990px;
+	padding: 15px;
+	margin-top: 110px;
+	margin-left: 45px;
+	border: solid 1px rgb(226, 228, 230);
+	position: absolute;
+}
+
+.search_date {
+	justify-self: center;
+	display: flex;
+	margin: 0 auto;
+	height: 30px;
+}
+
+.select_date {
+	text-align: center;
+	font-size: 15px;
+	padding: 3px;
+	width: 125px;
+}
+
+select {
+	height: 32.5px;
+	width: 150px;
+	padding: 3px;
+	font-size: 15px;
+}
+
+.symbol {
+	line-height: 20px;
+	font-size: 15px;
+}
+
+.inquiry {
+	font-size: 15px;
+	width: 50px;
+	padding: 3px;
+	color: white;
+	background-color: black;
+}
+
+.explanation {
+	font-size: 14px;
+	color: gray;
+	padding-top: 20px;
+}
+
+.order_history_main_contents{
+	display:flex;
+	flex-direction: column;
+	text-align: center;
+	margin: auto;
+	margin-top:320px;
+	padding-bottom: 50px;
+	
+}
+
+
+.pd_info th{
+	border:1px solid rgb(241,240,240);
+	font-size:15px;
+	height: 60px;
+	background-color:rgb(241,240,240);
+	
+}
+
+.product_name {
+	display: flex;
+	justify-self: left;
+	padding: 0px 0px 5px 10px;
+}
+
+.pd_info{
+	margin-bottom: 55px;
+}
+
+.product {
+	font-size:15px;
+	border:solid 1px rgb(226, 228, 230);
+}
+
+table th:first-child,
+table td:first-child {
+	border-left: 0;
+}
+table th:last-child,
+table td:last-child {
+	border-right: 0;
+}
+
+.product img{
+	padding : 5px;
+}
+
+
+.unable_refund{
+	text-decoration:none;
+	text-decoration:line-through;
+	cursor: default;
+	pointer-events:none;
+}
+
+
