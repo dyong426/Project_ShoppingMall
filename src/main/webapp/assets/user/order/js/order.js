@@ -111,7 +111,7 @@ const total_amount = document.getElementById('total_amount');
 const shipping_price = document.getElementById('shipping_price');
 const total_price = document.getElementById('total_price');
 const total_price2 = document.getElementById('total_price2');
-let totalPriceOnlyNumber = null;
+let totalPriceOnlyNumber = 0;
 
 window.onload = () => {
 	rightOuter.style.left = leftOuter.offsetLeft + leftOuter.clientWidth - 5 + 'px';
@@ -124,19 +124,24 @@ window.onload = () => {
 		addr2.value = memberAddress.mem_addr2;
 	}
 	
-	// 총 결제 금액 관련 설정
-	total_amount.innerText = parseInt(total_amount.innerText).toLocaleString('ko-KR') + '원';
-	if (total_amount.dataset.totalprice >= 50000) {
-		shipping_price.innerText = 0 + '원';
-	} else {
-		shipping_price.innerText = 3000 + '원';
-	}
-	totalPriceOnlyNumber = parseInt(total_amount.dataset.totalprice) + parseInt(shipping_price.innerText.substring(0, shipping_price.innerText.length - 1));
-	total_price.innerText = (totalPriceOnlyNumber).toLocaleString('ko-KR') + '원';
-	total_price2.innerText = total_price.innerText;
-
 	const pc_name = document.getElementsByClassName('pc_name');
 	const p_price = document.getElementsByClassName('p_price');
+
+	// 총 결제 금액 관련 설정
+	// total_amount.innerText = parseInt(total_amount.innerText).toLocaleString('ko-KR') + '원';
+	if (total_amount.dataset.totalprice >= 50000) {
+		shipping_price.innerText ='0원';
+	} else {
+		shipping_price.innerText = '3,000원';
+	}
+	// totalPriceOnlyNumber = parseInt(total_amount.dataset.totalprice) + parseInt(shipping_price.innerText.substring(0, shipping_price.innerText.length - 1));
+	for (i = 0; i < p_price.length; ++i) {
+		totalPriceOnlyNumber += parseInt(p_price[i].innerText.replaceAll(',', '').substring(0, p_price[i].innerText.length));
+	}
+	total_amount.innerText = totalPriceOnlyNumber.toLocaleString('ko-KR') + '원';
+	total_price.innerText = (totalPriceOnlyNumber - parseInt(shipping_price.innerText.replaceAll(',', '').substring(0, shipping_price.innerText.length))).toLocaleString('ko-KR') + '원';
+	total_price2.innerText = total_price.innerText;
+
 
 	for (i = 0; i < pc_name.length; ++i) {
 		if (pc_name[i].innerText.length > 8) {
