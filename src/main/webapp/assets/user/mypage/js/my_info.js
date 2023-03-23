@@ -7,14 +7,14 @@ resign.addEventListener('click', function () {
 
     if (confirmResign) {
         $.ajax({
-            url: '/jhc/member/delete-account',
+            url: './member/delete-account',
             type: 'POST',
             data: { mem_num: mem_num },
             dataType: 'text',
             success: function (response) {
                 alert('회원 탈퇴가 완료 되었습니다.');
                 sessionClear();
-                location.replace('/jhc/main');
+                location.replace('/main');
             }
 
 
@@ -26,7 +26,7 @@ resign.addEventListener('click', function () {
 function sessionClear() {
 
     $.ajax({
-        url: '/jhc/logout.do',
+        url: '/logout.do',
         type: 'POST',
         success: function (result) {
 

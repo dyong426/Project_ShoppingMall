@@ -12,7 +12,7 @@
                 <div class="er_contents">
                         <div class="er_info">
                             <div>
-                                주문번호&nbsp;&nbsp;<a href="/jhc/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a>
+                                주문번호&nbsp;&nbsp;<a href="<%=request.getContextPath()%>/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a>
                             </div>
                         </div>
                             <div class="er_guide_box">
@@ -84,7 +84,7 @@
 			                                               <img id="pd_img" src="<%=request.getContextPath() %>/${od.origin_img_path }" alt="상품 사진">       
 			                                            </td>
 			                                            <td class="product_info">
-			                                                    <a href="/jhc/product_details?p_num=${od.p_num}">${od.p_name }</a>                            
+			                                                    <a href="<%=request.getContextPath()%>/product_details?p_num=${od.p_num}">${od.p_name }</a>                            
 			                                                <div class="option"></div>
 			                                            </td>
 			                                            <td>${od.od_quantity}</td>
@@ -117,7 +117,7 @@
 			                                               <img id="pd_img" src="<%=request.getContextPath() %>/${od.origin_img_path }" alt="상품 사진">       
 			                                            </td>
 			                                            <td class="product_info">
-			                                                    <a href="/jhc/product_details?p_num=${od.p_num}">${od.p_name }</a>                            
+			                                                    <a href="<%=request.getContextPath()%>/product_details?p_num=${od.p_num}">${od.p_name }</a>                            
 			                                                <div class="option"></div>
 			                                            </td>
 			                                            <td>${od.od_quantity}</td>

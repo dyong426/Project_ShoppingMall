@@ -161,7 +161,7 @@
 					</h2>
 				</div>
 				<div id="all_review">
-					<a href="/jhc/allreview?page=1"> 전체보기> </a>
+					<a href="<%=request.getContextPath()%>/allreview?page=1"> 전체보기> </a>
 				</div>
 
 			</div>
@@ -172,7 +172,7 @@
 
 					<c:forEach items="${review_list}" var="list" begin="0" end="4">
 						<li class="home_review_box"><a
-							href="/jhc/review?review_num=${list.review_num }">
+							href="<%=request.getContextPath()%>//review?review_num=${list.review_num }">
 
 								<div class="home_review_img">
 									<img

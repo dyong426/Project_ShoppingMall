@@ -23,7 +23,7 @@
 			<div class="wrapper">
 				<div class="thumbnail_url">
 					<div class="body">
-						<img src="/jhc/assets/admin/images/admin.png"></img>
+						<img src="<%=request.getContextPath()%>/assets/admin/images/admin.png"></img>
 					</div>
 				</div>
 			</div>

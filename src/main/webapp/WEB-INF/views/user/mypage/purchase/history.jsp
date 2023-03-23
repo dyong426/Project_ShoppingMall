@@ -75,7 +75,7 @@
 							<tbody class="product_list">
 								<tr class="product">
 									<td>${order.new_ord_date }<br> <a
-										href="/jhc/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a></td>
+										href="<%=request.getContextPath()%>/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a></td>
 									<td><img width=70px; src="<%=request.getContextPath() %>/${order.origin_img_path }"
 										alt="" /></td>
 									<td>${order.p_name }

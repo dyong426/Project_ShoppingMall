@@ -63,7 +63,7 @@ function showUploadImage(uploadResultList) {
     // var str = '';
 
     // str += `<div id="${obj.fileName}-div" class="upload-img">`;
-    // str += '<img src="/jhc/display/image?fileName=' + fileCallPath +'">';
+    // str += '<img src="<%=request.getContextPath()%>/display/image?fileName=' + fileCallPath +'">';
     // str += `<button type="button" id="${obj.fileName}-btn" class="upload-img-delete-btn btn btn-minus fa-solid fa-circle-minus btn-danger" data-file="` + fileCallPath + '" onclick="deleteFile(event)"></button>'
     // str += '</div>';
 
@@ -77,7 +77,7 @@ function showProdImg(obj, fileCallPath) {
     var str = '';
 
     str += `<div id="${obj.fileName}-div" class="upload-prod-img">`;
-    str += '<img src="/jhc/display/image?fileName=' + fileCallPath +'">';
+    str += '<img src="<%=request.getContextPath()%>/display/image?fileName=' + fileCallPath +'">';
     str += `<button type="button" id="${obj.fileName}-btn" class="upload-img-delete-btn btn btn-minus fa-solid fa-circle-minus btn-danger" data-file="` + fileCallPath + '" onclick="deleteFile(event)"></button>'
     str += '<input type="hidden" name="imageList[0].fileName" value="' + obj.fileName +'">';
     str += '<input type="hidden" name="imageList[0].uuid" value="' + obj.uuid +'">';
@@ -208,7 +208,7 @@ function showUploadColorImage(uploadResultList, event) {
     // var str = '';
 
     // str += `<div id="${obj.fileName}-div" class="upload-img">`;
-    // str += '<img src="/jhc/display/image?fileName=' + fileCallPath +'">';
+    // str += '<img src="<%=request.getContextPath()%>/display/image?fileName=' + fileCallPath +'">';
     // str += `<button type="button" id="${obj.fileName}-btn" class="upload-img-delete-btn btn btn-minus fa-solid fa-circle-minus btn-danger" data-file="` + fileCallPath + '" onclick="deleteFile(event)"></button>'
     // str += '</div>';
 
@@ -223,7 +223,7 @@ function showColorImg(prodColors, obj, fileCallPath) {
     var str = '';
 
     str += '<div id="' + obj.FileName + '-div" data-file="' + fileCallPath + '" class="upload-color-img">';
-    str += '<img src="/jhc/display/image?fileName=' + fileCallPath +  '"' + 'id="' + obj.FileName + '">';
+    str += '<img src="<%=request.getContextPath()%>/display/image?fileName=' + fileCallPath +  '"' + 'id="' + obj.FileName + '">';
     str += '<input type="hidden" name="' + prodColors + '.pc_img_path" value="' + fileCallPath + '">';
     str += '<input type="hidden" name="' + prodColors +  '.pc_img_uploadpath" value="' + obj.uploadPath + '">';
     str += '<input type="hidden" name="' + prodColors + '.pc_img_uuid" value="' + obj.uuid+ '">';
@@ -339,7 +339,7 @@ function showUploadCtgrImage(uploadResultList){
     // var str = '';
 
     // str += `<div id="${obj.fileName}-div" class="upload-img">`;
-    // str += '<img src="/jhc/display/image?fileName=' + fileCallPath +'">';
+    // str += '<img src="<%=request.getContextPath()%>/display/image?fileName=' + fileCallPath +'">';
     // str += `<button type="button" id="${obj.fileName}-btn" class="upload-img-delete-btn btn btn-minus fa-solid fa-circle-minus btn-danger" data-file="` + fileCallPath + '" onclick="deleteFile(event)"></button>'
     // str += '</div>';
 
@@ -358,7 +358,7 @@ function showCtgrImg(obj, fileCallPath) {
     console.log(fileCallPath);
 
     str += `<div id="${obj.fileName}-div" data-file="${fileCallPath}" class="upload-ctgr-img">`;
-    str += `<img src="/jhc/display/image?fileName=${fileCallPath}" id="${obj.fileName}">`;
+    str += `<img src="<%=request.getContextPath()%>/display/image?fileName=${fileCallPath}" id="${obj.fileName}">`;
     str += `<input type="hidden" name="m_ctgr_icon_uploadpath" value="${fileCallPath}${obj.fileName}">`;
     str += `<input type="hidden" name="m_ctgr_icon_uuid" value="${obj.uuid}">`;
     str += '</div>';
@@ -477,7 +477,7 @@ function showUploadModifyCtgrImage(inputId,uploadResultList){
     // var str = '';
 
     // str += `<div id="${obj.fileName}-div" class="upload-img">`;
-    // str += '<img src="/jhc/display/image?fileName=' + fileCallPath +'">';
+    // str += '<img src="<%=request.getContextPath()%>/display/image?fileName=' + fileCallPath +'">';
     // str += `<button type="button" id="${obj.fileName}-btn" class="upload-img-delete-btn btn btn-minus fa-solid fa-circle-minus btn-danger" data-file="` + fileCallPath + '" onclick="deleteFile(event)"></button>'
     // str += '</div>';
 
@@ -496,7 +496,7 @@ function showModifyCtgrImg(obj, fileCallPath) {
     console.log(fileCallPath);
 
     str += `<div id="${obj.fileName}-div" data-file="${fileCallPath}" class="upload-ctgr-img">`;
-    str += `<img src="/jhc/display/image?fileName=${fileCallPath}" id="${obj.fileName}">`;
+    str += `<img src="<%=request.getContextPath()%>/display/image?fileName=${fileCallPath}" id="${obj.fileName}">`;
     str += `<input type="hidden" name="m_ctgr_icon_uploadpath" value="${fileCallPath}${obj.fileName}">`;
     str += `<input type="hidden" name="m_ctgr_icon_uuid" value="${obj.uuid}">`;
     str += '</div>';

@@ -17,7 +17,7 @@ checkEmailPw = () => {
 
   var isTrue = true;
   $.ajax({
-    url: '/jhc/checkEmailPw',
+    url: contextPath+'/checkEmailPw',
     type: 'POST',
     async: false,
     dataType: 'json',
@@ -117,7 +117,7 @@ function kakaoJoin() {
               } else {
                 console.log(result);
                 alert('이미 가입된 계정입니다. 로그인 해주세요.');
-                location.replace('/jhc/main');
+                location.replace('/main');
               }
             },
             error: function (error) {
@@ -142,12 +142,12 @@ function kakaoLogin() {
         url: '/v2/user/me',
         success: function (response) {
           $.ajax({
-            url: '/jhc/login.do',
+            url: contextPath+'/login.do',
             type: 'POST',
             data: { mem_email: response.id },
             success: function () {
               console.log('로그인성공');
-              location.reload('/jhc/main');
+              location.reload('/main');
             }
           })
         },
@@ -203,7 +203,7 @@ logoutBtn.addEventListener('click', function () {
   xhr.open('POST', '/jhc/logout.do', true);
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
-      window.location.href = '/jhc/main';
+      window.location.href = '/main';
     }
   };
   xhr.send();

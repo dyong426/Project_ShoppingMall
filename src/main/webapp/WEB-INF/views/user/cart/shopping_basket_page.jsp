@@ -213,9 +213,9 @@
 </script>
 
 <script type="text/javascript"
-	src="assets/user/cart/js/size_count.js?ver=1"></script>
+	src="<%=request.getContextPath()%>/assets/user/cart/js/size_count.js?ver=1"></script>
 <script type="text/javascript"
-	src="assets/user/cart/js/size_popup.js?ver=1"></script>
+	src="<%=request.getContextPath()%>/assets/user/cart/js/size_popup.js?ver=1"></script>
 <%--
 <script type="text/javascript"
 	src="assets/user/cart/js/color_popup.js?ver=1"></script>

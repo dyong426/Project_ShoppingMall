@@ -80,7 +80,7 @@
                                         </td>
                                         <td>
                                             <div id="${mCtgr.m_ctgr_name}-upload-icon">
-                                            	<img alt="메인카테고리아이콘" src="/jhc/display/image?fileName=${mCtgr.m_ctgr_icon_path}">
+                                            	<img alt="메인카테고리아이콘" src="<%=request.getContextPath()%>/display/image?fileName=${mCtgr.m_ctgr_icon_path}">
                                             </div>
                                             <input type="hidden" name="m_ctgr_icon_path" id="${mCtgr.m_ctgr_name}-IconPath">
                                         </td>

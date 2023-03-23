@@ -42,7 +42,7 @@
 						<td class="od_number">
 							<p>
 							${rh.rv_write_date} <br>
-								<a href="/jhc/details?ord_num=${ord_num}"
+								<a href="<%=request.getContextPath()%>/details?ord_num=${ord_num}"
 									class="order_number">[${rh.new_order_num}]</a>
 							</p>
 						</td>

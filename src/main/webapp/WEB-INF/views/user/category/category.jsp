@@ -29,7 +29,7 @@
 	<div id="category_main_products">
 		<c:forEach items="${products}" var="prod">
 			<div class="products">
-				<a href="/jhc/prodDetail?p_num=${prod.p_num}">
+				<a href="<%=request.getContextPath()%>/prodDetail?p_num=${prod.p_num}">
 				
 				<img
 					src="<%=request.getContextPath() %>/${prod.origin_img_path }" alt="" />

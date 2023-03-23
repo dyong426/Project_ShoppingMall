@@ -19,7 +19,7 @@ public class LoggerInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session=request.getSession();
 		if(session.getAttribute("ADMIN_LOGIN")==null) {
 			log.info("ADMIN_LOGIN  세션값 널");		
-			response.sendRedirect("/jhc/admin/login");			
+			response.sendRedirect("/admin/login");			
 			return false;
 		}
 		return true;

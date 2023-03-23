@@ -39,7 +39,7 @@
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script type="text/javascript" src=" https://cdn.jsdelivr.net/npm/chart.umd.js.map"></script>
 	
-<link rel="stylesheet" href="/jhc/assets/admin/css/common.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/assets/admin/css/common.css">
 <script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/prod_view.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/prod_reg.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath()%>/assets/admin/js/file_upload.js"></script>

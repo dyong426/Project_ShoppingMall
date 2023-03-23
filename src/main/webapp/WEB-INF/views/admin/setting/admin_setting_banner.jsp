@@ -74,7 +74,7 @@
 											<td>
 												<div>
 													<img alt="배너이미지"
-														src="/jhc/display/image?fileName=${banner.banner_img_path}" />
+														src="<%=request.getContextPath()%>/display/image?fileName=${banner.banner_img_path}" />
 												</div>
 											</td>
 											<td>
