@@ -44,14 +44,14 @@ public class AdminSalesController {
 	@GetMapping("admin/sales/weekly")
 	public String getWeeklySales(Model model) {
 		
-		List<WeeklySalesDTO> weeklySalesMcList = salesService.getWeeklySalesMainCtgrList();
+//		List<WeeklySalesDTO> weeklySalesMcList = salesService.getWeeklySalesMainCtgrList();
 		
-		List<WeeklySalesDTO> weeklySalesScList = salesService.getWeeklySalesSubCtgrList();
+//		List<WeeklySalesDTO> weeklySalesScList = salesService.getWeeklySalesSubCtgrList();
 		
 		String weeklyJson = salesService.getWeeklySalesJson();
 
-		model.addAttribute("weeklySalesScList", weeklySalesScList);
-		model.addAttribute("weeklySalesMcList", weeklySalesMcList);
+//		model.addAttribute("weeklySalesScList", weeklySalesScList);
+//		model.addAttribute("weeklySalesMcList", weeklySalesMcList);
 		model.addAttribute("weeklyJson", weeklyJson);
 		
 		return "admin/sales/admin_sales_weekly";

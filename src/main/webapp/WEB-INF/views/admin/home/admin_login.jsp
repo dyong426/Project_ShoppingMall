@@ -23,7 +23,7 @@
 	<c:if test="${login_error ne null}">
 		<script type="text/javascript">
 
-  			alert(`${login_error}`);
+  			alert('${login_error}');
 
 		</script>
 	</c:if>
