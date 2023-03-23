@@ -930,7 +930,7 @@ for (i = 0; i < loginCheck.length; ++i) {
   loginCheck[i].addEventListener('click', (e) => {
     if (!mem_num) {
       document.getElementById('imageIcon').setAttribute('for', null);
-      e.preventDefault();
+      e.stopImmediatePropagation();
       loginBtn.click();
     }
   });
