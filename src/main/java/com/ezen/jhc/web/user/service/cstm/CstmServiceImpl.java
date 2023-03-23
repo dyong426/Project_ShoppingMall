@@ -66,6 +66,6 @@ public class CstmServiceImpl implements CstmService {
 		cstmMapper.insertCstm(cstmDto);
 		
 		return cstmDto;
-	}	
+	}
 
 }
