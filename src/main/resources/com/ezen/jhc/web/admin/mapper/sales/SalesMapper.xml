@@ -29,25 +29,8 @@
 	</select>
 	
 	<select id="getWeeklySalesMainCtgr" resultType="com.ezen.jhc.web.admin.dto.sales.WeeklySalesDTO">
-	SELECT
-	(SELECT
-        COUNT(*)
-     FROM 
-        order_details od 
-    	INNER JOIN 
-    		orders ord ON ord.ord_num = od.ord_num 
-    	INNER JOIN 
-    		prod_details pd ON pd.pd_num = od.pd_num
-    	INNER JOIN 
-    		prods p ON p.p_num = pd.p_num
-    	INNER JOIN 
-    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
-    WHERE 
-        sc.m_ctgr_num = #{m_ctgr_num}
-    AND
-        to_date(TO_Char(ord_date, 'yyyy-mm-dd')) = to_date(TO_char(TRUNC(sysdate,'iw')-7, 'yyyy-mm-dd'));
- SELECT
-    
+        
+SELECT
     (SELECT
         COUNT(*)
      FROM 
@@ -63,7 +46,8 @@
     WHERE 
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
-        to_date(TO_Char(ord_date, 'yyyy-mm-dd')) = to_date(TO_char(TRUNC(sysdate,'iw')-7, 'yyyy-mm-dd'))) mon,
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyymmdd'))
+    AS "mon",
     (SELECT 
         COUNT(*)
      FROM 
@@ -79,7 +63,8 @@
     WHERE 
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
-        to_date(TO_Char(ord_date, 'yyyy-mm-dd')) = to_date(TO_char(TRUNC(sysdate,'iw')-6, 'yyyy-mm-dd'))) tues,
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-6, 'yyyymmdd'))
+    AS "tues",
     (SELECT 
         COUNT(*)
      FROM 
@@ -95,7 +80,8 @@
     WHERE 
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
-        to_date(TO_Char(ord_date, 'yyyy-mm-dd')) = to_date(TO_char(TRUNC(sysdate,'iw')-5, 'yyyy-mm-dd'))) wednes,
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-5, 'yyyymmdd'))
+    AS "wednes",
     (SELECT 
         COUNT(*)
      FROM 
@@ -111,7 +97,8 @@
     WHERE 
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
-        to_date(TO_Char(ord_date, 'yyyy-mm-dd')) = to_date(TO_char(TRUNC(sysdate,'iw')-4, 'yyyy-mm-dd'))) thurs,
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-4, 'yyyymmdd'))
+    AS "thurs",
     (SELECT 
         COUNT(*)
      FROM 
@@ -127,7 +114,24 @@
     WHERE 
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
-        to_date(TO_Char(ord_date, 'yyyy-mm-dd')) = to_date(TO_char(TRUNC(sysdate,'iw')-3, 'yyyy-mm-dd'))) fri,
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-3, 'yyyymmdd'))
+    AS "fri",(SELECT 
+        COUNT(*)
+     FROM 
+        order_details od 
+    	INNER JOIN 
+    		orders ord ON ord.ord_num = od.ord_num 
+    	INNER JOIN 
+    		prod_details pd ON pd.pd_num = od.pd_num
+    	INNER JOIN 
+    		prods p ON p.p_num = pd.p_num
+    	INNER JOIN 
+    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
+    WHERE 
+        sc.m_ctgr_num = #{m_ctgr_num}
+    AND
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-2, 'yyyymmdd'))
+    AS "satur",
     (SELECT 
         COUNT(*)
      FROM 
@@ -143,7 +147,8 @@
     WHERE 
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
-        to_date(TO_Char(ord_date, 'yyyy-mm-dd')) = to_date(TO_char(TRUNC(sysdate,'iw')-2, 'yyyy-mm-dd'))) satur,
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyymmdd'))
+    AS "sun",
     (SELECT 
         COUNT(*)
      FROM 
@@ -159,26 +164,11 @@
     WHERE 
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
-        to_date(TO_Char(ord_date, 'yyyy-mm-dd')) = to_date(TO_char(TRUNC(sysdate,'iw')-1, 'yyyy-mm-dd'))) sun,
-    (SELECT 
-        COUNT(*)
-     FROM 
-        order_details od 
-    	INNER JOIN 
-    		orders ord ON ord.ord_num = od.ord_num 
-    	INNER JOIN 
-    		prod_details pd ON pd.pd_num = od.pd_num
-    	INNER JOIN 
-    		prods p ON p.p_num = pd.p_num
-    	INNER JOIN 
-    		sub_ctgr sc ON sc.s_ctgr_num = p.s_ctgr_num
-    WHERE 
-        sc.m_ctgr_num = #{m_ctgr_num}
-    AND
-        TO_DATE(ord_date) <![CDATA[<]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyy-mm-dd')) 
+        TO_DATE(ord_date) <![CDATA[<]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyymmdd')) 
     AND 
-        TO_DATE(ord_date)  <![CDATA[>]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyy-mm-dd'))) total,
-    #{m_ctgr_num} m_ctgr_num,
+        TO_DATE(ord_date)  <![CDATA[>]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyymmdd')))
+    AS "total",
+    #{m_ctgr_num} as "m_ctgr_num",
     (SELECT m_ctgr_name FROM main_ctgr WHERE m_ctgr_num = #{m_ctgr_num}) ctgr_name
 	FROM DUAL
 	</select>
@@ -201,7 +191,7 @@
     WHERE 
         sc.s_ctgr_num = #{s_ctgr_num}
     AND
-        TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyy-mm-dd'))
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyymmdd'))
     AS "mon",
     (SELECT 
         COUNT(*)
@@ -218,7 +208,7 @@
     WHERE 
         sc.s_ctgr_num = #{s_ctgr_num}
     AND
-        TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-6, 'yyyy-mm-dd'))
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-6, 'yyyymmdd'))
     AS "tues",
     (SELECT 
         COUNT(*)
@@ -235,7 +225,7 @@
     WHERE 
         sc.s_ctgr_num = #{s_ctgr_num}
     AND
-        TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-5, 'yyyy-mm-dd'))
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-5, 'yyyymmdd'))
     AS "wednes",
     (SELECT 
         COUNT(*)
@@ -252,7 +242,7 @@
     WHERE 
         sc.s_ctgr_num = #{s_ctgr_num}
     AND
-        TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-4, 'yyyy-mm-dd'))
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-4, 'yyyymmdd'))
     AS "thurs",
     (SELECT 
         COUNT(*)
@@ -269,7 +259,7 @@
     WHERE 
         sc.s_ctgr_num = #{s_ctgr_num}
     AND
-        TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-3, 'yyyy-mm-dd'))
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-3, 'yyyymmdd'))
     AS "fri",(SELECT 
         COUNT(*)
      FROM 
@@ -285,7 +275,7 @@
     WHERE 
         sc.s_ctgr_num = #{s_ctgr_num}
     AND
-        TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-2, 'yyyy-mm-dd'))
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-2, 'yyyymmdd'))
     AS "satur",
     (SELECT 
         COUNT(*)
@@ -302,7 +292,7 @@
     WHERE 
         sc.s_ctgr_num = #{s_ctgr_num}
     AND
-        TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyy-mm-dd'))
+        TO_CHAR(ord_date, 'yyyymmdd') = TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyymmdd'))
     AS "sun",
     (SELECT 
         COUNT(*)
@@ -319,9 +309,9 @@
     WHERE 
         sc.s_ctgr_num = #{s_ctgr_num}
     AND
-        TO_DATE(ord_date) <![CDATA[<]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyy-mm-dd')) 
+        TO_DATE(ord_date) <![CDATA[<]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyymmdd')) 
     AND 
-        TO_DATE(ord_date) <![CDATA[>]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyy-mm-dd')))
+        TO_DATE(ord_date) <![CDATA[>]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyymmdd')))
     AS "total",
     #{m_ctgr_num} as "m_ctgr_num",
     (SELECT s_ctgr_name FROM sub_ctgr WHERE s_ctgr_num = #{s_ctgr_num}) ctgr_name
