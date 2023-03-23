@@ -63,9 +63,18 @@
 		
 			<div class="header_container_bottom_contents">
 				<span class="user_welcome_text hidden_visilbility" id="user_welcome_text">${member.mem_name}님, 환영합니다.</span>
-				<a id="myCart" href="<%=request.getContextPath()%>/cart">
-					<span class="material-symbols-outlined">shopping_cart</span>
-				</a>
+				<c:choose>
+					<c:when test="${not empty member}">
+						<a id="myCart" href="<%=request.getContextPath()%>/cart">
+							<span class="material-symbols-outlined">shopping_cart</span>
+						</a>
+					</c:when>
+					<c:otherwise>
+						<a id="myCart">
+							<span class="material-symbols-outlined">shopping_cart</span>
+						</a>
+					</c:otherwise>
+				</c:choose>
 				<button id="myPage">
 
 
