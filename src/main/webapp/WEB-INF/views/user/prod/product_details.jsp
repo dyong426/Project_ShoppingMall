@@ -140,7 +140,6 @@
 	
 	<br> <br> <br> <br> <br>
 	<!-- 상품 정보 -->
-	
 	<!-- 사이즈 정보 -->
 	<div class="subject">사이즈</div>
 	<table id="size_table">

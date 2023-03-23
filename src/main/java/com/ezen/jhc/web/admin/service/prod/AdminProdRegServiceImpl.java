@@ -75,13 +75,11 @@ public class AdminProdRegServiceImpl implements AdminProdRegService {
 		
 		prodColors.setProdColors(pcList);
 		
-		String explainPath = getTextPath(prodDTO, p_explain);
-		String infoPath = getTextPath(prodDTO, p_info);
-		
-		log.info(explainPath);
-		log.info(infoPath);
-		prodDTO.setP_explain_path(infoPath);
-		prodDTO.setP_info_path(infoPath);
+//		String explainPath = getTextPath(prodDTO, p_explain);
+//		String infoPath = getTextPath(prodDTO, p_info);
+
+		prodDTO.setP_explain_path(p_explain.toString());
+		prodDTO.setP_info_path(p_info.toString());
 		
 		log.info("ProdDTO : " + prodDTO);
 		int resultProd = prodRegMapper.regProd(prodDTO);
@@ -119,8 +117,7 @@ public class AdminProdRegServiceImpl implements AdminProdRegService {
 	public String getTextPath(ProdDTO prodDTO, StringBuilder sb) {
 
 		// 저장 경로 설정
-		String uploadPath = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\";
-		String uploadFolder = uploadPath + "assets\\common\\upload\\";
+		String uploadFolder = "C:\\upload\\";
 		// 파일 이름에 사용할 현재 날짜 가져오기
 		String datePath = util.getNowTime("yyyy-MM-dd", 0).replace("-", File.separator);
 
@@ -149,7 +146,7 @@ public class AdminProdRegServiceImpl implements AdminProdRegService {
 			e.printStackTrace();
 		}
 		
-		return saveFile.getAbsolutePath().replace(uploadPath,"");
+		return saveFile.getAbsolutePath().replace(uploadFolder,"");
 	}
 
 }

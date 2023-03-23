@@ -197,7 +197,7 @@
                                                       <label for="prod_explain_editor">브랜드 설명</label>
                                                       <textarea class="summernote" id="prod_explain_editor" name="prod_explain">
                                     
-                                                          <%@ include file="../include/prod_explain.txt"%>
+                                                          <%@ include file="../include/prod_explain.jsp"%>
                                                           
                                                         </textarea>
                                                       <!-- 브랜드 스토리 끝 -->
