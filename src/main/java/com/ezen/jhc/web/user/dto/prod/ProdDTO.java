@@ -12,9 +12,9 @@ public class ProdDTO {
 	String	p_name;
 	Integer	p_price;
 	String	p_material;
-	String	p_info_img_path;
+	String	p_explain_path;
+	String	p_info_path;
 	Integer	s_ctgr_num;
 	String origin_img_path;
-	
 	
 }

@@ -40,7 +40,7 @@ public class ProdDetailController {
 		model.addAttribute("color", color);
 		model.addAttribute("sizes", sizes);
 		model.addAttribute("prod", prod);
-		
+						
 		List<ReviewDTO> r_dto = review_mapper.getReviewAll(p_num);
 		
 		log.info("review : " + r_dto);
