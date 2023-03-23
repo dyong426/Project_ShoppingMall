@@ -168,7 +168,7 @@
                                                
                                             </td>
                                             <td class="product_info">
-                                                    <a href="/jhc/product_details?p_num=${od.p_num}">${od.p_name }</a>                            
+                                                    <a href="<%=request.getContextPath()%>/product_details?p_num=${od.p_num}">${od.p_name }</a>                            
                                                 <div class="option"></div>
                                             </td>
                                             <td>${od.od_quantity}</td>

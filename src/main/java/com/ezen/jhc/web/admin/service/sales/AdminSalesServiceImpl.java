@@ -82,7 +82,7 @@ public class AdminSalesServiceImpl implements AdminSalesService{
 	@Override
 	public List<WeeklySalesDTO> getWeeklySalesMainCtgrList() {
 		
-		List<WeeklySalesDTO> weeklySalesList = new ArrayList<>();
+		List<WeeklySalesDTO> weeklySalesList = new ArrayList();
 		
 		for (MainCtgrDTO mCtgrDTO : ctgrMapper.getMainCtgr()) {
 			weeklySalesList.add(salesMapper.getWeeklySalesMainCtgr(mCtgrDTO.getM_ctgr_num()));

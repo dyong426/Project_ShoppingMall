@@ -68,7 +68,7 @@
 // };
 
 // const image = new Image();
-// image.src = '/jhc/assets/admin/images/admin.png';
+// image.src = '/assets/admin/images/admin.png';
 
 // const plugin = {
 //     id: 'customCanvasBackgroundImage',

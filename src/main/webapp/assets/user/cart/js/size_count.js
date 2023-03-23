@@ -45,7 +45,7 @@ for (i = 0; i < minusBtns.length; ++i) {
             price.innerText = (parseInt(qtyVal.innerText) * parseInt(price.dataset.p_price)).toLocaleString('ko-KR') + '원';
 
             if (qtyVal.innerText == 0) {
-                xhttp.open('POST', '/jhc/deleteCart');
+                xhttp.open('POST', '/deleteCart');
                 xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
                 xhttp.send(`cart_num=${cartNum}`);
             }
@@ -72,7 +72,7 @@ for (i = 0; i < minusBtns.length; ++i) {
                     'cart_quantity' : 1,
                     'cart_amount' : price.dataset.p_price
                 };
-                xhttp.open('POST', '/jhc/createCart');
+                xhttp.open('POST', '/createCart');
                 xhttp.setRequestHeader('Content-Type', 'application/json');
                 xhttp.send(JSON.stringify(jsonObj));
             } else {
@@ -89,7 +89,7 @@ for (i = 0; i < minusBtns.length; ++i) {
         if (confirm('정말로 삭제하시겠습니까?')) {
             const xhttp = new XMLHttpRequest();
 
-            xhttp.open('POST', '/jhc/deleteCart');
+            xhttp.open('POST', '/deleteCart');
             xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
             xhttp.send(`cart_num=${cartNum}`);
 

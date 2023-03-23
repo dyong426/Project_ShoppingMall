@@ -92,7 +92,7 @@ function checkEmail(mem) {
     let isTrue = true;
 
     $.ajax({
-        url: '/jhc/emailCheck',
+        url: '/emailCheck',
         type: 'POST',
         async: false,
         dataType: 'json',

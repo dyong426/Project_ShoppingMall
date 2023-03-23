@@ -83,7 +83,7 @@ public class MemberController {
 		Cookie cookie = new Cookie("jhcid", session.getId());
 		cookie.setMaxAge(60 * 60); // 한시간
 		cookie.setHttpOnly(true); // xss 공격 예방
-		cookie.setPath("/jhc");
+		cookie.setPath("/");
 		response.addCookie(cookie);
 
 		return "redirect:/main";

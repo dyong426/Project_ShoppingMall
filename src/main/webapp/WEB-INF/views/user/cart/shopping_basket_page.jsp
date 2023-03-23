@@ -78,7 +78,7 @@
 									<div class="basket_bottom">
 										<div class="list">
 											<div class="list_top">
-												<span>20230213-5015022</span>
+												<span>${now}-${cart.cart_num}</span>
 											</div>
 											<div class="basket_body">
 												<div class="product_info">
@@ -213,9 +213,9 @@
 </script>
 
 <script type="text/javascript"
-	src="assets/user/cart/js/size_count.js?ver=1"></script>
+	src="<%=request.getContextPath()%>/assets/user/cart/js/size_count.js?ver=1"></script>
 <script type="text/javascript"
-	src="assets/user/cart/js/size_popup.js?ver=1"></script>
+	src="<%=request.getContextPath()%>/assets/user/cart/js/size_popup.js?ver=1"></script>
 <%--
 <script type="text/javascript"
 	src="assets/user/cart/js/color_popup.js?ver=1"></script>

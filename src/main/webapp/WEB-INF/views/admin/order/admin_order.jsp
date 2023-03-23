@@ -74,7 +74,7 @@
                                                                     <td>${order.mem_name}</td>
                                                                     <td><button type="button"
                                                                             class="btn btn-sm btn-outline-dark"
-                                                                            onclick="location.href=`./order/detail?ord_num=${order.ord_num}`">상세보기</button>
+                                                                            onclick="location.href=`<%=request.getContextPath()%>/order/detail?ord_num=${order.ord_num}`">상세보기</button>
                                                                     </td>
                                                                     <td>${order.ord_date}</td>
                                                                     <td>
@@ -124,19 +124,19 @@
                                                                                 <td>
                                                                                     <button type="submit"
                                                                                         class="btn btn-sm btn-outline-success fs-6 fw-bold"
-                                                                                        formaction="/jhc/admin/order/recieved">접수</button>
+                                                                                        formaction="/admin/order/recieved">접수</button>
                                                                                     /
                                                                                     <button type="submit"
                                                                                         class="btn btn-sm btn-outline-danger fs-6 fw-bold"
-                                                                                        formaction="/jhc/admin/order/cancel">취소</button>
+                                                                                        formaction="/admin/order/cancel">취소</button>
                                                                                     /
                                                                                     <button type="submit"
                                                                                         class="btn btn-sm btn-outline-warning fs-6 fw-bold"
-                                                                                        formaction="/jhc/admin/order/exchange">교환</button>
+                                                                                        formaction="/admin/order/exchange">교환</button>
                                                                                     /
                                                                                     <button type="submit"
                                                                                         class="btn btn-sm btn-outline-dark fs-6 fw-bold"
-                                                                                        formaction="/jhc/admin/order/refund">환불</button>
+                                                                                        formaction="/admin/order/refund">환불</button>
                                                                                 </td>
                                                                             </form>
                                                                         </c:when>
@@ -150,13 +150,13 @@
                                                                                 <td>
                                                                                     <button type="submit"
                                                                                         class="btn btn-sm btn-outline-danger fs-6 fw-bold"
-                                                                                        formaction="/jhc/admin/order/cancel">취소</button>
+                                                                                        formaction="/admin/order/cancel">취소</button>
                                                                                     /<button type="submit"
                                                                                         class="btn btn-sm btn-outline-warning fs-6 fw-bold"
-                                                                                        formaction="/jhc/admin/order/exchange">교환</button>
+                                                                                        formaction="/admin/order/exchange">교환</button>
                                                                                     /<button type="submit"
                                                                                         class="btn btn-sm btn-outline-dark fs-6 fw-bold"
-                                                                                        formaction="/jhc/admin/order/refund">환불</button>
+                                                                                        formaction="/admin/order/refund">환불</button>
                                                                                 </td>
                                                                             </form>
                                                                         </c:when>

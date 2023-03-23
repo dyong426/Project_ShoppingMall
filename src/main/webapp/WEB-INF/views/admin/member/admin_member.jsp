@@ -60,7 +60,7 @@
 														value="${member.mem_num}">
 														<button type="submit"
 															class="btn btn-sm btn-outline-danger"
-															formaction="/jhc/admin/member/delete">강제탈퇴</button></td>
+															formaction="/admin/member/delete">강제탈퇴</button></td>
 												</form>
 											</tr>
 										</c:forEach>

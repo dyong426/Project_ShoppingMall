@@ -15,7 +15,7 @@
 			<div class="search">주문내역조회</div>
 			<div class="search_form">
 				<div class="search_date">
-					<form action="/jhc/history/selected" method="GET">
+					<form action="/history/selected" method="GET">
 						<select name="select_order_status" id="">
 							<option value="" >전체 주문 처리 상태</option>
 							<option value="0" <c:if test="${ord_status == '0'}">selected='selected'</c:if>>입금 전</option>
@@ -75,7 +75,7 @@
 							<tbody class="product_list">
 								<tr class="product">
 									<td>${order.new_ord_date }<br> <a
-										href="/jhc/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a></td>
+										href="<%=request.getContextPath()%>/details?ord_num=${order.ord_num }">[${order.new_order_num }]</a></td>
 									<td><img width=70px; src="<%=request.getContextPath() %>/${order.origin_img_path }"
 										alt="" /></td>
 									<td>${order.p_name }

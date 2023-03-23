@@ -73,7 +73,7 @@ public class CartServiceImpl implements CartService {
 		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
 		String formatNow = now.format(format);
 		
-		model.addAttribute("now", now);
+		model.addAttribute("now", formatNow);
 		
 		return cartMapper.getCarts(mem_num);
 	}

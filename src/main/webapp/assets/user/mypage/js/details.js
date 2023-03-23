@@ -10,7 +10,7 @@ cancleOrder.addEventListener('click', function () {
 
         $.ajax({
 
-            url: '/jhc/order/cancel',
+            url: '/order/cancel',
             type: 'POST',
             data: {
                 ord_num: ord_num
@@ -18,7 +18,7 @@ cancleOrder.addEventListener('click', function () {
             success: function (response) {
                 console.log('오더번호: ',ord_num);
                 alert('주문이 취소되었습니다.');
-                location.replace('/jhc/history')
+                location.replace('/history')
             },
             error: function (xhr, status, error) {
                 console.error(error)

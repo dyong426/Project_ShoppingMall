@@ -7,14 +7,14 @@ resign.addEventListener('click', function () {
 
     if (confirmResign) {
         $.ajax({
-            url: '/jhc/member/delete-account',
+            url: '/member/delete-account',
             type: 'POST',
             data: { mem_num: mem_num },
             dataType: 'text',
             success: function (response) {
                 alert('회원 탈퇴가 완료 되었습니다.');
                 sessionClear();
-                location.replace('/jhc/main');
+                location.replace('/main');
             }
 
 
@@ -26,7 +26,7 @@ resign.addEventListener('click', function () {
 function sessionClear() {
 
     $.ajax({
-        url: '/jhc/logout.do',
+        url: '/logout.do',
         type: 'POST',
         success: function (result) {
 
@@ -47,10 +47,10 @@ clickToChangePW.addEventListener('click', function () {
     if (confirmChange) {
         $.ajax({
 
-            url: '/jhc/password/change',
+            url: '/password/change',
             type: 'POST',
             success: function () {
-                location.replace('/jhc/password/mail');
+                location.replace('/password/mail');
 
             },
             error: function () {
@@ -73,13 +73,13 @@ myInfo_modify.addEventListener('click', function () {
 
     if (confirmInfoModify) {
         $.ajax({
-            url: '/jhc/myInfo/change',
+            url: '/myInfo/change',
             type: 'POST',
             data: { 'myInfo_birth': myInfo_birth.value, 'myInfo_phone': myInfo_phone.value },
             success: function () {
                 alert('성공적으로 저장되었습니다. 다시 로그인 해주세요.');
                 
-                location.replace('/jhc/info')
+                location.replace('/info')
             },
             error: function () {
                 alert('오류 발생');

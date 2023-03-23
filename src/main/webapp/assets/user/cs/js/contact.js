@@ -52,7 +52,7 @@ $("input[type='file']").on("change", function(e){
 	// processData,contentType 의 속성값을 false로 해야 첨부파일이 서버로 전송됨
 	
 	$.ajax({
-			url: '/jhc/uploadAjaxAction_contact',
+			url: '/uploadAjaxAction_contact',
 	    	processData : false,
 	    	contentType : false, 
 	    	data : formData,
@@ -116,7 +116,7 @@ function showUploadImage(uploadResultArr){
 		
 		for (let i = 0; i < uploadResult.length; ++i) {
 		      str += "<div class='result_card_con' id='" + num + "'>";
-		      str += "<img class='img_con' src='/jhc/display?fileName=" + fileCallPath + "'>";
+		      str += "<img class='img_con' src='/display?fileName=" + fileCallPath + "'>";
 		      str += "<div class='imgDelete_con' data-file='" + fileCallPath + "'>x</div>";
 		      str += "<input type='hidden' name='imageList[" + num + "].fileName' value='" + obj.fileName + "'>";
 		      str += "<input type='hidden' name='imageList[" + num + "].uuid' value='" + obj.uuid + "'>";
@@ -156,7 +156,7 @@ function deleteFile(){
 	let targetDiv = $(".result_card_con");
 	
 		$.ajax({
-			url: '/jhc/con/deleteFile',
+			url: '/con/deleteFile',
 			data : {fileName : targetFile},
 			dataType : 'text',
 			type : 'POST',

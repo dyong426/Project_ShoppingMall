@@ -6,7 +6,7 @@
 
   <div class="footer_container">
        <div class="footer_logo">
-           <a href="/main">
+           <a href="<%=request.getContextPath() %>/main">
                <img width=230px src="<%=request.getContextPath() %>/assets/common/cstm_img/logo/logo_white.png"alt="" />
            </a>
        </div>
