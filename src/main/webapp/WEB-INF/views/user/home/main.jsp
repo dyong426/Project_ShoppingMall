@@ -172,11 +172,11 @@
 
 					<c:forEach items="${review_list}" var="list" begin="0" end="4">
 						<li class="home_review_box"><a
-							href="<%=request.getContextPath()%>//review?review_num=${list.review_num }">
+							href="<%=request.getContextPath()%>/review?review_num=${list.review_num }">
 
 								<div class="home_review_img">
 									<img
-										src="<%=request.getContextPath()%>//display/image?fileName=${list.review_image_path}" />
+										src="<%=request.getContextPath()%>/display/image?fileName=${list.review_image_path}" />
 								</div>
 
 								<div class="review_score">

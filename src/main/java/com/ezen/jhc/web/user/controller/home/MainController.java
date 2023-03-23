@@ -69,7 +69,6 @@ public class MainController {
 	      List<ReviewDTO> review = home_mapper.get_review(review_num);
 	   
 	      model.addAttribute("review", review);
-	      System.out.println(review);
 	      
 	      return "user/home/review";
 	   }
