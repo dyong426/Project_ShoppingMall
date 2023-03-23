@@ -94,7 +94,7 @@ for (i = 0; i < minusBtns.length; ++i) {
             xhttp.send(`cart_num=${cartNum}`);
 
             basket_bottom.remove();
-
+            updateSummary();
         }
         if (document.getElementsByClassName('minus').length == 0) {
             window.location.reload();

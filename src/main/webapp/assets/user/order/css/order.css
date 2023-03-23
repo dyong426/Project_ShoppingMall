@@ -164,7 +164,7 @@ input {
 .cstmImg {
 	width: 85px;
 	height: 90px;
-	margin: auto;
+	margin: 25% auto;
 }
 
 #ord_request {

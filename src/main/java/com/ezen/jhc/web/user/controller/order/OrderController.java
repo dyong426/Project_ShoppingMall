@@ -56,6 +56,7 @@ public class OrderController {
 		int totalQuantity = 0;
 		
 		for (CartDTO cart : carts) {
+			log.info(cart);
 			totalPrice += cart.getCart_amount();
 			totalQuantity += cart.getCart_quantity();
 		}
