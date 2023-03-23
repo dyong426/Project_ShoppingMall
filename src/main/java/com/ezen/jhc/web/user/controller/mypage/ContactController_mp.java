@@ -37,30 +37,29 @@ public class ContactController_mp {
 
 		List<ContactDTO> list = contact_mapper.getContactList(mem_num);
 		
-		//page_num
-		if(page == null) {
-			page = 1;
+		if (list.size() == 0) {
+			return "user/mypage/contact/emptyContact";
+		} else {		
+			//page_num
+			if(page == null) {
+				page = 1;
+			}
+			int list_end = page * 10 - 1;
+			int list_begin = list_end - 9;
+			
+			if(list_end > list.size()) {
+				list_end = list.size() - 1;
+			}
+			
+			model.addAttribute("begin", list_begin);
+			model.addAttribute("end", list_end);
+	
+			model.addAttribute("list", list);
+			model.addAttribute("list_size", list.size());
+			
+			
+			return "user/mypage/contact/mp_contact_list";
 		}
-		int list_end = page * 10 - 1;
-		int list_begin = list_end - 9;
-		System.out.println(page);
-		System.out.println(list_end);
-		
-		if(list_end > list.size()) {
-			list_end = list.size() - 1;
-		}
-		System.out.println(list.size());
-		System.out.println(list_begin);
-		System.out.println(list_end);
-		
-		model.addAttribute("begin", list_begin);
-		model.addAttribute("end", list_end);
-
-		model.addAttribute("list", list);
-		model.addAttribute("list_size", list.size());
-		
-		
-		return "user/mypage/contact/mp_contact_list";
 	}
 	
 	// 마이 페이지 내 1:1 문의 확인 (문의 번호로 조회)

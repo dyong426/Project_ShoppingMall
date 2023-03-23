@@ -66,6 +66,7 @@ public class MypageController {
 		
 		List<OrderDetailDTO> pd_info = mm_mapper.buyProds(mem_num);
 		
+		if(page==null){page=1;}
 		
 		int list_end = Integer.parseInt(page + "") * 10 - 1;
 		
@@ -126,6 +127,7 @@ public class MypageController {
 		
 		//mm_mapper.addReviewImage(ro);
 		
+		if(page==null){page=1;}
 		
 		List<OrderDetailDTO> rv_history = mm_mapper.getOrderHistory(mem_num);
 		int list_end = Integer.parseInt(page + "") * 10 - 1;
@@ -156,6 +158,8 @@ public class MypageController {
 		Integer mem_num = member.getMem_num();
 		
 		List<OrderDetailDTO> rv_history = mm_mapper.getOrderHistory(mem_num);
+		
+		if(page==null){page=1;}
 		
 		model.addAttribute("rv_history", rv_history);
 		int list_end = Integer.parseInt(page + "") * 10 - 1;
