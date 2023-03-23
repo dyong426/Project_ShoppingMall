@@ -101,7 +101,7 @@
 	}
 	
 	function goToPage(page) {
-	    location.href = "/jhc/review/list?mem_num=${member.mem_num}&page=" + page;
+	    location.href = "/review/list?mem_num=${member.mem_num}&page=" + page;
 	}
 </script>
 

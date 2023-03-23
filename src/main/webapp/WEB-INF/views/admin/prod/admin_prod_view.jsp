@@ -84,7 +84,7 @@
 												<td>
 													<form method="POST">
 														<input type="hidden" value="${prod.p_num}" name="p_num">
-														<button type="submit" class="btn btn-sm btn-danger" formaction="/jhc/admin/prod/delete">등록삭제</button>
+														<button type="submit" class="btn btn-sm btn-danger" formaction="/admin/prod/delete">등록삭제</button>
 													</form>
 												</td>
 											</tr>

@@ -54,7 +54,7 @@
 													<td>${content.contact_regdate}
 														<button type="submit" class="btn btn-dark btn-sm"
 															style="height: 30px;"
-															formaction="/jhc/admin/contact/content/reply/delete">
+															formaction="/admin/contact/content/reply/delete">
 															<i class="fa-solid fa-trash-can"></i>
 														</button>
 													</td>
@@ -93,7 +93,7 @@
 																	rows="5" cols="170" name="admin_reply"></textarea>
 																<div class="d-flex justify-content-end">
 																	<button type="submit" class="btn btn-sm btn-dark"
-																		formaction="/jhc/admin/contact/content/reply/update">등록</button>
+																		formaction="/admin/contact/content/reply/update">등록</button>
 																</div></td>
 														</tr>
 													</c:when>

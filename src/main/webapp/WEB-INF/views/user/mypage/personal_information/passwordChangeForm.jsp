@@ -9,7 +9,7 @@
 
 	<h3>새 비밀번호를 입력하세요.</h3>
 		
-	<form action="/jhc/member/reset/password" method="POST">
+	<form action="/member/reset/password" method="POST">
 		<input type="password" class="password_change_input" name="mem_pw" />
 		<input type="submit" class="password_change" value="변경하기"/>
 		<input type="hidden" name="mem_email" value="${mem_email }"/>

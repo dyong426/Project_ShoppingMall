@@ -80,8 +80,8 @@
 											<td>
 												<input type="hidden" name="banner_img_path" value="${banner.banner_img_path}">
 												<input type="hidden" name="banner_num" value="${banner.banner_num}">
-												<button type="submit" class="btn btn-warning" formaction="/jhc/admin/setting/bn/modify">수정</button>
-												<button type="submit" class="btn btn-danger" formaction="/jhc/admin/setting/bn/delete">삭제</button>
+												<button type="submit" class="btn btn-warning" formaction="/admin/setting/bn/modify">수정</button>
+												<button type="submit" class="btn btn-danger" formaction="/admin/setting/bn/delete">삭제</button>
 											</td>
 										</tr>
 											</form>
@@ -97,7 +97,7 @@
 											</td>
 											<td>
 												<input type="hidden" name="banner_img_path">
-												<button type="submit" class="btn btn-primary" formaction="/jhc/admin/setting/bn/reg">등록</button>
+												<button type="submit" class="btn btn-primary" formaction="/admin/setting/bn/reg">등록</button>
 											</td>
 										</form>
 									</tr>

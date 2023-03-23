@@ -778,7 +778,7 @@ for (i = 0; i < buttons.length; ++i) {
 
       const xhttp = new XMLHttpRequest();
 
-      xhttp.open('POST', '/jhc/saveImage');
+      xhttp.open('POST', '/saveImage');
       xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
       xhttp.send(`img=${cstm_img}&fileName=${fileName}`);
@@ -846,7 +846,7 @@ buttons[0].addEventListener('click', (e) => {
   // cstm, cart insert
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open('POST', '/jhc/insertCstm');
+  xhttp.open('POST', '/insertCstm');
   xhttp.setRequestHeader('Content-Type', 'application/json');
 
   const jsonObj = {
@@ -860,7 +860,7 @@ buttons[0].addEventListener('click', (e) => {
     if (xhttp.status == 200 && xhttp.readyState == 4) {
       const xhttp2 = new XMLHttpRequest();
 
-      xhttp2.open('POST', '/jhc/insertCart');
+      xhttp2.open('POST', '/insertCart');
       xhttp2.setRequestHeader('Content-Type', 'application/json');
 
       const jsonObj2 = {
@@ -891,7 +891,7 @@ buttons[1].addEventListener('click', () => {
   // cstm, cart insert
   const xhttp = new XMLHttpRequest();
 
-  xhttp.open('POST', '/jhc/insertCstm');
+  xhttp.open('POST', '/insertCstm');
   xhttp.setRequestHeader('Content-Type', 'application/json');
 
   const jsonObj = {
@@ -905,7 +905,7 @@ buttons[1].addEventListener('click', () => {
     if (xhttp.status == 200 && xhttp.readyState == 4) {
       const xhttp2 = new XMLHttpRequest();
 
-      xhttp2.open('POST', '/jhc/insertCart');
+      xhttp2.open('POST', '/insertCart');
       xhttp2.setRequestHeader('Content-Type', 'application/json');
 
       const jsonObj2 = {

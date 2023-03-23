@@ -116,7 +116,7 @@
 			<div id="bar"></div>
 			<div>
 				<div id="text_login">로그인</div>
-				<form action="/jhc/login.do" method="POST" onsubmit="return mySubmit_login();">
+				<form action="<%=request.getContextPath() %>/login.do" method="POST" onsubmit="return mySubmit_login();">
 					<input id="login_email" name="mem_email" class="mem_email" type="text" placeholder="이메일 주소" />
 					<input id="login_pw" name="mem_pw" type="password" placeholder="비밀번호" />
 					<input id="login_submit" type="submit" value="로그인"/>
@@ -155,7 +155,7 @@
 				<div>
 					<div id="text_join">회원가입</div>
 					
-					<form action="/jhc/join.do" method="POST" onsubmit="return mySubmit_join();">
+					<form action="<%=request.getContextPath() %>/join.do" method="POST" onsubmit="return mySubmit_join();">
 						<input id="mem_email" name="mem_email" class="mem_email" type="text" placeholder="이메일 주소" />
 						<input id="mem_name" name="mem_name" type="text" placeholder="이름" />
 						<input id="mem_pw" name="mem_pw" type="password" placeholder="비밀번호&nbsp;(영문과 특수문자를 포함한 최소 8자)" />

@@ -25,7 +25,7 @@ function uploadProdImg(event) {
     }
 
     $.ajax({
-        url: '/jhc/admin/uploadAjaxAction',
+        url: '/admin/uploadAjaxAction',
         processData : false,
         contentType : false,
         data : formData,
@@ -98,7 +98,7 @@ function deleteFile(event) {
     console.log(targetDiv);
     
     $.ajax({
-        url : '/jhc/deleteFile',
+        url : '/deleteFile',
         data : {fileName : targetFile},
         dataType : 'text',
         type : 'POST',
@@ -165,7 +165,7 @@ function inputColorImg(event) {
     }
 
     $.ajax({
-        url: '/jhc/admin/uploadAjaxAction',
+        url: '/admin/uploadAjaxAction',
         processData : false,
         contentType : false,
         data : formData,
@@ -251,7 +251,7 @@ function deleteColorImgFile(event) {
     console.log(targetFile);
 
     $.ajax({
-        url : '/jhc/deleteFile',
+        url : '/deleteFile',
         data : {fileName : targetFile},
         dataType : 'text',
         type : 'POST',
@@ -296,7 +296,7 @@ function inputMctgrImg(event){
     }
 
     $.ajax({
-        url: '/jhc/admin/uploadAjaxAction',
+        url: '/admin/uploadAjaxAction',
         processData : false,
         contentType : false,
         data : formData,
@@ -385,7 +385,7 @@ function deleteCtgrImgFile(event) {
     console.log(targetFile);
 
     $.ajax({
-        url : '/jhc/deleteFile',
+        url : '/deleteFile',
         data : {fileName : targetFile},
         dataType : 'text',
         type : 'POST',
@@ -432,7 +432,7 @@ function modifyMctgrImg(inputId){
     }
 
     $.ajax({
-        url: '/jhc/admin/uploadAjaxAction',
+        url: '/admin/uploadAjaxAction',
         processData : false,
         contentType : false,
         data : formData,

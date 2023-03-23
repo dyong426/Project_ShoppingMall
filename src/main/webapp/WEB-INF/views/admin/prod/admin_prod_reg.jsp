@@ -31,7 +31,7 @@
                   <h3 class="mb-0 fw-bold mb-4">제품 정보 입력</h3>
                   <button class="btn btn-sm btn-primary" onclick="location.href='./view'" style="height: 30px;">뒤로가기</button>
                 </div>
-                <form class="row" id="prod-reg-form" action="/jhc/admin/prod/reg" method="POST">
+                <form class="row" id="prod-reg-form" action="/admin/prod/reg" method="POST">
                   <div class="col-md-6 mb-3">
                     <label for="main_category" class="form-label">메인 카테고리</label> <select id="main-category"
                       name="m_ctgr_num" class="form-select" onchange="selectMain(this)">

@@ -123,10 +123,10 @@
                                                                                 <td>
                                                                                     <button type="submit"
                                                                                         class="btn btn-warning"
-                                                                                        formaction="/jhc/admin/setting/sctgr/modify">수정</button>
+                                                                                        formaction="/admin/setting/sctgr/modify">수정</button>
                                                                                     <button type="submit"
                                                                                         class="btn btn-danger"
-                                                                                        formaction="/jhc/admin/setting/sctgr/delete">삭제</button>
+                                                                                        formaction="/admin/setting/sctgr/delete">삭제</button>
                                                                                 </td>
                                                                             </tr>
                                                                         </form>
@@ -146,7 +146,7 @@
                                                                             <td>
                                                                                 <button type="submit"
                                                                                     class="btn btn-primary"
-                                                                                    formaction="/jhc/admin/setting/sctgr/reg">등록</button>
+                                                                                    formaction="/admin/setting/sctgr/reg">등록</button>
                                                                             </td>
                                                                         </form>
                                                                     </tr>

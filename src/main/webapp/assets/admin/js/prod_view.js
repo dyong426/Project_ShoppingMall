@@ -2,7 +2,7 @@ function prodViewDetail(e, pNum) {
 	
     var p_num = pNum;
     console.log(p_num);
-    var url = '/jhc/admin/prod/view/detail?p_num='+p_num;
+    var url = '/admin/prod/view/detail?p_num='+p_num;
     var name = '제품 상세 보기';
     var option = 'width = 800, height = 1000, top = 100, left = 200, location = no, nofullscreen = no';
 

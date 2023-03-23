@@ -39,7 +39,7 @@ function isLoggedIn(callback) {
   var loggedIn = true;
 
   $.ajax({
-    url: '/jhc/isLoggedIn',
+    url: '/isLoggedIn',
     type: 'POST',
     data: { loggedIn: loggedIn },
     dataType: 'json',

@@ -85,8 +85,8 @@
                                             <input type="hidden" name="m_ctgr_icon_path" id="${mCtgr.m_ctgr_name}-IconPath">
                                         </td>
                                         <td>
-                                            <button type="submit" class="btn btn-warning" formaction="/jhc/admin/setting/mctgr/modify">수정</button>
-                                            <button type="submit" class="btn btn-danger" formaction="/jhc/admin/setting/mctgr/delete">삭제</button>
+                                            <button type="submit" class="btn btn-warning" formaction="/admin/setting/mctgr/modify">수정</button>
+                                            <button type="submit" class="btn btn-danger" formaction="/admin/setting/mctgr/delete">삭제</button>
                                         </td>
                                 		</form>
                                     </tr>
@@ -111,7 +111,7 @@
                                         	</td>
                                         	<td>
                                         		<input type="hidden" name="m_ctgr_icon_path" id="regIconPath">
-                                            	<button type="submit"  class="btn btn-primary" formaction="/jhc/admin/setting/mctgr/reg">등록</button>
+                                            	<button type="submit"  class="btn btn-primary" formaction="/admin/setting/mctgr/reg">등록</button>
                                         	</td>
                                     </tr>
                                     </form>

@@ -62,7 +62,7 @@ function mCtgrModifyBtn(mCtgrNum) {
     console.log(JSON.stringify(obj));
 
     $.ajax({
-        url: '/jhc/admin/uploadAjaxAction',
+        url: '/admin/uploadAjaxAction',
         processData: false,
         contentType: false,
         data: formData,

@@ -3,7 +3,7 @@ function modifyBtn(contactNum) {
 	var contact_num = contactNum;
     var replyBtnForm = $('#reply_button_form');
     var adminReply = $('#admin_reply_reg');
-    var completeBtn = `<button type="submit" class="btn btn-dark btn-sm" formaction="/jhc/admin/contact/content/reply/update">완료</button>`;
+    var completeBtn = `<button type="submit" class="btn btn-dark btn-sm" formaction="/admin/contact/content/reply/update">완료</button>`;
 
     adminReply.prop('readonly', false);
     console.log('modify');
@@ -28,7 +28,7 @@ function modifyReply(contactNum) {
     console.log(JSON.stringify(obj));
     $.ajax({
 
-        url: '/jhc/admin/contact/reply/modify',
+        url: '/admin/contact/reply/modify',
         processData : false,
         contentType : 'application/json',
         data : JSON.stringify(obj),

@@ -15,7 +15,7 @@
 			<div class="search">주문내역조회</div>
 			<div class="search_form">
 				<div class="search_date">
-					<form action="/jhc/history/selected" method="GET">
+					<form action="/history/selected" method="GET">
 						<select name="select_order_status" id="">
 							<option value="" >전체 주문 처리 상태</option>
 							<option value="0" <c:if test="${ord_status == '0'}">selected='selected'</c:if>>입금 전</option>

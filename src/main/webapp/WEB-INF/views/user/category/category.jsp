@@ -18,7 +18,7 @@
 	<!-- 검색 창 -->
 
 	 <div class="search-box">
-	 	<form id="search_box" action="/jhc/products/search">
+	 	<form id="search_box" action="/products/search">
 	     <input type="text" class="search-txt" name="keyword" placeholder="검색어를 입력하세요.">
 	     <button type="submit" class="search-btn"><i class="fas fa-search"></i></button>
 	 	</form>

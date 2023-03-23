@@ -32,7 +32,7 @@
 									<c:forEach items="${img}" var="i">
 									<div style="padding-right: 10px; ">
 									<img class='img_mpcon'
-										src='/jhc/display?fileName=${i.contact_img}'
+										src='<%=request.getContextPath()%>/display?fileName=${i.contact_img}'
 										 style="max-width: 200px; max-heigth: 200px; ">
 									</div>
 									</c:forEach>

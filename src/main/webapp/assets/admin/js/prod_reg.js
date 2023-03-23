@@ -33,7 +33,7 @@ function selectMain(event) {
         }
     });
 
-    xhttp.open('POST', '/jhc/restful/admin/prod/reg');
+    xhttp.open('POST', '/restful/admin/prod/reg');
 
     xhttp.setRequestHeader('Content-type', 'application/json');
     

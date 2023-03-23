@@ -29,7 +29,7 @@
 	            </div>
 	            <c:set var="member" value="${sessionScope.member }"/>
 	            
-	             <form action="/jhc/review/add?page=1"  id="rv_check_form"  method="POST">
+	             <form action="/review/add?page=1"  id="rv_check_form"  method="POST">
 	            <input type="hidden" name="mem_num" id="mem_num" value="${member.mem_num}"/>
 	          <input type="hidden" name="p_num" value="${param.p_num}" />
   				<input type="hidden" name="od_num" value="${param.od_num}" />
@@ -154,7 +154,7 @@ $("#file").on('change',function(){
 		}
 		
 		$.ajax({
-			url: '/jhc/uploadAjaxAction',
+			url: '/uploadAjaxAction',
 	    	processData : false,
 	    	contentType : false,
 	    	data : formData,
@@ -208,7 +208,7 @@ $("#file").on('change',function(){
 		let fileCallPath = encodeURIComponent(obj.uploadPath.replace(/\\/g, '/') + "/s_" + obj.uuid + "_" + obj.fileName);
 		
 		str += "<div id='result_card'>";
-		str += "<img src='/jhc/display/image?fileName=" + fileCallPath +"'>";
+		str += "<img src='<%=reqest.getContextPath()%>/display/image?fileName=" + fileCallPath +"'>";
 		str += "<div class='imgDeleteBtn' data-file='" + fileCallPath + "'>x</div>";
 		
 		//str += "<input type='hidden' name='imageList[0].fileName' value='"+ obj.fileName +"'>";
@@ -238,7 +238,7 @@ $("#file").on('change',function(){
 		let targetDiv = $("#result_card");
 		
 		$.ajax({
-			url: '/jhc/deleteFile',
+			url: '/deleteFile',
 			data : {fileName : targetFile},
 			dataType : 'text',
 			type : 'POST',

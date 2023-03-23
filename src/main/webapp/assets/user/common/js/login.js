@@ -17,7 +17,7 @@ checkEmailPw = () => {
 
   var isTrue = true;
   $.ajax({
-    url: contextPath+'/checkEmailPw',
+    url: '/checkEmailPw',
     type: 'POST',
     async: false,
     dataType: 'json',
@@ -38,7 +38,7 @@ function encoder(password) {
   var encoded = "";
 
   $.ajax({
-    url: "/jhc/encrypt.do",
+    url: "/encrypt.do",
     type: 'POST',
     async: false,
     data: { password: password },
@@ -107,7 +107,7 @@ function kakaoJoin() {
         success: function (response) {
 
           $.ajax({
-            url: '/jhc/kakao/join',
+            url: '/kakao/join',
             type: 'POST',
             dataType: 'text',
             data: { kakao_id: response.id, kakao_name: response.kakao_account.profile.nickname },
@@ -142,7 +142,7 @@ function kakaoLogin() {
         url: '/v2/user/me',
         success: function (response) {
           $.ajax({
-            url: contextPath+'/login.do',
+            url: '/login.do',
             type: 'POST',
             data: { mem_email: response.id },
             success: function () {
@@ -200,7 +200,7 @@ isLoggedIn(function (loggedIn) {
 
 logoutBtn.addEventListener('click', function () {
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', '/jhc/logout.do', true);
+  xhr.open('POST', '/logout.do', true);
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4 && xhr.status === 200) {
       window.location.href = '/main';
