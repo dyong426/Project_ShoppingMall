@@ -76,7 +76,7 @@
                                         <th scope="row">총 주문 금액</th>
                                         <td>
                                             <span>
-                                                <fmt:formatNumber value="${order.total_amount }" pattern="#,###,##0" />원
+                                                <fmt:formatNumber value="${totalPrice}" pattern="#,###,##0" />원
                                                 <!-- <span class="dispaynone"></span> -->
                                             </span>
                                         </td>
@@ -98,14 +98,13 @@
                                         <td>
                                             <span class="txtEm">
                                                 <fmt:formatNumber value="${order.total_amount }" pattern="#,###,##0" />원
-                                                
                                             </span>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th scope="row">결제수단</th>
-                                        <td>                                  
-                                                <span>${order.payment_name }</span>                                        
+                                        <td>
+                                            <span>${order.payment_name }</span>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -135,15 +134,12 @@
                                             <th scope="col">상품정보</th>
                                             <th scope="col">수량</th>
                                             <th scope="col">판매가</th>
-                             
                                             <th scope="col">주문처리상태</th>
-                               
                                         </tr>
                                     </thead>
                                     <tfoot class="individual_delivery">
                                         <tr>
                                             <td colspan="9">
-                                    
                                                 상품 구매 금액
                                                 <strong><fmt:formatNumber value="${totalPrice}" pattern="###,##0"/></strong>
                                                 + 배송비 ${shipping}

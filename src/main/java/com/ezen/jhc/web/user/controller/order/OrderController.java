@@ -94,6 +94,7 @@ public class OrderController {
 			memberDto.setMem_point(0);
 		}
 		memberDto.setAdditionalPoint((int)Math.round(totalAmount * 0.05));
+		System.out.println(memberDto.getAdditionalPoint());
 		memberService.updateMemPoint(memberDto);
 		
 		

@@ -99,7 +99,7 @@ public class OrderServiceImpl implements OrderService {
 	@Override
 	public void insertOrderDetails(int ord_num, List<CartDTO> carts) {
 		for (CartDTO cart : carts) {
-			cart.setOrd_num(ord_num);			
+			cart.setOrd_num(ord_num);
 			orderMapper.insertOrderDetails(cart);
 		}
 	}

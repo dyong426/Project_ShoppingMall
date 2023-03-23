@@ -56,7 +56,11 @@ public class CartServiceImpl implements CartService {
 		int pd_num = prodDetailDto.getPd_num();
 		
 		OnlyCartDTO onlyCartDto = new OnlyCartDTO(
-				cstmDto.getMem_num(), pd_num, cstmDto.getMem_cstm_num(), cartDto.getCart_quantity(), cartDto.getP_price());
+				cstmDto.getMem_num(),
+				pd_num,
+				cstmDto.getMem_cstm_num(),
+				cartDto.getCart_quantity(),
+				cartDto.getCart_quantity() * cartDto.getP_price());
 		
 		cartMapper.insertCart(onlyCartDto);
 		

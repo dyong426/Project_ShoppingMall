@@ -71,7 +71,7 @@ public class OrderDetailDTO {
 		
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		
-		String formatTime = dayTime.format(this.review_regdate);
+		String formatTime = dayTime.format(this.ord_date);
 		
 		return formatTime;
 	}
@@ -79,7 +79,7 @@ public class OrderDetailDTO {
 	public String getRv_write_date() {
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd");
 		
-		String formatTime = dayTime.format(this.ord_date);
+		String formatTime = dayTime.format(this.review_regdate);
 		
 		return formatTime;
 	}

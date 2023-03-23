@@ -68,10 +68,7 @@ public class OrderDTO {
 	}
 	
 	public String getNew_order_num() {
-
-		
 		SimpleDateFormat dayTime= new SimpleDateFormat("yyMMdd-mmss");
-				
 		
 		return dayTime.format(this.ord_date) + getOrd_num();
 

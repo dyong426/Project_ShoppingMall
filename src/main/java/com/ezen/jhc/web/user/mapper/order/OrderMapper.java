@@ -31,7 +31,7 @@ public interface OrderMapper {
 	@Select("select * from order_statuses os, orders ord, payments p where mem_num =  #{mem_num} and ord_num = #{ord_num} and ord.payment_num = p.payment_num and ord.ord_status = os.ord_status")
 	public OrderDTO selectAll(@Param("mem_num") Integer mem_num, @Param("ord_num") Integer ord_num);
 
-	@Select("select * from prods p, prod_images pi, prod_details pd, order_details od where pd.pd_num = od.pd_num and pd.p_num = p.p_num and pi.p_num = p.p_num and od.ord_num = #{ord_num}")
+	@Select("select * from prods p, prod_images pi, prod_details pd, order_details od, orders o where o.ord_num = od.ord_num and pd.pd_num = od.pd_num and pd.p_num = p.p_num and pi.p_num = p.p_num and od.ord_num = #{ord_num}")
 	public List<OrderDetailDTO> selectOrderDetails(Integer ord_num);
 	
 	@Update("update orders set ord_status = 5 where ord_num = #{ord_num}")

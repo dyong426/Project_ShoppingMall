@@ -32,7 +32,7 @@
 				</div>
 				<div class="columnGrid">
 					<div>연락처</div>
-					<input type="tel" class="emptyCheck" id="ordererPhone" value="${member.mem_phone}"
+					<input type="tel" class="emptyCheck" id="ordererPhone" value="${member.phoneWithOnlyNum}"
 						name="ordererPhone" placeholder="- 없이 00000000000"
 						pattern="0[0-9]{10}" />
 				</div>
