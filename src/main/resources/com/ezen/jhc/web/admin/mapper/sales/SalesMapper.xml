@@ -326,7 +326,7 @@
 FROM 
     orders ord 
 WHERE 
-    ord.ord_date BETWEEN #{startDate} AND #{endDate}
+    ord.ord_date BETWEEN TRUNC(to_date(#{startDate})) AND TRUNC(to_date(#{endDate}))
 GROUP BY 
     TRUNC(ord.ord_date)
 ORDER BY 

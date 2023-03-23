@@ -1,5 +1,6 @@
 package com.ezen.jhc.web.admin.mapper.sales;
 
+import java.util.Date;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
