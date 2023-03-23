@@ -111,7 +111,7 @@
 		<div id="recom_box">
 			<div id="home_recom_item_box">
 				<div class="recom_item">
-					<a href="/jhc/contact" class="recom_item_img">
+					<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=1" class="recom_item_img">
 						<div>
 							<img
 								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/01.png" />
@@ -120,7 +120,7 @@
 				</div>
 
 				<div class="recom_item">
-					<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=1" class="recom_item_img">
+					<a href="<%=request.getContextPath()%>/main_category?m_ctgr_num=2" class="recom_item_img">
 						<div>
 							<img
 								src="<%=request.getContextPath()%>/assets/user/home/img/recommend/02.png" />
