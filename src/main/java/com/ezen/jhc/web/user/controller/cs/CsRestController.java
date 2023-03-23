@@ -164,7 +164,7 @@ public class CsRestController {
 	public ResponseEntity<byte[]> getImage(String fileName){
 		System.out.println("getImage()........." + fileName);
 		
-		File file = new File("c:\\upload\\" + fileName);
+		File file = new File("c:/upload/" + fileName);
 		
 		ResponseEntity<byte[]> result = null;
 		

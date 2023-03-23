@@ -260,9 +260,9 @@
 			<div id="review_container">
 				<div id="customer_review_text_container">
 					<div id="customer_review_stars_container">
-						<span id="customer_review_stars"> <c:forEach begin="1"
-								end="${r.review_star }">★</c:forEach> <c:forEach begin="1"
-								end="${5-r.review_star}">☆</c:forEach>
+						<span id="customer_review_stars">
+							<c:forEach begin="1" end="${r.review_star }">★</c:forEach>
+							<c:forEach begin="1" end="${5-r.review_star}">☆</c:forEach>
 						</span> 
 						<span id="customer_review_stars_text">${r.review_star }</span> 
 						<span id="customer_review_date"> 
@@ -409,7 +409,7 @@
 
 
 <script>
-	const contextPath = '<%=request.getContextPath()%>';
+	console.log(contextPath);
 	const mem_num = '${member.mem_num}';
 	const p_num = '${prod.p_num}';
 	const p_name = '${prod.p_name}';

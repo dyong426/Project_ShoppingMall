@@ -31,7 +31,7 @@
 								<div class="basket_bottom">
 									<div class="list">
 										<div class="list_top">
-											<span>20230213-5015022</span>
+											<span>${now}-${cart.cart_num}</span>
 										</div>
 										<div class="basket_body">
 											<div class="product_info">
@@ -78,7 +78,7 @@
 									<div class="basket_bottom">
 										<div class="list">
 											<div class="list_top">
-												<span>20230213-5015022</span>
+												<span>${now}-${cart.cart_num}</span>
 											</div>
 											<div class="basket_body">
 												<div class="product_info">

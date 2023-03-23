@@ -1,5 +1,7 @@
 package com.ezen.jhc.web.user.service.cart;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -66,6 +68,12 @@ public class CartServiceImpl implements CartService {
 		MemberAddressDTO memberAddress = ordererMapper.getAddressByNum(mem_num);
 		model.addAttribute("memberAddress", memberAddress);
 		model.addAttribute("orderId", orderMapper.getOrderId());
+		
+		LocalDateTime now = LocalDateTime.now();		
+		DateTimeFormatter format = DateTimeFormatter.ofPattern("yyyyMMdd");
+		String formatNow = now.format(format);
+		
+		model.addAttribute("now", formatNow);
 		
 		return cartMapper.getCarts(mem_num);
 	}

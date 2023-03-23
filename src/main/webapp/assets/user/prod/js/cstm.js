@@ -900,14 +900,14 @@ buttons[1].addEventListener('click', () => {
   };
 
   xhttp.send(JSON.stringify(jsonObj));
-
+  
   xhttp.addEventListener('readystatechange', () => {
     if (xhttp.status == 200 && xhttp.readyState == 4) {
       const xhttp2 = new XMLHttpRequest();
-
+      
       xhttp2.open('POST', '/insertCart');
       xhttp2.setRequestHeader('Content-Type', 'application/json');
-
+      
       const jsonObj2 = {
         p_num : p_num,
         p_price : p_price,

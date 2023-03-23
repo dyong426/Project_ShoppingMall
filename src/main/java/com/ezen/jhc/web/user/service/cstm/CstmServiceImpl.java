@@ -59,13 +59,13 @@ public class CstmServiceImpl implements CstmService {
 		
 		String filePath = LocalDateTime.now()
 							.format(formatter)
-							.replace("-", File.separator) + "\\";
+							.replace("-", "/") + "/";
 		
 		cstmDto.setMem_cstm_path(filePath + cstmDto.getMem_cstm_path());
 		
 		cstmMapper.insertCstm(cstmDto);
 		
 		return cstmDto;
-	}	
+	}
 
 }

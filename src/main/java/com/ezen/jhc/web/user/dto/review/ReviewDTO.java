@@ -1,5 +1,6 @@
 package com.ezen.jhc.web.user.dto.review;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -53,13 +54,19 @@ public class ReviewDTO {
 	}
 
 
-	public String getReview_regdate() {
+	public Date getReview_regdate() {
 		
 		if (this.review_regdate == null) return null;
 		
 		SimpleDateFormat dayTime = new SimpleDateFormat("yyyy-MM-dd hh:mm");
 		String formatTime = dayTime.format(this.review_regdate);
-		return formatTime;
+		Date date = null;
+		try {
+			 date = dayTime.parse(formatTime);
+		} catch (ParseException e) {
+			e.printStackTrace();
+		}
+		return date;
 	}
 	
 	public String getRev_only_date() {
