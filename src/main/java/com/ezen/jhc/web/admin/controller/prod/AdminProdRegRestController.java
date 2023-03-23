@@ -74,7 +74,7 @@ public class AdminProdRegRestController {
 		
 
 		// 파일 이름에 사용할 현재 날짜 가져오기
-		String datePath = util.getNowTime("yyyy-MM-dd", 0).replace("-", File.separator);
+		String datePath = util.getNowTime("yyyy-MM-dd", 0).replace("-", "/");
 
 		// 파일 생성
 		File uploadPath = new File(uploadFolder, datePath);

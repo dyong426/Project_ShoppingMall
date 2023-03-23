@@ -1,13 +1,13 @@
 package com.ezen.jhc.web.admin.controller.sales;
 
+import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.jhc.web.admin.dto.prod.MainCtgrDTO;
 import com.ezen.jhc.web.admin.dto.sales.DailySalesDTO;
@@ -71,11 +71,11 @@ public class AdminSalesController {
 	}
 	
 	@GetMapping("admin/sales/period")
-	public String getPeriodSales(Model model, HttpServletRequest req) {
+	public String getPeriodSales(Model model, @RequestParam(value="startDate",required=false,defaultValue="") String startDate, @RequestParam(value="endDate",required=false,defaultValue="") String endDate) {
 		
 		
-		String startDate = req.getParameter("startDate");
-		String endDate = req.getParameter("endDate");
+//		String startDate = req.getParameter("startDate");
+//		String endDate = req.getParameter("endDate");
 		
 		List<PeriodSalesDTO> dto = salesService.getPeriodSalesList(startDate, endDate);
 		String periodJson = salesService.getPeriodSalesJson(startDate, endDate);
