@@ -47,7 +47,7 @@
                                         <div class="cc_pd_title"><span>취소 상품 선택</span></div>
                                         <div class="cc_pd_info">
                                             <input type="checkbox" name="" id="" checked style="margin-right: 10px;">
-                                            <img src="../images/착샷2.jpg" alt="" style="width: 70px; height: 70px;">
+                                            <img src="/assets/common/cstm_img/products/clothes/착샷2.jpg" alt="" style="width: 70px; height: 70px;">
                                             <div class="cc_or_name">
                                                 <span>간지작살 브라운 셋업</span> <br>
                                                 <span style="color: gray; font-size: 13px;">29,000원 / 1</span>

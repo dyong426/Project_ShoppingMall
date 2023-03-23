@@ -741,7 +741,7 @@ const sampleIcons = document.getElementById('sampleIcons');
 for (i = 1; i < 33; ++i) {
   // 경로 지정되면 변경
   // 관리자 페이지에서 아이콘은 png로 등록
-  sampleIcons.innerHTML += `<img class="sampleIconList" id="sampleIcon${i}" src="assets/common/cstm_img/sampleIcons/${i}.png" />`;
+  sampleIcons.innerHTML += `<img class="sampleIconList" id="sampleIcon${i}" src="/assets/common/cstm_img/sampleIcons/${i}.png" />`;
 }
 
 const sampleIconList = document.getElementsByClassName('sampleIconList');

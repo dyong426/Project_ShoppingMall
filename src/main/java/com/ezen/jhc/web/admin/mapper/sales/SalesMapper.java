@@ -14,7 +14,7 @@ public interface SalesMapper {
 	
 	public List<DailySalesDTO> getDailySales();
 	
-	public WeeklySalesDTO getWeeklySalesMainCtgr(Integer m_ctgr_num);
+	public WeeklySalesDTO getWeeklySalesMainCtgr(@Param("m_ctgr_num") Integer m_ctgr_num);
 	
 	public WeeklySalesDTO getWeeklySalesSubCtgr(@Param("s_ctgr_num") Integer s_ctgr_num,@Param("m_ctgr_num") Integer m_ctgr_num);
 
