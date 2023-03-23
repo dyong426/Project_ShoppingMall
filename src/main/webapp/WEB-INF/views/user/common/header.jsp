@@ -22,6 +22,11 @@
 
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+	
+<script>
+	const contextPath = '<%=request.getContextPath()%>';
+</script>
+
 <style>
 	a{text-decoration:none;}
 	p { margin-top: 1rem;margin-bottom: 1rem;}

@@ -37,7 +37,9 @@ td {
 }
 
 .quantityTable {
-	width: 100px;
+	width: 150px;
+    margin-top: 12px;
+    height: 40px;
 }
 
 #fileInput {
