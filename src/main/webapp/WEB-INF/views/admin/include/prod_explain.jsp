@@ -325,7 +325,7 @@
 			<div class="wrapper">
 				<div class="design_collection_content_items" lines="1">
 					<div class="design_collection_content_item"
-						_sel="./_->design_collection_content_items->(#5089)"">
+						_sel="./_->design_collection_content_items->(#5089)">
 						<div class=" wrapper">
 							<a href="/product/detail?bp_id=4673&pc_id=11276216"
 								class="img_wrapper"><img
@@ -339,7 +339,7 @@
 						</div>
 					</div>
 					<div class="design_collection_content_item"
-						_sel="./_->design_collection_content_items->(#5090)"">
+						_sel="./_->design_collection_content_items->(#5090)">
 						<div class=" wrapper">
 							<a href="/product/detail?bp_id=3125&pc_id=11276217"
 								class="img_wrapper"><img
@@ -353,7 +353,7 @@
 						</div>
 					</div>
 					<div class="design_collection_content_item"
-						_sel="./_->design_collection_content_items->(#5091)"">
+						_sel="./_->design_collection_content_items->(#5091)">
 						<div class=" wrapper">
 							<a href="/product/detail?bp_id=4663&pc_id=11276218"
 								class="img_wrapper"><img
@@ -367,7 +367,7 @@
 						</div>
 					</div>
 					<div class="design_collection_content_item"
-						_sel="./_->design_collection_content_items->(#5092)"">
+						_sel="./_->design_collection_content_items->(#5092)">
 						<div class="
             wrapper">
 							<a href="/product/detail?bp_id=4112&pc_id=11276219"

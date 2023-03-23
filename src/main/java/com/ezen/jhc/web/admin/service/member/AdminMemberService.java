@@ -5,7 +5,6 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.ezen.jhc.web.admin.dto.member.MemberDTO;
-import com.ezen.jhc.web.admin.dto.order.OrderDetailDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderListDTO;
 
 @Service

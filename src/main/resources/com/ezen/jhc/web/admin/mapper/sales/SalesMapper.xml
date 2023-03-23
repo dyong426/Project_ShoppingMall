@@ -29,7 +29,7 @@
 	</select>
 	
 	<select id="getWeeklySalesMainCtgr" resultType="com.ezen.jhc.web.admin.dto.sales.WeeklySalesDTO">
-		SELECT
+	SELECT
     (SELECT
         COUNT(*)
      FROM 
@@ -46,7 +46,7 @@
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
         TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyy-mm-dd'))
-    AS "mon",
+    mon,
     (SELECT 
         COUNT(*)
      FROM 
@@ -63,7 +63,7 @@
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
         TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-6, 'yyyy-mm-dd'))
-    AS "tues",
+    tues,
     (SELECT 
         COUNT(*)
      FROM 
@@ -80,7 +80,7 @@
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
         TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-5, 'yyyy-mm-dd'))
-    AS "wednes",
+    wednes,
     (SELECT 
         COUNT(*)
      FROM 
@@ -97,7 +97,7 @@
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
         TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-4, 'yyyy-mm-dd'))
-    AS "thurs",
+    thurs,
     (SELECT 
         COUNT(*)
      FROM 
@@ -114,7 +114,7 @@
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
         TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-3, 'yyyy-mm-dd'))
-    AS "fri",(SELECT 
+    fri,(SELECT 
         COUNT(*)
      FROM 
         order_details od 
@@ -130,7 +130,7 @@
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
         TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-2, 'yyyy-mm-dd'))
-    AS "satur",
+    satur,
     (SELECT 
         COUNT(*)
      FROM 
@@ -147,7 +147,7 @@
         sc.m_ctgr_num = #{m_ctgr_num}
     AND
         TO_CHAR(ord_date, 'yyyy-mm-dd') = TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyy-mm-dd'))
-    AS "sun",
+    sun,
     (SELECT 
         COUNT(*)
      FROM 
@@ -166,8 +166,8 @@
         TO_DATE(ord_date) <![CDATA[<]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-1, 'yyyy-mm-dd')) 
     AND 
         TO_DATE(ord_date)  <![CDATA[>]]>= TO_DATE(TO_CHAR(TRUNC(sysdate,'iw')-7, 'yyyy-mm-dd')))
-    AS "total",
-    #{m_ctgr_num} as "m_ctgr_num",
+     total,
+    #{m_ctgr_num} m_ctgr_num,
     (SELECT m_ctgr_name FROM main_ctgr WHERE m_ctgr_num = #{m_ctgr_num}) ctgr_name
 	FROM DUAL
 	</select>

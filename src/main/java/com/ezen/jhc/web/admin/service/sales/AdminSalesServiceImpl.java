@@ -86,7 +86,7 @@ public class AdminSalesServiceImpl implements AdminSalesService{
 			
 		for (MainCtgrDTO mCtgrDTO : ctgrMapper.getMainCtgr()) {
 			
-			log.info(mCtgrDTO.getM_ctgr_num());
+			System.out.println(mCtgrDTO.getM_ctgr_num());
 			weeklySalesList.add(salesMapper.getWeeklySalesMainCtgr(mCtgrDTO.getM_ctgr_num()));
 		}
 		

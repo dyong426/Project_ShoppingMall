@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 public class FileUploader {
 	
-	static String uploadFolder = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\";
+	static String uploadFolder = "C:\\upload\\";
 	
 	/**
 	 * 파일명 변경하여 업로드

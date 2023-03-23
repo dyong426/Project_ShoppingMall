@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import com.ezen.jhc.web.admin.dto.order.OrderDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderDetailDTO;
-import com.ezen.jhc.web.admin.dto.order.OrderStatusDTO;
 
 @Service
 public interface AdminOrderService {

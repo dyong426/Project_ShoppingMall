@@ -32,7 +32,7 @@ import net.coobird.thumbnailator.Thumbnails;
 public class AdminProdRegRestController {
 	
 	// 저장 경로 설정
-	static String uploadFolder = "C:\\Java\\gitRepos2\\Project_ShoppingMall\\src\\main\\webapp\\assets\\common\\upload\\";
+	static String uploadFolder = "C:\\upload\\";
 	
 	@Autowired
 	SubCtgrMapper scMapper;

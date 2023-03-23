@@ -1,7 +1,5 @@
 package com.ezen.jhc.web.user.controller.cart;
 
-import java.util.Date;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;

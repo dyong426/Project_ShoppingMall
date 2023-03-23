@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.ezen.jhc.common.util.PagingHelper;
-import com.ezen.jhc.web.admin.dto.contact.ContactDTO;
 import com.ezen.jhc.web.admin.dto.member.MemberDTO;
 import com.ezen.jhc.web.admin.dto.order.OrderListDTO;
 import com.ezen.jhc.web.admin.service.member.AdminMemberServiceImpl;
