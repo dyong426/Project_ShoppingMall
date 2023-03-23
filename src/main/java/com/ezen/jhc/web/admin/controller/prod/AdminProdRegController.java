@@ -63,6 +63,8 @@ public class AdminProdRegController {
 	@PostMapping("/admin/prod/reg")
 	public String prodReg(ProdDTO prodDTO, @ModelAttribute(value="AttachImageListDTO") AttachImageListDTO imageList, @ModelAttribute(value="ProdColorListDTO") ProdColorListDTO prodColors, @ModelAttribute(value="ProdSizeListDTO") ProdSizeListDTO prodSizes, HttpServletRequest req, Model model) {
 		
+		log.info(prodDTO.getS_ctgr_num());
+		
 		System.out.println(prodDTO);
 		
 		System.out.println(prodColors);

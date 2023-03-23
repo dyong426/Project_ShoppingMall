@@ -74,7 +74,7 @@
                                                                     <td>${order.mem_name}</td>
                                                                     <td><button type="button"
                                                                             class="btn btn-sm btn-outline-dark"
-                                                                            onclick="location.href=`<%=request.getContextPath()%>/order/detail?ord_num=${order.ord_num}`">상세보기</button>
+                                                                            onclick="location.href=`/admin/order/detail?ord_num=${order.ord_num}`">상세보기</button>
                                                                     </td>
                                                                     <td>${order.ord_date}</td>
                                                                     <td>
