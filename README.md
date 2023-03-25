@@ -32,22 +32,29 @@
 
 ## 개발 환경
 
->- JDK : 11
 >
->- JAVA : 1.8
+><img src="https://img.shields.io/badge/java-007396?style=for-the-plastic&logo=java&logoColor=white">  1.8
 >
->- IDE : <img src="https://img.shields.io/badge/Spring-#6DB33F?style=for-the-badge&logo=Spring&logoColor=white">STS3 5.2.22  
-<img height="32" width="32" src="https://cdn.jsdelivr.net/npm/simple-icons@v8/icons/Spring.svg" />
-<img height="32" width="32" src="https://unpkg.com/simple-icons@v8/icons/Spring.svg" />
+><img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-plastic&logo=Spring&logoColor=white">  STS3 5.2.22  
 >
->- Database : Oracle DB(11g) 
+><img src="https://img.shields.io/badge/oracle-F80000?style=for-the-plastic&logo=oracle&logoColor=white">  Oracle DB(11g) 
 >
->- SERVER : TOMCAT 9.0
+><img src="https://img.shields.io/badge/ApacheTomcat-F8DC75?style=for-the-plastic&logo=ApacheTomcat&logoColor=white"> TOMCAT 9.0
 >
->- AWS EC2
+><img src="https://img.shields.io/badge/AmazonAWS-232F3E?style=for-the-plastic&logo=AmazonAWS&logoColor=white">  EC2
+>
+><img src="https://img.shields.io/badge/github-181717?style=for-the-plastic&logo=github&logoColor=white">
 
-## Library Management Program 기능 설명
+## 기술 스택
+
+| JavaScript | Html |  Css   |  BootStrap   |
+| :--------: | :--------: | :------: | :-----: |
+|   ![js]    |   ![html]    | ![css] | ![bootstrap] |
+
+## 프로젝트 기능 설명
 
 ### 주요 기능
 
 -------------------------------------------------------  
+
+>
