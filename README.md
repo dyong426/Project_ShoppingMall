@@ -86,5 +86,40 @@
 >- 바로 구매하기, 장바구니 담기 옵션
 >   + 비로그인시 로그인창 팝업
 
-#### __`장바구니&주문서작성`__
+#### __`장바구니`__
+>![장바구니](https://user-images.githubusercontent.com/119422179/227882726-cdf96a27-e0c7-4d03-aced-68da43e7caf8.PNG)
+>- 커스텀 이미지, 제품 옵션 확인
+>- 수량변경/삭제 가능
+
+#### __`주문서`__
+>![주문서1](https://user-images.githubusercontent.com/119422179/227883875-8f3361fc-a4fe-413b-9884-bb9f17b532c0.PNG)
+>![주문서2](https://user-images.githubusercontent.com/119422179/227884050-555957e3-b628-4159-9ad5-6ed356933da1.PNG)
+>- 주문자 정보는 로그인 되어있는 회원정보로 설정
+>- 배송지 정보는 직접 입력 또는 주문자와 동일 선택
+>  + 주소는 Daum 우편번호 API 사용
+>  + 배송지 저장하면 이전 배송지 정보로 설정
+>- Toss Payments API 활용한 결제 구현
+>  + 무통장, 삼성페이, 네이버페이, 토스페이
+
+#### __`마이페이지`__
+>![마이페이지-나의정보](https://user-images.githubusercontent.com/119422179/227887178-fee3346a-a0e3-4bb5-9581-daf3b7d46fc8.PNG)
+>- Java Mail API를 활용한 비밀번호 변경
+>  + 링크로 비밀번호 변경 페이지로 이동
+>![마이페이지-리뷰](https://user-images.githubusercontent.com/119422179/227887721-beb6dfcf-22a5-4339-afc1-20f146df5b91.PNG)
+>- 리뷰작성하기
+>  + 구매한 제품의 별점, 리뷰 내용, 첨부 이미지 등록
+>  + 작성 가능한 리뷰 : 구매 내역에서 리뷰 작성 가능한 내역
+>  + 내가 쓴 리뷰 : 리뷰 작성한 내역
+>![마이페이지-교환환불](https://user-images.githubusercontent.com/119422179/227888357-d4c35014-fff0-477f-ab95-51033683d755.PNG)
+>- 교환/환불 신청하기
+>  + 주문 내역에서 교환/환불 신청
+
+#### __`고객센터`__
+>![고객센터](https://user-images.githubusercontent.com/119422179/227888876-e579cacf-ecaf-4e65-b1b9-4fb5c9d72ede.PNG)
+>- 자주하는 질문(FAQ)
+>  + 제목과 내용 아코디언 방식으로 출력
+>- 1:1문의
+>  + 비로그인시 로그인 요청
+>  + 1:1 문의 게시판 게시글 작성
+
 
