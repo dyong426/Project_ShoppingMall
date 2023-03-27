@@ -1,7 +1,7 @@
 # Customizing Shopping Mall
 
 ![JHC](http://43.200.244.98/assets/common/cstm_img/logo/logo.png)
-![JHC](http://43.200.244.9)
+![JHC](http://43.200.244.98)
 
 ## 프로젝트 주제
 
