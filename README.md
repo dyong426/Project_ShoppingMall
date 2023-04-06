@@ -60,7 +60,13 @@
 | <img src="https://img.shields.io/badge/jsp-F7DF1E?style=for-the-badge&logo=jsp&logoColor=white"> |   |
 
 
-## 프로젝트 기능 설명
+## 프로젝트 기능 설명  
+
+### *담당 파트*
+#### [ 제품 커스터마이징 ](#제품-커스터마이징)  
+#### [ 장바구니 ](#장바구니)  
+#### [ 주문서 ](#주문서)
+---
 
 ### 유저페이지
 ---
